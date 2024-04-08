@@ -1,0 +1,213 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Freelance\\ERP\\Server\\Server\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D21E34CE-2D10-44E4-8ABB-F3AAB178F306}|..\\API\\API\\API.csproj|d:\\freelance\\erp\\server\\api\\api\\api\\authentication\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D21E34CE-2D10-44E4-8ABB-F3AAB178F306}|..\\API\\API\\API.csproj|d:\\freelance\\erp\\server\\api\\api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18F5B13B-6BB7-4600-B7EB-21F7B4FBF652}|..\\Models\\Server.Models\\Server.Models.csproj|d:\\freelance\\erp\\server\\models\\server.models\\authentication\\tenantblock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C6B9FE8-C9FE-4379-80C7-480F401AB17E}|..\\Services\\Server.Services\\Server.Services.csproj|d:\\freelance\\erp\\server\\services\\server.services\\common\\authentication\\authmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C6B9FE8-C9FE-4379-80C7-480F401AB17E}|..\\Services\\Server.Services\\Server.Services.csproj|d:\\freelance\\erp\\server\\services\\server.services\\common\\authentication\\iauthmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18F5B13B-6BB7-4600-B7EB-21F7B4FBF652}|..\\Models\\Server.Models\\Server.Models.csproj|d:\\freelance\\erp\\server\\models\\server.models\\authentication\\tenantupdate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18F5B13B-6BB7-4600-B7EB-21F7B4FBF652}|..\\Models\\Server.Models\\Server.Models.csproj|d:\\freelance\\erp\\server\\models\\server.models\\authentication\\tenantregistermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA53EBB4-49C9-4A50-A1B6-99A06FE2C998}|..\\Core\\Server.Core\\Server.Core.csproj|d:\\freelance\\erp\\server\\core\\server.core\\baserepo\\repo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18F5B13B-6BB7-4600-B7EB-21F7B4FBF652}|..\\Models\\Server.Models\\Server.Models.csproj|d:\\freelance\\erp\\server\\models\\server.models\\authentication\\authresponsemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C6B9FE8-C9FE-4379-80C7-480F401AB17E}|..\\Services\\Server.Services\\Server.Services.csproj|d:\\freelance\\erp\\server\\services\\server.services\\payment\\paymentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18F5B13B-6BB7-4600-B7EB-21F7B4FBF652}|..\\Models\\Server.Models\\Server.Models.csproj|d:\\freelance\\erp\\server\\models\\server.models\\payments\\paymentsession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18F5B13B-6BB7-4600-B7EB-21F7B4FBF652}|..\\Models\\Server.Models\\Server.Models.csproj|d:\\freelance\\erp\\server\\models\\server.models\\payments\\checkoutmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Freelance\\ERP\\Server\\API\\API\\Program.cs",
+              "RelativeDocumentMoniker": "..\\API\\API\\Program.cs",
+              "ToolTip": "D:\\Freelance\\ERP\\Server\\API\\API\\Program.cs",
+              "RelativeToolTip": "..\\API\\API\\Program.cs",
+              "ViewState": "AQIAAI0AAAAAAAAAAAAswJ0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-08T03:56:27.123Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Repo.cs",
+              "DocumentMoniker": "D:\\Freelance\\ERP\\Server\\Core\\Server.Core\\BaseRepo\\Repo.cs",
+              "RelativeDocumentMoniker": "..\\Core\\Server.Core\\BaseRepo\\Repo.cs",
+              "ToolTip": "D:\\Freelance\\ERP\\Server\\Core\\Server.Core\\BaseRepo\\Repo.cs",
+              "RelativeToolTip": "..\\Core\\Server.Core\\BaseRepo\\Repo.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABYAAABlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-08T02:42:21.028Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IAuthManager.cs",
+              "DocumentMoniker": "D:\\Freelance\\ERP\\Server\\Services\\Server.Services\\Common\\Authentication\\IAuthManager.cs",
+              "RelativeDocumentMoniker": "..\\Services\\Server.Services\\Common\\Authentication\\IAuthManager.cs",
+              "ToolTip": "D:\\Freelance\\ERP\\Server\\Services\\Server.Services\\Common\\Authentication\\IAuthManager.cs",
+              "RelativeToolTip": "..\\Services\\Server.Services\\Common\\Authentication\\IAuthManager.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-08T02:39:43.929Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "CheckoutModel.cs",
+              "DocumentMoniker": "D:\\Freelance\\ERP\\Server\\Models\\Server.Models\\Payments\\CheckoutModel.cs",
+              "RelativeDocumentMoniker": "..\\Models\\Server.Models\\Payments\\CheckoutModel.cs",
+              "ToolTip": "D:\\Freelance\\ERP\\Server\\Models\\Server.Models\\Payments\\CheckoutModel.cs",
+              "RelativeToolTip": "..\\Models\\Server.Models\\Payments\\CheckoutModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-08T00:36:39.65Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "D:\\Freelance\\ERP\\Server\\API\\API\\API\\Authentication\\AuthController.cs",
+              "RelativeDocumentMoniker": "..\\API\\API\\API\\Authentication\\AuthController.cs",
+              "ToolTip": "D:\\Freelance\\ERP\\Server\\API\\API\\API\\Authentication\\AuthController.cs",
+              "RelativeToolTip": "..\\API\\API\\API\\Authentication\\AuthController.cs",
+              "ViewState": "AQIAADgCAAAAAAAAAAAqwEICAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-08T00:09:15.66Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TenantBlock.cs",
+              "DocumentMoniker": "D:\\Freelance\\ERP\\Server\\Models\\Server.Models\\Authentication\\TenantBlock.cs",
+              "RelativeDocumentMoniker": "..\\Models\\Server.Models\\Authentication\\TenantBlock.cs",
+              "ToolTip": "D:\\Freelance\\ERP\\Server\\Models\\Server.Models\\Authentication\\TenantBlock.cs",
+              "RelativeToolTip": "..\\Models\\Server.Models\\Authentication\\TenantBlock.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAgAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-08T03:38:18.873Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AuthManager.cs",
+              "DocumentMoniker": "D:\\Freelance\\ERP\\Server\\Services\\Server.Services\\Common\\Authentication\\AuthManager.cs",
+              "RelativeDocumentMoniker": "..\\Services\\Server.Services\\Common\\Authentication\\AuthManager.cs",
+              "ToolTip": "D:\\Freelance\\ERP\\Server\\Services\\Server.Services\\Common\\Authentication\\AuthManager.cs",
+              "RelativeToolTip": "..\\Services\\Server.Services\\Common\\Authentication\\AuthManager.cs",
+              "ViewState": "AQIAAOUEAAAAAAAAAAAUwNwEAAA+AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-08T00:16:16.955Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TenantUpdate.cs",
+              "DocumentMoniker": "D:\\Freelance\\ERP\\Server\\Models\\Server.Models\\Authentication\\TenantUpdate.cs",
+              "RelativeDocumentMoniker": "..\\Models\\Server.Models\\Authentication\\TenantUpdate.cs",
+              "ToolTip": "D:\\Freelance\\ERP\\Server\\Models\\Server.Models\\Authentication\\TenantUpdate.cs",
+              "RelativeToolTip": "..\\Models\\Server.Models\\Authentication\\TenantUpdate.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-08T02:50:38.116Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TenantRegisterModel.cs",
+              "DocumentMoniker": "D:\\Freelance\\ERP\\Server\\Models\\Server.Models\\Authentication\\TenantRegisterModel.cs",
+              "RelativeDocumentMoniker": "..\\Models\\Server.Models\\Authentication\\TenantRegisterModel.cs",
+              "ToolTip": "D:\\Freelance\\ERP\\Server\\Models\\Server.Models\\Authentication\\TenantRegisterModel.cs",
+              "RelativeToolTip": "..\\Models\\Server.Models\\Authentication\\TenantRegisterModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-08T02:51:14.627Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "PaymentSession.cs",
+              "DocumentMoniker": "D:\\Freelance\\ERP\\Server\\Models\\Server.Models\\Payments\\PaymentSession.cs",
+              "RelativeDocumentMoniker": "..\\Models\\Server.Models\\Payments\\PaymentSession.cs",
+              "ToolTip": "D:\\Freelance\\ERP\\Server\\Models\\Server.Models\\Payments\\PaymentSession.cs",
+              "RelativeToolTip": "..\\Models\\Server.Models\\Payments\\PaymentSession.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-08T00:38:40.201Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AuthResponseModel.cs",
+              "DocumentMoniker": "D:\\Freelance\\ERP\\Server\\Models\\Server.Models\\Authentication\\AuthResponseModel.cs",
+              "RelativeDocumentMoniker": "..\\Models\\Server.Models\\Authentication\\AuthResponseModel.cs",
+              "ToolTip": "D:\\Freelance\\ERP\\Server\\Models\\Server.Models\\Authentication\\AuthResponseModel.cs",
+              "RelativeToolTip": "..\\Models\\Server.Models\\Authentication\\AuthResponseModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAcAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-08T00:57:47.982Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "PaymentService.cs",
+              "DocumentMoniker": "D:\\Freelance\\ERP\\Server\\Services\\Server.Services\\Payment\\PaymentService.cs",
+              "RelativeDocumentMoniker": "..\\Services\\Server.Services\\Payment\\PaymentService.cs",
+              "ToolTip": "D:\\Freelance\\ERP\\Server\\Services\\Server.Services\\Payment\\PaymentService.cs",
+              "RelativeToolTip": "..\\Services\\Server.Services\\Payment\\PaymentService.cs",
+              "ViewState": "AQIAACwAAAAAAAAAAAApwEMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-08T00:35:12.341Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

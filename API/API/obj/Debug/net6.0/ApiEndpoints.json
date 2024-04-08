@@ -1,0 +1,2485 @@
+[
+  {
+    "ContainingType": "API.API.HRAdmin.AdminLogsController",
+    "Method": "Logs",
+    "RelativePath": "api/AdminLogs",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.Asset, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.AssetModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Create",
+    "RelativePath": "api/AssetManager",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autoMapperEntity",
+        "Type": "Server.Models.AssetModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.Asset, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.AssetModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetAll",
+    "RelativePath": "api/AssetManager",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.Asset, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.AssetModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Delete",
+    "RelativePath": "api/AssetManager",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.Asset, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.AssetModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Update",
+    "RelativePath": "api/AssetManager",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autoMapperEntity",
+        "Type": "Server.Models.AssetModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.Asset, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.AssetModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetById",
+    "RelativePath": "api/AssetManager/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.Attachments, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.AttachmentModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Create",
+    "RelativePath": "api/Attachment",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autoMapperEntity",
+        "Type": "Server.Models.AttachmentModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.Attachments, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.AttachmentModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetAll",
+    "RelativePath": "api/Attachment",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.Attachments, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.AttachmentModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Delete",
+    "RelativePath": "api/Attachment",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.Attachments, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.AttachmentModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Update",
+    "RelativePath": "api/Attachment",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autoMapperEntity",
+        "Type": "Server.Models.AttachmentModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.Attachments, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.AttachmentModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetById",
+    "RelativePath": "api/Attachment/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Authentication.AuthController",
+    "Method": "CreateRole",
+    "RelativePath": "api/Auth/AddRoles",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Role",
+        "Type": "Server.Models.AddRole",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Authentication.AuthController",
+    "Method": "ComfirmEmail",
+    "RelativePath": "api/Auth/ComfirmEmail",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Server.Models.ConfirmEmail",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Authentication.AuthController",
+    "Method": "DeleteRole",
+    "RelativePath": "api/Auth/deleteRole",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Authentication.AuthController",
+    "Method": "DeleteUser",
+    "RelativePath": "api/Auth/DeleteUser",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Authentication.AuthController",
+    "Method": "ForgotPassword",
+    "RelativePath": "api/Auth/ForgotPassword",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Server.Models.ForgotPasswordModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Authentication.AuthController",
+    "Method": "GetAllRoles",
+    "RelativePath": "api/Auth/GetAllRoles",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Authentication.AuthController",
+    "Method": "getById",
+    "RelativePath": "api/Auth/getById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "uid",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Authentication.AuthController",
+    "Method": "GetByusername",
+    "RelativePath": "api/Auth/GetByusername",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "username",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Authentication.AuthController",
+    "Method": "GetTenants",
+    "RelativePath": "api/Auth/GetTenants",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Authentication.AuthController",
+    "Method": "GetUserWithRoles",
+    "RelativePath": "api/Auth/GetUserWithRoles",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Authentication.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/Auth/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginDto",
+        "Type": "Server.Models.UserLoginModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Authentication.AuthController",
+    "Method": "Register",
+    "RelativePath": "api/Auth/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "apiUserDto",
+        "Type": "Server.Models.RegisterUserModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Authentication.AuthController",
+    "Method": "RegisterAdmin",
+    "RelativePath": "api/Auth/RegisterAdmin",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "apiUserDto",
+        "Type": "Server.Models.RegisterUserModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Authentication.AuthController",
+    "Method": "RegisterTenant",
+    "RelativePath": "api/Auth/RegisterTenant",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Server.Models.Authentication.TenantRegisterModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Authentication.AuthController",
+    "Method": "RegisterUsers",
+    "RelativePath": "api/Auth/RegisterUsers",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "apiUserDto",
+        "Type": "Server.Models.AddUsersModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Authentication.AuthController",
+    "Method": "RestPassword",
+    "RelativePath": "api/Auth/RestPassword",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Server.Models.ResetModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Authentication.AuthController",
+    "Method": "SendComfirmEmail",
+    "RelativePath": "api/Auth/SendComfirmEmail",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Server.Models.ForgotPasswordModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Authentication.AuthController",
+    "Method": "UpdateCompany",
+    "RelativePath": "api/Auth/UpdateCompany",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "tenantUpdate",
+        "Type": "Server.Models.TenantUpdate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Authentication.AuthController",
+    "Method": "UpdateCompanyStatus",
+    "RelativePath": "api/Auth/UpdateCompanyStatus",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "tenantUpdate",
+        "Type": "Server.Models.Authentication.TenantBlock",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Authentication.AuthController",
+    "Method": "UpdateCRMuser",
+    "RelativePath": "api/Auth/UpdateCRMuser",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Server.Models.AddUsersModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Authentication.AuthController",
+    "Method": "UpdateProfile",
+    "RelativePath": "api/Auth/UpdateProfile",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginDto",
+        "Type": "Server.Models.UpdateUserModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Authentication.AuthController",
+    "Method": "UpdateRole",
+    "RelativePath": "api/Auth/UpdateRole",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Server.Models.UpdateRoleModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Authentication.AuthController",
+    "Method": "UpdateRoleAndPermission",
+    "RelativePath": "api/Auth/UpdateRoleAndPermission",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Server.Models.UpdateRoleAndPermissionModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Authentication.AuthController",
+    "Method": "UpdatRole",
+    "RelativePath": "api/Auth/UpdatRole",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.BlogPage, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.BlogModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Create",
+    "RelativePath": "api/Blog",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autoMapperEntity",
+        "Type": "Server.Models.BlogModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.BlogPage, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.BlogModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetAll",
+    "RelativePath": "api/Blog",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.BlogPage, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.BlogModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Delete",
+    "RelativePath": "api/Blog",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.BlogPage, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.BlogModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Update",
+    "RelativePath": "api/Blog",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autoMapperEntity",
+        "Type": "Server.Models.BlogModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.BlogPage, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.BlogModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetById",
+    "RelativePath": "api/Blog/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.BlogPages.BlogController",
+    "Method": "GetAllPages",
+    "RelativePath": "api/Blog/GetAllPages",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.BlogPages.BlogController",
+    "Method": "GetAllPost",
+    "RelativePath": "api/Blog/GetAllPost",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.BlogPages.BlogController",
+    "Method": "GetBlogAll",
+    "RelativePath": "api/Blog/GetBlogAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.BlogPages.BlogController",
+    "Method": "getDetail",
+    "RelativePath": "api/Blog/getDetail",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.BlogPages.BlogController",
+    "Method": "UpdatePage",
+    "RelativePath": "api/Blog/UpdatePage",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "blogPage",
+        "Type": "Server.Domain.WebPages",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.BlogPages.BlogController",
+    "Method": "UpdatePost",
+    "RelativePath": "api/Blog/UpdatePost",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "blogPage",
+        "Type": "Server.Domain.BlogPage",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.CandidateInfo, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.CandidateModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Create",
+    "RelativePath": "api/Candidate",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autoMapperEntity",
+        "Type": "Server.Models.CandidateModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.CandidateInfo, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.CandidateModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetAll",
+    "RelativePath": "api/Candidate",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.CandidateInfo, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.CandidateModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Delete",
+    "RelativePath": "api/Candidate",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.CandidateInfo, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.CandidateModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Update",
+    "RelativePath": "api/Candidate",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autoMapperEntity",
+        "Type": "Server.Models.CandidateModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.CandidateInfo, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.CandidateModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetById",
+    "RelativePath": "api/Candidate/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.Case, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.CaseModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Create",
+    "RelativePath": "api/Case",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autoMapperEntity",
+        "Type": "Server.Models.CaseModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.Case, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.CaseModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetAll",
+    "RelativePath": "api/Case",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.Case, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.CaseModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Delete",
+    "RelativePath": "api/Case",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.Case, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.CaseModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Update",
+    "RelativePath": "api/Case",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autoMapperEntity",
+        "Type": "Server.Models.CaseModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.Case, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.CaseModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetById",
+    "RelativePath": "api/Case/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.CaseComment, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.CaseCommentModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Create",
+    "RelativePath": "api/CaseAssignment",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autoMapperEntity",
+        "Type": "Server.Models.CaseCommentModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.CaseComment, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.CaseCommentModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetAll",
+    "RelativePath": "api/CaseAssignment",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.CaseComment, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.CaseCommentModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Delete",
+    "RelativePath": "api/CaseAssignment",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.CaseComment, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.CaseCommentModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Update",
+    "RelativePath": "api/CaseAssignment",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autoMapperEntity",
+        "Type": "Server.Models.CaseCommentModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.CaseComment, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.CaseCommentModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetById",
+    "RelativePath": "api/CaseAssignment/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.CustomerCare.CaseAssignmentController",
+    "Method": "GetCaseComments",
+    "RelativePath": "api/CaseAssignment/GetCaseComments",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.Chat, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.ChatModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Create",
+    "RelativePath": "api/Chat",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autoMapperEntity",
+        "Type": "Server.Models.ChatModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.Chat, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.ChatModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetAll",
+    "RelativePath": "api/Chat",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.Chat, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.ChatModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Delete",
+    "RelativePath": "api/Chat",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.Chat, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.ChatModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Update",
+    "RelativePath": "api/Chat",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autoMapperEntity",
+        "Type": "Server.Models.ChatModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.Chat, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.ChatModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetById",
+    "RelativePath": "api/Chat/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.HRAdmin.ChatController",
+    "Method": "GetChat",
+    "RelativePath": "api/Chat/GetChat",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "reciverId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.CONTACTDETAILS, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.ContactDetailModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Create",
+    "RelativePath": "api/Contact",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autoMapperEntity",
+        "Type": "Server.Models.ContactDetailModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.CONTACTDETAILS, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.ContactDetailModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetAll",
+    "RelativePath": "api/Contact",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.CONTACTDETAILS, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.ContactDetailModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Delete",
+    "RelativePath": "api/Contact",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.CONTACTDETAILS, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.ContactDetailModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Update",
+    "RelativePath": "api/Contact",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autoMapperEntity",
+        "Type": "Server.Models.ContactDetailModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.CONTACTDETAILS, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.ContactDetailModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetById",
+    "RelativePath": "api/Contact/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.ContactPage, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.ContactModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Create",
+    "RelativePath": "api/ContactPage",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autoMapperEntity",
+        "Type": "Server.Models.ContactModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.ContactPage, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.ContactModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetAll",
+    "RelativePath": "api/ContactPage",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.ContactPage, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.ContactModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Delete",
+    "RelativePath": "api/ContactPage",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.ContactPage, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.ContactModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Update",
+    "RelativePath": "api/ContactPage",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autoMapperEntity",
+        "Type": "Server.Models.ContactModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.ContactPage, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.ContactModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetById",
+    "RelativePath": "api/ContactPage/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.BlogPages.ContactPageController",
+    "Method": "AddContact",
+    "RelativePath": "api/ContactPage/AddContact",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autoMapperEntity",
+        "Type": "Server.Models.ContactModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.Dependent, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.DependentModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Create",
+    "RelativePath": "api/Dependent",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autoMapperEntity",
+        "Type": "Server.Models.DependentModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.Dependent, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.DependentModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetAll",
+    "RelativePath": "api/Dependent",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.Dependent, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.DependentModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Delete",
+    "RelativePath": "api/Dependent",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.Dependent, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.DependentModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Update",
+    "RelativePath": "api/Dependent",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autoMapperEntity",
+        "Type": "Server.Models.DependentModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.Dependent, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.DependentModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetById",
+    "RelativePath": "api/Dependent/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.Designations, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.DesginationModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Create",
+    "RelativePath": "api/Desgination",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autoMapperEntity",
+        "Type": "Server.Models.DesginationModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.Designations, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.DesginationModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetAll",
+    "RelativePath": "api/Desgination",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.Designations, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.DesginationModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Delete",
+    "RelativePath": "api/Desgination",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.Designations, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.DesginationModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Update",
+    "RelativePath": "api/Desgination",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autoMapperEntity",
+        "Type": "Server.Models.DesginationModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.Designations, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.DesginationModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetById",
+    "RelativePath": "api/Desgination/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.EmergencyContacts, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.EmergencyContactModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Create",
+    "RelativePath": "api/Emergency",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autoMapperEntity",
+        "Type": "Server.Models.EmergencyContactModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.EmergencyContacts, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.EmergencyContactModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetAll",
+    "RelativePath": "api/Emergency",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.EmergencyContacts, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.EmergencyContactModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Delete",
+    "RelativePath": "api/Emergency",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.EmergencyContacts, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.EmergencyContactModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Update",
+    "RelativePath": "api/Emergency",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autoMapperEntity",
+        "Type": "Server.Models.EmergencyContactModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.EmergencyContacts, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.EmergencyContactModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetById",
+    "RelativePath": "api/Emergency/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.Education, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.EducationModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Create",
+    "RelativePath": "api/Eucation",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autoMapperEntity",
+        "Type": "Server.Models.EducationModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.Education, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.EducationModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetAll",
+    "RelativePath": "api/Eucation",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.Education, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.EducationModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Delete",
+    "RelativePath": "api/Eucation",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.Education, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.EducationModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Update",
+    "RelativePath": "api/Eucation",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autoMapperEntity",
+        "Type": "Server.Models.EducationModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.Education, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.EducationModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetById",
+    "RelativePath": "api/Eucation/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.HRNotes, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.HRNoteModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Create",
+    "RelativePath": "api/HRAdminNotes",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autoMapperEntity",
+        "Type": "Server.Models.HRNoteModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.HRNotes, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.HRNoteModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetAll",
+    "RelativePath": "api/HRAdminNotes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.HRNotes, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.HRNoteModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Delete",
+    "RelativePath": "api/HRAdminNotes",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.HRNotes, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.HRNoteModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Update",
+    "RelativePath": "api/HRAdminNotes",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autoMapperEntity",
+        "Type": "Server.Models.HRNoteModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.HRNotes, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.HRNoteModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetById",
+    "RelativePath": "api/HRAdminNotes/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.DocumentManagment.ImagesController",
+    "Method": "UploadImage",
+    "RelativePath": "api/Images",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "file",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.DocumentManagment.ImagesController",
+    "Method": "GetImage",
+    "RelativePath": "api/Images/images/{imageName}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "imageName",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.JobExperience, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.JobExperienceModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Create",
+    "RelativePath": "api/JobExperience",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autoMapperEntity",
+        "Type": "Server.Models.JobExperienceModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.JobExperience, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.JobExperienceModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetAll",
+    "RelativePath": "api/JobExperience",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.JobExperience, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.JobExperienceModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Delete",
+    "RelativePath": "api/JobExperience",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.JobExperience, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.JobExperienceModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Update",
+    "RelativePath": "api/JobExperience",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autoMapperEntity",
+        "Type": "Server.Models.JobExperienceModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.JobExperience, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.JobExperienceModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetById",
+    "RelativePath": "api/JobExperience/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.ZoomMeetings, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.ZooMeetingModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Create",
+    "RelativePath": "api/Meetings",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autoMapperEntity",
+        "Type": "Server.Models.ZooMeetingModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.ZoomMeetings, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.ZooMeetingModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetAll",
+    "RelativePath": "api/Meetings",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.ZoomMeetings, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.ZooMeetingModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Delete",
+    "RelativePath": "api/Meetings",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.ZoomMeetings, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.ZooMeetingModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Update",
+    "RelativePath": "api/Meetings",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autoMapperEntity",
+        "Type": "Server.Models.ZooMeetingModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.ZoomMeetings, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.ZooMeetingModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetById",
+    "RelativePath": "api/Meetings/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.Zoom.MeetingsController",
+    "Method": "AddMeetings",
+    "RelativePath": "api/Meetings/AddMeetings",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "meeting",
+        "Type": "Server.Models.MeetingAdd",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.Zoom.MeetingsController",
+    "Method": "AdminMeeting",
+    "RelativePath": "api/Meetings/AdminMeeting",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.Zoom.MeetingsController",
+    "Method": "SenderMeeting",
+    "RelativePath": "api/Meetings/SenderMeeting",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "uid",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.NOTIFICATIONS, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.NotificationsModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Create",
+    "RelativePath": "api/Notification",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autoMapperEntity",
+        "Type": "Server.Models.NotificationsModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.NOTIFICATIONS, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.NotificationsModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetAll",
+    "RelativePath": "api/Notification",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.NOTIFICATIONS, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.NotificationsModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Delete",
+    "RelativePath": "api/Notification",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.NOTIFICATIONS, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.NotificationsModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Update",
+    "RelativePath": "api/Notification",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autoMapperEntity",
+        "Type": "Server.Models.NotificationsModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.NOTIFICATIONS, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.NotificationsModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetById",
+    "RelativePath": "api/Notification/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.WebPages, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.WebPagesModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Create",
+    "RelativePath": "api/Page",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autoMapperEntity",
+        "Type": "Server.Models.WebPagesModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.WebPages, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.WebPagesModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetAll",
+    "RelativePath": "api/Page",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.WebPages, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.WebPagesModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Delete",
+    "RelativePath": "api/Page",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.WebPages, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.WebPagesModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Update",
+    "RelativePath": "api/Page",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autoMapperEntity",
+        "Type": "Server.Models.WebPagesModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.WebPages, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.WebPagesModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetById",
+    "RelativePath": "api/Page/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.BlogPages.PageController",
+    "Method": "GetAllPages",
+    "RelativePath": "api/Page/GetAllPages",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.BlogPages.PageController",
+    "Method": "GetByPageId",
+    "RelativePath": "api/Page/GetByPageId",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.Payments.PaymentsController",
+    "Method": "Checkout",
+    "RelativePath": "api/Payments/Checkout",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "checkoutModel",
+        "Type": "Server.Models.CheckoutModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.Payments.PaymentsController",
+    "Method": "GetPaymentPlans",
+    "RelativePath": "api/Payments/GetPaymentPlans",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.Personal, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.PersonalModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Create",
+    "RelativePath": "api/Personal",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autoMapperEntity",
+        "Type": "Server.Models.PersonalModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.Personal, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.PersonalModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetAll",
+    "RelativePath": "api/Personal",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.Personal, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.PersonalModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Delete",
+    "RelativePath": "api/Personal",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.Personal, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.PersonalModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Update",
+    "RelativePath": "api/Personal",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autoMapperEntity",
+        "Type": "Server.Models.PersonalModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.Personal, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.PersonalModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetById",
+    "RelativePath": "api/Personal/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.Profile.PersonalController",
+    "Method": "AllCases",
+    "RelativePath": "api/Personal/AllCases",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.Profile.PersonalController",
+    "Method": "Attachment",
+    "RelativePath": "api/Personal/Attachment",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userid",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.Profile.PersonalController",
+    "Method": "CasesForAgents",
+    "RelativePath": "api/Personal/CasesForAgents",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userid",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.Profile.PersonalController",
+    "Method": "Dependetns",
+    "RelativePath": "api/Personal/Dependetns",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userid",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.Profile.PersonalController",
+    "Method": "Education",
+    "RelativePath": "api/Personal/Education",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userid",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.Profile.PersonalController",
+    "Method": "EmergengyContacts",
+    "RelativePath": "api/Personal/EmergengyContacts",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userid",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.Profile.PersonalController",
+    "Method": "JobExperience",
+    "RelativePath": "api/Personal/JobExperience",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userid",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.Profile.PersonalController",
+    "Method": "Notifications",
+    "RelativePath": "api/Personal/Notifications",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userid",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.Profile.PersonalController",
+    "Method": "ProfessionalLicense",
+    "RelativePath": "api/Personal/ProfessionalLicense",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userid",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.Profile.PersonalController",
+    "Method": "Profile",
+    "RelativePath": "api/Personal/Profile",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userid",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.Profile.PersonalController",
+    "Method": "ProfileScore",
+    "RelativePath": "api/Personal/ProfileScore",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userid",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Int32",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "API.API.Profile.PersonalController",
+    "Method": "Tasks",
+    "RelativePath": "api/Personal/Tasks",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userid",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.Profile.PersonalController",
+    "Method": "Trainings",
+    "RelativePath": "api/Personal/Trainings",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userid",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.ProfessionalLicense, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.ProfessionalLicenseModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Create",
+    "RelativePath": "api/ProfessionalLicense",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autoMapperEntity",
+        "Type": "Server.Models.ProfessionalLicenseModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.ProfessionalLicense, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.ProfessionalLicenseModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetAll",
+    "RelativePath": "api/ProfessionalLicense",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.ProfessionalLicense, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.ProfessionalLicenseModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Delete",
+    "RelativePath": "api/ProfessionalLicense",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.ProfessionalLicense, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.ProfessionalLicenseModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Update",
+    "RelativePath": "api/ProfessionalLicense",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autoMapperEntity",
+        "Type": "Server.Models.ProfessionalLicenseModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.ProfessionalLicense, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.ProfessionalLicenseModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetById",
+    "RelativePath": "api/ProfessionalLicense/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.GENERALTASK, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.GeneralTaskModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Create",
+    "RelativePath": "api/TaskManager",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autoMapperEntity",
+        "Type": "Server.Models.GeneralTaskModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.GENERALTASK, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.GeneralTaskModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetAll",
+    "RelativePath": "api/TaskManager",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.GENERALTASK, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.GeneralTaskModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Delete",
+    "RelativePath": "api/TaskManager",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.GENERALTASK, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.GeneralTaskModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Update",
+    "RelativePath": "api/TaskManager",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autoMapperEntity",
+        "Type": "Server.Models.GeneralTaskModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.GENERALTASK, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.GeneralTaskModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetById",
+    "RelativePath": "api/TaskManager/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.Trainings, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.TrainingModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Create",
+    "RelativePath": "api/Training",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autoMapperEntity",
+        "Type": "Server.Models.TrainingModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.Trainings, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.TrainingModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetAll",
+    "RelativePath": "api/Training",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.Trainings, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.TrainingModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Delete",
+    "RelativePath": "api/Training",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.Trainings, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.TrainingModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Update",
+    "RelativePath": "api/Training",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autoMapperEntity",
+        "Type": "Server.Models.TrainingModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.Trainings, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.TrainingModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetById",
+    "RelativePath": "api/Training/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.MediaController.UploadController",
+    "Method": "UploadImage",
+    "RelativePath": "api/Upload",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "file",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

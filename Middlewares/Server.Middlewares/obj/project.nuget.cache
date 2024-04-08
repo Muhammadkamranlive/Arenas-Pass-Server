@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "dUywiHR6mcDWIW4vHaOB7DUDkL5IaanaJaR7lvk4WqYMLOe3ELLIQSV5EJXaYExZSDr5Rq36nHfVcfSsndcpGw==",
+  "success": true,
+  "projectFilePath": "D:\\Freelance\\ERP\\Server\\Middlewares\\Server.Middlewares\\Server.Middlewares.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\TK\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.1.1\\microsoft.aspnetcore.http.abstractions.2.1.1.nupkg.sha512",
+    "C:\\Users\\TK\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.1.1\\microsoft.aspnetcore.http.features.2.1.1.nupkg.sha512",
+    "C:\\Users\\TK\\.nuget\\packages\\microsoft.extensions.primitives\\2.1.1\\microsoft.extensions.primitives.2.1.1.nupkg.sha512",
+    "C:\\Users\\TK\\.nuget\\packages\\system.memory\\4.5.1\\system.memory.4.5.1.nupkg.sha512",
+    "C:\\Users\\TK\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.1\\system.runtime.compilerservices.unsafe.4.5.1.nupkg.sha512",
+    "C:\\Users\\TK\\.nuget\\packages\\system.text.encodings.web\\4.5.0\\system.text.encodings.web.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
