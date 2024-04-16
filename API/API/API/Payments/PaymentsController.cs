@@ -102,8 +102,8 @@ namespace API.API.Payments
             {
 
                 throw new Exception(ex.Message + ex.InnerException?.Message);
-            }
+              }
         }
-
+             
     }
 }
