@@ -1,5 +1,6 @@
 ﻿using Server.Core;
 using Server.Domain;
+using System.Collections;
 using System.Linq.Expressions;
 using Microsoft.AspNetCore.Http;
 
@@ -17,7 +18,7 @@ namespace Server.Repository
 
         public override async Task<IEnumerable<Attachments>> GetAll()
         {
-            var tenantId = Convert.ToInt32(_httpContextAccessor.HttpContext?.Items["CurrentTenant"]);
+            var tenantId     = Convert.ToInt32(_httpContextAccessor.HttpContext?.Items["CurrentTenant"]);
             var filteredLogs = await base.GetAll();
             return filteredLogs.Where(log => log.TenantId == tenantId).ToList();
         }
@@ -27,6 +28,12 @@ namespace Server.Repository
             var tenantId = Convert.ToInt32(_httpContextAccessor.HttpContext?.Items["CurrentTenant"]);
             var filteredLogs = await base.Find(predicate);
             return filteredLogs.Where(log => log.TenantId == tenantId).ToList();
+        }
+
+        public async Task<IEnumerable> GetAllAttachment(int Id)
+        {
+            var filteredLogs = await base.GetAll();
+            return filteredLogs.Where(log => log.TenantId == Id).ToList();
         }
     }
 }

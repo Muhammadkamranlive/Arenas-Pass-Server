@@ -4,6 +4,8 @@ using Server.Models;
 using API.Controllers;
 using Server.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace API.API.DocumentManagment
 {
@@ -22,6 +24,24 @@ namespace API.API.DocumentManagment
         {
             _Service     = service;
             _authManager = authManager;
+        }
+
+        [HttpGet]
+        [Route("TenantFiles")]
+        //[CustomAuthorize("Read")]
+        //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator,Developer,SuperUser")]
+        public async Task<IActionResult> TenantFiles(int id)
+        {
+            try
+            {
+                IList<Attachments> per = (IList<Attachments>)await _Service.GetAllAttachment(id);
+                return Ok(per);
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message + e.InnerException?.Message);
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using Stripe;
 using System.Linq;
 using System.Text;
 using Server.Models;
@@ -12,5 +13,7 @@ namespace Server.Services
         Task<dynamic> Checkout(CheckoutModel checkoutModel);
         Task<dynamic> GetPaymentPlans();
         Task<dynamic> GetClientPaymentSession();
+        List<InvoiceSummary> GetInvoices(string customerId);
+        string DownloadInvoice(string invoiceId);
     }
 }

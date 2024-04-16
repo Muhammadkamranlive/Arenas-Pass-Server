@@ -1,4 +1,5 @@
 ﻿using Stripe;
+using System.Net;
 using Server.Models;
 using Stripe.Checkout;
 using Microsoft.AspNetCore.Mvc;
@@ -38,8 +39,14 @@ namespace Server.Services
             try
             {
                 StripeConfiguration.ApiKey = stripeModel.SecreteKey;
-                string Id  = await  CreatCustomer(checkoutModel.Name, checkoutModel.Email,checkoutModel.CompanyName);
-                var option = new SessionCreateOptions
+                var CustomerOptions = new CustomerCreateOptions
+                {
+                    Email       = checkoutModel.Email,
+                    Name        = checkoutModel.Name,
+                    Description = checkoutModel.CompanyName
+                };
+                var customer =  _customerService.Create(CustomerOptions);
+                var option  = new SessionCreateOptions
                 {
                     LineItems = new List<SessionLineItemOptions>
                    {
@@ -50,14 +57,15 @@ namespace Server.Services
                      }
                    },
                     Mode        = "subscription",
-                    SuccessUrl  = "http://localhost:4200/success",
-                    CancelUrl   = "http://localhost:4200/",
+                    SuccessUrl  = "https://pelicanhrm.com/success",
+                    CancelUrl   = "https://pelicanhrm.com/",
                 };
-                option.Customer = Id;
+                option.Customer = customer.Id ;
                 var service     = new SessionService();
                 Session session = await service.CreateAsync(option);
-
-                return session.Url;
+                SuccessResponse successResponse= new SuccessResponse();
+                successResponse.Message = session.Url;
+                return successResponse;
             }
             catch (Exception ex)
             {
@@ -78,7 +86,7 @@ namespace Server.Services
                     Name        = Name,
                     Description = companyName
                 };
-                var customer = await _customerService.CreateAsync(CustomerOptions);
+                var customer =  _customerService.Create(CustomerOptions);
                 return new { customer.Id};
             }
             catch (Exception ex)
@@ -143,5 +151,66 @@ namespace Server.Services
                 throw new Exception(ex.Message + ex.InnerException?.Message);
             }
         }
+
+
+
+        public List<InvoiceSummary> GetInvoices(string CustomerEmail)
+        {
+            StripeConfiguration.ApiKey = stripeModel.SecreteKey;
+            var customerService        = new CustomerService();
+            var customers              = customerService.List
+            (
+              new CustomerListOptions
+              {
+                Email = CustomerEmail
+              }
+            );
+            if (customers.Data.Count == 0)
+            {
+                return new List<InvoiceSummary>();
+            }
+            var customerId     = customers.Data.First().Id;
+            var invoiceService = new Stripe.InvoiceService();
+            var invoices       = invoiceService.List(new InvoiceListOptions
+            {
+                Customer = customerId
+            });
+
+            var invoiceSummaries = invoices.Data.Select
+            (
+              invoice => new InvoiceSummary
+              {
+                Id            = invoice.Id,
+                InvoiceNumber = invoice.Number,
+                CustomerEmail = invoice.CustomerEmail,
+                Frequency     = invoice.BillingReason ?? "N/A",
+                Created       = invoice.Created,
+                Amount        = invoice.AmountDue / 100.0m 
+              }
+            )
+            .ToList();
+
+            return invoiceSummaries;
+        }
+
+
+
+        public string DownloadInvoice(string invoiceId)
+        {
+            StripeConfiguration.ApiKey = stripeModel.SecreteKey;
+            try
+            {
+                var service              = new InvoiceService();
+                var invoice              = service.Get(invoiceId);
+                var invoicePdfUrl        = invoice.InvoicePdf;
+                return invoicePdfUrl;
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
+
     }
 }

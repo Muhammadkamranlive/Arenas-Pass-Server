@@ -42,6 +42,38 @@ namespace Server.Services
                 }
             }
         }
+
+        public async Task SendEmail1Async(string to, string subject, string content, bool isHtml = true)
+        {
+            var message = new MimeMessage();
+            message.From.Add(new MailboxAddress("Pelican HRM", "donotreply@pelicanhrm.com")); // Update with your Roundcube email
+            message.To.Add(new MailboxAddress("", to));
+            message.Subject = subject;
+
+            var emailBody = content;
+
+            var textPart  = new TextPart(TextFormat.Html)
+            {
+                Text = emailBody
+            };
+
+            message.Body = textPart;
+
+            using (var client = new SmtpClient())
+            {
+                try
+                {
+                    await client.ConnectAsync("p3plzcpnl494306.prod.phx3.secureserver.net", 587, SecureSocketOptions.StartTls); // Update with Roundcube SMTP server and port                                                                                                           // Note: Roundcube may use different authentication methods, you may need to adjust this part accordingly
+                    await client.AuthenticateAsync("oaw1qck8lht6", "Carpenter50##50"); 
+                    await client.SendAsync(message);
+                    await client.DisconnectAsync(true);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.ToString());
+                }
+            }
+        }
         public async Task SendBulkEmailAsync(List<string> toList, string subject, string content, bool isHtml = true)
         {
             foreach (var to in toList)
@@ -51,7 +83,7 @@ namespace Server.Services
                 message.To.Add(new MailboxAddress("", to));
                 message.Subject = subject;
 
-                var emailBody = CreateEmailBody(content);
+                var emailBody = content;
 
                 var textPart = new TextPart(isHtml ? TextFormat.Html : TextFormat.Plain)
                 {

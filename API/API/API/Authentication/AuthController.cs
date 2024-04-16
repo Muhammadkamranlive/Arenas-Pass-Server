@@ -22,14 +22,17 @@ namespace API.Authentication
         private readonly IPasswordReset_Service  _passwordService;
         private readonly IEmail_Service          _emailService;
         private readonly ITenants_Service        _tenants_Service;
+        private readonly IPaymentService         _paymentService;
         public AuthController
         (
-          IHttpClientFactory httpClientFactory,
-          IMapper mapper, ILogger<AuthController> logger,
-          IAuthManager authManager,
-          IPasswordReset_Service passwordReset_Service,
-          IEmail_Service emailService,
-          ITenants_Service tenants_Service
+          IHttpClientFactory      httpClientFactory,
+          IMapper                 mapper, 
+          ILogger<AuthController> logger,
+          IAuthManager            authManager,
+          IPasswordReset_Service  passwordReset_Service,
+          IEmail_Service          emailService,
+          ITenants_Service        tenants_Service,
+          IPaymentService         paymentService
         )
         {
 
@@ -40,6 +43,7 @@ namespace API.Authentication
             _passwordService   = passwordReset_Service;
             _emailService      = emailService;
             _tenants_Service   = tenants_Service;
+            _paymentService    = paymentService;
 
         }
 
@@ -222,27 +226,72 @@ namespace API.Authentication
             }
         }
 
+        [HttpPost]
+        [Route("Enable2FA")]
+        public async Task<ActionResult> Enable2FA(ConfirmEmail model)
+        {
+            try
+            {
+                string message = await authManager.EnableTwoFactorAuthEmail(model.Email, model.OTP);
+                return Content($"{{ \"message\": \"{message}\" }}", "application/json");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "An error occurred while sending the confirmation email." + ex.Message);
+            }
+        }
+
+        [HttpPost]
+        [Route("Disable2FA")]
+        public async Task<ActionResult> Disable2FA(ConfirmEmail model)
+        {
+            try
+            {
+                string message = await authManager.DisableTwoFactorAuthEmail(model.Email, model.OTP);
+                return Content($"{{ \"message\": \"{message}\" }}", "application/json");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "An error occurred while sending the confirmation email." + ex.Message);
+            }
+        }
+
+        [HttpPost]
+        [Route("VerifyEnable2FA")]
+        public async Task<ActionResult> VerifyEnable2FA(ConfirmEmail model)
+        {
+            try
+            {
+                string message = await authManager.VerifyTwoFactorAuthEmail(model.Email, model.OTP);
+                return Content($"{{ \"message\": \"{message}\" }}", "application/json");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "An error occurred while sending the confirmation email." + ex.Message);
+            }
+        }
+
 
         [HttpPost("ForgotPassword")]
         public async Task<IActionResult> ForgotPassword(ForgotPasswordModel model)
         {
             if (ModelState.IsValid)
             {
-                var user = await authManager.FindbyEmail(model.Email);
+                ApplicationUser user = await authManager.FindbyEmail(model.Email);
                 if (user == null)
                 {
                     ModelState.AddModelError(string.Empty, "User not found");
                     return BadRequest(ModelState);
                 }
-                var otp = GenerateRandomOTP(8);
+                var otp            = GenerateRandomOTP(8);
                 var expirationTime = DateTime.Now.AddMinutes(15);
 
                 // Create a PasswordResetRequest and store it
                 var resetRequest = new PasswordResetDomain
                 {
-                    Email = model.Email,
+                    Email      = model.Email,
                     ExpireTime = expirationTime,
-                    OTP = otp
+                    OTP        = otp
                 };
 
                 string retValue = await StorePasswordResetRequest(resetRequest);
@@ -251,7 +300,9 @@ namespace API.Authentication
                     return BadRequest(retValue);
                 }
                 string subject = "Password Reset OTP";
-                string body = "<h3> This is your Password reset OTP Please don't share with anyone.</h3> \r\n\n\n  <h1>" + otp + "</h1> \r\n\n";
+                string name    = user.FirstName +" "+ user.LastName;
+                string body    = CreatePasswordForgotEmailBody(otp,name);
+                
                 retValue = await SendPasswordResetOTPEmailAsync(model.Email, subject, body);
                 if (!retValue.StartsWith("OK"))
                 {
@@ -284,7 +335,7 @@ namespace API.Authentication
                 PasswordResetDomain otp = otplist.Where(x => x.Email == model.Email).OrderBy(x => x.ExpireTime).LastOrDefault();
                 if (otp == null)
                 {
-                    message = "No OTP against your email found";
+                    message       = "No OTP against your email found";
                     return Content($"{{ \"message\": \"{message}\" }}", "application/json");
                 }
                 dynamic retVal = await authManager.VerifyOTP(model.Email, otp.OTP);
@@ -293,11 +344,11 @@ namespace API.Authentication
                     string retValue = await authManager.UpdatePassord(user.Email, model.Password);
                     if (retValue.StartsWith("OK"))
                     {
-                        string subject = "Password Changed Successfully";
-                        string salutation = "Dear " + user.FirstName + " " + user.LastName;
-                        string messageBody = $"<h1>Your Password changed recently thanks to be part of Pelican HRM </h1>";
-                        string emailMessage = $"{subject}\n\n{salutation}\n\n{messageBody}";
-                        await _emailService.SendEmailAsync(user.Email, subject, emailMessage);
+                        string subject      = "Password Changed Successfully";
+                        string salutation   = user.FirstName + " " + user.LastName;
+                 
+                        string emailMessage = CreatePasswordResetEmailBody(salutation);
+                        await _emailService.SendEmail1Async(user.Email, subject, emailMessage);
                         bool res = await _passwordService.Delete(otp.Id);
                         if (res)
                         {
@@ -327,7 +378,7 @@ namespace API.Authentication
         private async Task<string> SendPasswordResetOTPEmailAsync(string to, string subject, string content)
         {
 
-            await _emailService.SendEmailAsync(to, subject, content, isHtml: true);
+            await _emailService.SendEmail1Async(to, subject, content, isHtml: true);
             return "OK";
         }
         private async Task<string> StorePasswordResetRequest(PasswordResetDomain resetRequest)
@@ -361,13 +412,6 @@ namespace API.Authentication
 
             return otp;
         }
-
-
-
-
-
-
-
 
         [HttpGet]
         [Route("GetAllRoles")]
@@ -550,6 +594,43 @@ namespace API.Authentication
             }
         }
 
+        [HttpGet]
+        [Route("GetAllTenants")]
+        public async Task<ActionResult> GetAllTenants()
+        {
+
+            try
+            {
+
+
+               var list= await authManager.GetTenants();
+                return Ok(list);
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex);
+            }
+        }
+
+        [HttpGet]
+        [Route("GetTenantDetail")]
+        public async Task<ActionResult> GetTenantDetail(string OnwerId)
+        {
+
+            try
+            {
+
+                var list = await authManager.GetTenantsbyId(OnwerId);
+                return Ok(list);
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex);
+            }
+        }
+
         [HttpPut]
         [Route("UpdateCompany")]
         [CustomAuthorize("Update")]
@@ -580,6 +661,44 @@ namespace API.Authentication
         }
 
 
+        [HttpGet]
+        [Route("getPaymentsClient")]
+        [CustomAuthorize("Read")]
+        public async Task<ActionResult> getPaymentsClient(string uid)
+        {
+            try
+            {
+                ApplicationUser authResponse     = await authManager.FindById(uid);
+                IList<PaymentSession> payments   = await _paymentService.GetClientPaymentSession();
+                payments                         = payments.Where(x=>x.CustomerEmail==authResponse.Email).ToList();
+                return Ok(payments);
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex);
+            }
+        }
+
+
+        [HttpGet]
+        [Route("GetUpdateTenant")]
+        public async Task<ActionResult> GetUpdateTenant()
+        {
+            try
+            {
+                var list = await authManager.GetUpdateTenant();
+                return Ok(list);
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex);
+            }
+        }
+
+
+
         [HttpPut]
         [Route("UpdateCompanyStatus")]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator,Developer,SuperUser")]
@@ -592,7 +711,7 @@ namespace API.Authentication
                 successResponse.Message = await authManager.UpdateTenantStatus(tenantUpdate);
                 if (successResponse.Message == "OK")
                 {
-                    successResponse.Message = "OK Compant status is  successfully Updated";
+                    successResponse.Message = "OK Company status is  successfully Updated";
                     return Ok(successResponse);
                 }
                 else
@@ -606,6 +725,1297 @@ namespace API.Authentication
 
                 return BadRequest(ex);
             }
+        }
+
+        private static string CreatePasswordResetEmailBody(string Username)
+        {
+            string emailTemplate = $@"
+            <!DOCTYPE html>
+            <html
+              xmlns=""http://www.w3.org/1999/xhtml""
+              xmlns:v=""urn:schemas-microsoft-com:vml""
+              xmlns:o=""urn:schemas-microsoft-com:office:office""
+            >
+              <head>
+                <title> </title>
+                <!--[if !mso]><!-- -->
+                <meta http-equiv=""X-UA-Compatible"" content=""IE=edge"" />
+                <!--<![endif]-->
+                <meta http-equiv=""Content-Type"" content=""text/html; charset=UTF-8"" />
+                <meta name=""viewport"" content=""width=device-width, initial-scale=1"" />
+                <style type=""text/css"">
+                  #outlook a {{
+                    padding: 0;
+                  }}
+
+                  .ReadMsgBody {{
+                    width: 100%;
+                  }}
+
+                  .ExternalClass {{
+                    width: 100%;
+                  }}
+
+                  .ExternalClass * {{
+                    line-height: 100%;
+                  }}
+
+                  body {{
+                    margin: 0;
+                    padding: 0;
+                    -webkit-text-size-adjust: 100%;
+                    -ms-text-size-adjust: 100%;
+                  }}
+
+                  table,
+                  td {{
+                    border-collapse: collapse;
+                    mso-table-lspace: 0pt;
+                    mso-table-rspace: 0pt;
+                  }}
+
+                  img {{
+                    border: 0;
+                    height: auto;
+                    line-height: 100%;
+                    outline: none;
+                    text-decoration: none;
+                    -ms-interpolation-mode: bicubic;
+                  }}
+
+                  p {{
+                    display: block;
+                    margin: 13px 0;
+                  }}
+      
+                </style>
+   
+                <style type=""text/css"">
+                  @media only screen and (max-width: 480px) {{
+                    @-ms-viewport {{
+                      width: 320px;
+                    }}
+
+                    @viewport {{
+                      width: 320px;
+                    }}
+                  }}
+                </style>
+                <!--<![endif]-->
+                <!--[if mso]>
+                  <xml>
+                    <o:OfficeDocumentSettings>
+                      <o:AllowPNG />
+                      <o:PixelsPerInch>96</o:PixelsPerInch>
+                    </o:OfficeDocumentSettings>
+                  </xml>
+                <![endif]-->
+                <!--[if lte mso 11]>
+                  <style type=""text/css"">
+                    .outlook-group-fix {{
+                      width: 100% !important;
+                    }}
+                  </style>
+                <![endif]-->
+
+                <style type=""text/css"">
+                  @media only screen and (min-width: 480px) {{
+                    .mj-column-per-100 {{
+                      width: 100% !important;
+                    }}
+                  }}
+                </style>
+
+                <style type=""text/css""></style>
+              </head>
+
+              <body style=""background-color: #f9f9f9"">
+                <div style=""background-color: #f9f9f9"">
+                  <!--[if mso | IE]>
+                  <table
+                     align=""center"" border=""0"" cellpadding=""0"" cellspacing=""0"" style=""width:600px;"" width=""600""
+                  >
+                    <tr>
+                      <td style=""line-height:0px;font-size:0px;mso-line-height-rule:exactly;"">
+                  <![endif]-->
+
+                  <div
+                    style=""
+                      background: rgb(241,245,249);
+                      background-color: rgb(241,245,249);
+                      margin: 0px auto;
+                      max-width: 600px;
+                    ""
+                  >
+                    <table
+                      align=""center""
+                      border=""0""
+                      cellpadding=""0""
+                      cellspacing=""0""
+                      role=""presentation""
+                      style=""background: #f9f9f9; background-color: #f9f9f9; width: 100%""
+                    >
+                      <tbody>
+                        <tr>
+                          <td
+                            style=""
+                              border-bottom: #F26302 solid 5px;
+                              direction: ltr;
+                              font-size: 0px;
+                              padding: 20px 0;
+                              text-align: center;
+                              vertical-align: top;
+                            ""
+                          >
+                            <!--[if mso | IE]>
+                              <table
+                                role=""presentation""
+                                border=""0""
+                                cellpadding=""0""
+                                cellspacing=""0""
+                              >
+                                <tr></tr>
+                              </table>
+                            <![endif]-->
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <!--[if mso | IE]>
+                      </td>
+                    </tr>
+                  </table>
+      
+                  <table
+                     align=""center"" border=""0"" cellpadding=""0"" cellspacing=""0"" style=""width:600px;"" width=""600""
+                  >
+                    <tr>
+                      <td style=""line-height:0px;font-size:0px;mso-line-height-rule:exactly;"">
+                  <![endif]-->
+
+                  <div
+                    style=""
+                      background: #fff;
+                      background-color: #fff;
+                      margin: 0px auto;
+                      max-width: 600px;
+                    ""
+                  >
+                    <table
+                      align=""center""
+                      border=""0""
+                      cellpadding=""0""
+                      cellspacing=""0""
+                      role=""presentation""
+                      style=""background: #fff; background-color: #fff; width: 100%""
+                    >
+                      <tbody>
+                        <tr>
+                          <td
+                            style=""
+                              border: #dddddd solid 1px;
+                              border-top: 0px;
+                              direction: ltr;
+                              font-size: 0px;
+                              padding: 20px 0;
+                              text-align: center;
+                              vertical-align: top;
+                            ""
+                          >
+                            <!--[if mso | IE]>
+                              <table role=""presentation"" border=""0"" cellpadding=""0"" cellspacing=""0"">
+                
+                    <tr>
+      
+                        <td
+                           style=""vertical-align:bottom;width:600px;""
+                        >
+                      <![endif]-->
+
+                            <div
+                              class=""mj-column-per-100 outlook-group-fix""
+                              style=""
+                                font-size: 13px;
+                                text-align: left;
+                                direction: ltr;
+                                display: inline-block;
+                                vertical-align: bottom;
+                                width: 100%;
+                              ""
+                            >
+                              <table
+                                border=""0""
+                                cellpadding=""0""
+                                cellspacing=""0""
+                                role=""presentation""
+                                style=""vertical-align: bottom""
+                                width=""100%""
+                              >
+                                <tr>
+                                  <td
+                                    align=""center""
+                                    style=""
+                                      font-size: 0px;
+                                      padding: 10px 25px;
+                                      word-break: break-word;
+                                    ""
+                                  >
+                                    <table
+                                      align=""center""
+                                      border=""0""
+                                      cellpadding=""0""
+                                      cellspacing=""0""
+                                      role=""presentation""
+                                      style=""border-collapse: collapse; border-spacing: 0px""
+                                    >
+                                      <tbody>
+                                        <tr>
+                                          <td style=""width: 200px"">
+                                            <img
+                                              height=""auto""
+                                              src=""https://firebasestorage.googleapis.com/v0/b/images-107c9.appspot.com/o/BottomLogo.jpeg?alt=media&token=48c6d297-9821-4d2c-bb7f-33ea079043f7""
+                                              style=
+                                              ""
+                                              border: 0;
+                                              display: block;
+                                              outline: none;
+                                              text-decoration: none;
+                                              width: 100%;
+                                              ""
+                                              width=""200""
+                                            />
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td
+                                    align=""center""
+                                    style=""
+                                      font-size: 0px;
+                                      padding: 10px 25px;
+                                      padding-bottom: 40px;
+                                      word-break: break-word;
+                                    ""
+                                  >
+                                    <div
+                                      style=""
+                                        font-family: 'Helvetica Neue', Arial, sans-serif;
+                                        font-size: 22px;
+                                        font-weight: bold;
+                                        line-height: 1;
+                                        text-align: center;
+                                        color: #555;
+                                      ""
+                                    >
+                                    Your password is changed successfully.
+                                    </div>
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td
+                                    align=""center""
+                                    style=""
+                                      font-size: 0px;
+                                      padding: 10px 25px;
+                                      padding-bottom: 0;
+                                      word-break: break-word;
+                                    ""
+                                  >
+                                    <div
+                                      style=""
+                                        font-family: 'Helvetica Neue', Arial, sans-serif;
+                                        font-size: 16px;
+                                        line-height: 22px;
+                                        text-align: center;
+                                        color: #555;
+                                      ""
+                                    >
+                                     Dear {Username}
+                                    </div>
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td
+                                    align=""center""
+                                    style=""
+                                      font-size: 0px;
+                                      padding: 10px 25px;
+                                      word-break: break-word;
+                                    ""
+                                  >
+                                    <div
+                                      style=""
+                                        font-family: 'Helvetica Neue', Arial, sans-serif;
+                                        font-size: 16px;
+                                        line-height: 22px;
+                                        text-align: center;
+                                        color: #555;
+                                      ""
+                                    >
+                                    Your password is changed recently thanks to be part of PelicanHRM.
+                                    </div>
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td
+                                    align=""center""
+                                    style=""
+                                      font-size: 0px;
+                                      padding: 10px 25px;
+                                      padding-bottom: 20px;
+                                      word-break: break-word;
+                                    ""
+                                  >
+                                    <div
+                                      style=""
+                                        font-family: 'Helvetica Neue', Arial, sans-serif;
+                                        font-size: 16px;
+                                        line-height: 22px;
+                                        text-align: center;
+                                        color: #555;
+                                      ""
+                                    >
+                                     Login into PelicanHRM
+                                    </div>
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td
+                                    align=""center""
+                                    style=""
+                                      font-size: 0px;
+                                      padding: 10px 25px;
+                                      padding-top: 30px;
+                                      padding-bottom: 40px;
+                                      word-break: break-word;
+                                    ""
+                                  >
+                                    <table
+                                      align=""center""
+                                      border=""0""
+                                      cellpadding=""0""
+                                      cellspacing=""0""
+                                      role=""presentation""
+                                      style=""border-collapse: separate; line-height: 100%""
+                                    >
+                                      <tr>
+                                        <td
+                                          align=""center""
+                             
+                                          role=""presentation""
+                                          style=""
+                                            border: none;
+                                            border-radius: 3px;
+                                            color: #ffffff;
+                                            cursor: auto;
+                                            padding: 15px 75px;
+                                            border-radius: 25px;
+                                          ""
+                                          valign=""middle""
+                                        >
+                                        <a
+                                        href=""https://pelicanhrm.com""
+                                        style=""
+                                        background: linear-gradient(to right,rgb(254,0,0), rgb(235,123,49), rgb(235,123,49), rgb(235,123,49) 30%, rgb(235,123,49) 70%, rgb(255,165,0)) !important;
+                                        color: #ffffff;
+                                        font-family: 'Helvetica Neue', Arial, sans-serif;
+                                        font-size: 15px;
+                                        font-weight: 800; /* Note: font-weight was already set to 800, so no need to set it again */
+                                        line-height: 120%;
+                                        margin: 0;
+                                        text-decoration: none;
+                                        text-transform: none;
+                                        box-shadow: 2px 2px 5px rgba(0,0,0,0.3); /* Shadow */
+                                        padding: 18px 70px 18px 70px; 
+                                        border-radius: 25px;
+                                        "">
+                                         Login
+                                        </a>
+                        
+                                        </td>
+                                      </tr>
+                                    </table>
+                                  </td>
+                                </tr>
+
+                    
+                   
+                                <tr>
+                                  <td
+                                    align=""center""
+                                    style=""
+                                      font-size: 0px;
+                                      padding: 10px 25px;
+                                      word-break: break-word;
+                                    ""
+                                  >
+                                    <div
+                                      style=""
+                                        font-family: 'Helvetica Neue', Arial, sans-serif;
+                                        font-size: 26px;
+                                        font-weight: bold;
+                                        line-height: 1;
+                                        text-align: center;
+                                        color: #555;
+                                      ""
+                                    >
+                                      Need Help?
+                                    </div>
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td
+                                    align=""center""
+                                    style=""
+                                      font-size: 0px;
+                                      padding: 10px 25px;
+                                      word-break: break-word;
+                                    ""
+                                  >
+                                    <div
+                                      style=""
+                                        font-family: 'Helvetica Neue', Arial, sans-serif;
+                                        font-size: 14px;
+                                        line-height: 22px;
+                                        text-align: center;
+                                        color: #555;
+                                      ""
+                                    >
+                                      Please send and feedback or bug info<br />
+                                      to
+                                      <a
+                                        href=""mailto:info@example.com""
+                                        style=""color: #2f67f6""
+                                        >info@pelicanhrm.com</a
+                                      >
+                                    </div>
+                                  </td>
+                                </tr>
+                              </table>
+                            </div>
+
+                            <!--[if mso | IE]>
+                        </td>
+          
+                    </tr>
+      
+                              </table>
+                            <![endif]-->
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <!--[if mso | IE]>
+                      </td>
+                    </tr>
+                  </table>
+      
+                  <table
+                     align=""center"" border=""0"" cellpadding=""0"" cellspacing=""0"" style=""width:600px;"" width=""600""
+                  >
+                    <tr>
+                      <td style=""line-height:0px;font-size:0px;mso-line-height-rule:exactly;"">
+                  <![endif]-->
+
+                  <div style=""margin: 0px auto; max-width: 600px"">
+                    <table
+                      align=""center""
+                      border=""0""
+                      cellpadding=""0""
+                      cellspacing=""0""
+                      role=""presentation""
+                      style=""width: 100%""
+                    >
+                      <tbody>
+                        <tr>
+                          <td
+                            style=""
+                              border-bottom: #F26302 solid 5px;
+                              direction: ltr;
+                              font-size: 0px;
+                              padding: 20px 0;
+                              text-align: center;
+                              vertical-align: top;
+                            ""
+                          >
+                            <!--[if mso | IE]>
+                              <table role=""presentation"" border=""0"" cellpadding=""0"" cellspacing=""0"">
+                
+                    <tr>
+      
+                        <td
+                           style=""vertical-align:bottom;width:600px;""
+                        >
+                      <![endif]-->
+
+                            <div
+                              class=""mj-column-per-100 outlook-group-fix""
+                              style=""
+                                font-size: 13px;
+                                text-align: left;
+                                direction: ltr;
+                                display: inline-block;
+                                vertical-align: bottom;
+                                width: 100%;
+                              ""
+                            >
+                              <table
+                                border=""0""
+                                cellpadding=""0""
+                                cellspacing=""0""
+                                role=""presentation""
+                                width=""100%""
+                              >
+                                <tbody>
+                                  <tr>
+                                    <td style=""vertical-align: bottom; padding: 0"">
+                                      <table
+                                        border=""0""
+                                        cellpadding=""0""
+                                        cellspacing=""0""
+                                        role=""presentation""
+                                        width=""100%""
+                                      >
+                                        <tr>
+                                          <td
+                                            align=""center""
+                                            style=""
+                                              font-size: 0px;
+                                              padding: 0;
+                                              word-break: break-word;
+                                            ""
+                                          >
+                                            <div
+                                              style=""
+                                                font-family: 'Helvetica Neue', Arial,
+                                                  sans-serif;
+                                                font-size: 12px;
+                                                font-weight: 300;
+                                                line-height: 1;
+                                                text-align: center;
+                                                color: #000000;
+                                              ""
+                                            >
+                                             950 Dannon View, SW Suite 4103 Atlanta, GA 30331
+                                            </div>
+                                          </td>
+                                        </tr>
+
+                                        <tr>
+                                          <td
+                                            align=""center""
+                                            style=""
+                                              font-size: 0px;
+                                              padding: 10px;
+                                              word-break: break-word;
+                                            ""
+                                          >
+                                            <div
+                                              style=""
+                                                font-family: 'Helvetica Neue', Arial,
+                                                  sans-serif;
+                                                font-size: 12px;
+                                                font-weight: 300;
+                                                line-height: 1;
+                                                text-align: center;
+                                                color: #000000;
+                                              ""
+                                            >
+                                              <a href="""" style=""color: #000000""
+                                                >Phone</a
+                                              >
+                                              404-593-0993
+                                            </div>
+                                          </td>
+                                        </tr>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+
+                            <!--[if mso | IE]>
+                        </td>
+          
+                    </tr>
+      
+                              </table>
+                            <![endif]-->
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <!--[if mso | IE]>
+                      </td>
+                    </tr>
+                  </table>
+                  <![endif]-->
+                </div>
+              </body>
+            </html>
+
+             
+            ";
+            return emailTemplate;
+        }
+        private static string CreatePasswordForgotEmailBody(string OTP, string Username)
+        {
+            string emailTemplate = $@"
+               <!DOCTYPE html>
+            <html
+              xmlns=""http://www.w3.org/1999/xhtml""
+              xmlns:v=""urn:schemas-microsoft-com:vml""
+              xmlns:o=""urn:schemas-microsoft-com:office:office""
+            >
+              <head>
+                <title> </title>
+                <!--[if !mso]><!-- -->
+                <meta http-equiv=""X-UA-Compatible"" content=""IE=edge"" />
+                <!--<![endif]-->
+                <meta http-equiv=""Content-Type"" content=""text/html; charset=UTF-8"" />
+                <meta name=""viewport"" content=""width=device-width, initial-scale=1"" />
+                <style type=""text/css"">
+                  #outlook a {{
+                    padding: 0;
+                  }}
+
+                  .ReadMsgBody {{
+                    width: 100%;
+                  }}
+
+                  .ExternalClass {{
+                    width: 100%;
+                  }}
+
+                  .ExternalClass * {{
+                    line-height: 100%;
+                  }}
+
+                  body {{
+                    margin: 0;
+                    padding: 0;
+                    -webkit-text-size-adjust: 100%;
+                    -ms-text-size-adjust: 100%;
+                  }}
+
+                  table,
+                  td {{
+                    border-collapse: collapse;
+                    mso-table-lspace: 0pt;
+                    mso-table-rspace: 0pt;
+                  }}
+
+                  img {{
+                    border: 0;
+                    height: auto;
+                    line-height: 100%;
+                    outline: none;
+                    text-decoration: none;
+                    -ms-interpolation-mode: bicubic;
+                  }}
+
+                  p {{
+                    display: block;
+                    margin: 13px 0;
+                  }}
+                </style>
+                <!--[if !mso]><!-->
+                <style type=""text/css"">
+                  @media only screen and (max-width: 480px) {{
+                    @-ms-viewport {{
+                      width: 320px;
+                    }}
+
+                    @viewport {{
+                      width: 320px;
+                    }}
+                  }}
+                </style>
+                <!--<![endif]-->
+                <!--[if mso]>
+                  <xml>
+                    <o:OfficeDocumentSettings>
+                      <o:AllowPNG />
+                      <o:PixelsPerInch>96</o:PixelsPerInch>
+                    </o:OfficeDocumentSettings>
+                  </xml>
+                <![endif]-->
+                <!--[if lte mso 11]>
+                  <style type=""text/css"">
+                    .outlook-group-fix {{
+                      width: 100% !important;
+                    }}
+                  </style>
+                <![endif]-->
+
+                <style type=""text/css"">
+                  @media only screen and (min-width: 480px) {{
+                    .mj-column-per-100 {{
+                      width: 100% !important;
+                    }}
+                  }}
+                </style>
+
+                <style type=""text/css""></style>
+              </head>
+
+              <body style=""background-color: #f9f9f9"">
+                <div style=""background-color: #f9f9f9"">
+                  <!--[if mso | IE]>
+                  <table
+                     align=""center"" border=""0"" cellpadding=""0"" cellspacing=""0"" style=""width:600px;"" width=""600""
+                  >
+                    <tr>
+                      <td style=""line-height:0px;font-size:0px;mso-line-height-rule:exactly;"">
+                  <![endif]-->
+
+                  <div
+                    style=""
+                      background: rgb(241,245,249);
+                      background-color: rgb(241,245,249);
+                      margin: 0px auto;
+                      max-width: 600px;
+                    ""
+                  >
+                    <table
+                      align=""center""
+                      border=""0""
+                      cellpadding=""0""
+                      cellspacing=""0""
+                      role=""presentation""
+                      style=""background: #f9f9f9; background-color: #f9f9f9; width: 100%""
+                    >
+                      <tbody>
+                        <tr>
+                          <td
+                            style=""
+                              border-bottom: #F26302 solid 5px;
+                              direction: ltr;
+                              font-size: 0px;
+                              padding: 20px 0;
+                              text-align: center;
+                              vertical-align: top;
+                            ""
+                          >
+                            <!--[if mso | IE]>
+                              <table
+                                role=""presentation""
+                                border=""0""
+                                cellpadding=""0""
+                                cellspacing=""0""
+                              >
+                                <tr></tr>
+                              </table>
+                            <![endif]-->
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <!--[if mso | IE]>
+                      </td>
+                    </tr>
+                  </table>
+      
+                  <table
+                     align=""center"" border=""0"" cellpadding=""0"" cellspacing=""0"" style=""width:600px;"" width=""600""
+                  >
+                    <tr>
+                      <td style=""line-height:0px;font-size:0px;mso-line-height-rule:exactly;"">
+                  <![endif]-->
+
+                  <div
+                    style=""
+                      background: #fff;
+                      background-color: #fff;
+                      margin: 0px auto;
+                      max-width: 600px;
+                    ""
+                  >
+                    <table
+                      align=""center""
+                      border=""0""
+                      cellpadding=""0""
+                      cellspacing=""0""
+                      role=""presentation""
+                      style=""background: #fff; background-color: #fff; width: 100%""
+                    >
+                      <tbody>
+                        <tr>
+                          <td
+                            style=""
+                              border: #dddddd solid 1px;
+                              border-top: 0px;
+                              direction: ltr;
+                              font-size: 0px;
+                              padding: 20px 0;
+                              text-align: center;
+                              vertical-align: top;
+                            ""
+                          >
+                            <!--[if mso | IE]>
+                              <table role=""presentation"" border=""0"" cellpadding=""0"" cellspacing=""0"">
+                
+                    <tr>
+      
+                        <td
+                           style=""vertical-align:bottom;width:600px;""
+                        >
+                      <![endif]-->
+
+                            <div
+                              class=""mj-column-per-100 outlook-group-fix""
+                              style=""
+                                font-size: 13px;
+                                text-align: left;
+                                direction: ltr;
+                                display: inline-block;
+                                vertical-align: bottom;
+                                width: 100%;
+                              ""
+                            >
+                              <table
+                                border=""0""
+                                cellpadding=""0""
+                                cellspacing=""0""
+                                role=""presentation""
+                                style=""vertical-align: bottom""
+                                width=""100%""
+                              >
+                                <tr>
+                                  <td
+                                    align=""center""
+                                    style=""
+                                      font-size: 0px;
+                                      padding: 10px 25px;
+                                      word-break: break-word;
+                                    ""
+                                  >
+                                    <table
+                                      align=""center""
+                                      border=""0""
+                                      cellpadding=""0""
+                                      cellspacing=""0""
+                                      role=""presentation""
+                                      style=""border-collapse: collapse; border-spacing: 0px""
+                                    >
+                                      <tbody>
+                                        <tr>
+                                          <td style=""width: 200px"">
+                                            <img
+                                              height=""auto""
+                                              src=""https://firebasestorage.googleapis.com/v0/b/images-107c9.appspot.com/o/BottomLogo.jpeg?alt=media&token=48c6d297-9821-4d2c-bb7f-33ea079043f7""
+                                              style=
+                                              ""
+                                              border: 0;
+                                              display: block;
+                                              outline: none;
+                                              text-decoration: none;
+                                              width: 100%;
+                                              ""
+                                              width=""200""
+                                            />
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td
+                                    align=""center""
+                                    style=""
+                                      font-size: 0px;
+                                      padding: 10px 25px;
+                                      padding-bottom: 40px;
+                                      word-break: break-word;
+                                    ""
+                                  >
+                                    <div
+                                      style=""
+                                        font-family: 'Helvetica Neue', Arial, sans-serif;
+                                        font-size: 32px;
+                                        font-weight: bold;
+                                        line-height: 1;
+                                        text-align: center;
+                                        color: #555;
+                                      ""
+                                    >
+                                     Forgot Password ?
+                                    </div>
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td
+                                    align=""center""
+                                    style=""
+                                      font-size: 0px;
+                                      padding: 10px 25px;
+                                      padding-bottom: 0;
+                                      word-break: break-word;
+                                    ""
+                                  >
+                                    <div
+                                      style=""
+                                        font-family: 'Helvetica Neue', Arial, sans-serif;
+                                        font-size: 16px;
+                                        line-height: 22px;
+                                        text-align: center;
+                                        color: #555;
+                                      ""
+                                    >
+                                     Dear {Username}
+                                    </div>
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td
+                                    align=""center""
+                                    style=""
+                                      font-size: 0px;
+                                      padding: 10px 25px;
+                                      word-break: break-word;
+                                    ""
+                                  >
+                                    <div
+                                      style=""
+                                        font-family: 'Helvetica Neue', Arial, sans-serif;
+                                        font-size: 16px;
+                                        line-height: 22px;
+                                        text-align: center;
+                                        color: #555;
+                                      ""
+                                    >
+                                    This is your password reset OTP (One-Time Password) . <br> Please don't share it with anyone.
+                                    </div>
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td
+                                    align=""center""
+                                    style=""
+                                      font-size: 0px;
+                                      padding: 10px 25px;
+                                      padding-bottom: 20px;
+                                      word-break: break-word;
+                                    ""
+                                  >
+                                    <div
+                                      style=""
+                                        font-family: 'Helvetica Neue', Arial, sans-serif;
+                                        font-size: 16px;
+                                        line-height: 22px;
+                                        text-align: center;
+                                        color: #555;
+                                      ""
+                                    >
+                                     OTP (One-Time Password)
+                                    </div>
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td
+                                    align=""center""
+                                    style=""
+                                      font-size: 0px;
+                                      padding: 10px 25px;
+                                      padding-top: 30px;
+                                      padding-bottom: 40px;
+                                      word-break: break-word;
+                                    ""
+                                  >
+                                    <table
+                                      align=""center""
+                                      border=""0""
+                                      cellpadding=""0""
+                                      cellspacing=""0""
+                                      role=""presentation""
+                                      style=""border-collapse: separate; line-height: 100%""
+                                    >
+                                      <tr>
+                                        <td
+                                          align=""center""
+                             
+                                          role=""presentation""
+                                          style=""
+                                            border: none;
+                                            border-radius: 3px;
+                                            color: #ffffff;
+                                            cursor: auto;
+                                            padding: 15px 75px;
+                                            border-radius: 25px;
+                                          ""
+                                          valign=""middle""
+                                        >
+                                        <p style=""
+                                        background: linear-gradient(to right,rgb(254,0,0), rgb(235,123,49), rgb(235,123,49), rgb(235,123,49) 30%, rgb(235,123,49) 70%, rgb(255,165,0)) !important;
+                                        color: #ffffff;
+                                        font-family: 'Helvetica Neue', Arial, sans-serif;
+                                        font-size: 15px;
+                                        font-weight: 800; /* Note: font-weight was already set to 800, so no need to set it again */
+                                        line-height: 120%;
+                                        margin: 0;
+                                        text-decoration: none;
+                                        text-transform: none;
+                                        box-shadow: 2px 2px 5px rgba(0,0,0,0.3); /* Shadow */
+                                        padding: 18px 70px 18px 70px; 
+                                        border-radius: 25px;
+                                        "">
+                                        {OTP}
+                                        </p>
+                        
+                                        </td>
+                                      </tr>
+                                    </table>
+                                  </td>
+                                </tr>
+
+                    
+                   
+                                <tr>
+                                  <td
+                                    align=""center""
+                                    style=""
+                                      font-size: 0px;
+                                      padding: 10px 25px;
+                                      word-break: break-word;
+                                    ""
+                                  >
+                                    <div
+                                      style=""
+                                        font-family: 'Helvetica Neue', Arial, sans-serif;
+                                        font-size: 26px;
+                                        font-weight: bold;
+                                        line-height: 1;
+                                        text-align: center;
+                                        color: #555;
+                                      ""
+                                    >
+                                      Need Help?
+                                    </div>
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td
+                                    align=""center""
+                                    style=""
+                                      font-size: 0px;
+                                      padding: 10px 25px;
+                                      word-break: break-word;
+                                    ""
+                                  >
+                                    <div
+                                      style=""
+                                        font-family: 'Helvetica Neue', Arial, sans-serif;
+                                        font-size: 14px;
+                                        line-height: 22px;
+                                        text-align: center;
+                                        color: #555;
+                                      ""
+                                    >
+                                      Please send and feedback or bug info<br />
+                                      to
+                                      <a
+                                        href=""mailto:info@example.com""
+                                        style=""color: #2f67f6""
+                                        >info@pelicanhrm.com</a
+                                      >
+                                    </div>
+                                  </td>
+                                </tr>
+                              </table>
+                            </div>
+
+                            <!--[if mso | IE]>
+                        </td>
+          
+                    </tr>
+      
+                              </table>
+                            <![endif]-->
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <!--[if mso | IE]>
+                      </td>
+                    </tr>
+                  </table>
+      
+                  <table
+                     align=""center"" border=""0"" cellpadding=""0"" cellspacing=""0"" style=""width:600px;"" width=""600""
+                  >
+                    <tr>
+                      <td style=""line-height:0px;font-size:0px;mso-line-height-rule:exactly;"">
+                  <![endif]-->
+
+                  <div style=""margin: 0px auto; max-width: 600px"">
+                    <table
+                      align=""center""
+                      border=""0""
+                      cellpadding=""0""
+                      cellspacing=""0""
+                      role=""presentation""
+                      style=""width: 100%""
+                    >
+                      <tbody>
+                        <tr>
+                          <td
+                            style=""
+                              border-bottom: #F26302 solid 5px;
+                              direction: ltr;
+                              font-size: 0px;
+                              padding: 20px 0;
+                              text-align: center;
+                              vertical-align: top;
+                            ""
+                          >
+                            <!--[if mso | IE]>
+                              <table role=""presentation"" border=""0"" cellpadding=""0"" cellspacing=""0"">
+                
+                    <tr>
+      
+                        <td
+                           style=""vertical-align:bottom;width:600px;""
+                        >
+                      <![endif]-->
+
+                            <div
+                              class=""mj-column-per-100 outlook-group-fix""
+                              style=""
+                                font-size: 13px;
+                                text-align: left;
+                                direction: ltr;
+                                display: inline-block;
+                                vertical-align: bottom;
+                                width: 100%;
+                              ""
+                            >
+                              <table
+                                border=""0""
+                                cellpadding=""0""
+                                cellspacing=""0""
+                                role=""presentation""
+                                width=""100%""
+                              >
+                                <tbody>
+                                  <tr>
+                                    <td style=""vertical-align: bottom; padding: 0"">
+                                      <table
+                                        border=""0""
+                                        cellpadding=""0""
+                                        cellspacing=""0""
+                                        role=""presentation""
+                                        width=""100%""
+                                      >
+                                        <tr>
+                                          <td
+                                            align=""center""
+                                            style=""
+                                              font-size: 0px;
+                                              padding: 0;
+                                              word-break: break-word;
+                                            ""
+                                          >
+                                            <div
+                                              style=""
+                                                font-family: 'Helvetica Neue', Arial,
+                                                  sans-serif;
+                                                font-size: 12px;
+                                                font-weight: 300;
+                                                line-height: 1;
+                                                text-align: center;
+                                                color: #000000;
+                                              ""
+                                            >
+                                             950 Dannon View, SW Suite 4103 Atlanta, GA 30331
+                                            </div>
+                                          </td>
+                                        </tr>
+
+                                        <tr>
+                                          <td
+                                            align=""center""
+                                            style=""
+                                              font-size: 0px;
+                                              padding: 10px;
+                                              word-break: break-word;
+                                            ""
+                                          >
+                                            <div
+                                              style=""
+                                                font-family: 'Helvetica Neue', Arial,
+                                                  sans-serif;
+                                                font-size: 12px;
+                                                font-weight: 300;
+                                                line-height: 1;
+                                                text-align: center;
+                                                color: #000000;
+                                              ""
+                                            >
+                                              <a href="""" style=""color: #000000""
+                                                >Phone</a
+                                              >
+                                              404-593-0993
+                                            </div>
+                                          </td>
+                                        </tr>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+
+                            <!--[if mso | IE]>
+                        </td>
+          
+                    </tr>
+      
+                              </table>
+                            <![endif]-->
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <!--[if mso | IE]>
+                      </td>
+                    </tr>
+                  </table>
+                  <![endif]-->
+                </div>
+              </body>
+            </html>
+
+            ";
+            return emailTemplate;
         }
     }
 

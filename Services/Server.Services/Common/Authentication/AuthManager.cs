@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.Extensions.Configuration;
+using static System.Net.WebRequestMethods;
 
 namespace Server.Services
 {
@@ -91,7 +92,7 @@ namespace Server.Services
                     var myPayment= Payments.Where(x=>x.CompanyName.ToLower()==user.CompanyName.ToLower()).FirstOrDefault();
                     if(myPayment!= null)
                     {
-                        paid = true;
+                        paid    = true;
                     }
                 }
                 var Tenants          = await _tenants_Service.Find(x => x.CompanyName.ToLower() == user.CompanyName.ToLower());
@@ -109,17 +110,19 @@ namespace Server.Services
                         ProfileStatus = tenant.ProfileStatus;
                     }
                 }
-                var token = await GenerateToken(user, TenantId, CompanyStatus, ProfileStatus,paid);
+                var token =  await GenerateToken(user, TenantId, CompanyStatus, ProfileStatus, paid);
                 return new AuthResponseModel
                 {
-                    Token         = token,
-                    UserId        = user.Id,
-                    EmailStatus   = user.EmailConfirmed,
-                    CompanyStatus = CompanyStatus,
-                    ProfileStatus = ProfileStatus,
-                    paid          = paid,
-                    Message       = "Success",
-                    Name          = user.FirstName+" "+user.LastName
+                    Token            = token,
+                    UserId           = user.Id,
+                    EmailStatus      = user.EmailConfirmed,
+                    CompanyStatus    = CompanyStatus,
+                    ProfileStatus    = ProfileStatus,
+                    paid             = paid,
+                    Message          = "Success",
+                    Name             = user.FirstName+" "+user.LastName,
+                    CompanyName      = user.CompanyName,
+                    TwoFactorEnabled = user.TwoFactorEnabled
 
                 };
             }
@@ -558,11 +561,11 @@ namespace Server.Services
                 var result = await _userManager.ResetPasswordAsync(user, token, password);
                 if (result.Succeeded)
                 {
-                    var notification = new NOTIFICATIONS();
-                    notification.IsRead = false;
-                    notification.Message = "Your Password Detail Updated Successfully";
-                    notification.UserId = user.Id;
-                    notification.Timestamp = DateTime.Now;
+                    var notification          = new NOTIFICATIONS();
+                    notification.IsRead       = false;
+                    notification.Message      = "Your Password Detail Updated Successfully";
+                    notification.UserId       = user.Id;
+                    notification.Timestamp    = DateTime.Now;
                     notification.WorkflowStep = "Password Update";
                     await _notifications_Service.InsertAsync(notification);
                     await _notifications_Service.CompleteAync();
@@ -591,18 +594,18 @@ namespace Server.Services
                     user.EmailConfirmed = true;
                     await _userManager.UpdateAsync(user);
                     string subject      = "Email Confirmed Successfully";
-                    string salutation   = "Dear " + user.FirstName + " " + user.LastName;
-                    string messageBody  = $"<h1>Your Email confirmed Successfully thanks to be part of Sapient Medical  </h1>";
+                    string salutation   = user.FirstName + " " + user.LastName;
+                    string messageBody  = CreateConfirmedEmailBody(salutation);
                     string emailMessage = $"{subject}\n\n{salutation}\n\n{messageBody}";
-                    await _emailService.SendEmailAsync(user.Email, subject, emailMessage);
+                    await _emailService.SendEmail1Async(user.Email, subject, emailMessage);
                     var res             = await _passwordResetService.Delete(retVlaue);
                     if (res)
                     {
                         await _passwordResetService.CompleteAync();
-                        var notification = new NOTIFICATIONS();
-                        notification.IsRead = false;
-                        notification.Message = "Your Emai Confirmed Successfully";
-                        notification.UserId = user.Id;
+                        var notification       = new NOTIFICATIONS();
+                        notification.IsRead    = false;
+                        notification.Message   = "Your Emai Confirmed Successfully";
+                        notification.UserId    = user.Id;
                         notification.Timestamp = DateTime.Now;
                         notification.WorkflowStep = "Email Confirmation";
                         await _notifications_Service.InsertAsync(notification);
@@ -646,12 +649,10 @@ namespace Server.Services
                 {
                     return retValue;
                 }
-                string subject = "Verify Email";
-                string salutation = "Dear" + " " + user.FirstName + " " + user.LastName;
-                string messageBody = $"\r\n\r\n\n\n\nThank you for registering with PelicanHRM.\r\n\r\nEmail Verification OTP\r\n\r\n\n\n\n:<h1>{otp}</h1>";
-
-                string emailMessage = $"\r\n\r\n\n<h1>{salutation}</h1>\r\n\r\n\n\n\n{messageBody}";
-                await _emailService.SendEmailAsync(user.Email, subject, emailMessage, true);
+                string subject      = "Verify Email";
+                string salutation   =  user.FirstName + " " + user.LastName;
+                string emailMessage = CreateConfirmEmailBody(otp, salutation);
+                await _emailService.SendEmail1Async(user.Email, subject, emailMessage, true);
                 var notification = new NOTIFICATIONS();
                 notification.IsRead = false;
                 notification.Message = "Email Confirmation sent Successfully";
@@ -733,7 +734,15 @@ namespace Server.Services
                                    : new List<Claim>();
 
             var userClaims = await _userManager.GetClaimsAsync(user);
-
+            bool TwoFactorEnabled;
+            if (user.TwoFactorEnabled)
+            {
+                TwoFactorEnabled = true;
+            }
+            else
+            {
+                TwoFactorEnabled = false;
+            }
             var claims = new List<Claim>
             {
                 new Claim(JwtRegisteredClaimNames.Sub, user.Email),
@@ -743,6 +752,7 @@ namespace Server.Services
                 new Claim("isAdmin", user.isAdmin ? "true" : "false"),
                 new Claim("isEmployee", user.isEmployee ? "true" : "false"),
                 new Claim("EmailConfirmed", user.EmailConfirmed ? "true" : "false"),
+                new Claim("TwoFactorEnabled", TwoFactorEnabled ? "true" : "false"),
                 new Claim("payment", payment ? "true" : "false"),
                 new Claim("TenantId", tenantId.ToString()),
                 new Claim("CompanyStatus", CompanyStatus),
@@ -1135,7 +1145,7 @@ namespace Server.Services
                             var company      = new PelicanHRMTenant()
                             {
                                 CompanyName   = model.CompanyName,
-                                CompanyStatus = "Actve",
+                                CompanyStatus = "Active",
                                 ProfileStatus = "InCompleted"
 
                             };
@@ -1230,19 +1240,22 @@ namespace Server.Services
                        tenant.State                = model.State;
                        tenant.ProfileStatus        = "Completed";
                        tenant.LegalName            = model.LegalName;
-                       tenant.noDomesticContractor = tenant.noDomesticContractor;
-                       tenant.noDomesticEmployee   = tenant.noDomesticEmployee;
-                       tenant.FillingFormIRS       = tenant.FillingFormIRS;
-                       tenant.Industry             = tenant.Industry;
-                       tenant.noInterContractor    = tenant.noInterContractor;
+                       tenant.noDomesticContractor = model.noDomesticContractor;
+                       tenant.noDomesticEmployee   = model.noDomesticEmployee;
+                       tenant.FillingFormIRS       = model.FillingFormIRS;
+                       tenant.Industry             = model.Industry;
+                       tenant.noInterContractor    = model.noInterContractor;
                        tenant.Country              = model.Country;
                        tenant.noInterEmployee      = model.noInterEmployee;
                        tenant.PhoneNumber          = model.PhoneNumber;
                        tenant.whosisCompany        = model.whosisCompany;
                        tenant.State                = model.State;
                        tenant.CreatedAt            = DateTime.Now;
-                        _tenants_Service.UpdateRecord(tenant);
-                        await _tenants_Service.CompleteAync();
+                       tenant.ZipCode              = model.ZipCode;
+                        _context.Entry(tenant).Property("CompanyId").IsModified = false;
+                        _context.Update(tenant);
+                        _context.Entry(tenant).Property("CompanyId").IsModified = false;
+                        _context.SaveChanges();
 
                     }
 
@@ -1252,6 +1265,60 @@ namespace Server.Services
                 else
                 {
                     return "Error in Registering Company";
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message + ex.InnerException?.Message);
+            }
+        }
+
+
+        public async Task<TenantUpdate> GetUpdateTenant()
+        {
+            try
+            {
+                var tenantId                 = Convert.ToInt32(_httpContextAccessor.HttpContext?.Items["CurrentTenant"]);
+                IList<PelicanHRMTenant> list = await _tenants_Service.Find(x => x.CompanyId==tenantId);
+                if (list.Count != 0)
+                {
+                    PelicanHRMTenant tenant    = list.FirstOrDefault();
+                    TenantUpdate     Tenants   = new TenantUpdate();
+                    if (tenant!= null) 
+                    {
+                        Tenants.EIN                   = tenant.EIN;                 
+                        Tenants.AddressLine1          = tenant.AddressLine1;
+                        Tenants.AddressLine2          = tenant.AddressLine2;
+                        Tenants.isPhysicalAddress     = tenant.isPhysicalAddress;
+                        Tenants.isMailingAddress      = tenant.isMailingAddress;
+                        Tenants.BussinessType         = tenant.BussinessType;
+                        Tenants.City                  = tenant.City;
+                        Tenants.State                 = tenant.State;
+                        Tenants.LegalName             = tenant.LegalName;
+                        Tenants.noDomesticContractor  = tenant.noDomesticContractor.GetValueOrDefault();
+                        Tenants.noDomesticEmployee    = tenant.noDomesticEmployee.GetValueOrDefault();
+                        Tenants.FillingFormIRS        = tenant.FillingFormIRS;
+                        Tenants.Industry              = tenant.Industry;
+                        Tenants.noInterContractor     = tenant.noInterContractor.GetValueOrDefault();
+                        Tenants.Country               = tenant.Country;
+                        Tenants.noInterEmployee       = tenant.noInterEmployee.GetValueOrDefault();
+                        Tenants.PhoneNumber           = tenant.PhoneNumber;
+                        Tenants.whosisCompany         = tenant.whosisCompany;
+                        Tenants.State                 = tenant.State;
+                        Tenants.ZipCode               = tenant.ZipCode;              
+                       
+
+                    }
+
+
+                    return Tenants;
+                }
+                else
+
+                {
+                    TenantUpdate Tenants1 = new TenantUpdate();
+                    return Tenants1;
                 }
             }
             catch (Exception ex)
@@ -1274,8 +1341,10 @@ namespace Server.Services
                     {
                        tenant.CompanyStatus        = model.Status;
                        tenant.CreatedAt            = DateTime.Now;
-                        _tenants_Service.UpdateRecord(tenant);
-                        await _tenants_Service.CompleteAync();
+                        _context.Entry(tenant).Property("CompanyId").IsModified = false;
+                        _context.Update(tenant);
+                        _context.Entry(tenant).Property("CompanyId").IsModified = false;
+                        _context.SaveChanges();
                     }
 
                     
@@ -1290,6 +1359,1595 @@ namespace Server.Services
             {
 
                 throw new Exception(ex.Message + ex.InnerException?.Message);
+            }
+        }
+
+        #endregion
+
+
+        #region Email Templates
+        private static string CreateConfirmEmailBody(string OTP, string Username)
+        {
+            string emailTemplate = $@"
+                 <!DOCTYPE html>
+        <html
+          xmlns=""http://www.w3.org/1999/xhtml""
+          xmlns:v=""urn:schemas-microsoft-com:vml""
+          xmlns:o=""urn:schemas-microsoft-com:office:office""
+        >
+          <head>
+            <title> </title>
+            <!--[if !mso]><!-- -->
+            <meta http-equiv=""X-UA-Compatible"" content=""IE=edge"" />
+            <!--<![endif]-->
+            <meta http-equiv=""Content-Type"" content=""text/html; charset=UTF-8"" />
+            <meta name=""viewport"" content=""width=device-width, initial-scale=1"" />
+            <style type=""text/css"">
+              #outlook a {{
+                padding: 0;
+              }}
+
+              .ReadMsgBody {{
+                width: 100%;
+              }}
+
+              .ExternalClass {{
+                width: 100%;
+              }}
+
+              .ExternalClass * {{
+                line-height: 100%;
+              }}
+
+              body {{
+                margin: 0;
+                padding: 0;
+                -webkit-text-size-adjust: 100%;
+                -ms-text-size-adjust: 100%;
+              }}
+
+              table,
+              td {{
+                border-collapse: collapse;
+                mso-table-lspace: 0pt;
+                mso-table-rspace: 0pt;
+              }}
+
+              img {{
+                border: 0;
+                height: auto;
+                line-height: 100%;
+                outline: none;
+                text-decoration: none;
+                -ms-interpolation-mode: bicubic;
+              }}
+
+              p {{
+                display: block;
+                margin: 13px 0;
+              }}
+            </style>
+            <!--[if !mso]><!-->
+            <style type=""text/css"">
+              @media only screen and (max-width: 480px) {{
+                @-ms-viewport {{
+                  width: 320px;
+                }}
+
+                @viewport {{
+                  width: 320px;
+                }}
+              }}
+            </style>
+            <!--<![endif]-->
+            <!--[if mso]>
+              <xml>
+                <o:OfficeDocumentSettings>
+                  <o:AllowPNG />
+                  <o:PixelsPerInch>96</o:PixelsPerInch>
+                </o:OfficeDocumentSettings>
+              </xml>
+            <![endif]-->
+            <!--[if lte mso 11]>
+              <style type=""text/css"">
+                .outlook-group-fix {{
+                  width: 100% !important;
+                }}
+              </style>
+            <![endif]-->
+
+            <style type=""text/css"">
+              @media only screen and (min-width: 480px) {{
+                .mj-column-per-100 {{
+                  width: 100% !important;
+                }}
+              }}
+            </style>
+
+            <style type=""text/css""></style>
+          </head>
+
+          <body style=""background-color: #f9f9f9"">
+            <div style=""background-color: #f9f9f9"">
+              <!--[if mso | IE]>
+              <table
+                 align=""center"" border=""0"" cellpadding=""0"" cellspacing=""0"" style=""width:600px;"" width=""600""
+              >
+                <tr>
+                  <td style=""line-height:0px;font-size:0px;mso-line-height-rule:exactly;"">
+              <![endif]-->
+
+              <div
+                style=""
+                  background: rgb(241,245,249);
+                  background-color: rgb(241,245,249);
+                  margin: 0px auto;
+                  max-width: 600px;
+                ""
+              >
+                <table
+                  align=""center""
+                  border=""0""
+                  cellpadding=""0""
+                  cellspacing=""0""
+                  role=""presentation""
+                  style=""background: #f9f9f9; background-color: #f9f9f9; width: 100%""
+                >
+                  <tbody>
+                    <tr>
+                      <td
+                        style=""
+                          border-bottom: #F26302 solid 5px;
+                          direction: ltr;
+                          font-size: 0px;
+                          padding: 20px 0;
+                          text-align: center;
+                          vertical-align: top;
+                        ""
+                      >
+                        <!--[if mso | IE]>
+                          <table
+                            role=""presentation""
+                            border=""0""
+                            cellpadding=""0""
+                            cellspacing=""0""
+                          >
+                            <tr></tr>
+                          </table>
+                        <![endif]-->
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!--[if mso | IE]>
+                  </td>
+                </tr>
+              </table>
+      
+              <table
+                 align=""center"" border=""0"" cellpadding=""0"" cellspacing=""0"" style=""width:600px;"" width=""600""
+              >
+                <tr>
+                  <td style=""line-height:0px;font-size:0px;mso-line-height-rule:exactly;"">
+              <![endif]-->
+
+              <div
+                style=""
+                  background: #fff;
+                  background-color: #fff;
+                  margin: 0px auto;
+                  max-width: 600px;
+                ""
+              >
+                <table
+                  align=""center""
+                  border=""0""
+                  cellpadding=""0""
+                  cellspacing=""0""
+                  role=""presentation""
+                  style=""background: #fff; background-color: #fff; width: 100%""
+                >
+                  <tbody>
+                    <tr>
+                      <td
+                        style=""
+                          border: #dddddd solid 1px;
+                          border-top: 0px;
+                          direction: ltr;
+                          font-size: 0px;
+                          padding: 20px 0;
+                          text-align: center;
+                          vertical-align: top;
+                        ""
+                      >
+                        <!--[if mso | IE]>
+                          <table role=""presentation"" border=""0"" cellpadding=""0"" cellspacing=""0"">
+                
+                <tr>
+      
+                    <td
+                       style=""vertical-align:bottom;width:600px;""
+                    >
+                  <![endif]-->
+
+                        <div
+                          class=""mj-column-per-100 outlook-group-fix""
+                          style=""
+                            font-size: 13px;
+                            text-align: left;
+                            direction: ltr;
+                            display: inline-block;
+                            vertical-align: bottom;
+                            width: 100%;
+                          ""
+                        >
+                          <table
+                            border=""0""
+                            cellpadding=""0""
+                            cellspacing=""0""
+                            role=""presentation""
+                            style=""vertical-align: bottom""
+                            width=""100%""
+                          >
+                            <tr>
+                              <td
+                                align=""center""
+                                style=""
+                                  font-size: 0px;
+                                  padding: 10px 25px;
+                                  word-break: break-word;
+                                ""
+                              >
+                                <table
+                                  align=""center""
+                                  border=""0""
+                                  cellpadding=""0""
+                                  cellspacing=""0""
+                                  role=""presentation""
+                                  style=""border-collapse: collapse; border-spacing: 0px""
+                                >
+                                  <tbody>
+                                    <tr>
+                                      <td style=""width: 200px"">
+                                        <img
+                                          height=""auto""
+                                          src=""https://firebasestorage.googleapis.com/v0/b/images-107c9.appspot.com/o/BottomLogo.jpeg?alt=media&token=48c6d297-9821-4d2c-bb7f-33ea079043f7""
+                                          style=
+                                          ""
+                                          border: 0;
+                                          display: block;
+                                          outline: none;
+                                          text-decoration: none;
+                                          width: 100%;
+                                          ""
+                                          width=""200""
+                                        />
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+
+                            <tr>
+                              <td
+                                align=""center""
+                                style=""
+                                  font-size: 0px;
+                                  padding: 10px 25px;
+                                  padding-bottom: 40px;
+                                  word-break: break-word;
+                                ""
+                              >
+                                <div
+                                  style=""
+                                    font-family: 'Helvetica Neue', Arial, sans-serif;
+                                    font-size: 32px;
+                                    font-weight: bold;
+                                    line-height: 1;
+                                    text-align: center;
+                                    color: #555;
+                                  ""
+                                >
+                                Verify Email
+                                </div>
+                              </td>
+                            </tr>
+
+                            <tr>
+                              <td
+                                align=""center""
+                                style=""
+                                  font-size: 0px;
+                                  padding: 10px 25px;
+                                  padding-bottom: 0;
+                                  word-break: break-word;
+                                ""
+                              >
+                                <div
+                                  style=""
+                                    font-family: 'Helvetica Neue', Arial, sans-serif;
+                                    font-size: 16px;
+                                    line-height: 22px;
+                                    text-align: center;
+                                    color: #555;
+                                  ""
+                                >
+                                 Dear {Username}
+                                </div>
+                              </td>
+                            </tr>
+
+                            <tr>
+                              <td
+                                align=""center""
+                                style=""
+                                  font-size: 0px;
+                                  padding: 10px 25px;
+                                  word-break: break-word;
+                                ""
+                              >
+                                <div
+                                  style=""
+                                    font-family: 'Helvetica Neue', Arial, sans-serif;
+                                    font-size: 16px;
+                                    line-height: 22px;
+                                    text-align: center;
+                                    color: #555;
+                                  ""
+                                >
+                                 Thank you for registering with PelicanHRM.
+                                </div>
+                              </td>
+                            </tr>
+
+                            <tr>
+                              <td
+                                align=""center""
+                                style=""
+                                  font-size: 0px;
+                                  padding: 10px 25px;
+                                  padding-bottom: 20px;
+                                  word-break: break-word;
+                                ""
+                              >
+                                <div
+                                  style=""
+                                    font-family: 'Helvetica Neue', Arial, sans-serif;
+                                    font-size: 16px;
+                                    line-height: 22px;
+                                    text-align: center;
+                                    color: #555;
+                                  ""
+                                >
+                                 Your email verification OTP
+                                </div>
+                              </td>
+                            </tr>
+
+                            <tr>
+                              <td
+                                align=""center""
+                                style=""
+                                  font-size: 0px;
+                                  padding: 10px 25px;
+                                  padding-top: 30px;
+                                  padding-bottom: 40px;
+                                  word-break: break-word;
+                                ""
+                              >
+                                <table
+                                  align=""center""
+                                  border=""0""
+                                  cellpadding=""0""
+                                  cellspacing=""0""
+                                  role=""presentation""
+                                  style=""border-collapse: separate; line-height: 100%""
+                                >
+                                  <tr>
+                                    <td
+                                      align=""center""
+                             
+                                      role=""presentation""
+                                      style=""
+                                        border: none;
+                                        border-radius: 3px;
+                                        color: #ffffff;
+                                        cursor: auto;
+                                        padding: 15px 75px;
+                                        border-radius: 25px;
+                                      ""
+                                      valign=""middle""
+                                    >
+                                    <p style=""
+                                    background: linear-gradient(to right,rgb(254,0,0), rgb(235,123,49), rgb(235,123,49), rgb(235,123,49) 30%, rgb(235,123,49) 70%, rgb(255,165,0)) !important;
+                                    color: #ffffff;
+                                    font-family: 'Helvetica Neue', Arial, sans-serif;
+                                    font-size: 15px;
+                                    font-weight: 800; /* Note: font-weight was already set to 800, so no need to set it again */
+                                    line-height: 120%;
+                                    margin: 0;
+                                    text-decoration: none;
+                                    text-transform: none;
+                                    box-shadow: 2px 2px 5px rgba(0,0,0,0.3); /* Shadow */
+                                    padding: 18px 70px 18px 70px; 
+                                    border-radius: 25px;
+                                    "">
+                                    {OTP}
+                                    </p>
+                        
+                                    </td>
+                                  </tr>
+                                </table>
+                              </td>
+                            </tr>
+
+                    
+                   
+                            <tr>
+                              <td
+                                align=""center""
+                                style=""
+                                  font-size: 0px;
+                                  padding: 10px 25px;
+                                  word-break: break-word;
+                                ""
+                              >
+                                <div
+                                  style=""
+                                    font-family: 'Helvetica Neue', Arial, sans-serif;
+                                    font-size: 26px;
+                                    font-weight: bold;
+                                    line-height: 1;
+                                    text-align: center;
+                                    color: #555;
+                                  ""
+                                >
+                                  Need Help?
+                                </div>
+                              </td>
+                            </tr>
+
+                            <tr>
+                              <td
+                                align=""center""
+                                style=""
+                                  font-size: 0px;
+                                  padding: 10px 25px;
+                                  word-break: break-word;
+                                ""
+                              >
+                                <div
+                                  style=""
+                                    font-family: 'Helvetica Neue', Arial, sans-serif;
+                                    font-size: 14px;
+                                    line-height: 22px;
+                                    text-align: center;
+                                    color: #555;
+                                  ""
+                                >
+                                  Please send and feedback or bug info<br />
+                                  to
+                                  <a
+                                    href=""mailto:info@example.com""
+                                    style=""color: #2f67f6""
+                                    >info@pelicanhrm.com</a
+                                  >
+                                </div>
+                              </td>
+                            </tr>
+                          </table>
+                        </div>
+
+                        <!--[if mso | IE]>
+                    </td>
+          
+                </tr>
+      
+                          </table>
+                        <![endif]-->
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!--[if mso | IE]>
+                  </td>
+                </tr>
+              </table>
+      
+              <table
+                 align=""center"" border=""0"" cellpadding=""0"" cellspacing=""0"" style=""width:600px;"" width=""600""
+              >
+                <tr>
+                  <td style=""line-height:0px;font-size:0px;mso-line-height-rule:exactly;"">
+              <![endif]-->
+
+              <div style=""margin: 0px auto; max-width: 600px"">
+                <table
+                  align=""center""
+                  border=""0""
+                  cellpadding=""0""
+                  cellspacing=""0""
+                  role=""presentation""
+                  style=""width: 100%""
+                >
+                  <tbody>
+                    <tr>
+                      <td
+                        style=""
+                          border-bottom: #F26302 solid 5px;
+                          direction: ltr;
+                          font-size: 0px;
+                          padding: 20px 0;
+                          text-align: center;
+                          vertical-align: top;
+                        ""
+                      >
+                        <!--[if mso | IE]>
+                          <table role=""presentation"" border=""0"" cellpadding=""0"" cellspacing=""0"">
+                
+                <tr>
+      
+                    <td
+                       style=""vertical-align:bottom;width:600px;""
+                    >
+                  <![endif]-->
+
+                        <div
+                          class=""mj-column-per-100 outlook-group-fix""
+                          style=""
+                            font-size: 13px;
+                            text-align: left;
+                            direction: ltr;
+                            display: inline-block;
+                            vertical-align: bottom;
+                            width: 100%;
+                          ""
+                        >
+                          <table
+                            border=""0""
+                            cellpadding=""0""
+                            cellspacing=""0""
+                            role=""presentation""
+                            width=""100%""
+                          >
+                            <tbody>
+                              <tr>
+                                <td style=""vertical-align: bottom; padding: 0"">
+                                  <table
+                                    border=""0""
+                                    cellpadding=""0""
+                                    cellspacing=""0""
+                                    role=""presentation""
+                                    width=""100%""
+                                  >
+                                    <tr>
+                                      <td
+                                        align=""center""
+                                        style=""
+                                          font-size: 0px;
+                                          padding: 0;
+                                          word-break: break-word;
+                                        ""
+                                      >
+                                        <div
+                                          style=""
+                                            font-family: 'Helvetica Neue', Arial,
+                                              sans-serif;
+                                            font-size: 12px;
+                                            font-weight: 300;
+                                            line-height: 1;
+                                            text-align: center;
+                                            color: #000000;
+                                          ""
+                                        >
+                                         950 Dannon View, SW Suite 4103 Atlanta, GA 30331
+                                        </div>
+                                      </td>
+                                    </tr>
+
+                                    <tr>
+                                      <td
+                                        align=""center""
+                                        style=""
+                                          font-size: 0px;
+                                          padding: 10px;
+                                          word-break: break-word;
+                                        ""
+                                      >
+                                        <div
+                                          style=""
+                                            font-family: 'Helvetica Neue', Arial,
+                                              sans-serif;
+                                            font-size: 12px;
+                                            font-weight: 300;
+                                            line-height: 1;
+                                            text-align: center;
+                                            color: #000000;
+                                          ""
+                                        >
+                                          <a href="""" style=""color: #000000""
+                                            >Phone</a
+                                          >
+                                          404-593-0993
+                                        </div>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+
+                        <!--[if mso | IE]>
+                    </td>
+          
+                </tr>
+      
+                          </table>
+                        <![endif]-->
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!--[if mso | IE]>
+                  </td>
+                </tr>
+              </table>
+              <![endif]-->
+            </div>
+          </body>
+        </html>
+
+                ";
+            return emailTemplate;
+        }
+        private static string CreateConfirmedEmailBody(string Username)
+        {
+            string emailTemplate = $@"
+             <!DOCTYPE html>
+            <html
+              xmlns=""http://www.w3.org/1999/xhtml""
+              xmlns:v=""urn:schemas-microsoft-com:vml""
+              xmlns:o=""urn:schemas-microsoft-com:office:office""
+            >
+              <head>
+                <title> </title>
+                <!--[if !mso]><!-- -->
+                <meta http-equiv=""X-UA-Compatible"" content=""IE=edge"" />
+                <!--<![endif]-->
+                <meta http-equiv=""Content-Type"" content=""text/html; charset=UTF-8"" />
+                <meta name=""viewport"" content=""width=device-width, initial-scale=1"" />
+                <style type=""text/css"">
+                  #outlook a {{
+                    padding: 0;
+                  }}
+
+                  .ReadMsgBody {{
+                    width: 100%;
+                  }}
+
+                  .ExternalClass {{
+                    width: 100%;
+                  }}
+
+                  .ExternalClass * {{
+                    line-height: 100%;
+                  }}
+
+                  body {{
+                    margin: 0;
+                    padding: 0;
+                    -webkit-text-size-adjust: 100%;
+                    -ms-text-size-adjust: 100%;
+                  }}
+
+                  table,
+                  td {{
+                    border-collapse: collapse;
+                    mso-table-lspace: 0pt;
+                    mso-table-rspace: 0pt;
+                  }}
+
+                  img {{
+                    border: 0;
+                    height: auto;
+                    line-height: 100%;
+                    outline: none;
+                    text-decoration: none;
+                    -ms-interpolation-mode: bicubic;
+                  }}
+
+                  p {{
+                    display: block;
+                    margin: 13px 0;
+                  }}
+                </style>
+                <!--[if !mso]><!-->
+                <style type=""text/css"">
+                  @media only screen and (max-width: 480px) {{
+                    @-ms-viewport {{
+                      width: 320px;
+                    }}
+
+                    @viewport {{
+                      width: 320px;
+                    }}
+                  }}
+                </style>
+                <!--<![endif]-->
+                <!--[if mso]>
+                  <xml>
+                    <o:OfficeDocumentSettings>
+                      <o:AllowPNG />
+                      <o:PixelsPerInch>96</o:PixelsPerInch>
+                    </o:OfficeDocumentSettings>
+                  </xml>
+                <![endif]-->
+                <!--[if lte mso 11]>
+                  <style type=""text/css"">
+                    .outlook-group-fix {{
+                      width: 100% !important;
+                    }}
+                  </style>
+                <![endif]-->
+
+                <style type=""text/css"">
+                  @media only screen and (min-width: 480px) {{
+                    .mj-column-per-100 {{
+                      width: 100% !important;
+                    }}
+                  }}
+                </style>
+
+                <style type=""text/css""></style>
+              </head>
+
+              <body style=""background-color: #f9f9f9"">
+                <div style=""background-color: #f9f9f9"">
+                  <!--[if mso | IE]>
+                  <table
+                     align=""center"" border=""0"" cellpadding=""0"" cellspacing=""0"" style=""width:600px;"" width=""600""
+                  >
+                    <tr>
+                      <td style=""line-height:0px;font-size:0px;mso-line-height-rule:exactly;"">
+                  <![endif]-->
+
+                  <div
+                    style=""
+                      background: #f9f9f9;
+                      background-color: #f9f9f9;
+                      margin: 0px auto;
+                      max-width: 600px;
+                    ""
+                  >
+                    <table
+                      align=""center""
+                      border=""0""
+                      cellpadding=""0""
+                      cellspacing=""0""
+                      role=""presentation""
+                      style=""background: #f9f9f9; background-color: #f9f9f9; width: 100%""
+                    >
+                      <tbody>
+                        <tr>
+                          <td
+                            style=""
+                              border-bottom: #F26302 solid 5px;
+                              direction: ltr;
+                              font-size: 0px;
+                              padding: 20px 0;
+                              text-align: center;
+                              vertical-align: top;
+                            ""
+                          >
+                            <!--[if mso | IE]>
+                              <table
+                                role=""presentation""
+                                border=""0""
+                                cellpadding=""0""
+                                cellspacing=""0""
+                              >
+                                <tr></tr>
+                              </table>
+                            <![endif]-->
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <!--[if mso | IE]>
+                      </td>
+                    </tr>
+                  </table>
+      
+                  <table
+                     align=""center"" border=""0"" cellpadding=""0"" cellspacing=""0"" style=""width:600px;"" width=""600""
+                  >
+                    <tr>
+                      <td style=""line-height:0px;font-size:0px;mso-line-height-rule:exactly;"">
+                  <![endif]-->
+
+                  <div
+                    style=""
+                      background: #fff;
+                      background-color: #fff;
+                      margin: 0px auto;
+                      max-width: 600px;
+                    ""
+                  >
+                    <table
+                      align=""center""
+                      border=""0""
+                      cellpadding=""0""
+                      cellspacing=""0""
+                      role=""presentation""
+                      style=""background: #fff; background-color: #fff; width: 100%""
+                    >
+                      <tbody>
+                        <tr>
+                          <td
+                            style=""
+                              border: #dddddd solid 1px;
+                              border-top: 0px;
+                              direction: ltr;
+                              font-size: 0px;
+                              padding: 20px 0;
+                              text-align: center;
+                              vertical-align: top;
+                            ""
+                          >
+                            <!--[if mso | IE]>
+                              <table role=""presentation"" border=""0"" cellpadding=""0"" cellspacing=""0"">
+                
+                    <tr>
+      
+                        <td
+                           style=""vertical-align:bottom;width:600px;""
+                        >
+                      <![endif]-->
+
+                            <div
+                              class=""mj-column-per-100 outlook-group-fix""
+                              style=""
+                                font-size: 13px;
+                                text-align: left;
+                                direction: ltr;
+                                display: inline-block;
+                                vertical-align: bottom;
+                                width: 100%;
+                              ""
+                            >
+                              <table
+                                border=""0""
+                                cellpadding=""0""
+                                cellspacing=""0""
+                                role=""presentation""
+                                style=""vertical-align: bottom""
+                                width=""100%""
+                              >
+                                <tr>
+                                  <td
+                                    align=""center""
+                                    style=""
+                                      font-size: 0px;
+                                      padding: 10px 25px;
+                                      word-break: break-word;
+                                    ""
+                                  >
+                                    <table
+                                      align=""center""
+                                      border=""0""
+                                      cellpadding=""0""
+                                      cellspacing=""0""
+                                      role=""presentation""
+                                      style=""border-collapse: collapse; border-spacing: 0px""
+                                    >
+                                      <tbody>
+                                        <tr>
+                                          <td style=""width: 200px"">
+                                            <img
+                                              height=""auto""
+                                              src=""https://firebasestorage.googleapis.com/v0/b/images-107c9.appspot.com/o/BottomLogo.jpeg?alt=media&token=48c6d297-9821-4d2c-bb7f-33ea079043f7""
+                                              style=""
+                                                border: 0;
+                                                display: block;
+                                                outline: none;
+                                                text-decoration: none;
+                                                width: 100%;
+                                              ""
+                                              width=""200""
+                                            />
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td
+                                    align=""center""
+                                    style=""
+                                      font-size: 0px;
+                                      padding: 10px 25px;
+                                      padding-bottom: 40px;
+                                      word-break: break-word;
+                                    ""
+                                  >
+                                    <div
+                                      style=""
+                                        font-family: 'Helvetica Neue', Arial, sans-serif;
+                                        font-size: 32px;
+                                        font-weight: bold;
+                                        line-height: 1;
+                                        text-align: center;
+                                        color: #555;
+                                      ""
+                                    >
+                                    Email is confirmed successfully
+                                    </div>
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td
+                                    align=""center""
+                                    style=""
+                                      font-size: 0px;
+                                      padding: 10px 25px;
+                                      padding-bottom: 0;
+                                      word-break: break-word;
+                                    ""
+                                  >
+                                    <div
+                                      style=""
+                                        font-family: 'Helvetica Neue', Arial, sans-serif;
+                                        font-size: 16px;
+                                        line-height: 22px;
+                                        text-align: center;
+                                        color: #555;
+                                      ""
+                                    >
+                                     Dear {Username}
+                                    </div>
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td
+                                    align=""center""
+                                    style=""
+                                      font-size: 0px;
+                                      padding: 10px 25px;
+                                      word-break: break-word;
+                                    ""
+                                  >
+                                    <div
+                                      style=""
+                                        font-family: 'Helvetica Neue', Arial, sans-serif;
+                                        font-size: 16px;
+                                        line-height: 22px;
+                                        text-align: center;
+                                        color: #555;
+                                      ""
+                                    >
+                                     Your email is confirmed successfully.
+                                    </div>
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td
+                                    align=""center""
+                                    style=""
+                                      font-size: 0px;
+                                      padding: 10px 25px;
+                                      padding-bottom: 20px;
+                                      word-break: break-word;
+                                    ""
+                                  >
+                                    <div
+                                      style=""
+                                        font-family: 'Helvetica Neue', Arial, sans-serif;
+                                        font-size: 16px;
+                                        line-height: 22px;
+                                        text-align: center;
+                                        color: #555;
+                                      ""
+                                    >
+                                     Please Login in to PelicanHRM
+                                    </div>
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td
+                                    align=""center""
+                                    style=""
+                                      font-size: 0px;
+                                      padding: 10px 25px;
+                                      padding-top: 30px;
+                                      padding-bottom: 40px;
+                                      word-break: break-word;
+                                    ""
+                                  >
+                                    <table
+                                      align=""center""
+                                      border=""0""
+                                      cellpadding=""0""
+                                      cellspacing=""0""
+                                      role=""presentation""
+                                      style=""border-collapse: separate; line-height: 100%""
+                                    >
+                                      <tr>
+                                        <td
+                                          align=""center""
+                                          role=""presentation""
+                                          style=""
+                                            border: none;
+                                            border-radius: 3px;
+                                            color: #ffffff;
+                                            cursor: auto;
+                                            padding: 15px 25px;
+                                          ""
+                                          valign=""middle""
+                                        >
+                                       <img
+                                          height=""auto""
+                                          src=""https://firebasestorage.googleapis.com/v0/b/images-107c9.appspot.com/o/email.png?alt=media&token=af53911e-21cb-4445-ab72-bbb98e257507""
+                                          style=""
+                                            border: 0;
+                                            display: block;
+                                            outline: none;
+                                            text-decoration: none;
+                                            width: 100%;
+                                          ""
+                                          width=""64""
+                                        />
+                                        </td>
+                                      </tr>
+                                    </table>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td
+                                    align=""center""
+                                    style=""
+                                      font-size: 0px;
+                                      padding: 10px 25px;
+                                      word-break: break-word;
+                                    ""
+                                  >
+                                    <div
+                                      style=""
+                                        font-family: 'Helvetica Neue', Arial, sans-serif;
+                                        font-size: 26px;
+                                        font-weight: bold;
+                                        line-height: 1;
+                                        text-align: center;
+                                        color: #555;
+                                      ""
+                                    >
+                                      Need Help?
+                                    </div>
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td
+                                    align=""center""
+                                    style=""
+                                      font-size: 0px;
+                                      padding: 10px 25px;
+                                      word-break: break-word;
+                                    ""
+                                  >
+                                    <div
+                                      style=""
+                                        font-family: 'Helvetica Neue', Arial, sans-serif;
+                                        font-size: 14px;
+                                        line-height: 22px;
+                                        text-align: center;
+                                        color: #555;
+                                      ""
+                                    >
+                                      Please send and feedback or bug info<br />
+                                      to
+                                      <a
+                                        href=""mailto:info@example.com""
+                                        style=""color: #2f67f6""
+                                        >info@pelicanhrm.com</a
+                                      >
+                                    </div>
+                                  </td>
+                                </tr>
+                              </table>
+                            </div>
+
+                            <!--[if mso | IE]>
+                        </td>
+          
+                    </tr>
+      
+                              </table>
+                            <![endif]-->
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <!--[if mso | IE]>
+                      </td>
+                    </tr>
+                  </table>
+      
+                  <table
+                     align=""center"" border=""0"" cellpadding=""0"" cellspacing=""0"" style=""width:600px;"" width=""600""
+                  >
+                    <tr>
+                      <td style=""line-height:0px;font-size:0px;mso-line-height-rule:exactly;"">
+                  <![endif]-->
+
+                  <div style=""margin: 0px auto; max-width: 600px"">
+                    <table
+                      align=""center""
+                      border=""0""
+                      cellpadding=""0""
+                      cellspacing=""0""
+                      role=""presentation""
+                      style=""width: 100%""
+                    >
+                      <tbody>
+                        <tr>
+                          <td
+                            style=""
+                              border-bottom: #F26302 solid 5px;
+                              direction: ltr;
+                              font-size: 0px;
+                              padding: 20px 0;
+                              text-align: center;
+                              vertical-align: top;
+                            ""
+                          >
+                            <!--[if mso | IE]>
+                              <table role=""presentation"" border=""0"" cellpadding=""0"" cellspacing=""0"">
+                
+                    <tr>
+      
+                        <td
+                           style=""vertical-align:bottom;width:600px;""
+                        >
+                      <![endif]-->
+
+                            <div
+                              class=""mj-column-per-100 outlook-group-fix""
+                              style=""
+                                font-size: 13px;
+                                text-align: left;
+                                direction: ltr;
+                                display: inline-block;
+                                vertical-align: bottom;
+                                width: 100%;
+                              ""
+                            >
+                              <table
+                                border=""0""
+                                cellpadding=""0""
+                                cellspacing=""0""
+                                role=""presentation""
+                                width=""100%""
+                              >
+                                <tbody>
+                                  <tr>
+                                    <td style=""vertical-align: bottom; padding: 0"">
+                                      <table
+                                        border=""0""
+                                        cellpadding=""0""
+                                        cellspacing=""0""
+                                        role=""presentation""
+                                        width=""100%""
+                                      >
+                                        <tr>
+                                          <td
+                                            align=""center""
+                                            style=""
+                                              font-size: 0px;
+                                              padding: 0;
+                                              word-break: break-word;
+                                            ""
+                                          >
+                                            <div
+                                              style=""
+                                                font-family: 'Helvetica Neue', Arial,
+                                                  sans-serif;
+                                                font-size: 12px;
+                                                font-weight: 300;
+                                                line-height: 1;
+                                                text-align: center;
+                                                color: #000000;
+                                              ""
+                                            >
+                                             950 Dannon View, SW Suite 4103 Atlanta, GA 30331
+                                            </div>
+                                          </td>
+                                        </tr>
+
+                                        <tr>
+                                          <td
+                                            align=""center""
+                                            style=""
+                                              font-size: 0px;
+                                              padding: 10px;
+                                              word-break: break-word;
+                                            ""
+                                          >
+                                            <div
+                                              style=""
+                                                font-family: 'Helvetica Neue', Arial,
+                                                  sans-serif;
+                                                font-size: 12px;
+                                                font-weight: 300;
+                                                line-height: 1;
+                                                text-align: center;
+                                                color: #000000;
+                                              ""
+                                            >
+                                              <a href="""" style=""color: #000000""
+                                                >Phone</a
+                                              >
+                                              404-593-0993
+                                            </div>
+                                          </td>
+                                        </tr>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+
+                            <!--[if mso | IE]>
+                        </td>
+          
+                    </tr>
+      
+                              </table>
+                            <![endif]-->
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <!--[if mso | IE]>
+                      </td>
+                    </tr>
+                  </table>
+                  <![endif]-->
+                </div>
+              </body>
+            </html>
+
+            ";
+            return emailTemplate;
+        }
+
+        public async Task<dynamic> EnableTwoFactorAuthEmail(string email, string otp)
+        {
+            try
+            {
+                var currentTime      = DateTime.Now;
+                ApplicationUser user = await _userManager.FindByEmailAsync(email);
+                if (user == null)
+                {
+                    return "User not Found";
+                }
+                dynamic retVlaue = await VerifyOTP(email, otp);
+                if (retVlaue is Guid)
+                {
+                    user.TwoFactorEnabled = true;
+                    await _userManager.UpdateAsync(user);
+                    string subject        = "Email OTP Successfully";
+                    string salutation     = user.FirstName + " " + user.LastName;
+                    string messageBody    = CreateConfirmedEmailBody(salutation);
+                    string emailMessage   = $"{subject}\n\n{salutation}\n\n{messageBody}";
+                    await _emailService.SendEmail1Async(user.Email, subject, emailMessage);
+                    var res = await _passwordResetService.Delete(retVlaue);
+                    if (res)
+                    {
+                        await _passwordResetService.CompleteAync();
+                        var notification          = new NOTIFICATIONS();
+                        notification.IsRead       = false;
+                        notification.Message      = "Two factor authentication verification success";
+                        notification.UserId       = user.Id;
+                        notification.Timestamp    = DateTime.Now;
+                        notification.WorkflowStep = "Email Confirmation";
+                        await _notifications_Service.InsertAsync(notification);
+                        await _notifications_Service.CompleteAync();
+                        return "Two factor authentication verification success";
+                    }
+
+                    return res;
+                }
+                return retVlaue;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public async Task<dynamic> DisableTwoFactorAuthEmail(string email, string otp)
+        {
+            try
+            {
+                var currentTime      = DateTime.Now;
+                ApplicationUser user = await _userManager.FindByEmailAsync(email);
+                if (user == null)
+                {
+                    return "User not Found";
+                }
+                dynamic retVlaue = await VerifyOTP(email, otp);
+                if (retVlaue is Guid)
+                {
+                    user.TwoFactorEnabled = false;
+                    await _userManager.UpdateAsync(user);
+                    string subject        = "Email OTP Successfully";
+                    string salutation     = user.FirstName + " " + user.LastName;
+                    string messageBody    = CreateConfirmedEmailBody(salutation);
+                    string emailMessage   = $"{subject}\n\n{salutation}\n\n{messageBody}";
+                    await _emailService.SendEmail1Async(user.Email, subject, emailMessage);
+                    var res = await _passwordResetService.Delete(retVlaue);
+                    if (res)
+                    {
+                        await _passwordResetService.CompleteAync();
+                        var notification          = new NOTIFICATIONS();
+                        notification.IsRead       = false;
+                        notification.Message      = "Two factor authentication verification success";
+                        notification.UserId       = user.Id;
+                        notification.Timestamp    = DateTime.Now;
+                        notification.WorkflowStep = "Email Confirmation";
+                        await _notifications_Service.InsertAsync(notification);
+                        await _notifications_Service.CompleteAync();
+                        return "Two factor authentication verification success";
+                    }
+
+                    return res;
+                }
+                return retVlaue;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public async Task<dynamic> VerifyTwoFactorAuthEmail(string email, string otp)
+        {
+            try
+            {
+                var currentTime      = DateTime.Now;
+                ApplicationUser user = await _userManager.FindByEmailAsync(email);
+                if (user == null)
+                {
+                    return "User not Found";
+                }
+                dynamic retVlaue = await VerifyOTP(email, otp);
+                if (retVlaue is Guid)
+                {
+                    var res = await _passwordResetService.Delete(retVlaue);
+                    if (res)
+                    {
+                        await _passwordResetService.CompleteAync();
+                        return "Your session started now";
+                    }
+                    else
+                    {
+                        return "Something Went Wrong";
+                    }
+                }
+                return retVlaue;
+            }
+            catch (Exception ex)
+            {
+
+                return ex.Message + ex.InnerException?.Message;
+            }
+        }
+
+        public async Task<IEnumerable> GetTenants()
+        {
+            try
+            {
+                IList<PelicanHRMTenant> tenants = (IList<PelicanHRMTenant>)await _tenants_Service.GetAll();
+                IList<ApplicationUser> userList = await _userManager.Users.ToListAsync();
+                var groupedUsersByCompany = userList
+                    .GroupBy(user => user.TenantId)
+                    .ToDictionary(group => group.Key, group => group.Select(user => new UserWithRolesModelForTenants
+                    {
+                        Id                 = user.Id,
+                        Name               = user.FirstName + " " + user.LastName,
+                        Email              = user.Email,
+                        Role               = _userManager.GetRolesAsync(user).Result.FirstOrDefault(),
+                        Image              = user.image,
+                        CompanyName        = user.CompanyName,
+                        TenantId           = user.TenantId,
+                        CompanyDesignation = user.CompanyDesignation
+                    }).ToList());
+
+                // Create the list of UserWithCompanyUsers objects
+                var userWithCompanyUsersList = new List<UserWithRolesModelForTenants>();
+
+                // Iterate through each user
+                foreach (var user in userList)
+                {
+                    // Get the list of users in the same company (TenantId)
+                    var companyUsers = groupedUsersByCompany[user.TenantId];
+
+                    // Create a UserWithCompanyUsers object
+                    var userWithCompanyUsers = new UserWithRolesModelForTenants
+                    {
+                        Id                  = user.Id,
+                        Name                = user.FirstName + " " + user.LastName,
+                        Email               = user.Email,
+                        Role                =  _userManager.GetRolesAsync(user).Result.FirstOrDefault(),
+                        Image               = user.image,
+                        CompanyName         = user.CompanyName,
+                        TenantId            = user.TenantId,
+                        CompanyDesignation  = user.CompanyDesignation,
+                        List                = companyUsers // Add the list of users in the same company
+                    };
+
+                    // Add the user with company users to the list
+                    userWithCompanyUsersList.Add(userWithCompanyUsers);
+                }
+                IList<UserWithRolesModelForTenants> users = userWithCompanyUsersList.Where(x => x.Role == "SuperUser").ToList();
+                var finalist=users.Join
+                    (
+                     tenants,
+                     (u) => new { u.TenantId },
+                     (t) => new { TenantId = t.CompanyId },
+                     (u, t) => new { u, t }
+                    )
+                    .Select(user => new
+                    {
+                        Id                   = user.u.Id,
+                        Name                 = user.u.Name,
+                        Email                = user.u.Email,
+                        Role                 = user.u.Role,
+                        Image                = user.u.Image,
+                        CompanyName          = user.u.CompanyName,
+                        TenantId             = user.u.TenantId,
+                        CompanyDesignation   = user.u.CompanyDesignation,
+                        CompanyStatus        = user.t.CompanyStatus,
+                        Profilestatus        = user.t.ProfileStatus,
+                        PhoneNumber          = user.t.PhoneNumber,
+                        List                 = user.u.List
+                    })
+                    .ToList();
+
+                return finalist;
+            }
+            catch (Exception ex)
+            {
+
+                return ex.Message + ex.InnerException?.Message;
+            }
+        }
+
+
+
+        public async Task<dynamic> GetTenantsbyId(string OnwerId)
+        {
+            try
+            {
+                IList<PelicanHRMTenant> tenants = (IList<PelicanHRMTenant>)await _tenants_Service.GetAll();
+                IList<ApplicationUser> userList = await _userManager.Users.ToListAsync();
+                var groupedUsersByCompany = userList
+                    .GroupBy(user => user.TenantId)
+                    .ToDictionary(group => group.Key, group => group.Select(user => new UserWithRolesModelForTenants
+                    {
+                        Id                 = user.Id,
+                        Name               = user.FirstName + " " + user.LastName,
+                        Email              = user.Email,
+                        Role               = _userManager.GetRolesAsync(user).Result.FirstOrDefault(),
+                        Image              = user.image,
+                        CompanyName        = user.CompanyName,
+                        TenantId           = user.TenantId,
+                        CompanyDesignation = user.CompanyDesignation
+                    }).ToList());
+
+                // Create the list of UserWithCompanyUsers objects
+                var userWithCompanyUsersList = new List<UserWithRolesModelForTenants>();
+
+                // Iterate through each user
+                foreach (var user in userList)
+                {
+                    // Get the list of users in the same company (TenantId)
+                    var companyUsers = groupedUsersByCompany[user.TenantId];
+
+                    // Create a UserWithCompanyUsers object
+                    var userWithCompanyUsers = new UserWithRolesModelForTenants
+                    {
+                        Id                  = user.Id,
+                        Name                = user.FirstName + " " + user.LastName,
+                        Email               = user.Email,
+                        Role                =  _userManager.GetRolesAsync(user).Result.FirstOrDefault(),
+                        Image               = user.image,
+                        CompanyName         = user.CompanyName,
+                        TenantId            = user.TenantId,
+                        CompanyDesignation  = user.CompanyDesignation,
+                        List                = companyUsers // Add the list of users in the same company
+                    };
+
+                    // Add the user with company users to the list
+                    userWithCompanyUsersList.Add(userWithCompanyUsers);
+                }
+                IList<UserWithRolesModelForTenants> users = userWithCompanyUsersList.Where(x => x.Role == "SuperUser").ToList();
+                var finalist=users.Join
+                    (
+                     tenants,
+                     (u) => new { u.TenantId },
+                     (t) => new { TenantId = t.CompanyId },
+                     (u, t) => new { u, t }
+                    )
+                    .Where(x=>x.u.Id== OnwerId || x.u.Email==OnwerId)
+                    .Select(user => new
+                    {
+                        Id                   = user.u.Id,
+                        Name                 = user.u.Name,
+                        Email                = user.u.Email,
+                        Role                 = user.u.Role,
+                        Image                = user.u.Image,
+                        CompanyName          = user.u.CompanyName,
+                        TenantId             = user.u.TenantId,
+                        CompanyDesignation   = user.u.CompanyDesignation,
+                        CompanyStatus        = user.t.CompanyStatus,
+                        Profilestatus        = user.t.ProfileStatus,
+                        PhoneNumber          = user.t.PhoneNumber,
+                         AddressLine1        = user.t.AddressLine1,
+                        AddressLine2         = user.t.AddressLine2,
+                        City                 = user.t.City,
+                        State                = user.t.State,
+                        Country              = user.t.Country,
+                        ZipCode              = user.t.ZipCode,
+                        Longitude            = user.t.Longitude,
+                        Latitude             = user.t.Latitude,
+                        IsMailingAddress     = user.t.isMailingAddress,
+                        IsPhysicalAddress    = user.t.isPhysicalAddress,
+                        WhosisCompany        = user.t.whosisCompany,
+                        NoDomesticEmployee   = user.t.noDomesticEmployee,
+                        NoInterEmployee      = user.t.noInterEmployee,
+                        NoDomesticContractor = user.t.noDomesticContractor,
+                        NoInterContractor    = user.t.noInterContractor,
+                        EIN                  = user.t.EIN,
+                        BusinessType         = user.t.BussinessType,
+                        LegalName            = user.t.LegalName,
+                        FillingFormIRS       = user.t.FillingFormIRS,
+                        Industry             = user.t.Industry,
+                        CreatedAt            = user.t.CreatedAt.ToString("MM/dd/yyyy"),
+                        List                 = user.u.List
+                    })
+                    .LastOrDefault();
+
+                return finalist;
+            }
+            catch (Exception ex)
+            {
+
+                return ex.Message + ex.InnerException?.Message;
             }
         }
 

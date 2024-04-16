@@ -1043,8 +1043,16 @@ namespace API.Migrations
                     b.Property<string>("Industry")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<decimal?>("Latitude")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<string>("LegalName")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal?>("Longitude")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
@@ -1056,11 +1064,14 @@ namespace API.Migrations
                     b.Property<string>("State")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool?>("isMailingAddress")
-                        .HasColumnType("bit");
+                    b.Property<string>("ZipCode")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool?>("isPhysicalAddress")
-                        .HasColumnType("bit");
+                    b.Property<string>("isMailingAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("isPhysicalAddress")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("noDomesticContractor")
                         .HasColumnType("int");

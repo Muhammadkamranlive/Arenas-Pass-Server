@@ -87,6 +87,12 @@ namespace Server.Core
                     modelBuilder.Entity<Asset>()
                    .Property(a => a.Price)
                    .HasPrecision(18, 2);
+                    modelBuilder.Entity<PelicanHRMTenant>()
+                  .Property(a => a.Longitude)
+                  .HasPrecision(18, 2);
+                    modelBuilder.Entity<PelicanHRMTenant>()
+                  .Property(a => a.Latitude)
+                  .HasPrecision(18, 2);
                 }
             }
 

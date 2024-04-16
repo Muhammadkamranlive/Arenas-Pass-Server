@@ -158,6 +158,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "API.API.DocumentManagment.AttachmentController",
+    "Method": "TenantFiles",
+    "RelativePath": "api/Attachment/TenantFiles",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "API.Authentication.AuthController",
     "Method": "CreateRole",
     "RelativePath": "api/Auth/AddRoles",
@@ -223,6 +239,38 @@
   },
   {
     "ContainingType": "API.Authentication.AuthController",
+    "Method": "Disable2FA",
+    "RelativePath": "api/Auth/Disable2FA",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Server.Models.ConfirmEmail",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Authentication.AuthController",
+    "Method": "Enable2FA",
+    "RelativePath": "api/Auth/Enable2FA",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Server.Models.ConfirmEmail",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Authentication.AuthController",
     "Method": "ForgotPassword",
     "RelativePath": "api/Auth/ForgotPassword",
     "HttpMethod": "POST",
@@ -241,6 +289,16 @@
     "ContainingType": "API.Authentication.AuthController",
     "Method": "GetAllRoles",
     "RelativePath": "api/Auth/GetAllRoles",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Authentication.AuthController",
+    "Method": "GetAllTenants",
+    "RelativePath": "api/Auth/GetAllTenants",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -281,8 +339,50 @@
   },
   {
     "ContainingType": "API.Authentication.AuthController",
+    "Method": "getPaymentsClient",
+    "RelativePath": "api/Auth/getPaymentsClient",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "uid",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Authentication.AuthController",
+    "Method": "GetTenantDetail",
+    "RelativePath": "api/Auth/GetTenantDetail",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "OnwerId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Authentication.AuthController",
     "Method": "GetTenants",
     "RelativePath": "api/Auth/GetTenants",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Authentication.AuthController",
+    "Method": "GetUpdateTenant",
+    "RelativePath": "api/Auth/GetUpdateTenant",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -515,6 +615,22 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Authentication.AuthController",
+    "Method": "VerifyEnable2FA",
+    "RelativePath": "api/Auth/VerifyEnable2FA",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Server.Models.ConfirmEmail",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -1944,6 +2060,38 @@
         "Name": "checkoutModel",
         "Type": "Server.Models.CheckoutModel",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.Payments.PaymentsController",
+    "Method": "DownloadInvoice",
+    "RelativePath": "api/Payments/DownloadInvoice",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Invoice",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.Payments.PaymentsController",
+    "Method": "GetInvoices",
+    "RelativePath": "api/Payments/GetInvoices",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "customerId",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

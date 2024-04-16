@@ -18,6 +18,8 @@ namespace Server.Services
         Task<dynamic> FindbyEmail(string email);
         Task<dynamic> UpdatePassord(string email, string password);
         Task<dynamic> ComfirmEmail(string email, string otp);
+        Task<dynamic> EnableTwoFactorAuthEmail(string email, string otp);
+        Task<dynamic> VerifyTwoFactorAuthEmail(string email, string otp);
         Task<dynamic> SendComfirmEmail(string email);
         Task<dynamic> VerifyOTP(string email, string otp);
         Task<IEnumerable<IdentityError>> CreateRole(string roleName,string Permissions);
@@ -34,7 +36,9 @@ namespace Server.Services
         Task<string> UpdateTenant(TenantUpdate model);
         Task<string> UpdateTenantStatus(TenantBlock tenantBlock);
         Task<string> GetCompanyByName(string CompanyName);
-
-
+        Task<dynamic> DisableTwoFactorAuthEmail(string email, string otp);
+        Task<dynamic> GetTenantsbyId(string OnwerId);
+        Task<IEnumerable> GetTenants();
+        Task<TenantUpdate> GetUpdateTenant();
     }
 }

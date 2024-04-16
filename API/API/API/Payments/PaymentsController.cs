@@ -12,12 +12,13 @@ namespace API.API.Payments
     public class PaymentsController : ControllerBase
     {
 
-        private readonly StripeModel      stripeModel;
+        private readonly StripeModel       stripeModel;
         private readonly ProductService   _productService;
         private readonly ChargeService    _chargeService;
         private readonly CustomerService  _customerService;
         private readonly TokenService     _tokenService;
         private readonly IPaymentService  _paymentService;
+
         public PaymentsController
         (
             IOptions<StripeModel>  Model,
@@ -70,8 +71,39 @@ namespace API.API.Payments
         }
 
 
-        
+        [HttpGet()]
+        [Route("GetInvoices")]
+        public IActionResult GetInvoices(string customerId)
+        {
+            try
+            {
+                var plans =  _paymentService.GetInvoices(customerId);
+                return Ok(plans);
+            }
+            catch (Exception ex)
+            {
 
+                throw new Exception(ex.Message + ex.InnerException?.Message);
+            }
+        }
+
+        [HttpGet()]
+        [Route("DownloadInvoice")]
+        public IActionResult DownloadInvoice(string Invoice)
+        {
+            try
+            {
+                 var res=_paymentService.DownloadInvoice(Invoice);
+                SuccessResponse successResponse = new SuccessResponse();
+                successResponse.Message = res; ;
+                return Ok(successResponse);
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message + ex.InnerException?.Message);
+            }
+        }
 
     }
 }

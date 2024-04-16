@@ -12,6 +12,8 @@ namespace Server.Models
         public string CompanyStatus         { get; set; }
         public string ProfileStatus         { get; set; }
         public bool   paid                  { get; set; }
+        public string CompanyName           { get; set; }
+        public bool TwoFactorEnabled        { get; set; }
 
     }
 }
