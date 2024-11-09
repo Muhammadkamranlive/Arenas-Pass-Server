@@ -97,17 +97,21 @@ builder.Services.AddScoped<ProductService>();
 builder.Services.AddScoped<CustomerService>();
 builder.Services.AddScoped<ChargeService>();
 builder.Services.AddScoped<Stripe.TokenService>();
+builder.Services.AddScoped<SubscriptionService>();
 
 builder.Services.AddSignalR();
+
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {
         options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
     });
-builder.Services.Configure<FormOptions>(options =>
-{
-    options.MultipartBodyLengthLimit = 3L * 1024 * 1024 * 1024;
-});
+
+//builder.Services.Configure<FormOptions>(options =>
+//{
+//    options.MultipartBodyLengthLimit = 3L * 1024 * 1024 * 1024;
+//});
+
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Project", Version = "v1" });
@@ -128,7 +132,7 @@ builder.Services.AddSwaggerGen(c =>
                 Reference = new OpenApiReference
                 {
                     Type = ReferenceType.SecurityScheme,
-                    Id = "Bearer"
+                    Id   = "Bearer"
                 }
             },
             Array.Empty<string>()
@@ -141,14 +145,14 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("CorsPolicy", builder =>
-        builder.WithOrigins("https://pelicanhrm.web.app", "http://localhost:4200", "https://pelicanhrm.com")
+        builder.WithOrigins("https://arenas-pass.web.app", "http://localhost:4200", "https://arenas-pass.web.app/", "https://arenascards.com")
             .AllowAnyMethod()
             .AllowAnyHeader()
             .AllowCredentials());
 });
 
 
-var app = builder.Build();
+var app          = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var serviceProvider = scope.ServiceProvider;
@@ -185,6 +189,7 @@ app.UseCors("CorsPolicy");
 app.UseAuthentication();
 app.UseMiddleware<TenantResolutionMiddleware>();
 app.UseAuthorization();
+
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapHub<ChatHub>("/chat");

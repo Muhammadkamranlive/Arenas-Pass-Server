@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Freelance\\ERP\\Server\\Models\\Server.Models\\Server.Models.csproj": {}
+    "E:\\work\\ANI Digital Passes\\Server\\Models\\Server.Models\\Server.Models.csproj": {}
   },
   "projects": {
-    "D:\\Freelance\\ERP\\Server\\Models\\Server.Models\\Server.Models.csproj": {
+    "E:\\work\\ANI Digital Passes\\Server\\Models\\Server.Models\\Server.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Freelance\\ERP\\Server\\Models\\Server.Models\\Server.Models.csproj",
+        "projectUniqueName": "E:\\work\\ANI Digital Passes\\Server\\Models\\Server.Models\\Server.Models.csproj",
         "projectName": "Server.Models",
-        "projectPath": "D:\\Freelance\\ERP\\Server\\Models\\Server.Models\\Server.Models.csproj",
+        "projectPath": "E:\\work\\ANI Digital Passes\\Server\\Models\\Server.Models\\Server.Models.csproj",
         "packagesPath": "C:\\Users\\TK\\.nuget\\packages\\",
-        "outputPath": "D:\\Freelance\\ERP\\Server\\Models\\Server.Models\\obj\\",
+        "outputPath": "E:\\work\\ANI Digital Passes\\Server\\Models\\Server.Models\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\TK\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -44,6 +44,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "dotnet-passbook": {
+              "target": "Package",
+              "version": "[3.2.4, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

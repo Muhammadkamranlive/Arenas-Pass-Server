@@ -16,3 +16,21 @@ D:\Freelance\ERP\Server\Repository\Server.Repository\obj\Debug\net6.0\refint\Ser
 D:\Freelance\ERP\Server\Repository\Server.Repository\obj\Debug\net6.0\Server.Repository.pdb
 D:\Freelance\ERP\Server\Repository\Server.Repository\obj\Debug\net6.0\ref\Server.Repository.dll
 D:\Freelance\ERP\Server\Repository\Server.Repository\obj\Debug\net6.0\Server.Repository.sourcelink.json
+E:\work\ANI Digital Passes\Server\Repository\Server.Repository\bin\Debug\net6.0\Server.Repository.deps.json
+E:\work\ANI Digital Passes\Server\Repository\Server.Repository\bin\Debug\net6.0\Server.Repository.dll
+E:\work\ANI Digital Passes\Server\Repository\Server.Repository\bin\Debug\net6.0\Server.Repository.pdb
+E:\work\ANI Digital Passes\Server\Repository\Server.Repository\bin\Debug\net6.0\Server.Core.dll
+E:\work\ANI Digital Passes\Server\Repository\Server.Repository\bin\Debug\net6.0\Server.Domain.dll
+E:\work\ANI Digital Passes\Server\Repository\Server.Repository\bin\Debug\net6.0\Server.Core.pdb
+E:\work\ANI Digital Passes\Server\Repository\Server.Repository\bin\Debug\net6.0\Server.Domain.pdb
+E:\work\ANI Digital Passes\Server\Repository\Server.Repository\obj\Debug\net6.0\Server.Repository.csproj.AssemblyReference.cache
+E:\work\ANI Digital Passes\Server\Repository\Server.Repository\obj\Debug\net6.0\Server.Repository.GeneratedMSBuildEditorConfig.editorconfig
+E:\work\ANI Digital Passes\Server\Repository\Server.Repository\obj\Debug\net6.0\Server.Repository.AssemblyInfoInputs.cache
+E:\work\ANI Digital Passes\Server\Repository\Server.Repository\obj\Debug\net6.0\Server.Repository.AssemblyInfo.cs
+E:\work\ANI Digital Passes\Server\Repository\Server.Repository\obj\Debug\net6.0\Server.Repository.csproj.CoreCompileInputs.cache
+E:\work\ANI Digital Passes\Server\Repository\Server.Repository\obj\Debug\net6.0\Server.Repository.sourcelink.json
+E:\work\ANI Digital Passes\Server\Repository\Server.Repository\obj\Debug\net6.0\Server.R.1B2FA24D.Up2Date
+E:\work\ANI Digital Passes\Server\Repository\Server.Repository\obj\Debug\net6.0\Server.Repository.dll
+E:\work\ANI Digital Passes\Server\Repository\Server.Repository\obj\Debug\net6.0\refint\Server.Repository.dll
+E:\work\ANI Digital Passes\Server\Repository\Server.Repository\obj\Debug\net6.0\Server.Repository.pdb
+E:\work\ANI Digital Passes\Server\Repository\Server.Repository\obj\Debug\net6.0\ref\Server.Repository.dll

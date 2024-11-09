@@ -6,7 +6,7 @@ using Server.Domain;
 
 namespace Server.Repository
 {
-    public interface ITenants_Repo:IRepo<PelicanHRMTenant>
+    public interface ITenants_Repo:IRepo<ArenasTenants>
     {
     }
 }

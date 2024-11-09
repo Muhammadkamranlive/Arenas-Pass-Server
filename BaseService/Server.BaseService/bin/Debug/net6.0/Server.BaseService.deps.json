@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v6.0": {
       "Server.BaseService/1.0.0": {
         "dependencies": {
-          "Server.UOW": "1.0.0"
+          "Server.UOW": "1.0.0",
+          "dotnet-passbook": "3.2.4"
         },
         "runtime": {
           "Server.BaseService.dll": {}
@@ -101,6 +102,18 @@
           "lib/net6.0/BouncyCastle.Cryptography.dll": {
             "assemblyVersion": "2.0.0.0",
             "fileVersion": "2.2.1.47552"
+          }
+        }
+      },
+      "dotnet-passbook/3.2.4": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.3",
+          "System.Security.Cryptography.Pkcs": "7.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Passbook.Generator.dll": {
+            "assemblyVersion": "3.0.1.0",
+            "fileVersion": "3.0.1.0"
           }
         }
       },
@@ -224,14 +237,14 @@
           "Microsoft.AspNetCore.Http.Connections.Common": "1.0.4",
           "Microsoft.AspNetCore.Routing": "2.1.1",
           "Microsoft.AspNetCore.WebSockets": "2.1.7",
-          "Newtonsoft.Json": "13.0.1",
+          "Newtonsoft.Json": "13.0.3",
           "System.Net.WebSockets.WebSocketProtocol": "4.5.3"
         }
       },
       "Microsoft.AspNetCore.Http.Connections.Common/1.0.4": {
         "dependencies": {
           "Microsoft.AspNetCore.Connections.Abstractions": "2.1.2",
-          "Newtonsoft.Json": "13.0.1",
+          "Newtonsoft.Json": "13.0.3",
           "System.Buffers": "4.5.1"
         }
       },
@@ -301,7 +314,7 @@
           "Microsoft.Azure.SignalR.Protocols": "1.21.2",
           "Microsoft.Extensions.Http": "2.1.0",
           "Microsoft.Rest.ClientRuntime": "2.3.21",
-          "Newtonsoft.Json": "13.0.1",
+          "Newtonsoft.Json": "13.0.3",
           "System.IdentityModel.Tokens.Jwt": "6.10.0"
         },
         "runtime": {
@@ -328,7 +341,7 @@
           "Microsoft.Extensions.Logging.Abstractions": "7.0.1",
           "Microsoft.Extensions.Primitives": "7.0.0",
           "Microsoft.Rest.ClientRuntime": "2.3.21",
-          "Newtonsoft.Json": "13.0.1",
+          "Newtonsoft.Json": "13.0.3",
           "System.Buffers": "4.5.1",
           "System.IO.Pipelines": "4.6.0",
           "System.IdentityModel.Tokens.Jwt": "6.10.0",
@@ -677,7 +690,7 @@
       "Microsoft.NETCore.Platforms/3.1.0": {},
       "Microsoft.Rest.ClientRuntime/2.3.21": {
         "dependencies": {
-          "Newtonsoft.Json": "13.0.1"
+          "Newtonsoft.Json": "13.0.3"
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.Rest.ClientRuntime.dll": {
@@ -725,11 +738,11 @@
           }
         }
       },
-      "Newtonsoft.Json/13.0.1": {
+      "Newtonsoft.Json/13.0.3": {
         "runtime": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
             "assemblyVersion": "13.0.0.0",
-            "fileVersion": "13.0.1.25517"
+            "fileVersion": "13.0.3.27908"
           }
         }
       },
@@ -958,7 +971,8 @@
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.19",
           "Microsoft.Azure.SignalR": "1.21.2",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.20",
-          "Server.Domain": "1.0.0"
+          "Server.Domain": "1.0.0",
+          "dotnet-passbook": "3.2.4"
         },
         "runtime": {
           "Server.Core.dll": {}
@@ -969,7 +983,8 @@
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
           "Autofac.Extensions.DependencyInjection": "7.2.0",
           "MailKit": "4.2.0",
-          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.19"
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.19",
+          "dotnet-passbook": "3.2.4"
         },
         "runtime": {
           "Server.Domain.dll": {}
@@ -978,7 +993,8 @@
       "Server.Repository/1.0.0": {
         "dependencies": {
           "Server.Core": "1.0.0",
-          "Server.Domain": "1.0.0"
+          "Server.Domain": "1.0.0",
+          "dotnet-passbook": "3.2.4"
         },
         "runtime": {
           "Server.Repository.dll": {}
@@ -987,7 +1003,8 @@
       "Server.UOW/1.0.0": {
         "dependencies": {
           "Server.Core": "1.0.0",
-          "Server.Repository": "1.0.0"
+          "Server.Repository": "1.0.0",
+          "dotnet-passbook": "3.2.4"
         },
         "runtime": {
           "Server.UOW.dll": {}
@@ -1049,6 +1066,13 @@
       "sha512": "sha512-A6Zr52zVqJKt18ZBsTnX0qhG0kwIQftVAjLmszmkiR/trSp8H+xj1gUOzk7XHwaKgyREMSV1v9XaKrBUeIOdvQ==",
       "path": "bouncycastle.cryptography/2.2.1",
       "hashPath": "bouncycastle.cryptography.2.2.1.nupkg.sha512"
+    },
+    "dotnet-passbook/3.2.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Rf0RAAsi8YKp+nhnXB3gUhwLu7D99mWioW64dVPGcfLXlmu4BmjkYTmYL2ZyHjQhecTdGhKaisih7anLXrtn/g==",
+      "path": "dotnet-passbook/3.2.4",
+      "hashPath": "dotnet-passbook.3.2.4.nupkg.sha512"
     },
     "MailKit/4.2.0": {
       "type": "package",
@@ -1484,12 +1508,12 @@
       "path": "mimekit/4.2.0",
       "hashPath": "mimekit.4.2.0.nupkg.sha512"
     },
-    "Newtonsoft.Json/13.0.1": {
+    "Newtonsoft.Json/13.0.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
-      "path": "newtonsoft.json/13.0.1",
-      "hashPath": "newtonsoft.json.13.0.1.nupkg.sha512"
+      "sha512": "sha512-HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ==",
+      "path": "newtonsoft.json/13.0.3",
+      "hashPath": "newtonsoft.json.13.0.3.nupkg.sha512"
     },
     "System.Buffers/4.5.1": {
       "type": "package",

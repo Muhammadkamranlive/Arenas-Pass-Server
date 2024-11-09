@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "CB9YJl9UTrytGibhQ8m1gN0UBt4Hoc7sHzEWBfKSuCxxoCn9Si9AxlL0iHZNiJd60958MEDvdEHfpQIrXTeFuw==",
+  "dgSpecHash": "ZbN5jakG1rfJ95NILdkWc+rLFkzSZeAvQBiSvss9f3latZPuuyVm8qOfQobEK2dREon0iPCL2FXFwUhiED6tMA==",
   "success": true,
-  "projectFilePath": "D:\\Freelance\\ERP\\Server\\Models\\Server.Models\\Server.Models.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "E:\\work\\ANI Digital Passes\\Server\\Models\\Server.Models\\Server.Models.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\TK\\.nuget\\packages\\dotnet-passbook\\3.2.4\\dotnet-passbook.3.2.4.nupkg.sha512",
+    "C:\\Users\\TK\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\TK\\.nuget\\packages\\system.security.cryptography.cng\\4.7.0\\system.security.cryptography.cng.4.7.0.nupkg.sha512",
+    "C:\\Users\\TK\\.nuget\\packages\\system.security.cryptography.pkcs\\4.7.0\\system.security.cryptography.pkcs.4.7.0.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -14,18 +14,18 @@ namespace Server.Repository
             _httpContextAccessor = httpContextAccessor;
         }
 
-        public override async Task<IEnumerable<Case>> GetAll()
-        {
-            var tenantId = Convert.ToInt32(_httpContextAccessor.HttpContext?.Items["CurrentTenant"]);
-            var filteredLogs = await base.GetAll();
-            return filteredLogs.Where(log => log.TenantId == tenantId).ToList();
-        }
+        //public override async Task<IEnumerable<Case>> GetAll()
+        //{
+        //    var tenantId = Convert.ToInt32(_httpContextAccessor.HttpContext?.Items["CurrentTenant"]);
+        //    var filteredLogs = await base.GetAll();
+        //    return filteredLogs.Where(log => log.TenantId == tenantId).ToList();
+        //}
 
-        public override async Task<IEnumerable<Case>> Find(Expression<Func<Case, bool>> predicate)
-        {
-            var tenantId = Convert.ToInt32(_httpContextAccessor.HttpContext?.Items["CurrentTenant"]);
-            var filteredLogs = await base.Find(predicate);
-            return filteredLogs.Where(log => log.TenantId == tenantId).ToList();
-        }
+        //public override async Task<IEnumerable<Case>> Find(Expression<Func<Case, bool>> predicate)
+        //{
+        //    var tenantId = Convert.ToInt32(_httpContextAccessor.HttpContext?.Items["CurrentTenant"]);
+        //    var filteredLogs = await base.Find(predicate);
+        //    return filteredLogs.Where(log => log.TenantId == tenantId).ToList();
+        //}
     }
 }

@@ -14,11 +14,11 @@ namespace Server.Services
         public async Task SendEmailAsync(string to, string subject, string content, bool isHtml = true)
         {
             var message = new MimeMessage();
-            message.From.Add(new MailboxAddress("Pelican HRM", "Muhammadkamranntu@gmail.com"));
+            message.From.Add(new MailboxAddress("Arenas Pass", "Muhammadkamranntu@gmail.com"));
             message.To.Add(new MailboxAddress("", to));
             message.Subject = subject;
 
-            var emailBody = CreateEmailBody(content);
+            var emailBody = content;
 
             var textPart = new TextPart(TextFormat.Html)
             {
@@ -32,7 +32,7 @@ namespace Server.Services
                 try
                 {
                     await client.ConnectAsync("smtp.gmail.com", 465, SecureSocketOptions.SslOnConnect);
-                    await client.AuthenticateAsync("Muhammadkamranntu@gmail.com", "dmwd xobz dpph ipvg");
+                    await client.AuthenticateAsync("Muhammadkamranntu@gmail.com", "juwj oohe udqd flga");
                     await client.SendAsync(message);
                     await client.DisconnectAsync(true);
                 }
@@ -43,10 +43,10 @@ namespace Server.Services
             }
         }
 
-        public async Task SendEmail1Async(string to, string subject, string content, bool isHtml = true)
+        public async Task<string> SendEmail1Async(string to, string subject, string content, bool isHtml = true)
         {
             var message = new MimeMessage();
-            message.From.Add(new MailboxAddress("Pelican HRM", "donotreply@pelicanhrm.com")); // Update with your Roundcube email
+            message.From.Add(new MailboxAddress("Arenas Pass", "donotreply@pelicanhrm.com")); // Update with your Roundcube email
             message.To.Add(new MailboxAddress("", to));
             message.Subject = subject;
 
@@ -67,10 +67,11 @@ namespace Server.Services
                     await client.AuthenticateAsync("oaw1qck8lht6", "Carpenter50##50"); 
                     await client.SendAsync(message);
                     await client.DisconnectAsync(true);
+                    return "OK";
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception(ex.ToString());
+                   return ex.Message;
                 }
             }
         }
@@ -357,10 +358,10 @@ namespace Server.Services
                                           <tr>
                                             <td>
                                               <h4 style=""text-align: center;"">
-                                                PELICANHRM
+                                                Arenas Pass
                                               </h4>
                                               <h5 style=""text-align: center;"">
-                                               Holding, Handling & Managing All Human Resource Experiences
+                                               Digital Pass Infrastructure to Power Your Growth
                                               </h5>
                                             </td>
                                           </tr>
@@ -372,7 +373,7 @@ namespace Server.Services
                                               <!--[if mso]><table width=""100%""><tr><td><![endif]-->
                                               <p
                                                 style=""padding: 30px;"">
-                                               Optimize Your HR Operations with Pelican HRM.
+                                               Sell, Manage, and Track Gift Cards, Digital Passes, Coupons, and More – All Integrated with Your POS System.
                                               </p>
                                               <!--[if mso]></td></tr></table><![endif]-->
 
@@ -431,7 +432,7 @@ namespace Server.Services
                                           </tr>
                                           <tr >
                                             <td style=""align-items: center; padding-bottom: 20px; padding-top: 20px;"">
-                                              <p style=""text-align: center; padding-top: 20px; padding-bottom: 20px;"">PelicanHRM.com | All Rights Reserved</p>
+                                              <p style=""text-align: center; padding-top: 20px; padding-bottom: 20px;"">Arenas Pass | All Rights Reserved</p>
                                             </td>
                                           </tr>
                                         </tbody>

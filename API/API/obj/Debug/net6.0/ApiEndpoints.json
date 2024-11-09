@@ -339,6 +339,16 @@
   },
   {
     "ContainingType": "API.Authentication.AuthController",
+    "Method": "GetMerchants",
+    "RelativePath": "api/Auth/GetMerchants",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Authentication.AuthController",
     "Method": "getPaymentsClient",
     "RelativePath": "api/Auth/getPaymentsClient",
     "HttpMethod": "GET",
@@ -418,7 +428,23 @@
   {
     "ContainingType": "API.Authentication.AuthController",
     "Method": "Register",
-    "RelativePath": "api/Auth/register",
+    "RelativePath": "api/Auth/Register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "apiUserDto",
+        "Type": "Server.Models.UserRegisterModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Authentication.AuthController",
+    "Method": "RegisterAdmin",
+    "RelativePath": "api/Auth/RegisterAdmin",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -433,8 +459,8 @@
   },
   {
     "ContainingType": "API.Authentication.AuthController",
-    "Method": "RegisterAdmin",
-    "RelativePath": "api/Auth/RegisterAdmin",
+    "Method": "RegisterSuperAdmin",
+    "RelativePath": "api/Auth/RegisterSuperAdmin",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -506,6 +532,22 @@
       {
         "Name": "model",
         "Type": "Server.Models.ForgotPasswordModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Authentication.AuthController",
+    "Method": "SendPasswordResetToUser",
+    "RelativePath": "api/Auth/SendPasswordResetToUser",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "Server.Models.Authentication.IdModel",
         "IsRequired": true
       }
     ],
@@ -931,6 +973,32 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.CustomerCare.CaseController",
+    "Method": "GetCaseComments",
+    "RelativePath": "api/Case/GetCaseComments",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.CustomerCare.CaseController",
+    "Method": "UnAssignedCases",
+    "RelativePath": "api/Case/UnAssignedCases",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -2076,6 +2144,22 @@
         "Name": "Invoice",
         "Type": "System.String",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.Payments.PaymentsController",
+    "Method": "EmployeePayment",
+    "RelativePath": "api/Payments/EmployeePayment",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "checkoutModel",
+        "Type": "Server.Models.Payments.EmployeePayment",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []

@@ -11,5 +11,7 @@ namespace Server.Models
         public string Email { get; set; }
         public string Roles { get; set; }
         public string Image { get; set; }
+        public string CompanyName { get; set; }
+        public int EmployeeId     { get; set; }
     }
 }

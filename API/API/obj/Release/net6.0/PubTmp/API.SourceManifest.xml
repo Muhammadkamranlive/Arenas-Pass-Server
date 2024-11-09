@@ -1,4 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <sitemanifest>
-  <IisApp path="D:\Freelance\ERP\Server\API\API\obj\Release\net6.0\PubTmp\Out\" />
+  <IisApp path="E:\work\ANI Digital Passes\Server\API\API\obj\Release\net6.0\PubTmp\Out\" />
+  <dbfullsql path="E:\work\ANI Digital Passes\Server\API\API\obj\Release\net6.0\PubTmp\EFSQLScripts\Server.Core.ERPDb.sql" />
 </sitemanifest>

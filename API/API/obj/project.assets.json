@@ -123,6 +123,19 @@
           }
         }
       },
+      "dotnet-passbook/3.2.4": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.3",
+          "System.Security.Cryptography.Pkcs": "4.7.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Passbook.Generator.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Passbook.Generator.dll": {}
+        }
+      },
       "Humanizer.Core/2.8.26": {
         "type": "package",
         "compile": {
@@ -1291,15 +1304,15 @@
           }
         }
       },
-      "Newtonsoft.Json/13.0.1": {
+      "Newtonsoft.Json/13.0.3": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
             "related": ".xml"
           }
         }
@@ -1823,7 +1836,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Server.UOW": "1.0.0"
+          "Server.UOW": "1.0.0",
+          "dotnet-passbook": "3.2.4"
         },
         "compile": {
           "bin/placeholder/Server.BaseService.dll": {}
@@ -1845,7 +1859,8 @@
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.19",
           "Microsoft.Azure.SignalR": "1.21.2",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.20",
-          "Server.Domain": "1.0.0"
+          "Server.Domain": "1.0.0",
+          "dotnet-passbook": "3.2.4"
         },
         "compile": {
           "bin/placeholder/Server.Core.dll": {}
@@ -1861,7 +1876,8 @@
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
           "Autofac.Extensions.DependencyInjection": "7.2.0",
           "MailKit": "4.2.0",
-          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.19"
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.19",
+          "dotnet-passbook": "3.2.4"
         },
         "compile": {
           "bin/placeholder/Server.Domain.dll": {}
@@ -1876,7 +1892,8 @@
         "dependencies": {
           "AutoMapper": "12.0.1",
           "Server.Domain": "1.0.0",
-          "Server.Models": "1.0.0"
+          "Server.Models": "1.0.0",
+          "dotnet-passbook": "3.2.4"
         },
         "compile": {
           "bin/placeholder/Server.Mapper.dll": {}
@@ -1889,7 +1906,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Microsoft.AspNetCore.Http.Abstractions": "2.1.1"
+          "Microsoft.AspNetCore.Http.Abstractions": "2.1.1",
+          "dotnet-passbook": "3.2.4"
         },
         "compile": {
           "bin/placeholder/Server.Middlewares.dll": {}
@@ -1901,6 +1919,9 @@
       "Server.Models/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "dotnet-passbook": "3.2.4"
+        },
         "compile": {
           "bin/placeholder/Server.Models.dll": {}
         },
@@ -1913,7 +1934,8 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "Server.Core": "1.0.0",
-          "Server.Domain": "1.0.0"
+          "Server.Domain": "1.0.0",
+          "dotnet-passbook": "3.2.4"
         },
         "compile": {
           "bin/placeholder/Server.Repository.dll": {}
@@ -1939,7 +1961,8 @@
           "Server.Domain": "1.0.0",
           "Server.Models": "1.0.0",
           "Server.UOW": "1.0.0",
-          "Stripe.net": "43.22.0"
+          "Stripe.net": "43.22.0",
+          "dotnet-passbook": "3.2.4"
         },
         "compile": {
           "bin/placeholder/Server.Services.dll": {}
@@ -1953,7 +1976,8 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "Server.Core": "1.0.0",
-          "Server.Repository": "1.0.0"
+          "Server.Repository": "1.0.0",
+          "dotnet-passbook": "3.2.4"
         },
         "compile": {
           "bin/placeholder/Server.UOW.dll": {}
@@ -2092,6 +2116,19 @@
         "lib/netstandard2.0/BouncyCastle.Cryptography.dll",
         "lib/netstandard2.0/BouncyCastle.Cryptography.xml",
         "packageIcon.png"
+      ]
+    },
+    "dotnet-passbook/3.2.4": {
+      "sha512": "Rf0RAAsi8YKp+nhnXB3gUhwLu7D99mWioW64dVPGcfLXlmu4BmjkYTmYL2ZyHjQhecTdGhKaisih7anLXrtn/g==",
+      "type": "package",
+      "path": "dotnet-passbook/3.2.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "dotnet-passbook.3.2.4.nupkg.sha512",
+        "dotnet-passbook.nuspec",
+        "lib/netstandard2.0/Passbook.Generator.dll",
+        "license.txt"
       ]
     },
     "Humanizer.Core/2.8.26": {
@@ -3687,14 +3724,15 @@
         "mimekit.nuspec"
       ]
     },
-    "Newtonsoft.Json/13.0.1": {
-      "sha512": "ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
+    "Newtonsoft.Json/13.0.3": {
+      "sha512": "HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ==",
       "type": "package",
-      "path": "newtonsoft.json/13.0.1",
+      "path": "newtonsoft.json/13.0.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.md",
+        "README.md",
         "lib/net20/Newtonsoft.Json.dll",
         "lib/net20/Newtonsoft.Json.xml",
         "lib/net35/Newtonsoft.Json.dll",
@@ -3703,13 +3741,15 @@
         "lib/net40/Newtonsoft.Json.xml",
         "lib/net45/Newtonsoft.Json.dll",
         "lib/net45/Newtonsoft.Json.xml",
+        "lib/net6.0/Newtonsoft.Json.dll",
+        "lib/net6.0/Newtonsoft.Json.xml",
         "lib/netstandard1.0/Newtonsoft.Json.dll",
         "lib/netstandard1.0/Newtonsoft.Json.xml",
         "lib/netstandard1.3/Newtonsoft.Json.dll",
         "lib/netstandard1.3/Newtonsoft.Json.xml",
         "lib/netstandard2.0/Newtonsoft.Json.dll",
         "lib/netstandard2.0/Newtonsoft.Json.xml",
-        "newtonsoft.json.13.0.1.nupkg.sha512",
+        "newtonsoft.json.13.0.3.nupkg.sha512",
         "newtonsoft.json.nuspec",
         "packageIcon.png"
       ]
@@ -4654,7 +4694,8 @@
       "Server.Models >= 1.0.0",
       "Server.Services >= 1.0.0",
       "Stripe.net >= 43.22.0",
-      "Swashbuckle.AspNetCore >= 6.5.0"
+      "Swashbuckle.AspNetCore >= 6.5.0",
+      "dotnet-passbook >= 3.2.4"
     ]
   },
   "packageFolders": {
@@ -4663,11 +4704,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Freelance\\ERP\\Server\\API\\API\\API.csproj",
+      "projectUniqueName": "E:\\work\\ANI Digital Passes\\Server\\API\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "D:\\Freelance\\ERP\\Server\\API\\API\\API.csproj",
+      "projectPath": "E:\\work\\ANI Digital Passes\\Server\\API\\API\\API.csproj",
       "packagesPath": "C:\\Users\\TK\\.nuget\\packages\\",
-      "outputPath": "D:\\Freelance\\ERP\\Server\\API\\API\\obj\\",
+      "outputPath": "E:\\work\\ANI Digital Passes\\Server\\API\\API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\TK\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -4684,20 +4725,20 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\Freelance\\ERP\\Server\\BaseService\\Server.BaseService\\Server.BaseService.csproj": {
-              "projectPath": "D:\\Freelance\\ERP\\Server\\BaseService\\Server.BaseService\\Server.BaseService.csproj"
+            "E:\\work\\ANI Digital Passes\\Server\\BaseService\\Server.BaseService\\Server.BaseService.csproj": {
+              "projectPath": "E:\\work\\ANI Digital Passes\\Server\\BaseService\\Server.BaseService\\Server.BaseService.csproj"
             },
-            "D:\\Freelance\\ERP\\Server\\Mapper\\Server.Mapper\\Server.Mapper.csproj": {
-              "projectPath": "D:\\Freelance\\ERP\\Server\\Mapper\\Server.Mapper\\Server.Mapper.csproj"
+            "E:\\work\\ANI Digital Passes\\Server\\Mapper\\Server.Mapper\\Server.Mapper.csproj": {
+              "projectPath": "E:\\work\\ANI Digital Passes\\Server\\Mapper\\Server.Mapper\\Server.Mapper.csproj"
             },
-            "D:\\Freelance\\ERP\\Server\\Middlewares\\Server.Middlewares\\Server.Middlewares.csproj": {
-              "projectPath": "D:\\Freelance\\ERP\\Server\\Middlewares\\Server.Middlewares\\Server.Middlewares.csproj"
+            "E:\\work\\ANI Digital Passes\\Server\\Middlewares\\Server.Middlewares\\Server.Middlewares.csproj": {
+              "projectPath": "E:\\work\\ANI Digital Passes\\Server\\Middlewares\\Server.Middlewares\\Server.Middlewares.csproj"
             },
-            "D:\\Freelance\\ERP\\Server\\Models\\Server.Models\\Server.Models.csproj": {
-              "projectPath": "D:\\Freelance\\ERP\\Server\\Models\\Server.Models\\Server.Models.csproj"
+            "E:\\work\\ANI Digital Passes\\Server\\Models\\Server.Models\\Server.Models.csproj": {
+              "projectPath": "E:\\work\\ANI Digital Passes\\Server\\Models\\Server.Models\\Server.Models.csproj"
             },
-            "D:\\Freelance\\ERP\\Server\\Services\\Server.Services\\Server.Services.csproj": {
-              "projectPath": "D:\\Freelance\\ERP\\Server\\Services\\Server.Services\\Server.Services.csproj"
+            "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\Server.Services.csproj": {
+              "projectPath": "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\Server.Services.csproj"
             }
           }
         }
@@ -4766,6 +4807,10 @@
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[6.5.0, )"
+          },
+          "dotnet-passbook": {
+            "target": "Package",
+            "version": "[3.2.4, )"
           }
         },
         "imports": [

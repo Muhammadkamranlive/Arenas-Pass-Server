@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="dotnet-passbook" Version="3.2.4" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\Core\Server.Core\Server.Core.csproj" />
     <ProjectReference Include="..\..\Repository\Server.Repository\Server.Repository.csproj" />
   </ItemGroup>

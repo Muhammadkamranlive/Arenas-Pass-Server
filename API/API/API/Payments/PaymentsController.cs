@@ -2,6 +2,7 @@
 using Server.Models;
 using Stripe.Checkout;
 using Server.Services;
+using Server.Models.Payments;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 
@@ -36,6 +37,23 @@ namespace API.API.Payments
             _tokenService    = tokenService;
             _paymentService  = paymentService;
 
+        }
+
+
+        [HttpPost()]
+        [Route("EmployeePayment")]
+        public async Task<IActionResult> EmployeePayment([FromBody] EmployeePayment checkoutModel)
+        {
+            try
+            {
+                var res = await _paymentService.EmployeePayment(checkoutModel);
+                return Ok(res);
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message + ex.InnerException?.Message);
+            }
         }
 
         [HttpPost()]

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Freelance\\ERP\\Server\\Middlewares\\Server.Middlewares\\Server.Middlewares.csproj": {}
+    "E:\\work\\ANI Digital Passes\\Server\\Middlewares\\Server.Middlewares\\Server.Middlewares.csproj": {}
   },
   "projects": {
-    "D:\\Freelance\\ERP\\Server\\Middlewares\\Server.Middlewares\\Server.Middlewares.csproj": {
+    "E:\\work\\ANI Digital Passes\\Server\\Middlewares\\Server.Middlewares\\Server.Middlewares.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Freelance\\ERP\\Server\\Middlewares\\Server.Middlewares\\Server.Middlewares.csproj",
+        "projectUniqueName": "E:\\work\\ANI Digital Passes\\Server\\Middlewares\\Server.Middlewares\\Server.Middlewares.csproj",
         "projectName": "Server.Middlewares",
-        "projectPath": "D:\\Freelance\\ERP\\Server\\Middlewares\\Server.Middlewares\\Server.Middlewares.csproj",
+        "projectPath": "E:\\work\\ANI Digital Passes\\Server\\Middlewares\\Server.Middlewares\\Server.Middlewares.csproj",
         "packagesPath": "C:\\Users\\TK\\.nuget\\packages\\",
-        "outputPath": "D:\\Freelance\\ERP\\Server\\Middlewares\\Server.Middlewares\\obj\\",
+        "outputPath": "E:\\work\\ANI Digital Passes\\Server\\Middlewares\\Server.Middlewares\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\TK\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -48,6 +48,10 @@
             "Microsoft.AspNetCore.Http.Abstractions": {
               "target": "Package",
               "version": "[2.1.1, )"
+            },
+            "dotnet-passbook": {
+              "target": "Package",
+              "version": "[3.2.4, )"
             }
           },
           "imports": [

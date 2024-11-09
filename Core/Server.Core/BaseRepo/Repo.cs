@@ -21,7 +21,7 @@ namespace Server.Core
         public async Task Add(T entity)
         {
             var tenantId = Convert.ToInt32(_httpContextAccessor.HttpContext?.Items["CurrentTenant"]);
-            if (entity.GetType() != typeof(PelicanHRMTenant))
+            if (entity.GetType() != typeof(ArenasTenants))
             {
                 PropertyInfo property = entity.GetType().GetProperty("TenantId");
                 if (property != null)
@@ -38,7 +38,7 @@ namespace Server.Core
             {
                 var tenantId = Convert.ToInt32(_httpContextAccessor.HttpContext?.Items["CurrentTenant"]);
                
-                if (entity.GetType() != typeof(PelicanHRMTenant))
+                if (entity.GetType() != typeof(ArenasTenants))
                 {
                     var property = entity.GetType().GetProperty("TenantId");
                     if (property != null)
@@ -91,7 +91,7 @@ namespace Server.Core
         public void Update(T entity)
         {
             var tenantId = Convert.ToInt32(_httpContextAccessor.HttpContext?.Items["CurrentTenant"]);
-            if (entity.GetType() != typeof(PelicanHRMTenant))
+            if (entity.GetType() != typeof(ArenasTenants))
             {
                 var property = entity.GetType().GetProperty("TenantId");
                 if (property != null)

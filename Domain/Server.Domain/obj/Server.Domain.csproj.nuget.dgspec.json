@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Freelance\\ERP\\Server\\Domain\\Server.Domain\\Server.Domain.csproj": {}
+    "E:\\work\\ANI Digital Passes\\Server\\Domain\\Server.Domain\\Server.Domain.csproj": {}
   },
   "projects": {
-    "D:\\Freelance\\ERP\\Server\\Domain\\Server.Domain\\Server.Domain.csproj": {
+    "E:\\work\\ANI Digital Passes\\Server\\Domain\\Server.Domain\\Server.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Freelance\\ERP\\Server\\Domain\\Server.Domain\\Server.Domain.csproj",
+        "projectUniqueName": "E:\\work\\ANI Digital Passes\\Server\\Domain\\Server.Domain\\Server.Domain.csproj",
         "projectName": "Server.Domain",
-        "projectPath": "D:\\Freelance\\ERP\\Server\\Domain\\Server.Domain\\Server.Domain.csproj",
+        "projectPath": "E:\\work\\ANI Digital Passes\\Server\\Domain\\Server.Domain\\Server.Domain.csproj",
         "packagesPath": "C:\\Users\\TK\\.nuget\\packages\\",
-        "outputPath": "D:\\Freelance\\ERP\\Server\\Domain\\Server.Domain\\obj\\",
+        "outputPath": "E:\\work\\ANI Digital Passes\\Server\\Domain\\Server.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\TK\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -60,6 +60,10 @@
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.19, )"
+            },
+            "dotnet-passbook": {
+              "target": "Package",
+              "version": "[3.2.4, )"
             }
           },
           "imports": [

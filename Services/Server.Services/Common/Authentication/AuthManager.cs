@@ -13,7 +13,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.Extensions.Configuration;
-using static System.Net.WebRequestMethods;
 
 namespace Server.Services
 {
@@ -80,28 +79,42 @@ namespace Server.Services
                 {
                     return new AuthResponseModel { Message = "User not found." };
                 }
+                
                 bool isValidUser = await _userManager.CheckPasswordAsync(user, loginDto.Password);
+                
                 if (!isValidUser)
                 {
                     return new AuthResponseModel { Message = "Invalid credentials." };
                 }
-                IList<PaymentSession> Payments  = await _paymentService.GetClientPaymentSession();
-                bool paid = false;
-                if (Payments.Count > 0)
-                {
-                    var myPayment= Payments.Where(x=>x.CompanyName.ToLower()==user.CompanyName.ToLower()).FirstOrDefault();
-                    if(myPayment!= null)
-                    {
-                        paid    = true;
-                    }
-                }
-                var Tenants          = await _tenants_Service.Find(x => x.CompanyName.ToLower() == user.CompanyName.ToLower());
-                int TenantId         = 1;
-                string CompanyStatus = "Active";
-                string ProfileStatus = "InCompleted";
+
+                var Tenants               = await _tenants_Service.Find(x => x.CompanyName.ToLower() == user.CompanyName.ToLower());
+                bool paid                 = true;
+
+                //if (CompanyAdmin.CompanyName!="Arenas Pass" && )
+                //{
+                //    IList<PaymentSession> Payments = await _paymentService.GetClientPaymentSession();
+                //    if (Payments.Count > 0)
+                //    {
+                //        var myPayment = Payments.Where(x => x.CompanyName.ToLower() == user.CompanyName.ToLower()).FirstOrDefault();
+                //        if (myPayment != null)
+                //        {
+                //            paid = true;
+                //        }
+                //    }
+                //}
+                //else
+                //{
+                //    paid = true;
+                //}
+                
+                int TenantId          = 1;
+                string CompanyStatus  = "Active";
+                string ProfileStatus  = "InCompleted";
+
                 if (Tenants.Count != 0)
                 {
-                    PelicanHRMTenant tenant = Tenants.FirstOrDefault();
+                    ArenasTenants tenant = Tenants.FirstOrDefault();
+                    
                     if(tenant!= null) 
                     {
                         
@@ -110,7 +123,9 @@ namespace Server.Services
                         ProfileStatus = tenant.ProfileStatus;
                     }
                 }
+                
                 var token =  await GenerateToken(user, TenantId, CompanyStatus, ProfileStatus, paid);
+                
                 return new AuthResponseModel
                 {
                     Token            = token,
@@ -132,6 +147,86 @@ namespace Server.Services
                 throw new Exception(ex.Message);
             }
         }
+
+
+        /// <summary>
+        /// Register Super Admin
+        /// </summary>
+        /// <param name="adminDto"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public async Task<IEnumerable<IdentityError>> RegisterSuperAdmin(RegisterUserModel adminDto)
+        {
+            try
+            {
+                var admin                = new ApplicationUser();
+                admin.FirstName          = adminDto.FirstName;
+                admin.LastName           = adminDto.LastName;
+                admin.MiddleName         = adminDto.MiddleName;
+                admin.Email              = adminDto.Email; ;
+                admin.UserName           = adminDto.Email;
+                admin.EmployeeId         = await getEmployeeId() + 1;
+                admin.TenantId           = 4;
+                admin.CompanyDesignation = "SuperAdmin";
+                admin.CompanyName        = "Arenas Pass";
+
+                var result = await _userManager.CreateAsync(admin, adminDto.Password);
+                if (result.Succeeded)
+                {
+                    var roleExists = await _roleManager.RoleExistsAsync("SuperAdmin");
+                    if (!roleExists)
+                    {
+                        await _roleManager.CreateAsync(new CustomRole { Name = "SuperAdmin", Permissions = "Read,Write,Delete,Update" });
+                    }
+
+                        await _userManager.AddToRoleAsync(admin, "SuperAdmin");
+
+                        var user = await _userManager.FindByEmailAsync(admin.Email);
+                        
+                        if (user != null)
+                        {
+                            
+                          
+                            var notification            = new NOTIFICATIONS();
+                            notification.IsRead         = false;
+                            notification.Message        = "Your Account Created Successfully";
+                            notification.UserId         = user.Id;
+                            notification.WorkflowStep   = "Registration";
+                            notification.Timestamp      = DateTime.Now;
+                            await _notifications_Service.InsertAsync(notification);
+                            await _notifications_Service.CompleteAync();
+
+                            IList<ArenasTenants> list1 = await _tenants_Service.Find(x => x.CompanyName.ToLower() == admin.CompanyName.ToLower());
+
+                            if (list1.Count != 0)
+                            {
+                                ArenasTenants tenant    = list1.FirstOrDefault();
+                                user.CompanyName        = tenant.CompanyName;
+                                user.TenantId           = tenant.CompanyId;
+                                user.EmailConfirmed     = true;
+                                await _userManager.UpdateAsync(user);
+                            }
+                        }
+
+                        return result.Errors;
+                   
+                }
+
+                return result.Errors;
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message + ex.InnerException?.Message);
+            }
+        }
+
+        /// <summary>
+        /// Register Admin
+        /// </summary>
+        /// <param name="adminDto"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public async Task<IEnumerable<IdentityError>> RegisterAdmin(RegisterUserModel adminDto)
         {
             try
@@ -145,7 +240,7 @@ namespace Server.Services
                 admin.EmployeeId         = await getEmployeeId() + 1;
                 admin.TenantId           = 4;
                 admin.CompanyDesignation = "Administrator";
-                admin.CompanyName        = "PelicanHRM";
+                admin.CompanyName        = "Arenas Pass";
                 var result = await _userManager.CreateAsync(admin, adminDto.Password);
                 if (result.Succeeded)
                 {
@@ -155,7 +250,36 @@ namespace Server.Services
                         await _roleManager.CreateAsync(new CustomRole { Name = "Administrator", Permissions = "Read,Write,Delete,Update" });
                     }
 
-                    await _userManager.AddToRoleAsync(admin, "Administrator");
+                        await _userManager.AddToRoleAsync(admin, "Administrator");
+
+                        var user = await _userManager.FindByEmailAsync(admin.Email);
+                        
+                        if (user != null)
+                        {
+                            
+                           
+                            var notification            = new NOTIFICATIONS();
+                            notification.IsRead         = false;
+                            notification.Message        = "Your Account Created Successfully";
+                            notification.UserId         = user.Id;
+                            notification.WorkflowStep   = "Registration";
+                            notification.Timestamp      = DateTime.Now;
+                            await _notifications_Service.InsertAsync(notification);
+                            await _notifications_Service.CompleteAync();
+
+                            IList<ArenasTenants> list1 = await _tenants_Service.Find(x => x.CompanyName.ToLower() == admin.CompanyName.ToLower());
+                            
+                            if (list1.Count != 0)
+                            {
+                                ArenasTenants tenant    = list1.FirstOrDefault();
+                                user.CompanyName        = tenant.CompanyName;
+                                user.TenantId           = tenant.CompanyId;
+                                user.EmailConfirmed     = true;
+                                await _userManager.UpdateAsync(user);
+                            }
+                        }
+
+                        return result.Errors;
                    
                 }
 
@@ -168,16 +292,20 @@ namespace Server.Services
             }
         }
 
+
+
+
+
         public async Task<string> RegisterCandidates(RegisterUserModel model)
         {
             try
             {
 
-                IList<PelicanHRMTenant> list = await _tenants_Service.Find(x => x.CompanyName.ToLower() == model.CompanyName.ToLower());
+                IList<ArenasTenants> list = await _tenants_Service.Find(x => x.CompanyName.ToLower() == model.CompanyName.ToLower());
                 if (list.Count !=0)
                 {
                   var admin                = new ApplicationUser();
-                  PelicanHRMTenant company = list.FirstOrDefault();
+                  ArenasTenants company = list.FirstOrDefault();
                   admin.FirstName          = model.FirstName;
                   admin.LastName           = model.LastName;
                   admin.MiddleName         = model.MiddleName;
@@ -358,106 +486,28 @@ namespace Server.Services
                     if (user != null)
                     {
 
-                        if (adminDto.role == "Employee")
+                        user.LoginRestEnable = true;
+                        var res = await _userManager.UpdateAsync(user); 
+                        if (res.Succeeded)
                         {
-                            var tasks = new List<GENERALTASK>
-                            {
-                                new GENERALTASK
-                            {
-                                Id          = Guid.NewGuid(),
-                                Title       = "Personal Information",
-                                Description = "Please Add Your Personal Information ",
-                                StartDate   = DateTime.Now,
-                                DueDate     = DateTime.Now.AddDays(7),
-                                Type        = "Task",
-                                Progress    = "Pending",
-                                UserId      = user.Id,
-                                TenantId    = tenantId
-                            },
-                                new GENERALTASK
-                            {
-                                Id          = Guid.NewGuid(),
-                                Title       = "Emergency Contacts Information",
-                                Description = "Please Add Your Emergency Contacts Information ",
-                                StartDate   = DateTime.Now,
-                                DueDate     = DateTime.Now.AddDays(7),
-                                Type        = "Task",
-                                Progress    = "Pending",
-                                UserId      = user.Id,
-                                TenantId    = tenantId
-                            },
-                                new GENERALTASK
-                            {
-                                Id          = Guid.NewGuid(),
-                                Title       = "Dependents Information",
-                                Description = "Please Add Your Dependents Information ",
-                                StartDate   = DateTime.Now,
-                                DueDate     = DateTime.Now.AddDays(7),
-                                Type        = "Task",
-                                Progress    = "Pending",
-                                UserId      = user.Id,
-                                TenantId    = tenantId
-                            },
-                                new GENERALTASK
-                            {
-                                Id          = Guid.NewGuid(),
-                                Title       = "Education Information",
-                                Description = "Please Add Your Education Information ",
-                                StartDate   = DateTime.Now,
-                                DueDate     = DateTime.Now.AddDays(7),
-                                Type        = "Task",
-                                Progress    = "Pending",
-                                UserId      = user.Id,
-                                TenantId    = tenantId
-                            },
-                                new GENERALTASK
-                            {
-                                Id          = Guid.NewGuid(),
-                                Title       = "Professional License Information",
-                                Description = "Please Add Your Professional License Information ",
-                                StartDate   = DateTime.Now,
-                                DueDate     = DateTime.Now.AddDays(7),
-                                Type        = "Task",
-                                Progress    = "Pending",
-                                UserId      = user.Id,
-                                TenantId    = tenantId
-                            },
-                                new GENERALTASK
-                            {
-                                Id          = Guid.NewGuid(),
-                                Title       = "Job Experience Information",
-                                Description = "Please Add Your Job History  ",
-                                StartDate   = DateTime.Now,
-                                DueDate     = DateTime.Now.AddDays(7),
-                                Type        = "Task",
-                                Progress    = "Pending",
-                                UserId      = user.Id,
-                                TenantId    = tenantId
-                            },
-                                new GENERALTASK
-                            {
-                                Id          = Guid.NewGuid(),
-                                Title       = "Certifications Information",
-                                Description = "Please Add Your Certifications Information ",
-                                StartDate   = DateTime.Now,
-                                DueDate     = DateTime.Now.AddDays(7),
-                                Type        = "Task",
-                                Progress    = "Pending",
-                                UserId      = user.Id,
-                                TenantId    = tenantId
-                            },
-                            };
-                            await _generalTask_Service.AddRange(tasks);
-                            await _generalTask_Service.CompleteAync();
+                            var name                  = user.FirstName + " " + user.LastName;
+                            var temp                  = SendCredentials(name, adminDto.Email, adminDto.Password);
+                            var Subject               = "Arenas Pass Login Credentials";
+                            await _emailService.SendEmailAsync(adminDto.Email, Subject, temp, true);
+                            var notification          = new NOTIFICATIONS();
+                            notification.IsRead       = false;
+                            notification.Message      = "Your Account Created Successfully";
+                            notification.UserId       = user.Id;
+                            notification.WorkflowStep = "Registration";
+                            notification.Timestamp    = DateTime.Now;
+                            await _notifications_Service.InsertAsync(notification);
+                            await _notifications_Service.CompleteAync();
                         }
-                        var notification          = new NOTIFICATIONS();
-                        notification.IsRead       = false;
-                        notification.Message      = "Your Account Created Successfully";
-                        notification.UserId       = user.Id;
-                        notification.WorkflowStep = "Registration";
-                        notification.Timestamp    = DateTime.Now;
-                        await _notifications_Service.InsertAsync(notification);
-                        await _notifications_Service.CompleteAync();
+                        else
+                        {
+                           return res.Errors;
+                        }
+
                     }
 
                 }
@@ -552,6 +602,47 @@ namespace Server.Services
         {
             return await _userManager.FindByEmailAsync(email);
         }
+
+        public async Task<string> SendResetPassword(string Id)
+        {
+            var user = await _userManager.FindByIdAsync(Id);
+            if (user != null)
+            {
+                var token    = await _userManager.GeneratePasswordResetTokenAsync(user);
+                var password = "Asdf@1234";
+                var result   = await _userManager.ResetPasswordAsync(user, token, password);
+                if (result.Succeeded)
+                {
+                    user.LoginRestEnable = true;
+                    var res= await _userManager.UpdateAsync(user);
+                    if (res.Succeeded)
+                    {
+                        var name    = user.FirstName + " " + user.LastName;
+                        var temp    = SendCredentials(name, user.Email, password);
+                        var Subject = "Arenas Pass Login Credentials";
+                        await _emailService.SendEmailAsync(user.Email, Subject, temp, true);
+                        var notification = new NOTIFICATIONS();
+                        notification.IsRead = false;
+                        notification.Message = "Your Password Detail Updated By Admin Successfully";
+                        notification.UserId = user.Id;
+                        notification.Timestamp = DateTime.Now;
+                        notification.WorkflowStep = "Password Update";
+                        await _notifications_Service.InsertAsync(notification);
+                        await _notifications_Service.CompleteAync();
+                        return "OK Password updated successfully";
+                    }
+                    else
+                    {
+                        res.Errors.Select(e => e.Description).FirstOrDefault();
+                    }
+                }
+                else
+                {
+                    var errors = result.Errors.Select(e => e.Description).FirstOrDefault();
+                }
+            }
+            return "User not Found";
+        }
         public async Task<dynamic> UpdatePassord(string email, string password)
         {
             var user = await _userManager.FindByEmailAsync(email);
@@ -561,19 +652,29 @@ namespace Server.Services
                 var result = await _userManager.ResetPasswordAsync(user, token, password);
                 if (result.Succeeded)
                 {
-                    var notification          = new NOTIFICATIONS();
-                    notification.IsRead       = false;
-                    notification.Message      = "Your Password Detail Updated Successfully";
-                    notification.UserId       = user.Id;
-                    notification.Timestamp    = DateTime.Now;
-                    notification.WorkflowStep = "Password Update";
-                    await _notifications_Service.InsertAsync(notification);
-                    await _notifications_Service.CompleteAync();
-                    return "OK Password updated successfully";
+                    user.LoginRestEnable = false;
+                    var res = await _userManager.UpdateAsync(user);
+                    if (res.Succeeded)
+                    {
+                        var notification = new NOTIFICATIONS();
+                        notification.IsRead = false;
+                        notification.Message = "Your Password Detail Updated Successfully";
+                        notification.UserId = user.Id;
+                        notification.Timestamp = DateTime.Now;
+                        notification.WorkflowStep = "Password Update";
+                        await _notifications_Service.InsertAsync(notification);
+                        await _notifications_Service.CompleteAync();
+                        return "OK Password updated successfully";
+                    }
+                    else
+                    {
+                       return res.Errors.Select(s => s.Description);
+                    }
                 }
                 else
                 {
                     var errors = result.Errors.Select(e => e.Description).FirstOrDefault();
+                    return errors;
                 }
             }
             return "User not Found";
@@ -597,7 +698,7 @@ namespace Server.Services
                     string salutation   = user.FirstName + " " + user.LastName;
                     string messageBody  = CreateConfirmedEmailBody(salutation);
                     string emailMessage = $"{subject}\n\n{salutation}\n\n{messageBody}";
-                    await _emailService.SendEmail1Async(user.Email, subject, emailMessage);
+                    await _emailService.SendEmailAsync(user.Email, subject, emailMessage);
                     var res             = await _passwordResetService.Delete(retVlaue);
                     if (res)
                     {
@@ -623,7 +724,7 @@ namespace Server.Services
             catch (Exception ex)
             {
 
-                return ex.Message + ex.InnerException?.Message;
+                return ex.Message;
             }
         }
         public async Task<dynamic> SendComfirmEmail(string email)
@@ -652,7 +753,7 @@ namespace Server.Services
                 string subject      = "Verify Email";
                 string salutation   =  user.FirstName + " " + user.LastName;
                 string emailMessage = CreateConfirmEmailBody(otp, salutation);
-                await _emailService.SendEmail1Async(user.Email, subject, emailMessage, true);
+                await _emailService.SendEmailAsync(user.Email, subject, emailMessage, true);
                 var notification = new NOTIFICATIONS();
                 notification.IsRead = false;
                 notification.Message = "Email Confirmation sent Successfully";
@@ -753,6 +854,7 @@ namespace Server.Services
                 new Claim("isEmployee", user.isEmployee ? "true" : "false"),
                 new Claim("EmailConfirmed", user.EmailConfirmed ? "true" : "false"),
                 new Claim("TwoFactorEnabled", TwoFactorEnabled ? "true" : "false"),
+                new Claim("LoginRestEnable", user.LoginRestEnable ? "true" : "false"),
                 new Claim("payment", payment ? "true" : "false"),
                 new Claim("TenantId", tenantId.ToString()),
                 new Claim("CompanyStatus", CompanyStatus),
@@ -990,7 +1092,10 @@ namespace Server.Services
                       Email      =  user.Email,
                       Roles      =  roles.Result.FirstOrDefault(),
                       Image      =  user.image,
-
+                      CompanyName = user.CompanyName,
+                      EmployeeId   = user.EmployeeId,
+                     
+                      
                     };
                 }).ToList();
                 return userResults.ToList();
@@ -1115,7 +1220,7 @@ namespace Server.Services
         {
             try
             {
-                IList<PelicanHRMTenant> list = await _tenants_Service.Find(x => x.CompanyName.ToLower() == model.CompanyName.ToLower());
+                IList<ArenasTenants> list = await _tenants_Service.Find(x => x.CompanyName.ToLower() == model.CompanyName.ToLower());
                 if (list.Count == 0)
                 {
                      var admin                = new ApplicationUser();
@@ -1131,18 +1236,18 @@ namespace Server.Services
                      var result               = await _userManager.CreateAsync(admin, model.Password);
                      if (result.Succeeded)
                      {
-                         var roleExists = await _roleManager.RoleExistsAsync("SuperUser");
+                         var roleExists = await _roleManager.RoleExistsAsync("Merchant");
                          if (!roleExists)
                          {
-                             await _roleManager.CreateAsync(new CustomRole { Name = "SuperUser", Permissions = "Read,Write,Delete,Update" });
+                             await _roleManager.CreateAsync(new CustomRole { Name = "Merchant", Permissions = "Read,Write,Delete,Update" });
                          }
                      
-                        await _userManager.AddToRoleAsync(admin, "SuperUser");
+                        await _userManager.AddToRoleAsync(admin, "Merchant");
                         var user = await _userManager.FindByEmailAsync(admin.Email);
                         if (user != null)
                         {
                             
-                            var company      = new PelicanHRMTenant()
+                            var company      = new ArenasTenants()
                             {
                                 CompanyName   = model.CompanyName,
                                 CompanyStatus = "Active",
@@ -1155,18 +1260,18 @@ namespace Server.Services
 
                             var notification          = new NOTIFICATIONS();
                             notification.IsRead       = false;
-                            notification.Message      = "Your Account Created Successfully";
+                            notification.Message      = "Your account created successfully";
                             notification.UserId       = user.Id;
                             notification.WorkflowStep = "Registration";
                             notification.Timestamp    = DateTime.Now;
                             await _notifications_Service.InsertAsync(notification);
                             await _notifications_Service.CompleteAync();
 
-                            IList<PelicanHRMTenant> list1 = await _tenants_Service.Find(x => x.CompanyName.ToLower() == model.CompanyName.ToLower());
+                            IList<ArenasTenants> list1 = await _tenants_Service.Find(x => x.CompanyName.ToLower() == model.CompanyName.ToLower());
 
                             if (list1.Count != 0)
                             {
-                                PelicanHRMTenant tenant = list1.FirstOrDefault();
+                                ArenasTenants tenant = list1.FirstOrDefault();
                                 user.CompanyName        = tenant.CompanyName;
                                 user.TenantId           = tenant.CompanyId;
 
@@ -1202,7 +1307,7 @@ namespace Server.Services
         {
             try
             {
-                IList<PelicanHRMTenant> list = await _tenants_Service.Find(x=>x.CompanyName.Trim().ToLower()==CompanyName.Trim().ToLower());
+                IList<ArenasTenants> list = await _tenants_Service.Find(x=>x.CompanyName.Trim().ToLower()==CompanyName.Trim().ToLower());
                 if (list.Count==0)
                 {
                     return "OK";
@@ -1224,31 +1329,19 @@ namespace Server.Services
             try
             {
                 var tenantId = Convert.ToInt32(_httpContextAccessor.HttpContext?.Items["CurrentTenant"]);
-                IList<PelicanHRMTenant> list = await _tenants_Service.Find(x => x.CompanyId==tenantId);
+                IList<ArenasTenants> list = await _tenants_Service.Find(x => x.CompanyId==tenantId);
                 if (list.Count != 0)
                 {
-                    PelicanHRMTenant tenant  = list.FirstOrDefault();
+                    ArenasTenants tenant  = list.FirstOrDefault();
                     if(tenant!= null) 
                     {
-                       tenant.EIN                  = model.EIN;
+                       
                        tenant.AddressLine1         = model.AddressLine1;
-                       tenant.AddressLine2         = model.AddressLine2;
                        tenant.isPhysicalAddress    = model.isPhysicalAddress;
                        tenant.isMailingAddress     = model.isMailingAddress;
-                       tenant.BussinessType        = model.BussinessType; 
                        tenant.City                 = model.City;
                        tenant.State                = model.State;
                        tenant.ProfileStatus        = "Completed";
-                       tenant.LegalName            = model.LegalName;
-                       tenant.noDomesticContractor = model.noDomesticContractor;
-                       tenant.noDomesticEmployee   = model.noDomesticEmployee;
-                       tenant.FillingFormIRS       = model.FillingFormIRS;
-                       tenant.Industry             = model.Industry;
-                       tenant.noInterContractor    = model.noInterContractor;
-                       tenant.Country              = model.Country;
-                       tenant.noInterEmployee      = model.noInterEmployee;
-                       tenant.PhoneNumber          = model.PhoneNumber;
-                       tenant.whosisCompany        = model.whosisCompany;
                        tenant.State                = model.State;
                        tenant.CreatedAt            = DateTime.Now;
                        tenant.ZipCode              = model.ZipCode;
@@ -1280,31 +1373,21 @@ namespace Server.Services
             try
             {
                 var tenantId                 = Convert.ToInt32(_httpContextAccessor.HttpContext?.Items["CurrentTenant"]);
-                IList<PelicanHRMTenant> list = await _tenants_Service.Find(x => x.CompanyId==tenantId);
+                IList<ArenasTenants> list = await _tenants_Service.Find(x => x.CompanyId==tenantId);
                 if (list.Count != 0)
                 {
-                    PelicanHRMTenant tenant    = list.FirstOrDefault();
+                    ArenasTenants tenant    = list.FirstOrDefault();
                     TenantUpdate     Tenants   = new TenantUpdate();
                     if (tenant!= null) 
                     {
-                        Tenants.EIN                   = tenant.EIN;                 
+                 
                         Tenants.AddressLine1          = tenant.AddressLine1;
-                        Tenants.AddressLine2          = tenant.AddressLine2;
                         Tenants.isPhysicalAddress     = tenant.isPhysicalAddress;
                         Tenants.isMailingAddress      = tenant.isMailingAddress;
-                        Tenants.BussinessType         = tenant.BussinessType;
                         Tenants.City                  = tenant.City;
                         Tenants.State                 = tenant.State;
-                        Tenants.LegalName             = tenant.LegalName;
-                        Tenants.noDomesticContractor  = tenant.noDomesticContractor.GetValueOrDefault();
-                        Tenants.noDomesticEmployee    = tenant.noDomesticEmployee.GetValueOrDefault();
-                        Tenants.FillingFormIRS        = tenant.FillingFormIRS;
-                        Tenants.Industry              = tenant.Industry;
-                        Tenants.noInterContractor     = tenant.noInterContractor.GetValueOrDefault();
                         Tenants.Country               = tenant.Country;
-                        Tenants.noInterEmployee       = tenant.noInterEmployee.GetValueOrDefault();
                         Tenants.PhoneNumber           = tenant.PhoneNumber;
-                        Tenants.whosisCompany         = tenant.whosisCompany;
                         Tenants.State                 = tenant.State;
                         Tenants.ZipCode               = tenant.ZipCode;              
                        
@@ -1333,10 +1416,10 @@ namespace Server.Services
             try
             {
                
-                IList<PelicanHRMTenant> list = await _tenants_Service.Find(x => x.CompanyId==model.Id);
+                IList<ArenasTenants> list = await _tenants_Service.Find(x => x.CompanyId==model.Id);
                 if (list.Count != 0)
                 {
-                    PelicanHRMTenant tenant  = list.FirstOrDefault();
+                    ArenasTenants tenant  = list.FirstOrDefault();
                     if(tenant!= null) 
                     {
                        tenant.CompanyStatus        = model.Status;
@@ -1497,7 +1580,7 @@ namespace Server.Services
                     <tr>
                       <td
                         style=""
-                          border-bottom: #F26302 solid 5px;
+                          border-bottom: #5d16ec solid 5px;
                           direction: ltr;
                           font-size: 0px;
                           padding: 20px 0;
@@ -1613,7 +1696,7 @@ namespace Server.Services
                                       <td style=""width: 200px"">
                                         <img
                                           height=""auto""
-                                          src=""https://firebasestorage.googleapis.com/v0/b/images-107c9.appspot.com/o/BottomLogo.jpeg?alt=media&token=48c6d297-9821-4d2c-bb7f-33ea079043f7""
+                                          src=""https://firebasestorage.googleapis.com/v0/b/images-107c9.appspot.com/o/Alogo.jpg?alt=media&token=99ef0c51-bc96-4929-9f84-b0613d348f9b""
                                           style=
                                           ""
                                           border: 0;
@@ -1698,7 +1781,7 @@ namespace Server.Services
                                     color: #555;
                                   ""
                                 >
-                                 Thank you for registering with PelicanHRM.
+                                 Thank you for registering with Arenas Pass.
                                 </div>
                               </td>
                             </tr>
@@ -1762,7 +1845,7 @@ namespace Server.Services
                                       valign=""middle""
                                     >
                                     <p style=""
-                                    background: linear-gradient(to right,rgb(254,0,0), rgb(235,123,49), rgb(235,123,49), rgb(235,123,49) 30%, rgb(235,123,49) 70%, rgb(255,165,0)) !important;
+                                    background: linear-gradient(to right,#31AFEA, #31AFEA, #31AFEA, #31AFEA 30%, #2F6FEA 70%, #2F6FEA) !important;
                                     color: #ffffff;
                                     font-family: 'Helvetica Neue', Arial, sans-serif;
                                     font-size: 15px;
@@ -1831,9 +1914,9 @@ namespace Server.Services
                                   Please send and feedback or bug info<br />
                                   to
                                   <a
-                                    href=""mailto:info@example.com""
+                                    href=""mailto:info@ArenasPass.com""
                                     style=""color: #2f67f6""
-                                    >info@pelicanhrm.com</a
+                                    >info@ArenasPass.com</a
                                   >
                                 </div>
                               </td>
@@ -1879,7 +1962,7 @@ namespace Server.Services
                     <tr>
                       <td
                         style=""
-                          border-bottom: #F26302 solid 5px;
+                          border-bottom: #5d16ec solid 5px;
                           direction: ltr;
                           font-size: 0px;
                           padding: 20px 0;
@@ -2140,7 +2223,7 @@ namespace Server.Services
                         <tr>
                           <td
                             style=""
-                              border-bottom: #F26302 solid 5px;
+                              border-bottom: #5d16ec solid 5px;
                               direction: ltr;
                               font-size: 0px;
                               padding: 20px 0;
@@ -2256,7 +2339,7 @@ namespace Server.Services
                                           <td style=""width: 200px"">
                                             <img
                                               height=""auto""
-                                              src=""https://firebasestorage.googleapis.com/v0/b/images-107c9.appspot.com/o/BottomLogo.jpeg?alt=media&token=48c6d297-9821-4d2c-bb7f-33ea079043f7""
+                                              src=""https://firebasestorage.googleapis.com/v0/b/images-107c9.appspot.com/o/Alogo.jpg?alt=media&token=99ef0c51-bc96-4929-9f84-b0613d348f9b""
                                               style=""
                                                 border: 0;
                                                 display: block;
@@ -2364,7 +2447,7 @@ namespace Server.Services
                                         color: #555;
                                       ""
                                     >
-                                     Please Login in to PelicanHRM
+                                     Please Login in to Arenas Pass
                                     </div>
                                   </td>
                                 </tr>
@@ -2403,7 +2486,7 @@ namespace Server.Services
                                         >
                                        <img
                                           height=""auto""
-                                          src=""https://firebasestorage.googleapis.com/v0/b/images-107c9.appspot.com/o/email.png?alt=media&token=af53911e-21cb-4445-ab72-bbb98e257507""
+                                          src=""https://firebasestorage.googleapis.com/v0/b/images-107c9.appspot.com/o/Alogo.jpg?alt=media&token=99ef0c51-bc96-4929-9f84-b0613d348f9b""
                                           style=""
                                             border: 0;
                                             display: block;
@@ -2463,9 +2546,9 @@ namespace Server.Services
                                       Please send and feedback or bug info<br />
                                       to
                                       <a
-                                        href=""mailto:info@example.com""
+                                        href=""mailto:info@ArenasPass.com""
                                         style=""color: #2f67f6""
-                                        >info@pelicanhrm.com</a
+                                        >info@ArenasPass.com</a
                                       >
                                     </div>
                                   </td>
@@ -2511,7 +2594,7 @@ namespace Server.Services
                         <tr>
                           <td
                             style=""
-                              border-bottom: #F26302 solid 5px;
+                              border-bottom: #5d16ec solid 5px;
                               direction: ltr;
                               font-size: 0px;
                               padding: 20px 0;
@@ -2661,7 +2744,7 @@ namespace Server.Services
                     string salutation     = user.FirstName + " " + user.LastName;
                     string messageBody    = CreateConfirmedEmailBody(salutation);
                     string emailMessage   = $"{subject}\n\n{salutation}\n\n{messageBody}";
-                    await _emailService.SendEmail1Async(user.Email, subject, emailMessage);
+                    await _emailService.SendEmailAsync(user.Email, subject, emailMessage);
                     var res = await _passwordResetService.Delete(retVlaue);
                     if (res)
                     {
@@ -2707,7 +2790,7 @@ namespace Server.Services
                     string salutation     = user.FirstName + " " + user.LastName;
                     string messageBody    = CreateConfirmedEmailBody(salutation);
                     string emailMessage   = $"{subject}\n\n{salutation}\n\n{messageBody}";
-                    await _emailService.SendEmail1Async(user.Email, subject, emailMessage);
+                    await _emailService.SendEmailAsync(user.Email, subject, emailMessage);
                     var res = await _passwordResetService.Delete(retVlaue);
                     if (res)
                     {
@@ -2771,7 +2854,7 @@ namespace Server.Services
         {
             try
             {
-                IList<PelicanHRMTenant> tenants = (IList<PelicanHRMTenant>)await _tenants_Service.GetAll();
+                IList<ArenasTenants> tenants = (IList<ArenasTenants>)await _tenants_Service.GetAll();
                 IList<ApplicationUser> userList = await _userManager.Users.ToListAsync();
                 var groupedUsersByCompany = userList
                     .GroupBy(user => user.TenantId)
@@ -2853,7 +2936,7 @@ namespace Server.Services
         {
             try
             {
-                IList<PelicanHRMTenant> tenants = (IList<PelicanHRMTenant>)await _tenants_Service.GetAll();
+                IList<ArenasTenants> tenants = (IList<ArenasTenants>)await _tenants_Service.GetAll();
                 IList<ApplicationUser> userList = await _userManager.Users.ToListAsync();
                 var groupedUsersByCompany = userList
                     .GroupBy(user => user.TenantId)
@@ -2895,7 +2978,7 @@ namespace Server.Services
                     // Add the user with company users to the list
                     userWithCompanyUsersList.Add(userWithCompanyUsers);
                 }
-                IList<UserWithRolesModelForTenants> users = userWithCompanyUsersList.Where(x => x.Role == "SuperUser").ToList();
+                IList<UserWithRolesModelForTenants> users = userWithCompanyUsersList.Where(x => x.Role == "Onwer").ToList();
                 var finalist=users.Join
                     (
                      tenants,
@@ -2917,26 +3000,14 @@ namespace Server.Services
                         CompanyStatus        = user.t.CompanyStatus,
                         Profilestatus        = user.t.ProfileStatus,
                         PhoneNumber          = user.t.PhoneNumber,
-                         AddressLine1        = user.t.AddressLine1,
-                        AddressLine2         = user.t.AddressLine2,
+                        AddressLine1        = user.t.AddressLine1,
+
                         City                 = user.t.City,
                         State                = user.t.State,
                         Country              = user.t.Country,
                         ZipCode              = user.t.ZipCode,
-                        Longitude            = user.t.Longitude,
-                        Latitude             = user.t.Latitude,
                         IsMailingAddress     = user.t.isMailingAddress,
                         IsPhysicalAddress    = user.t.isPhysicalAddress,
-                        WhosisCompany        = user.t.whosisCompany,
-                        NoDomesticEmployee   = user.t.noDomesticEmployee,
-                        NoInterEmployee      = user.t.noInterEmployee,
-                        NoDomesticContractor = user.t.noDomesticContractor,
-                        NoInterContractor    = user.t.noInterContractor,
-                        EIN                  = user.t.EIN,
-                        BusinessType         = user.t.BussinessType,
-                        LegalName            = user.t.LegalName,
-                        FillingFormIRS       = user.t.FillingFormIRS,
-                        Industry             = user.t.Industry,
                         CreatedAt            = user.t.CreatedAt.ToString("MM/dd/yyyy"),
                         List                 = user.u.List
                     })
@@ -2951,7 +3022,698 @@ namespace Server.Services
             }
         }
 
+
+
+        /// <summary>
+        /// GetTenant Details
+        /// </summary>
+        /// <param name="OnwerId"></param>
+        /// <returns></returns>
+        public async Task<dynamic> GetTenantsDetailbyId(string OnwerId)
+        {
+            try
+            {
+                ApplicationUser  Appuser            = await _userManager.FindByIdAsync(OnwerId);   
+                if (Appuser!=null)
+                {
+                    IList<string>           Roles   = await _userManager.GetRolesAsync(Appuser);
+                    IList<ArenasTenants> tenants = await _tenants_Service.Find(x=>x.CompanyId==Appuser.TenantId);
+                    ArenasTenants        tenant  = tenants.FirstOrDefault();
+                    if (tenant!=null)
+                    {
+                        var tenantDetail = new TenantDetailModel
+                        {
+                            Id                 = Appuser.Id,
+                            Name               = Appuser.FirstName +" " + Appuser.LastName,
+                            Email              = Appuser.Email,
+                            Role               = Roles.FirstOrDefault(),
+                            Image              = Appuser.image,
+                            CompanyName        = Appuser.CompanyName,
+                            TenantId           = Appuser.TenantId,
+                            CompanyDesignation = Appuser.CompanyDesignation,
+                            CompanyStatus      = tenant.CompanyStatus,
+                            ProfileStatus      = tenant.ProfileStatus,
+                            PhoneNumber        = tenant.PhoneNumber,
+                            AddressLine1       = tenant.AddressLine1,
+                            City               = tenant.City,
+                            State              = tenant.State,
+                            Country            = tenant.Country,
+                            ZipCode            = tenant.ZipCode,
+                            IsMailingAddress   = tenant.isMailingAddress,
+                            IsPhysicalAddress  = tenant.isPhysicalAddress,
+                            CreatedAt          = tenant.CreatedAt.ToString("MM/dd/yyyy")
+                        };
+
+                        return tenantDetail;
+                    }
+
+                }
+
+                return "No Record found against User id";
+                
+            }
+            catch (Exception ex)
+            {
+
+                return ex.Message + ex.InnerException?.Message;
+            }
+        }
+
         #endregion
+
+
+
+        public string SendCredentials(string name,string username,string password)
+        {
+            string templ=$@"
+               <!DOCTYPE html>
+<html
+  xmlns=""http://www.w3.org/1999/xhtml""
+  xmlns:v=""urn:schemas-microsoft-com:vml""
+  xmlns:o=""urn:schemas-microsoft-com:office:office""
+>
+  <head>
+    <title> </title>
+    <!--[if !mso]><!-- -->
+    <meta http-equiv=""X-UA-Compatible"" content=""IE=edge"" />
+    <!--<![endif]-->
+    <meta http-equiv=""Content-Type"" content=""text/html; charset=UTF-8"" />
+    <meta name=""viewport"" content=""width=device-width, initial-scale=1"" />
+    <style type=""text/css"">
+      #outlook a {{
+        padding: 0;
+      }}
+
+      .ReadMsgBody {{
+        width: 100%;
+      }}
+
+      .ExternalClass {{
+        width: 100%;
+      }}
+
+      .ExternalClass * {{
+        line-height: 100%;
+      }}
+
+      body {{
+        margin: 0;
+        padding: 0;
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+      }}
+
+      table,
+      td {{
+        border-collapse: collapse;
+        mso-table-lspace: 0pt;
+        mso-table-rspace: 0pt;
+      }}
+
+      img {{
+        border: 0;
+        height: auto;
+        line-height: 100%;
+        outline: none;
+        text-decoration: none;
+        -ms-interpolation-mode: bicubic;
+      }}
+
+      p {{
+        display: block;
+        margin: 13px 0;
+      }}
+      
+    </style>
+   
+    <style type=""text/css"">
+      @media only screen and (max-width: 480px) {{
+        @-ms-viewport {{
+          width: 320px;
+        }}
+
+        @viewport {{
+          width: 320px;
+        }}
+      }}
+    </style>
+    <!--<![endif]-->
+    <!--[if mso]>
+      <xml>
+        <o:OfficeDocumentSettings>
+          <o:AllowPNG />
+          <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+      </xml>
+    <![endif]-->
+    <!--[if lte mso 11]>
+      <style type=""text/css"">
+        .outlook-group-fix {{
+          width: 100% !important;
+        }}
+      </style>
+    <![endif]-->
+
+    <style type=""text/css"">
+      @media only screen and (min-width: 480px) {{
+        .mj-column-per-100 {{
+          width: 100% !important;
+        }}
+      }}
+    </style>
+
+    <style type=""text/css""></style>
+  </head>
+
+  <body style=""background-color: #f9f9f9"">
+    <div style=""background-color: #f9f9f9"">
+      <!--[if mso | IE]>
+      <table
+         align=""center"" border=""0"" cellpadding=""0"" cellspacing=""0"" style=""width:600px;"" width=""600""
+      >
+        <tr>
+          <td style=""line-height:0px;font-size:0px;mso-line-height-rule:exactly;"">
+      <![endif]-->
+
+      <div
+        style=""
+          background: rgb(241,245,249);
+          background-color: rgb(241,245,249);
+          margin: 0px auto;
+          max-width: 600px;
+        ""
+      >
+        <table
+          align=""center""
+          border=""0""
+          cellpadding=""0""
+          cellspacing=""0""
+          role=""presentation""
+          style=""background: #f9f9f9; background-color: #f9f9f9; width: 100%""
+        >
+          <tbody>
+            <tr>
+              <td
+                style=""
+                  border-bottom: #5d16ec solid 5px;
+                  direction: ltr;
+                  font-size: 0px;
+                  padding: 20px 0;
+                  text-align: center;
+                  vertical-align: top;
+                ""
+              >
+                <!--[if mso | IE]>
+                  <table
+                    role=""presentation""
+                    border=""0""
+                    cellpadding=""0""
+                    cellspacing=""0""
+                  >
+                    <tr></tr>
+                  </table>
+                <![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      
+      <table
+         align=""center"" border=""0"" cellpadding=""0"" cellspacing=""0"" style=""width:600px;"" width=""600""
+      >
+        <tr>
+          <td style=""line-height:0px;font-size:0px;mso-line-height-rule:exactly;"">
+      <![endif]-->
+
+      <div
+        style=""
+          background: #fff;
+          background-color: #fff;
+          margin: 0px auto;
+          max-width: 600px;
+        ""
+      >
+        <table
+          align=""center""
+          border=""0""
+          cellpadding=""0""
+          cellspacing=""0""
+          role=""presentation""
+          style=""background: #fff; background-color: #fff; width: 100%""
+        >
+          <tbody>
+            <tr>
+              <td
+                style=""
+                  border: #dddddd solid 1px;
+                  border-top: 0px;
+                  direction: ltr;
+                  font-size: 0px;
+                  padding: 20px 0;
+                  text-align: center;
+                  vertical-align: top;
+                ""
+              >
+                <!--[if mso | IE]>
+                  <table role=""presentation"" border=""0"" cellpadding=""0"" cellspacing=""0"">
+                
+        <tr>
+      
+            <td
+               style=""vertical-align:bottom;width:600px;""
+            >
+          <![endif]-->
+
+                <div
+                  class=""mj-column-per-100 outlook-group-fix""
+                  style=""
+                    font-size: 13px;
+                    text-align: left;
+                    direction: ltr;
+                    display: inline-block;
+                    vertical-align: bottom;
+                    width: 100%;
+                  ""
+                >
+                  <table
+                    border=""0""
+                    cellpadding=""0""
+                    cellspacing=""0""
+                    role=""presentation""
+                    style=""vertical-align: bottom""
+                    width=""100%""
+                  >
+                    <tr>
+                      <td
+                        align=""center""
+                        style=""
+                          font-size: 0px;
+                          padding: 10px 25px;
+                          word-break: break-word;
+                        ""
+                      >
+                        <table
+                          align=""center""
+                          border=""0""
+                          cellpadding=""0""
+                          cellspacing=""0""
+                          role=""presentation""
+                          style=""border-collapse: collapse; border-spacing: 0px""
+                        >
+                          <tbody>
+                            <tr>
+                              <td style=""width: 200px"">
+                                <img
+                                  height=""auto""
+                                  src=""https://firebasestorage.googleapis.com/v0/b/images-107c9.appspot.com/o/Alogo.jpg?alt=media&token=99ef0c51-bc96-4929-9f84-b0613d348f9b""
+                                  style=
+                                  ""
+                                  border: 0;
+                                  display: block;
+                                  outline: none;
+                                  text-decoration: none;
+                                  width: 100%;
+                                  ""
+                                  width=""200""
+                                />
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td
+                        align=""center""
+                        style=""
+                          font-size: 0px;
+                          padding: 10px 25px;
+                          padding-bottom: 40px;
+                          word-break: break-word;
+                        ""
+                      >
+                        <div
+                          style=""
+                            font-family: 'Helvetica Neue', Arial, sans-serif;
+                            font-size: 22px;
+                            font-weight: bold;
+                            line-height: 1;
+                            text-align: center;
+                            color: #555;
+                          ""
+                        >
+                         Welome to Arenas Pass.
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td
+                        align=""center""
+                        style=""
+                          font-size: 0px;
+                          padding: 10px 25px;
+                          padding-bottom: 0;
+                          word-break: break-word;
+                        ""
+                      >
+                        <div
+                          style=""
+                            font-family: 'Helvetica Neue', Arial, sans-serif;
+                            font-size: 16px;
+                            line-height: 22px;
+                            text-align: center;
+                            color: #555;
+                          ""
+                        >
+                         Dear {name}
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td
+                        align=""center""
+                        style=""
+                          font-size: 0px;
+                          padding: 10px 25px;
+                          word-break: break-word;
+                        ""
+                      >
+                        <div
+                          style=""
+                            font-family: 'Helvetica Neue', Arial, sans-serif;
+                            font-size: 16px;
+                            line-height: 22px;
+                            text-align: center;
+                            color: #555;
+                          ""
+                        >
+                          Arenas Pass Login Credentials.
+                        </div>
+                      </td>
+                    </tr>
+                    <tr >
+                        <td >
+                          <h2 style=""padding-left: 30px;"">Username</h2>
+                        </td>
+                        <td >
+                          <h2 style=""padding-right: 5px;"">{username}</h2>
+                        </td>
+                    </tr>
+                    <tr >
+                        <td >
+                          <h2 style=""padding-left: 30px;""> Password</h2>
+                        </td>
+                        <td >
+                          <h2 style=""padding-right: 5px;"">{password}</h2>
+                        </td>
+                    </tr>
+                    <tr>
+                      <td
+                        align=""center""
+                        style=""
+                          font-size: 0px;
+                          padding: 10px 25px;
+                          word-break: break-word;
+                        ""
+                      >
+                        <div
+                          style=""
+                            font-family: 'Helvetica Neue', Arial, sans-serif;
+                            font-size: 26px;
+                            font-weight: bold;
+                            line-height: 1;
+                            text-align: center;
+                            color: #555;
+                          ""
+                        >
+                          Need Help?
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td
+                        align=""center""
+                        style=""
+                          font-size: 0px;
+                          padding: 10px 25px;
+                          word-break: break-word;
+                        ""
+                      >
+                        <div
+                          style=""
+                            font-family: 'Helvetica Neue', Arial, sans-serif;
+                            font-size: 14px;
+                            line-height: 22px;
+                            text-align: center;
+                            color: #555;
+                          ""
+                        >
+                          Please send and feedback or bug info<br />
+                          to
+                          <a
+                            href=""mailto:info@example.com""
+                            style=""color: #2f67f6""
+                            >info@arenaspass.com</a
+                          >
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+
+                <!--[if mso | IE]>
+            </td>
+          
+        </tr>
+      
+                  </table>
+                <![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      
+      <table
+         align=""center"" border=""0"" cellpadding=""0"" cellspacing=""0"" style=""width:600px;"" width=""600""
+      >
+        <tr>
+          <td style=""line-height:0px;font-size:0px;mso-line-height-rule:exactly;"">
+      <![endif]-->
+
+      <div style=""margin: 0px auto; max-width: 600px"">
+        <table
+          align=""center""
+          border=""0""
+          cellpadding=""0""
+          cellspacing=""0""
+          role=""presentation""
+          style=""width: 100%""
+        >
+          <tbody>
+            <tr>
+              <td
+                style=""
+                  border-bottom: #5d16ec solid 5px;
+                  direction: ltr;
+                  font-size: 0px;
+                  padding: 20px 0;
+                  text-align: center;
+                  vertical-align: top;
+                ""
+              >
+                <!--[if mso | IE]>
+                  <table role=""presentation"" border=""0"" cellpadding=""0"" cellspacing=""0"">
+                
+        <tr>
+      
+            <td
+               style=""vertical-align:bottom;width:600px;""
+            >
+          <![endif]-->
+
+                <div
+                  class=""mj-column-per-100 outlook-group-fix""
+                  style=""
+                    font-size: 13px;
+                    text-align: left;
+                    direction: ltr;
+                    display: inline-block;
+                    vertical-align: bottom;
+                    width: 100%;
+                  ""
+                >
+                  <table
+                    border=""0""
+                    cellpadding=""0""
+                    cellspacing=""0""
+                    role=""presentation""
+                    width=""100%""
+                  >
+                    <tbody>
+                      <tr>
+                        <td style=""vertical-align: bottom; padding: 0"">
+                          <table
+                            border=""0""
+                            cellpadding=""0""
+                            cellspacing=""0""
+                            role=""presentation""
+                            width=""100%""
+                          >
+                            <tr>
+                              <td
+                                align=""center""
+                                style=""
+                                  font-size: 0px;
+                                  padding: 0;
+                                  word-break: break-word;
+                                ""
+                              >
+                                <div
+                                  style=""
+                                    font-family: 'Helvetica Neue', Arial,
+                                      sans-serif;
+                                    font-size: 12px;
+                                    font-weight: 300;
+                                    line-height: 1;
+                                    text-align: center;
+                                    color: #000000;
+                                  ""
+                                >
+                                 950 Dannon View, SW Suite 4103 Atlanta, GA 30331
+                                </div>
+                              </td>
+                            </tr>
+
+                            <tr>
+                              <td
+                                align=""center""
+                                style=""
+                                  font-size: 0px;
+                                  padding: 10px;
+                                  word-break: break-word;
+                                ""
+                              >
+                                <div
+                                  style=""
+                                    font-family: 'Helvetica Neue', Arial,
+                                      sans-serif;
+                                    font-size: 12px;
+                                    font-weight: 300;
+                                    line-height: 1;
+                                    text-align: center;
+                                    color: #000000;
+                                  ""
+                                >
+                                  <a href="""" style=""color: #000000""
+                                    >Phone</a
+                                  >
+                                  404-593-0993
+                                </div>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <!--[if mso | IE]>
+            </td>
+          
+        </tr>
+      
+                  </table>
+                <![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      <![endif]-->
+    </div>
+  </body>
+</html>
+
+            ";
+            return templ;
+        }
+
+        public async Task<string> Register(UserRegisterModel adminDto)
+        {
+            try
+            {
+                var admin                 = new ApplicationUser();
+                admin.FirstName           = adminDto.FirstName;
+                admin.LastName            = adminDto.LastName;
+                admin.Email               = adminDto.Email; ;
+                admin.UserName            = adminDto.Email;
+                admin.EmployeeId          = await getEmployeeId() + 1;
+                admin.TenantId            = await getEmployeeId() + 1;
+                admin.CompanyDesignation  = "Customer";
+                admin.CompanyName         = "Arenas Pass";
+                admin.isEmployee          = true;
+                var result = await _userManager.CreateAsync(admin, adminDto.Password);
+                if (result.Succeeded)
+                {
+                    var roleExists = await _roleManager.RoleExistsAsync("Customer");
+                    
+                    if (!roleExists)
+                    {
+                        await _roleManager.CreateAsync(new CustomRole { Name = "Customer", Permissions = "Read,Write,Delete,Update" });
+                    }
+
+                    await _userManager.AddToRoleAsync(admin, "Customer");
+
+                    var user = await _userManager.FindByEmailAsync(admin.Email);
+                        
+                    if (user != null)
+                    {
+                        
+                        var notification            = new NOTIFICATIONS();
+                        notification.IsRead         = false;
+                        notification.Message        = "Your account created successfully";
+                        notification.UserId         = user.Id;
+                        notification.WorkflowStep   = "Registration";
+                        notification.Timestamp      = DateTime.Now;
+
+                        await _notifications_Service.InsertAsync(notification);
+                        await _notifications_Service.CompleteAync();
+
+                    }
+                    
+                   return "OK your account created successfully";
+                }
+
+                return result.Errors.Select(x=>x.Description).FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+
+                return  ex.Message;
+            }
+        }
     }
 
 

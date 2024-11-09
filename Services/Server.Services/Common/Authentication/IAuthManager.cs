@@ -8,6 +8,7 @@ namespace Server.Services
     public interface IAuthManager
     {
         Task<AuthResponseModel> Login(UserLoginModel loginDto);
+        Task<string> Register(UserRegisterModel loginDto);
         Task<IEnumerable<IdentityError>> RegisterAdmin(RegisterUserModel adminDto);
         Task<string> RegisterCandidates(RegisterUserModel adminDto);
         Task<IEnumerable<IdentityError>> RegisterUsers(AddUsersModel adminDto);
@@ -40,5 +41,8 @@ namespace Server.Services
         Task<dynamic> GetTenantsbyId(string OnwerId);
         Task<IEnumerable> GetTenants();
         Task<TenantUpdate> GetUpdateTenant();
+        Task<string> SendResetPassword(string Id);
+        Task<dynamic> GetTenantsDetailbyId(string OnwerId);
+        Task<IEnumerable<IdentityError>> RegisterSuperAdmin(RegisterUserModel adminDto);
     }
 }

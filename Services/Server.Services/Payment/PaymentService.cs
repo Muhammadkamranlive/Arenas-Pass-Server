@@ -1,8 +1,7 @@
 ﻿using Stripe;
-using System.Net;
 using Server.Models;
 using Stripe.Checkout;
-using Microsoft.AspNetCore.Mvc;
+using Server.Models.Payments;
 using Microsoft.Extensions.Options;
 
 namespace Server.Services
@@ -10,12 +9,12 @@ namespace Server.Services
     public class PaymentService : IPaymentService
     {
 
-        private readonly StripeModel     stripeModel;
-        private readonly ProductService  _productService;
-        private readonly ChargeService   _chargeService;
-        private readonly CustomerService _customerService;
-        private readonly TokenService    _tokenService;
-
+        private readonly StripeModel         stripeModel;
+        private readonly ProductService      _productService;
+        private readonly ChargeService       _chargeService;
+        private readonly CustomerService     _customerService;
+        private readonly TokenService        _tokenService;
+        private readonly SubscriptionService _subscriptionService;
 
         public PaymentService
         (
@@ -23,17 +22,21 @@ namespace Server.Services
             ProductService        productService,
             ChargeService         chargeService,
             CustomerService       customerService,
-            TokenService          tokenService
+            TokenService          tokenService,
+            SubscriptionService   subscriptionService
         )
         {
-            stripeModel        = Model.Value;
-            _productService    = productService;
-            _chargeService     = chargeService;
-            _customerService   = customerService;
-            _tokenService      = tokenService;
+            stripeModel          = Model.Value;
+            _productService      = productService;
+            _chargeService       = chargeService;
+            _customerService     = customerService;
+            _tokenService        = tokenService;
+            _subscriptionService = subscriptionService;
 
         }
 
+
+        //Checkout for Clients
         public async Task<dynamic> Checkout(CheckoutModel checkoutModel)
         {
             try
@@ -74,7 +77,14 @@ namespace Server.Services
             }
         }
 
-
+        /// <summary>
+        /// //Create Customer in Stripe
+        /// </summary>
+        /// <param name="Name"></param>
+        /// <param name="Email"></param>
+        /// <param name="companyName"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         private async Task<dynamic> CreatCustomer( string Name,string Email,string companyName)
         {
             try
@@ -96,6 +106,11 @@ namespace Server.Services
             }
         }
 
+        /// <summary>
+        /// GetPayment Plans
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public async Task<dynamic> GetPaymentPlans()
         {
             try
@@ -112,6 +127,11 @@ namespace Server.Services
             }
         }
 
+        /// <summary>
+        /// Client Payment Sessions
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public async Task<dynamic> GetClientPaymentSession()
         {
             try
@@ -153,7 +173,11 @@ namespace Server.Services
         }
 
 
-
+        /// <summary>
+        /// //Get Invocies Details by Customer Email
+        /// </summary>
+        /// <param name="CustomerEmail"></param>
+        /// <returns></returns>
         public List<InvoiceSummary> GetInvoices(string CustomerEmail)
         {
             StripeConfiguration.ApiKey = stripeModel.SecreteKey;
@@ -192,9 +216,13 @@ namespace Server.Services
 
             return invoiceSummaries;
         }
-
-
-
+        
+        /// <summary>
+        /// Downalod Invoice Pdf
+        /// </summary>
+        /// <param name="invoiceId"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public string DownloadInvoice(string invoiceId)
         {
             StripeConfiguration.ApiKey = stripeModel.SecreteKey;
@@ -212,5 +240,102 @@ namespace Server.Services
             }
         }
 
+        /// <summary>
+        /// Charge Employee Payments
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public async Task<dynamic> EmployeePayment(EmployeePayment request)
+        {
+                StripeConfiguration.ApiKey = stripeModel.SecreteKey;
+                // Check if customer already exists
+                var existingCustomers     = _customerService.List(new CustomerListOptions
+                {                         
+                    Email                 = request.EmployeeEmail
+                });
+
+                Customer customer;
+
+                if (existingCustomers.Any())
+                {
+                    customer = existingCustomers.First();
+                }
+                else
+                {
+                       var CustomerOptions        = new CustomerCreateOptions
+                       {
+                         Email    = request.EmployeeEmail,
+                         Name     = request.EmployeeName,
+                         Address  = new AddressOptions
+                         {
+                             Line1      = request.EmployeeAddress,
+                             PostalCode = request.EmployeeZipcode,
+                             City       = request.EmployeeCity,
+                             Country    = request.EmployeeCountry,
+                            
+                         }
+                       };
+                       customer  =  _customerService.Create(CustomerOptions);
+                }
+                var subscriptionOptions = new SubscriptionCreateOptions
+                {
+                    Customer = customer.Id,
+                    Items    = new List<SubscriptionItemOptions>
+                    {
+                      new SubscriptionItemOptions { Price = request.PriceId }
+                    },
+                    PaymentBehavior             = "default_incomplete",
+                    Expand                      = new List<string> { "latest_invoice.payment_intent" },
+                    
+                };
+                var subscriptionService         = new SubscriptionService();
+                var subscription                = await subscriptionService.CreateAsync(subscriptionOptions);
+                var clientSecret                = subscription.LatestInvoice.PaymentIntent.ClientSecret;
+               
+                return clientSecret;
+        }
+
+
+
+        /// <summary>
+        /// Check Employee Subscription
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        public async Task<string> SubscriptionCheck(string email)
+        {
+            string retValue            = "OK";
+            StripeConfiguration.ApiKey = stripeModel.SecreteKey;
+            var options = new CustomerListOptions
+            {
+                Email   = email,
+                Limit   = 1
+            };
+            var Customers = await _customerService.ListAsync(options);
+            var customer = Customers.FirstOrDefault();
+            if (customer != null)
+            {
+                var customerId = customer.Id;
+                var optionsSub = new SubscriptionListOptions
+                {
+                    Customer = customerId,
+                    Status   = "active",
+                    Limit    = 1
+                };
+
+                var subscriptions = await _subscriptionService.ListAsync(optionsSub);
+                if (subscriptions.Any())
+                {
+                    retValue = "OK";
+                    return retValue;
+                }
+            }
+
+            retValue = "Customer Not have subcription";
+            return retValue;
+        }
+
+        
+    
     }
 }

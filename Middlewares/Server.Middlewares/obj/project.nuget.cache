@@ -1,14 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "dUywiHR6mcDWIW4vHaOB7DUDkL5IaanaJaR7lvk4WqYMLOe3ELLIQSV5EJXaYExZSDr5Rq36nHfVcfSsndcpGw==",
+  "dgSpecHash": "TnECrVeIQj5R4JBTjD7Pfmt+PNoZBVgT+yVK3Mh4WVrZYdv3ICLWwBEwinz2JmAAFsYs5ZR+wqdTyM40r9KSSQ==",
   "success": true,
-  "projectFilePath": "D:\\Freelance\\ERP\\Server\\Middlewares\\Server.Middlewares\\Server.Middlewares.csproj",
+  "projectFilePath": "E:\\work\\ANI Digital Passes\\Server\\Middlewares\\Server.Middlewares\\Server.Middlewares.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\TK\\.nuget\\packages\\dotnet-passbook\\3.2.4\\dotnet-passbook.3.2.4.nupkg.sha512",
     "C:\\Users\\TK\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.1.1\\microsoft.aspnetcore.http.abstractions.2.1.1.nupkg.sha512",
     "C:\\Users\\TK\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.1.1\\microsoft.aspnetcore.http.features.2.1.1.nupkg.sha512",
     "C:\\Users\\TK\\.nuget\\packages\\microsoft.extensions.primitives\\2.1.1\\microsoft.extensions.primitives.2.1.1.nupkg.sha512",
+    "C:\\Users\\TK\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\TK\\.nuget\\packages\\system.memory\\4.5.1\\system.memory.4.5.1.nupkg.sha512",
     "C:\\Users\\TK\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.1\\system.runtime.compilerservices.unsafe.4.5.1.nupkg.sha512",
+    "C:\\Users\\TK\\.nuget\\packages\\system.security.cryptography.cng\\4.7.0\\system.security.cryptography.cng.4.7.0.nupkg.sha512",
+    "C:\\Users\\TK\\.nuget\\packages\\system.security.cryptography.pkcs\\4.7.0\\system.security.cryptography.pkcs.4.7.0.nupkg.sha512",
     "C:\\Users\\TK\\.nuget\\packages\\system.text.encodings.web\\4.5.0\\system.text.encodings.web.4.5.0.nupkg.sha512"
   ],
   "logs": []

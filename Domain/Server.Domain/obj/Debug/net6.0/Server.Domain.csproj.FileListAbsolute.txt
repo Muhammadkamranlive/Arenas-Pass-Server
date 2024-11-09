@@ -11,3 +11,16 @@ D:\Freelance\ERP\Server\Domain\Server.Domain\obj\Debug\net6.0\refint\Server.Doma
 D:\Freelance\ERP\Server\Domain\Server.Domain\obj\Debug\net6.0\Server.Domain.pdb
 D:\Freelance\ERP\Server\Domain\Server.Domain\obj\Debug\net6.0\ref\Server.Domain.dll
 D:\Freelance\ERP\Server\Domain\Server.Domain\obj\Debug\net6.0\Server.Domain.sourcelink.json
+E:\work\ANI Digital Passes\Server\Domain\Server.Domain\bin\Debug\net6.0\Server.Domain.deps.json
+E:\work\ANI Digital Passes\Server\Domain\Server.Domain\bin\Debug\net6.0\Server.Domain.dll
+E:\work\ANI Digital Passes\Server\Domain\Server.Domain\bin\Debug\net6.0\Server.Domain.pdb
+E:\work\ANI Digital Passes\Server\Domain\Server.Domain\obj\Debug\net6.0\Server.Domain.csproj.AssemblyReference.cache
+E:\work\ANI Digital Passes\Server\Domain\Server.Domain\obj\Debug\net6.0\Server.Domain.GeneratedMSBuildEditorConfig.editorconfig
+E:\work\ANI Digital Passes\Server\Domain\Server.Domain\obj\Debug\net6.0\Server.Domain.AssemblyInfoInputs.cache
+E:\work\ANI Digital Passes\Server\Domain\Server.Domain\obj\Debug\net6.0\Server.Domain.AssemblyInfo.cs
+E:\work\ANI Digital Passes\Server\Domain\Server.Domain\obj\Debug\net6.0\Server.Domain.csproj.CoreCompileInputs.cache
+E:\work\ANI Digital Passes\Server\Domain\Server.Domain\obj\Debug\net6.0\Server.Domain.sourcelink.json
+E:\work\ANI Digital Passes\Server\Domain\Server.Domain\obj\Debug\net6.0\Server.Domain.dll
+E:\work\ANI Digital Passes\Server\Domain\Server.Domain\obj\Debug\net6.0\refint\Server.Domain.dll
+E:\work\ANI Digital Passes\Server\Domain\Server.Domain\obj\Debug\net6.0\Server.Domain.pdb
+E:\work\ANI Digital Passes\Server\Domain\Server.Domain\obj\Debug\net6.0\ref\Server.Domain.dll

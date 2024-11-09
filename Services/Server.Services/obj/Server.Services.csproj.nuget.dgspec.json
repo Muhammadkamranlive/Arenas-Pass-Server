@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Freelance\\ERP\\Server\\Services\\Server.Services\\Server.Services.csproj": {}
+    "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\Server.Services.csproj": {}
   },
   "projects": {
-    "D:\\Freelance\\ERP\\Server\\BaseService\\Server.BaseService\\Server.BaseService.csproj": {
+    "E:\\work\\ANI Digital Passes\\Server\\BaseService\\Server.BaseService\\Server.BaseService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Freelance\\ERP\\Server\\BaseService\\Server.BaseService\\Server.BaseService.csproj",
+        "projectUniqueName": "E:\\work\\ANI Digital Passes\\Server\\BaseService\\Server.BaseService\\Server.BaseService.csproj",
         "projectName": "Server.BaseService",
-        "projectPath": "D:\\Freelance\\ERP\\Server\\BaseService\\Server.BaseService\\Server.BaseService.csproj",
+        "projectPath": "E:\\work\\ANI Digital Passes\\Server\\BaseService\\Server.BaseService\\Server.BaseService.csproj",
         "packagesPath": "C:\\Users\\TK\\.nuget\\packages\\",
-        "outputPath": "D:\\Freelance\\ERP\\Server\\BaseService\\Server.BaseService\\obj\\",
+        "outputPath": "E:\\work\\ANI Digital Passes\\Server\\BaseService\\Server.BaseService\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\TK\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Freelance\\ERP\\Server\\UOW\\Server.UOW\\Server.UOW.csproj": {
-                "projectPath": "D:\\Freelance\\ERP\\Server\\UOW\\Server.UOW\\Server.UOW.csproj"
+              "E:\\work\\ANI Digital Passes\\Server\\UOW\\Server.UOW\\Server.UOW.csproj": {
+                "projectPath": "E:\\work\\ANI Digital Passes\\Server\\UOW\\Server.UOW\\Server.UOW.csproj"
               }
             }
           }
@@ -48,6 +48,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "dotnet-passbook": {
+              "target": "Package",
+              "version": "[3.2.4, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -68,14 +74,14 @@
         }
       }
     },
-    "D:\\Freelance\\ERP\\Server\\Core\\Server.Core\\Server.Core.csproj": {
+    "E:\\work\\ANI Digital Passes\\Server\\Core\\Server.Core\\Server.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Freelance\\ERP\\Server\\Core\\Server.Core\\Server.Core.csproj",
+        "projectUniqueName": "E:\\work\\ANI Digital Passes\\Server\\Core\\Server.Core\\Server.Core.csproj",
         "projectName": "Server.Core",
-        "projectPath": "D:\\Freelance\\ERP\\Server\\Core\\Server.Core\\Server.Core.csproj",
+        "projectPath": "E:\\work\\ANI Digital Passes\\Server\\Core\\Server.Core\\Server.Core.csproj",
         "packagesPath": "C:\\Users\\TK\\.nuget\\packages\\",
-        "outputPath": "D:\\Freelance\\ERP\\Server\\Core\\Server.Core\\obj\\",
+        "outputPath": "E:\\work\\ANI Digital Passes\\Server\\Core\\Server.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\TK\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -92,8 +98,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Freelance\\ERP\\Server\\Domain\\Server.Domain\\Server.Domain.csproj": {
-                "projectPath": "D:\\Freelance\\ERP\\Server\\Domain\\Server.Domain\\Server.Domain.csproj"
+              "E:\\work\\ANI Digital Passes\\Server\\Domain\\Server.Domain\\Server.Domain.csproj": {
+                "projectPath": "E:\\work\\ANI Digital Passes\\Server\\Domain\\Server.Domain\\Server.Domain.csproj"
               }
             }
           }
@@ -154,6 +160,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[6.0.20, )"
+            },
+            "dotnet-passbook": {
+              "target": "Package",
+              "version": "[3.2.4, )"
             }
           },
           "imports": [
@@ -176,14 +186,14 @@
         }
       }
     },
-    "D:\\Freelance\\ERP\\Server\\Domain\\Server.Domain\\Server.Domain.csproj": {
+    "E:\\work\\ANI Digital Passes\\Server\\Domain\\Server.Domain\\Server.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Freelance\\ERP\\Server\\Domain\\Server.Domain\\Server.Domain.csproj",
+        "projectUniqueName": "E:\\work\\ANI Digital Passes\\Server\\Domain\\Server.Domain\\Server.Domain.csproj",
         "projectName": "Server.Domain",
-        "projectPath": "D:\\Freelance\\ERP\\Server\\Domain\\Server.Domain\\Server.Domain.csproj",
+        "projectPath": "E:\\work\\ANI Digital Passes\\Server\\Domain\\Server.Domain\\Server.Domain.csproj",
         "packagesPath": "C:\\Users\\TK\\.nuget\\packages\\",
-        "outputPath": "D:\\Freelance\\ERP\\Server\\Domain\\Server.Domain\\obj\\",
+        "outputPath": "E:\\work\\ANI Digital Passes\\Server\\Domain\\Server.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\TK\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -232,6 +242,10 @@
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.19, )"
+            },
+            "dotnet-passbook": {
+              "target": "Package",
+              "version": "[3.2.4, )"
             }
           },
           "imports": [
@@ -254,14 +268,14 @@
         }
       }
     },
-    "D:\\Freelance\\ERP\\Server\\Models\\Server.Models\\Server.Models.csproj": {
+    "E:\\work\\ANI Digital Passes\\Server\\Models\\Server.Models\\Server.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Freelance\\ERP\\Server\\Models\\Server.Models\\Server.Models.csproj",
+        "projectUniqueName": "E:\\work\\ANI Digital Passes\\Server\\Models\\Server.Models\\Server.Models.csproj",
         "projectName": "Server.Models",
-        "projectPath": "D:\\Freelance\\ERP\\Server\\Models\\Server.Models\\Server.Models.csproj",
+        "projectPath": "E:\\work\\ANI Digital Passes\\Server\\Models\\Server.Models\\Server.Models.csproj",
         "packagesPath": "C:\\Users\\TK\\.nuget\\packages\\",
-        "outputPath": "D:\\Freelance\\ERP\\Server\\Models\\Server.Models\\obj\\",
+        "outputPath": "E:\\work\\ANI Digital Passes\\Server\\Models\\Server.Models\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\TK\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -294,6 +308,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "dotnet-passbook": {
+              "target": "Package",
+              "version": "[3.2.4, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -314,14 +334,14 @@
         }
       }
     },
-    "D:\\Freelance\\ERP\\Server\\Repository\\Server.Repository\\Server.Repository.csproj": {
+    "E:\\work\\ANI Digital Passes\\Server\\Repository\\Server.Repository\\Server.Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Freelance\\ERP\\Server\\Repository\\Server.Repository\\Server.Repository.csproj",
+        "projectUniqueName": "E:\\work\\ANI Digital Passes\\Server\\Repository\\Server.Repository\\Server.Repository.csproj",
         "projectName": "Server.Repository",
-        "projectPath": "D:\\Freelance\\ERP\\Server\\Repository\\Server.Repository\\Server.Repository.csproj",
+        "projectPath": "E:\\work\\ANI Digital Passes\\Server\\Repository\\Server.Repository\\Server.Repository.csproj",
         "packagesPath": "C:\\Users\\TK\\.nuget\\packages\\",
-        "outputPath": "D:\\Freelance\\ERP\\Server\\Repository\\Server.Repository\\obj\\",
+        "outputPath": "E:\\work\\ANI Digital Passes\\Server\\Repository\\Server.Repository\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\TK\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -338,11 +358,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Freelance\\ERP\\Server\\Core\\Server.Core\\Server.Core.csproj": {
-                "projectPath": "D:\\Freelance\\ERP\\Server\\Core\\Server.Core\\Server.Core.csproj"
+              "E:\\work\\ANI Digital Passes\\Server\\Core\\Server.Core\\Server.Core.csproj": {
+                "projectPath": "E:\\work\\ANI Digital Passes\\Server\\Core\\Server.Core\\Server.Core.csproj"
               },
-              "D:\\Freelance\\ERP\\Server\\Domain\\Server.Domain\\Server.Domain.csproj": {
-                "projectPath": "D:\\Freelance\\ERP\\Server\\Domain\\Server.Domain\\Server.Domain.csproj"
+              "E:\\work\\ANI Digital Passes\\Server\\Domain\\Server.Domain\\Server.Domain.csproj": {
+                "projectPath": "E:\\work\\ANI Digital Passes\\Server\\Domain\\Server.Domain\\Server.Domain.csproj"
               }
             }
           }
@@ -361,6 +381,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "dotnet-passbook": {
+              "target": "Package",
+              "version": "[3.2.4, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -381,14 +407,14 @@
         }
       }
     },
-    "D:\\Freelance\\ERP\\Server\\Services\\Server.Services\\Server.Services.csproj": {
+    "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\Server.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Freelance\\ERP\\Server\\Services\\Server.Services\\Server.Services.csproj",
+        "projectUniqueName": "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\Server.Services.csproj",
         "projectName": "Server.Services",
-        "projectPath": "D:\\Freelance\\ERP\\Server\\Services\\Server.Services\\Server.Services.csproj",
+        "projectPath": "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\Server.Services.csproj",
         "packagesPath": "C:\\Users\\TK\\.nuget\\packages\\",
-        "outputPath": "D:\\Freelance\\ERP\\Server\\Services\\Server.Services\\obj\\",
+        "outputPath": "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\TK\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -405,17 +431,17 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Freelance\\ERP\\Server\\BaseService\\Server.BaseService\\Server.BaseService.csproj": {
-                "projectPath": "D:\\Freelance\\ERP\\Server\\BaseService\\Server.BaseService\\Server.BaseService.csproj"
+              "E:\\work\\ANI Digital Passes\\Server\\BaseService\\Server.BaseService\\Server.BaseService.csproj": {
+                "projectPath": "E:\\work\\ANI Digital Passes\\Server\\BaseService\\Server.BaseService\\Server.BaseService.csproj"
               },
-              "D:\\Freelance\\ERP\\Server\\Domain\\Server.Domain\\Server.Domain.csproj": {
-                "projectPath": "D:\\Freelance\\ERP\\Server\\Domain\\Server.Domain\\Server.Domain.csproj"
+              "E:\\work\\ANI Digital Passes\\Server\\Domain\\Server.Domain\\Server.Domain.csproj": {
+                "projectPath": "E:\\work\\ANI Digital Passes\\Server\\Domain\\Server.Domain\\Server.Domain.csproj"
               },
-              "D:\\Freelance\\ERP\\Server\\Models\\Server.Models\\Server.Models.csproj": {
-                "projectPath": "D:\\Freelance\\ERP\\Server\\Models\\Server.Models\\Server.Models.csproj"
+              "E:\\work\\ANI Digital Passes\\Server\\Models\\Server.Models\\Server.Models.csproj": {
+                "projectPath": "E:\\work\\ANI Digital Passes\\Server\\Models\\Server.Models\\Server.Models.csproj"
               },
-              "D:\\Freelance\\ERP\\Server\\UOW\\Server.UOW\\Server.UOW.csproj": {
-                "projectPath": "D:\\Freelance\\ERP\\Server\\UOW\\Server.UOW\\Server.UOW.csproj"
+              "E:\\work\\ANI Digital Passes\\Server\\UOW\\Server.UOW\\Server.UOW.csproj": {
+                "projectPath": "E:\\work\\ANI Digital Passes\\Server\\UOW\\Server.UOW\\Server.UOW.csproj"
               }
             }
           }
@@ -480,6 +506,10 @@
             "Stripe.net": {
               "target": "Package",
               "version": "[43.22.0, )"
+            },
+            "dotnet-passbook": {
+              "target": "Package",
+              "version": "[3.2.4, )"
             }
           },
           "imports": [
@@ -502,14 +532,14 @@
         }
       }
     },
-    "D:\\Freelance\\ERP\\Server\\UOW\\Server.UOW\\Server.UOW.csproj": {
+    "E:\\work\\ANI Digital Passes\\Server\\UOW\\Server.UOW\\Server.UOW.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Freelance\\ERP\\Server\\UOW\\Server.UOW\\Server.UOW.csproj",
+        "projectUniqueName": "E:\\work\\ANI Digital Passes\\Server\\UOW\\Server.UOW\\Server.UOW.csproj",
         "projectName": "Server.UOW",
-        "projectPath": "D:\\Freelance\\ERP\\Server\\UOW\\Server.UOW\\Server.UOW.csproj",
+        "projectPath": "E:\\work\\ANI Digital Passes\\Server\\UOW\\Server.UOW\\Server.UOW.csproj",
         "packagesPath": "C:\\Users\\TK\\.nuget\\packages\\",
-        "outputPath": "D:\\Freelance\\ERP\\Server\\UOW\\Server.UOW\\obj\\",
+        "outputPath": "E:\\work\\ANI Digital Passes\\Server\\UOW\\Server.UOW\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\TK\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -526,11 +556,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Freelance\\ERP\\Server\\Core\\Server.Core\\Server.Core.csproj": {
-                "projectPath": "D:\\Freelance\\ERP\\Server\\Core\\Server.Core\\Server.Core.csproj"
+              "E:\\work\\ANI Digital Passes\\Server\\Core\\Server.Core\\Server.Core.csproj": {
+                "projectPath": "E:\\work\\ANI Digital Passes\\Server\\Core\\Server.Core\\Server.Core.csproj"
               },
-              "D:\\Freelance\\ERP\\Server\\Repository\\Server.Repository\\Server.Repository.csproj": {
-                "projectPath": "D:\\Freelance\\ERP\\Server\\Repository\\Server.Repository\\Server.Repository.csproj"
+              "E:\\work\\ANI Digital Passes\\Server\\Repository\\Server.Repository\\Server.Repository.csproj": {
+                "projectPath": "E:\\work\\ANI Digital Passes\\Server\\Repository\\Server.Repository\\Server.Repository.csproj"
               }
             }
           }
@@ -549,6 +579,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "dotnet-passbook": {
+              "target": "Package",
+              "version": "[3.2.4, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

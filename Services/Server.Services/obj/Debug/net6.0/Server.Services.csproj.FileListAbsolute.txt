@@ -26,3 +26,31 @@ D:\Freelance\ERP\Server\Services\Server.Services\obj\Debug\net6.0\Server.Service
 D:\Freelance\ERP\Server\Services\Server.Services\obj\Debug\net6.0\Server.Services.genruntimeconfig.cache
 D:\Freelance\ERP\Server\Services\Server.Services\obj\Debug\net6.0\ref\Server.Services.dll
 D:\Freelance\ERP\Server\Services\Server.Services\obj\Debug\net6.0\Server.Services.sourcelink.json
+E:\work\ANI Digital Passes\Server\Services\Server.Services\bin\Debug\net6.0\Server.Services.deps.json
+E:\work\ANI Digital Passes\Server\Services\Server.Services\bin\Debug\net6.0\Server.Services.runtimeconfig.json
+E:\work\ANI Digital Passes\Server\Services\Server.Services\bin\Debug\net6.0\Server.Services.dll
+E:\work\ANI Digital Passes\Server\Services\Server.Services\bin\Debug\net6.0\Server.Services.pdb
+E:\work\ANI Digital Passes\Server\Services\Server.Services\bin\Debug\net6.0\Server.BaseService.dll
+E:\work\ANI Digital Passes\Server\Services\Server.Services\bin\Debug\net6.0\Server.Core.dll
+E:\work\ANI Digital Passes\Server\Services\Server.Services\bin\Debug\net6.0\Server.Domain.dll
+E:\work\ANI Digital Passes\Server\Services\Server.Services\bin\Debug\net6.0\Server.Models.dll
+E:\work\ANI Digital Passes\Server\Services\Server.Services\bin\Debug\net6.0\Server.Repository.dll
+E:\work\ANI Digital Passes\Server\Services\Server.Services\bin\Debug\net6.0\Server.UOW.dll
+E:\work\ANI Digital Passes\Server\Services\Server.Services\bin\Debug\net6.0\Server.BaseService.pdb
+E:\work\ANI Digital Passes\Server\Services\Server.Services\bin\Debug\net6.0\Server.Domain.pdb
+E:\work\ANI Digital Passes\Server\Services\Server.Services\bin\Debug\net6.0\Server.Models.pdb
+E:\work\ANI Digital Passes\Server\Services\Server.Services\bin\Debug\net6.0\Server.UOW.pdb
+E:\work\ANI Digital Passes\Server\Services\Server.Services\bin\Debug\net6.0\Server.Core.pdb
+E:\work\ANI Digital Passes\Server\Services\Server.Services\bin\Debug\net6.0\Server.Repository.pdb
+E:\work\ANI Digital Passes\Server\Services\Server.Services\obj\Debug\net6.0\Server.Services.csproj.AssemblyReference.cache
+E:\work\ANI Digital Passes\Server\Services\Server.Services\obj\Debug\net6.0\Server.Services.GeneratedMSBuildEditorConfig.editorconfig
+E:\work\ANI Digital Passes\Server\Services\Server.Services\obj\Debug\net6.0\Server.Services.AssemblyInfoInputs.cache
+E:\work\ANI Digital Passes\Server\Services\Server.Services\obj\Debug\net6.0\Server.Services.AssemblyInfo.cs
+E:\work\ANI Digital Passes\Server\Services\Server.Services\obj\Debug\net6.0\Server.Services.csproj.CoreCompileInputs.cache
+E:\work\ANI Digital Passes\Server\Services\Server.Services\obj\Debug\net6.0\Server.Services.sourcelink.json
+E:\work\ANI Digital Passes\Server\Services\Server.Services\obj\Debug\net6.0\Server.S.FAFF46DE.Up2Date
+E:\work\ANI Digital Passes\Server\Services\Server.Services\obj\Debug\net6.0\Server.Services.dll
+E:\work\ANI Digital Passes\Server\Services\Server.Services\obj\Debug\net6.0\refint\Server.Services.dll
+E:\work\ANI Digital Passes\Server\Services\Server.Services\obj\Debug\net6.0\Server.Services.pdb
+E:\work\ANI Digital Passes\Server\Services\Server.Services\obj\Debug\net6.0\Server.Services.genruntimeconfig.cache
+E:\work\ANI Digital Passes\Server\Services\Server.Services\obj\Debug\net6.0\ref\Server.Services.dll

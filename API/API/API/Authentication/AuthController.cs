@@ -61,29 +61,14 @@ namespace API.Authentication
         [HttpGet]
         [Route("GetTenants")]
         [CustomAuthorize("Read")]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator,Developer")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator,Developer,SuperAdmin")]
         public async Task<ActionResult> GetTenants()
         {
             var authResponse = await _tenants_Service.GetAll();
             return Ok(authResponse);
         }
 
-        [HttpPost]
-        [Route("register")]
-        public async Task<ActionResult> Register([FromBody] RegisterUserModel apiUserDto)
-        {
-            string res = await authManager.RegisterCandidates(apiUserDto);
-            if (res.StartsWith("OK"))
-            {
-                var successResponse = new SuccessResponse
-                {
-                    Message = "User Registered Successfully"
-                };
-                return Ok(successResponse);
-            }
-            return BadRequest(res);
-           
-        }
+        
 
         [HttpPost]
         [Route("RegisterTenant")]
@@ -141,6 +126,22 @@ namespace API.Authentication
         }
 
 
+        [HttpPost]
+        [Route("Register")]
+        public async Task<ActionResult> Register([FromBody] UserRegisterModel apiUserDto)
+        {
+            string errors = await authManager.Register(apiUserDto);
+            if (!errors.StartsWith("OK"))
+            {
+                return BadRequest(errors);
+            }
+            var successResponse = new SuccessResponse
+            {
+                Message         = errors
+            };
+            return Ok(successResponse);
+        }
+
 
         [HttpPost]
         [Route("RegisterAdmin")]
@@ -162,6 +163,26 @@ namespace API.Authentication
             return Ok(successResponse);
         }
 
+
+        [HttpPost]
+        [Route("RegisterSuperAdmin")]
+        public async Task<ActionResult> RegisterSuperAdmin([FromBody] RegisterUserModel apiUserDto)
+        {
+            IList<IdentityError> errors = (IList<IdentityError>)await authManager.RegisterSuperAdmin(apiUserDto);
+            if (errors.Any())
+            {
+                foreach (var error in errors)
+                {
+                    ModelState.AddModelError(error.Code, error.Description);
+                }
+                return BadRequest(errors.Select(x => x.Description).FirstOrDefault());
+            }
+            var successResponse = new SuccessResponse
+            {
+                Message = "User Registered Successfully"
+            };
+            return Ok(successResponse);
+        }
 
 
         [HttpPost]
@@ -339,7 +360,7 @@ namespace API.Authentication
                     return Content($"{{ \"message\": \"{message}\" }}", "application/json");
                 }
                 dynamic retVal = await authManager.VerifyOTP(model.Email, otp.OTP);
-                if (retVal is int)
+                if (retVal is Guid)
                 {
                     string retValue = await authManager.UpdatePassord(user.Email, model.Password);
                     if (retValue.StartsWith("OK"))
@@ -348,7 +369,7 @@ namespace API.Authentication
                         string salutation   = user.FirstName + " " + user.LastName;
                  
                         string emailMessage = CreatePasswordResetEmailBody(salutation);
-                        await _emailService.SendEmail1Async(user.Email, subject, emailMessage);
+                        await _emailService.SendEmailAsync(user.Email, subject, emailMessage);
                         bool res = await _passwordService.Delete(otp.Id);
                         if (res)
                         {
@@ -358,12 +379,13 @@ namespace API.Authentication
 
                         }
 
-                        return Content($"{{ \"message\": \"{retVal}\" }}", "application/json");
+                       
                     }
-
-                    bool rese = await _passwordService.Delete(otp.Id);
-                    await _passwordService.CompleteAync();
-                    return Content($"{{ \"message\": \"{retVal}\" }}", "application/json");
+                    else
+                    {
+                        message = retValue;
+                        return BadRequest(message);
+                    }
 
                 }
                 bool resee = await _passwordService.Delete(otp.Id);
@@ -378,7 +400,7 @@ namespace API.Authentication
         private async Task<string> SendPasswordResetOTPEmailAsync(string to, string subject, string content)
         {
 
-            await _emailService.SendEmail1Async(to, subject, content, isHtml: true);
+            await _emailService.SendEmailAsync(to, subject, content, isHtml: true);
             return "OK";
         }
         private async Task<string> StorePasswordResetRequest(PasswordResetDomain resetRequest)
@@ -432,7 +454,7 @@ namespace API.Authentication
         [HttpPost]
         [Route("AddRoles")]
         [CustomAuthorize("Write")]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator,Developer")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator,Developer,SuperAdmin")]
         public async Task<ActionResult> CreateRole(AddRole Role)
         {
             try
@@ -453,7 +475,7 @@ namespace API.Authentication
         [HttpPut]
         [Route("UpdateRole")]
         [CustomAuthorize("Update")]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator,Developer")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator,Developer,SuperAdmin")]
         public async Task<ActionResult> UpdateRole(UpdateRoleModel model)
         {
             try
@@ -473,7 +495,7 @@ namespace API.Authentication
         [HttpPut]
         [Route("UpdateRoleAndPermission")]
         [CustomAuthorize("Update")]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator,Developer")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator,Developer,SuperAdmin")]
         public async Task<ActionResult> UpdateRoleAndPermission(UpdateRoleAndPermissionModel model)
         {
             try
@@ -494,7 +516,7 @@ namespace API.Authentication
         [HttpPut]
         [Route("UpdateCRMuser")]
         [CustomAuthorize("Update")]
-        //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator,Developer")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator,Developer,Merchant,SuperAdmin")]
         public async Task<ActionResult> UpdateCRMuser(AddUsersModel model)
         {
             try
@@ -511,7 +533,7 @@ namespace API.Authentication
         [HttpDelete]
         [Route("deleteRole")]
         [CustomAuthorize("Delete")]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator,Developer")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator,Developer,SuperAdmin")]
         public async Task<ActionResult> DeleteRole(string id)
         {
             try
@@ -533,7 +555,7 @@ namespace API.Authentication
         [HttpDelete]
         [Route("DeleteUser")]
         [CustomAuthorize("Delete")]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator,Developer")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator,Developer,Merchant,SuperAdmin")]
         public async Task<ActionResult> DeleteUser(string id)
         {
             try
@@ -575,6 +597,14 @@ namespace API.Authentication
             return Ok(users);
         }
 
+        [HttpGet]
+        [Route("GetMerchants")]
+        [CustomAuthorize("Read")]
+        public async Task<IActionResult> GetMerchants()
+        {
+            var users = await authManager.GetAll();
+            return Ok(users);
+        }
 
         [HttpGet]
         [Route("GetByusername")]
@@ -621,7 +651,11 @@ namespace API.Authentication
             try
             {
 
-                var list = await authManager.GetTenantsbyId(OnwerId);
+                dynamic list = await authManager.GetTenantsDetailbyId(OnwerId);
+                if(list is string)
+                {
+                    return BadRequest("User Not Found");
+                }
                 return Ok(list);
             }
             catch (Exception ex)
@@ -634,7 +668,7 @@ namespace API.Authentication
         [HttpPut]
         [Route("UpdateCompany")]
         [CustomAuthorize("Update")]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator,Developer,SuperUser")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator,Developer,Merchant,SuperAdmin")]
         public async Task<ActionResult> UpdateCompany(TenantUpdate tenantUpdate)
         {
 
@@ -698,10 +732,35 @@ namespace API.Authentication
         }
 
 
+        [HttpPut]
+        [Route("SendPasswordResetToUser")]
+        public async Task<ActionResult> SendPasswordResetToUser(IdModel Id)
+        {
+            try
+            {
+                var successResponse      = new SuccessResponse();
+                successResponse.Message  = await authManager.SendResetPassword(Id.Id);
+                if (successResponse.Message.StartsWith("OK"))
+                {
+                    return Ok(successResponse);
+                }
+                else
+                {
+                    return BadRequest(successResponse);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex);
+            }
+        }
+
+
 
         [HttpPut]
         [Route("UpdateCompanyStatus")]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator,Developer,SuperUser")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator,Developer,SuperAdmin,Merchant")]
         public async Task<ActionResult> UpdateCompanyStatus(TenantBlock tenantUpdate)
         {
 
@@ -859,7 +918,7 @@ namespace API.Authentication
                         <tr>
                           <td
                             style=""
-                              border-bottom: #F26302 solid 5px;
+                              border-bottom: #5d16ec solid 5px;
                               direction: ltr;
                               font-size: 0px;
                               padding: 20px 0;
@@ -975,7 +1034,7 @@ namespace API.Authentication
                                           <td style=""width: 200px"">
                                             <img
                                               height=""auto""
-                                              src=""https://firebasestorage.googleapis.com/v0/b/images-107c9.appspot.com/o/BottomLogo.jpeg?alt=media&token=48c6d297-9821-4d2c-bb7f-33ea079043f7""
+                                              src=""https://firebasestorage.googleapis.com/v0/b/images-107c9.appspot.com/o/Alogo.jpg?alt=media&token=99ef0c51-bc96-4929-9f84-b0613d348f9b""
                                               style=
                                               ""
                                               border: 0;
@@ -1126,7 +1185,7 @@ namespace API.Authentication
                                         <a
                                         href=""https://pelicanhrm.com""
                                         style=""
-                                        background: linear-gradient(to right,rgb(254,0,0), rgb(235,123,49), rgb(235,123,49), rgb(235,123,49) 30%, rgb(235,123,49) 70%, rgb(255,165,0)) !important;
+                                        background: linear-gradient(to right,#31AFEA, #31AFEA, #31AFEA, #31AFEA 30%, #2F6FEA 70%, #2F6FEA) !important;
                                         color: #ffffff;
                                         font-family: 'Helvetica Neue', Arial, sans-serif;
                                         font-size: 15px;
@@ -1243,7 +1302,7 @@ namespace API.Authentication
                         <tr>
                           <td
                             style=""
-                              border-bottom: #F26302 solid 5px;
+                              border-bottom: #5d16ec solid 5px;
                               direction: ltr;
                               font-size: 0px;
                               padding: 20px 0;
@@ -1505,7 +1564,7 @@ namespace API.Authentication
                         <tr>
                           <td
                             style=""
-                              border-bottom: #F26302 solid 5px;
+                              border-bottom: #5d16ec solid 5px;
                               direction: ltr;
                               font-size: 0px;
                               padding: 20px 0;
@@ -1621,7 +1680,7 @@ namespace API.Authentication
                                           <td style=""width: 200px"">
                                             <img
                                               height=""auto""
-                                              src=""https://firebasestorage.googleapis.com/v0/b/images-107c9.appspot.com/o/BottomLogo.jpeg?alt=media&token=48c6d297-9821-4d2c-bb7f-33ea079043f7""
+                                              src=""https://firebasestorage.googleapis.com/v0/b/images-107c9.appspot.com/o/Alogo.jpg?alt=media&token=99ef0c51-bc96-4929-9f84-b0613d348f9b""
                                               style=
                                               ""
                                               border: 0;
@@ -1770,7 +1829,7 @@ namespace API.Authentication
                                           valign=""middle""
                                         >
                                         <p style=""
-                                        background: linear-gradient(to right,rgb(254,0,0), rgb(235,123,49), rgb(235,123,49), rgb(235,123,49) 30%, rgb(235,123,49) 70%, rgb(255,165,0)) !important;
+                                        background: linear-gradient(to right,#31AFEA, #31AFEA, #31AFEA, #31AFEA 30%, #2F6FEA 70%, #2F6FEA) !important;
                                         color: #ffffff;
                                         font-family: 'Helvetica Neue', Arial, sans-serif;
                                         font-size: 15px;
@@ -1887,7 +1946,7 @@ namespace API.Authentication
                         <tr>
                           <td
                             style=""
-                              border-bottom: #F26302 solid 5px;
+                              border-bottom: #5d16ec solid 5px;
                               direction: ltr;
                               font-size: 0px;
                               padding: 20px 0;

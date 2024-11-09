@@ -1,27 +1,13 @@
 {
   "dependencies": {
-    "mssql1": {
-      "restored": true,
-      "restoreTime": "2024-03-10T13:44:17.3625054Z"
-    },
     "signalr1": {
       "restored": true,
       "restoreTime": "2024-03-10T13:49:22.1386684Z"
     }
   },
   "parameters": {
-    "mssql1.subscriptionId": {
-      "Name": "mssql1.subscriptionId",
-      "Type": "subscription",
-      "Value": "6d730521-07ae-4797-a704-0aa4e8d17ac3"
-    },
     "signalr1.resourceGroupName": {
       "Name": "signalr1.resourceGroupName",
-      "Type": "resourceGroup",
-      "Value": "PelicanHRM"
-    },
-    "mssql1.resourceGroupName": {
-      "Name": "mssql1.resourceGroupName",
       "Type": "resourceGroup",
       "Value": "PelicanHRM"
     },

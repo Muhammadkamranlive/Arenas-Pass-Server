@@ -365,6 +365,9 @@ namespace API.API.Profile
         }
 
 
+        
+
+
         [HttpGet]
         [Route("Trainings")]
         [CustomAuthorize("Read")]

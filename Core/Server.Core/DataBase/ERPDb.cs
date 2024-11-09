@@ -1,4 +1,5 @@
 ﻿using Server.Domain;
+using Server.Domain.DigitalPass;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
@@ -11,40 +12,55 @@ namespace Server.Core
             DbContextOptions<ERPDb> dbContextOptions
         ) : base(dbContextOptions)
         {
-
-           
-
-
+            
         }
-        public virtual DbSet<PasswordResetDomain> PasswordResetDomains { get; set; }
-        public virtual DbSet<CONTACTDETAILS> CONTACTDETAILs { get; set; }
-        public virtual DbSet<EmergencyContacts> EmergencyContacts { get; set; }
-        public virtual DbSet<Case> Cases { get; set; }
-        public virtual DbSet<CaseComment> CaseComments { get; set; }
-        public virtual DbSet<Asset> Assets { get; set; }
-        public virtual DbSet<Attachments> Attachments { get; set; }
-        public virtual DbSet<HRNotes> HRNotes { get; set; }
-        public virtual DbSet<NOTIFICATIONS> NOTIFICATIONs { get; set; }
-        public virtual DbSet<CandidateInfo> CandidateInfos { get; set; }
-        public virtual DbSet<Education> Educations { get; set; }
-        public virtual DbSet<JobExperience> JobExperiences { get; set; }
-        public virtual DbSet<Personal> Personals { get; set; }
-        public virtual DbSet<ProfessionalLicense> ProfessionalLicenses { get; set; }
-        public virtual DbSet<GENERALTASK> GENERALTASKs { get; set; }
-        public virtual DbSet<Dependent> Dependents { get; set; }
-        public virtual DbSet<ZoomMeetings> ZoomMeetings { get; set; }
-        public virtual DbSet<WebPages> WebPages { get; set; }
-        public virtual DbSet<BlogPage> BlogPages { get; set; }
-        public virtual DbSet<Trainings> Trainings { get; set; }
-        public virtual DbSet<ContactPage> ContactPages { get; set; }
-        public virtual DbSet<PelicanHRMTenant> PelicanHRMTenants { get; set; }
-        public virtual DbSet<AdminLogs> Logs            { get; set; }
-        public virtual DbSet<Designations> Designations { get; set; }
-        public virtual DbSet<Chat> Chats     { get; set; }
-
+        public virtual DbSet<PasswordResetDomain> PasswordResetDomains         { get; set; }
+        public virtual DbSet<CONTACTDETAILS> CONTACTDETAILs                    { get; set; }
+        public virtual DbSet<EmergencyContacts> EmergencyContacts              { get; set; }
+        public virtual DbSet<Case> Cases                                       { get; set; }
+        public virtual DbSet<CaseComment> CaseComments                         { get; set; }
+        public virtual DbSet<Asset> Assets                                     { get; set; }
+        public virtual DbSet<Attachments> Attachments                          { get; set; }
+        public virtual DbSet<HRNotes> HRNotes                                  { get; set; }
+        public virtual DbSet<NOTIFICATIONS> NOTIFICATIONs                      { get; set; }
+        public virtual DbSet<CandidateInfo> CandidateInfos                     { get; set; }
+        public virtual DbSet<Education> Educations                             { get; set; }
+        public virtual DbSet<JobExperience> JobExperiences                     { get; set; }
+        public virtual DbSet<Personal> Personals                               { get; set; }
+        public virtual DbSet<ProfessionalLicense> ProfessionalLicenses         { get; set; }
+        public virtual DbSet<GENERALTASK> GENERALTASKs                         { get; set; }
+        public virtual DbSet<Dependent> Dependents                             { get; set; }
+        public virtual DbSet<ZoomMeetings> ZoomMeetings                        { get; set; }
+        public virtual DbSet<WebPages> WebPages                                { get; set; }
+        public virtual DbSet<BlogPage> BlogPages                               { get; set; }
+        public virtual DbSet<Trainings> Trainings                              { get; set; }
+        public virtual DbSet<ContactPage> ContactPages                         { get; set; }
+        public virtual DbSet<ArenasTenants> PelicanHRMTenants                  { get; set; }
+        public virtual DbSet<AdminLogs> Logs                                   { get; set; }
+        public virtual DbSet<Designations> Designations                        { get; set; }
+        public virtual DbSet<Chat> Chats                                       { get; set; }
+        public DbSet<WalletPass> WalletPasses                                  { get; set; }
+        public DbSet<GiftCard> GiftCards                                       { get; set; }
+        public DbSet<Coupon> Coupons                                           { get; set; }
+        public DbSet<LoyaltyCard> LoyaltyCards                                 { get; set; }
+        public DbSet<EventTicket> EventTickets                                 { get; set; }
+        public DbSet<BoardingPass> BoardingPasses                              { get; set; }
+        public DbSet<AppleWalletPass> AppleWalletPasses                        { get; set; }
+        public DbSet<GoogleWalletPass> GoogleWalletPasses                      { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<WalletPass>().HasDiscriminator<string>("Type")
+           .HasValue<GiftCard>("GiftCard")
+           .HasValue<Coupon>("Coupon")
+           .HasValue<LoyaltyCard>("LoyaltyCard")
+           .HasValue<EventTicket>("EventTicket")
+           .HasValue<BoardingPass>("BoardingPass")
+           .HasValue<AppleWalletPass>("AppleWallet")
+           .HasValue<GoogleWalletPass>("GoogleWallet");
+
+
             modelBuilder.Entity<BlogPage>()
                .Property(w => w.Id)
                .ValueGeneratedOnAdd();
@@ -60,7 +76,7 @@ namespace Server.Core
                .Property(w => w.Id)
                .ValueGeneratedOnAdd();
 
-            modelBuilder.Entity<PelicanHRMTenant>()
+            modelBuilder.Entity<ArenasTenants>()
                .Property(w => w.CompanyId)
                .ValueGeneratedOnAdd();
            
@@ -87,12 +103,8 @@ namespace Server.Core
                     modelBuilder.Entity<Asset>()
                    .Property(a => a.Price)
                    .HasPrecision(18, 2);
-                    modelBuilder.Entity<PelicanHRMTenant>()
-                  .Property(a => a.Longitude)
-                  .HasPrecision(18, 2);
-                    modelBuilder.Entity<PelicanHRMTenant>()
-                  .Property(a => a.Latitude)
-                  .HasPrecision(18, 2);
+                 
+                  
                 }
             }
 

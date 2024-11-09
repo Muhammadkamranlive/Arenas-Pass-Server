@@ -3,7 +3,7 @@ using Server.Domain;
 
 namespace Server.Services
 {
-    public interface ITenants_Service:IBase_Service<PelicanHRMTenant>
+    public interface ITenants_Service:IBase_Service<ArenasTenants>
     {
     }
 }

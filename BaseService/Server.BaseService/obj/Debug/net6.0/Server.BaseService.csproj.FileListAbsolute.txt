@@ -20,3 +20,25 @@ D:\Freelance\ERP\Server\BaseService\Server.BaseService\obj\Debug\net6.0\refint\S
 D:\Freelance\ERP\Server\BaseService\Server.BaseService\obj\Debug\net6.0\Server.BaseService.pdb
 D:\Freelance\ERP\Server\BaseService\Server.BaseService\obj\Debug\net6.0\ref\Server.BaseService.dll
 D:\Freelance\ERP\Server\BaseService\Server.BaseService\obj\Debug\net6.0\Server.BaseService.sourcelink.json
+E:\work\ANI Digital Passes\Server\BaseService\Server.BaseService\bin\Debug\net6.0\Server.BaseService.deps.json
+E:\work\ANI Digital Passes\Server\BaseService\Server.BaseService\bin\Debug\net6.0\Server.BaseService.dll
+E:\work\ANI Digital Passes\Server\BaseService\Server.BaseService\bin\Debug\net6.0\Server.BaseService.pdb
+E:\work\ANI Digital Passes\Server\BaseService\Server.BaseService\bin\Debug\net6.0\Server.Core.dll
+E:\work\ANI Digital Passes\Server\BaseService\Server.BaseService\bin\Debug\net6.0\Server.Domain.dll
+E:\work\ANI Digital Passes\Server\BaseService\Server.BaseService\bin\Debug\net6.0\Server.Repository.dll
+E:\work\ANI Digital Passes\Server\BaseService\Server.BaseService\bin\Debug\net6.0\Server.UOW.dll
+E:\work\ANI Digital Passes\Server\BaseService\Server.BaseService\bin\Debug\net6.0\Server.UOW.pdb
+E:\work\ANI Digital Passes\Server\BaseService\Server.BaseService\bin\Debug\net6.0\Server.Core.pdb
+E:\work\ANI Digital Passes\Server\BaseService\Server.BaseService\bin\Debug\net6.0\Server.Domain.pdb
+E:\work\ANI Digital Passes\Server\BaseService\Server.BaseService\bin\Debug\net6.0\Server.Repository.pdb
+E:\work\ANI Digital Passes\Server\BaseService\Server.BaseService\obj\Debug\net6.0\Server.BaseService.csproj.AssemblyReference.cache
+E:\work\ANI Digital Passes\Server\BaseService\Server.BaseService\obj\Debug\net6.0\Server.BaseService.GeneratedMSBuildEditorConfig.editorconfig
+E:\work\ANI Digital Passes\Server\BaseService\Server.BaseService\obj\Debug\net6.0\Server.BaseService.AssemblyInfoInputs.cache
+E:\work\ANI Digital Passes\Server\BaseService\Server.BaseService\obj\Debug\net6.0\Server.BaseService.AssemblyInfo.cs
+E:\work\ANI Digital Passes\Server\BaseService\Server.BaseService\obj\Debug\net6.0\Server.BaseService.csproj.CoreCompileInputs.cache
+E:\work\ANI Digital Passes\Server\BaseService\Server.BaseService\obj\Debug\net6.0\Server.BaseService.sourcelink.json
+E:\work\ANI Digital Passes\Server\BaseService\Server.BaseService\obj\Debug\net6.0\Server.B.2AFD8523.Up2Date
+E:\work\ANI Digital Passes\Server\BaseService\Server.BaseService\obj\Debug\net6.0\Server.BaseService.dll
+E:\work\ANI Digital Passes\Server\BaseService\Server.BaseService\obj\Debug\net6.0\refint\Server.BaseService.dll
+E:\work\ANI Digital Passes\Server\BaseService\Server.BaseService\obj\Debug\net6.0\Server.BaseService.pdb
+E:\work\ANI Digital Passes\Server\BaseService\Server.BaseService\obj\Debug\net6.0\ref\Server.BaseService.dll

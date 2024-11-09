@@ -18,3 +18,23 @@ D:\Freelance\ERP\Server\UOW\Server.UOW\obj\Release\net6.0\Server.UOW.dll
 D:\Freelance\ERP\Server\UOW\Server.UOW\obj\Release\net6.0\refint\Server.UOW.dll
 D:\Freelance\ERP\Server\UOW\Server.UOW\obj\Release\net6.0\Server.UOW.pdb
 D:\Freelance\ERP\Server\UOW\Server.UOW\obj\Release\net6.0\ref\Server.UOW.dll
+E:\work\ANI Digital Passes\Server\UOW\Server.UOW\bin\Release\net6.0\Server.UOW.deps.json
+E:\work\ANI Digital Passes\Server\UOW\Server.UOW\bin\Release\net6.0\Server.UOW.dll
+E:\work\ANI Digital Passes\Server\UOW\Server.UOW\bin\Release\net6.0\Server.UOW.pdb
+E:\work\ANI Digital Passes\Server\UOW\Server.UOW\bin\Release\net6.0\Server.Core.dll
+E:\work\ANI Digital Passes\Server\UOW\Server.UOW\bin\Release\net6.0\Server.Domain.dll
+E:\work\ANI Digital Passes\Server\UOW\Server.UOW\bin\Release\net6.0\Server.Repository.dll
+E:\work\ANI Digital Passes\Server\UOW\Server.UOW\bin\Release\net6.0\Server.Core.pdb
+E:\work\ANI Digital Passes\Server\UOW\Server.UOW\bin\Release\net6.0\Server.Repository.pdb
+E:\work\ANI Digital Passes\Server\UOW\Server.UOW\bin\Release\net6.0\Server.Domain.pdb
+E:\work\ANI Digital Passes\Server\UOW\Server.UOW\obj\Release\net6.0\Server.UOW.csproj.AssemblyReference.cache
+E:\work\ANI Digital Passes\Server\UOW\Server.UOW\obj\Release\net6.0\Server.UOW.GeneratedMSBuildEditorConfig.editorconfig
+E:\work\ANI Digital Passes\Server\UOW\Server.UOW\obj\Release\net6.0\Server.UOW.AssemblyInfoInputs.cache
+E:\work\ANI Digital Passes\Server\UOW\Server.UOW\obj\Release\net6.0\Server.UOW.AssemblyInfo.cs
+E:\work\ANI Digital Passes\Server\UOW\Server.UOW\obj\Release\net6.0\Server.UOW.csproj.CoreCompileInputs.cache
+E:\work\ANI Digital Passes\Server\UOW\Server.UOW\obj\Release\net6.0\Server.UOW.sourcelink.json
+E:\work\ANI Digital Passes\Server\UOW\Server.UOW\obj\Release\net6.0\Server.UOW.csproj.Up2Date
+E:\work\ANI Digital Passes\Server\UOW\Server.UOW\obj\Release\net6.0\Server.UOW.dll
+E:\work\ANI Digital Passes\Server\UOW\Server.UOW\obj\Release\net6.0\refint\Server.UOW.dll
+E:\work\ANI Digital Passes\Server\UOW\Server.UOW\obj\Release\net6.0\Server.UOW.pdb
+E:\work\ANI Digital Passes\Server\UOW\Server.UOW\obj\Release\net6.0\ref\Server.UOW.dll
