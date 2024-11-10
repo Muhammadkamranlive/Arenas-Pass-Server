@@ -27,7 +27,7 @@ namespace Server.Services
 
         
         /// <summary>
-        /// GiftCard Generation General
+        /// GiftCard Generation Passes Apple
         /// </summary>
         /// <param name="GiftCard"></param>
         /// <returns></returns>
