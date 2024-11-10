@@ -11,15 +11,14 @@ namespace Server.Services
 
         #region Constructor
         private readonly Certificate_Settings_Model _certificateSettings;
-        private readonly AuthManager               _authManager;
+       
         public Apple_Passes_Service
         (
-          IOptions<Certificate_Settings_Model> certificateSettings,
-          AuthManager                          authManager
+          IOptions<Certificate_Settings_Model> certificateSettings
         )
         {
             _certificateSettings  = certificateSettings.Value;
-            _authManager          = authManager;
+            
         }
 
         #endregion
@@ -31,7 +30,7 @@ namespace Server.Services
         /// </summary>
         /// <param name="GiftCard"></param>
         /// <returns></returns>
-        public async Task<ResponseModel<string>> GiftCards(Gift_Card_Pass_Model GiftCard)
+        public async Task<ResponseModel<string>> GiftCards(Apple_Passes_Gift_Card_Model GiftCard)
         {
 			try
 			{
@@ -110,10 +109,10 @@ namespace Server.Services
                     //Addtional Properties not Understand able
                     //WebServiceUrl            = ,
                     //AppLaunchURL             = ,
-                    //AuthenticationToken      = ,
+                    //Authentication_Token      = ,
                     //Images                   = ,
                     //HeaderFields             = ,
-                    //AssociatedStoreIdentifiers=,
+                    //Associated_Store_Identifiers=,
                     //Nfc                       =,
                     //RelevantBeacons           =,
                     //TransitType               =,
@@ -173,9 +172,9 @@ namespace Server.Services
                 // Add auxiliary field (Terms and Conditions)
                 if(!string.IsNullOrEmpty(GiftCard.Privacy_Policy) || !string.IsNullOrWhiteSpace(GiftCard.Privacy_Policy))
                 {
-                    request.AddBackField(new StandardField("terms", "Terms and Conditions", GiftCard.Privacy_Policy ?? "https://yourtermslink.com")
+                    request.AddBackField(new StandardField("terms", "Terms and Conditions", GiftCard.Privacy_Policy)
                     {
-                        AttributedValue   = GiftCard.Privacy_Policy ?? "https://yourtermslink.com",
+                        AttributedValue   = GiftCard.Privacy_Policy,
                         DataDetectorTypes = DataDetectorTypes.PKDataDetectorTypeLink
                     });
                 }
@@ -247,6 +246,7 @@ namespace Server.Services
                 // Generate the pass
                 byte[] generatedPass             = generator.Generate(request);
                 giftResponse.Response            = generatedPass;
+                giftResponse.Description         = GiftCard.Code_Type == "QR" ? BarcodeType.PKBarcodeFormatQR.ToString() : BarcodeType.PKBarcodeFormatCode128.ToString();
 
                 return giftResponse;
             }

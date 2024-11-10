@@ -4,6 +4,6 @@ namespace Server.Services
 {
     public interface IApple_Passes_Service
     {
-        Task<ResponseModel<string>> GiftCards(Gift_Card_Pass_Model GiftCard);
+        Task<ResponseModel<string>> GiftCards(Apple_Passes_Gift_Card_Model GiftCard);
     }
 }

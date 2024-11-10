@@ -1647,6 +1647,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "API.API.GiftCardsController",
+    "Method": "GenerateGiftCard",
+    "RelativePath": "api/GiftCards/GiftCard",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "GiftCard",
+        "Type": "Server.Models.Apple_Passes_Gift_Card_Model",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.HRNotes, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.HRNoteModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "Create",
     "RelativePath": "api/HRAdminNotes",

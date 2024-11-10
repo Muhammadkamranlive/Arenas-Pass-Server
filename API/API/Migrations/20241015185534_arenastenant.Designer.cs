@@ -1205,7 +1205,7 @@ namespace API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("ExpirationDate")
+                    b.Property<DateTime>("Expiration_Date")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("IssueDate")

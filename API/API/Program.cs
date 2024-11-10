@@ -87,11 +87,15 @@ builder.Services.AddScoped<IDesignation_Service, Designation_Service>();
 builder.Services.AddScoped<IChat_Repo, Chat_Repo>();
 builder.Services.AddScoped<IChat_Service, Chat_Service>();
 builder.Services.AddScoped<IPaymentService, PaymentService>();
+builder.Services.AddScoped<IApple_Passes_Service, Apple_Passes_Service>();
+builder.Services.AddScoped<IGift_Cards_Repo, Gift_Cards_Repo>();
+builder.Services.AddScoped<IGift_Card_Service, Gift_Card_Service>();
+
 builder.Services.ConfigureIdentity();
 builder.Services.AddHttpClient();
 builder.Services.AddAutoMapper(typeof(ConfigureDTOS));
 builder.Services.ConfigureJwt(builder.Configuration);
-
+builder.Services.Configure<Certificate_Settings_Model>(builder.Configuration.GetSection("CertificateSettings"));
 builder.Services.Configure<StripeModel>(builder.Configuration.GetSection("Stripe"));
 builder.Services.AddScoped<ProductService>();
 builder.Services.AddScoped<CustomerService>();

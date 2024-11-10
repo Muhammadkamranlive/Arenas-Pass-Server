@@ -1,5 +1,4 @@
 ﻿using Server.Domain;
-using Server.Domain.DigitalPass;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
@@ -40,25 +39,17 @@ namespace Server.Core
         public virtual DbSet<Designations> Designations                        { get; set; }
         public virtual DbSet<Chat> Chats                                       { get; set; }
         public DbSet<WalletPass> WalletPasses                                  { get; set; }
-        public DbSet<GiftCard> GiftCards                                       { get; set; }
-        public DbSet<Coupon> Coupons                                           { get; set; }
-        public DbSet<LoyaltyCard> LoyaltyCards                                 { get; set; }
-        public DbSet<EventTicket> EventTickets                                 { get; set; }
-        public DbSet<BoardingPass> BoardingPasses                              { get; set; }
-        public DbSet<AppleWalletPass> AppleWalletPasses                        { get; set; }
-        public DbSet<GoogleWalletPass> GoogleWalletPasses                      { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<WalletPass>().HasDiscriminator<string>("Type")
-           .HasValue<GiftCard>("GiftCard")
-           .HasValue<Coupon>("Coupon")
-           .HasValue<LoyaltyCard>("LoyaltyCard")
-           .HasValue<EventTicket>("EventTicket")
-           .HasValue<BoardingPass>("BoardingPass")
-           .HasValue<AppleWalletPass>("AppleWallet")
-           .HasValue<GoogleWalletPass>("GoogleWallet");
+           .HasValue<GiftCard>("GiftCard");
+
+            // Configure precision for Balance property
+            modelBuilder.Entity<GiftCard>()
+                        .Property(g => g.Balance)
+                        .HasColumnType("decimal(18, 2)"); 
 
 
             modelBuilder.Entity<BlogPage>()

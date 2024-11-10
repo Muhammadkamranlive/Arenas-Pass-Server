@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Server.Models
 {
-    public class Gift_Card_Pass_Model
+    public class Apple_Passes_Gift_Card_Model
     {
         public string Pass_Type_Identifier { get; set; }
         public string Team_Identifier      { get; set; }
@@ -30,5 +30,7 @@ namespace Server.Models
         public string Address              { get; set; }
         public string Notes                { get; set; }
         public string Webiste              { get; set; }
+        public string Currency_Code        { get; set; }
+        public string Sender_Name          { get; set; }
     }
 }

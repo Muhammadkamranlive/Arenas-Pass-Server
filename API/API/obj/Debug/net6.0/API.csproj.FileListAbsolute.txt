@@ -246,3 +246,4 @@ E:\work\ANI Digital Passes\Server\API\API\obj\Debug\net6.0\refint\API.dll
 E:\work\ANI Digital Passes\Server\API\API\obj\Debug\net6.0\API.pdb
 E:\work\ANI Digital Passes\Server\API\API\obj\Debug\net6.0\API.genruntimeconfig.cache
 E:\work\ANI Digital Passes\Server\API\API\obj\Debug\net6.0\ref\API.dll
+E:\work\ANI Digital Passes\Server\API\API\bin\Debug\net6.0\Passbook.Generator.dll
