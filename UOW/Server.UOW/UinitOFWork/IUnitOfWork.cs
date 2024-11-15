@@ -24,7 +24,8 @@ namespace Server.UOW
         public IContactPage_Repo         ContactPage_             { get;}
         public ITenants_Repo             tenants_Repo             { get;}
         public IDesignation_Repo         Designation_Repo         { get;}
-        public IChat_Repo                chat_Repo                { get; }
+        public IChat_Repo                chat_Repo                { get;}
+        public IApple_Pass_Account_Repo  Apple_Pass_Account       { get;}
         Task<int> Save();
     }
 }

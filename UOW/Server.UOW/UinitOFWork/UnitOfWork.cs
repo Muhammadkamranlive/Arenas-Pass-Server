@@ -33,6 +33,7 @@ namespace Server.UOW
                tenants_Repo             = new Tenants_Repo(_crmContext, httpContextAccessor);
                Designation_Repo         = new Designation_Repo(_crmContext, httpContextAccessor);
                chat_Repo                = new Chat_Repo(_crmContext, httpContextAccessor);
+               Apple_Pass_Account       = new Apple_Pass_Account_Repo(_crmContext, httpContextAccessor);
                
 
         }
@@ -56,8 +57,8 @@ namespace Server.UOW
         public IContactPage_Repo ContactPage_                     { get; private set; }
         public ITenants_Repo tenants_Repo                         { get; private set; }
         public IDesignation_Repo Designation_Repo                 { get; private set; }
-
         public IChat_Repo chat_Repo                               { get; private set; }
+        public IApple_Pass_Account_Repo Apple_Pass_Account        { get; private set; }
 
         public async void Dispose()
         {
