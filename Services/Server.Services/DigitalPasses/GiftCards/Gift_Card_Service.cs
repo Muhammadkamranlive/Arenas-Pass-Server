@@ -1,8 +1,6 @@
-﻿using Server.UOW;
-using Server.Core;
+﻿using Server.Core;
 using Server.Domain;
 using Server.Models;
-using Server.BaseService;
 
 namespace Server.Services
 {
@@ -23,6 +21,12 @@ namespace Server.Services
 
         #endregion
 
+
+        /// <summary>
+        /// Generate Gift Cards
+        /// </summary>
+        /// <param name="GiftCard"></param>
+        /// <returns></returns>
         public async Task<ResponseModel<string>> GenerateGiftCard(Apple_Passes_Gift_Card_Model GiftCard)
         {
             try
@@ -37,9 +41,7 @@ namespace Server.Services
                 //Getting Pass
                 giftResponse= await _applePasses_Service.GiftCards( GiftCard );
                 if (giftResponse.Status_Code != "200") { return giftResponse; }
-                GiftCard gift = new GiftCard();
-               
-                // Set properties inherited from WalletPass
+                GiftCard gift             = new();
                 gift.Type                 = "GiftCard"; 
                 gift.Apple_Pass           = (byte[])giftResponse.Response;
                 gift.Background_Color     = GiftCard.Background_Color;

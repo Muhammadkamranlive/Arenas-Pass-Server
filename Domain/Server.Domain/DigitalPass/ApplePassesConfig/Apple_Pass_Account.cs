@@ -13,6 +13,11 @@ namespace Server.Domain
         public string Team_Identifier      { get; set; }
         public string Serial_Number        { get; set; }
         public int    TenantId             { get; set; }
+        public DateTime CreatedAt          { get; set; }
+        public Apple_Pass_Account()
+        {
+            CreatedAt= DateTime.Now;
+        }
     }
     
 }

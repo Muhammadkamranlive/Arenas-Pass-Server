@@ -29,26 +29,28 @@ namespace Server.Services
         private readonly IGeneralTask_Service         _generalTask_Service;
         private readonly INotifications_Service       _notifications_Service;
         private readonly ITenants_Service             _tenants_Service;
-        private readonly ERPDb _context;
-        private readonly IHttpContextAccessor        _httpContextAccessor;
-        private readonly IPaymentService             _paymentService;
+        private readonly ERPDb                        _context;
+        private readonly IHttpContextAccessor         _httpContextAccessor;
+        private readonly IPaymentService              _paymentService;
+        private readonly IApple_Pass_Account_Service  _apcService;
         #endregion
 
         #region Constructor
         public AuthManager
         (
-            ERPDb context,
-            IMapper mapper,
-            UserManager<ApplicationUser> userManager,
-            IConfiguration configuration,
-            RoleManager<CustomRole> roleManager,
-            IEmail_Service emailService,
-            IPasswordReset_Service passwordResetService,
-            IGeneralTask_Service generalTask_Service,
-            INotifications_Service notifications_Service,
-            ITenants_Service    tenants_Service,
-            IHttpContextAccessor  httpContextAccessor,
-            IPaymentService paymentService      
+            ERPDb                         context,
+            IMapper                       mapper,
+            UserManager<ApplicationUser>  userManager,
+            IConfiguration                configuration,
+            RoleManager<CustomRole>       roleManager,
+            IEmail_Service                emailService,
+            IPasswordReset_Service        passwordResetService,
+            IGeneralTask_Service          generalTask_Service,
+            INotifications_Service        notifications_Service,
+            ITenants_Service              tenants_Service,
+            IHttpContextAccessor          httpContextAccessor,
+            IPaymentService               paymentService,
+            IApple_Pass_Account_Service   apc
 
 
         )
@@ -65,6 +67,7 @@ namespace Server.Services
             _tenants_Service       = tenants_Service;
             _httpContextAccessor   = httpContextAccessor;
             _paymentService        = paymentService;
+            _apcService            = apc;
 
         }
 
@@ -114,7 +117,6 @@ namespace Server.Services
                 if (Tenants.Count != 0)
                 {
                     ArenasTenants tenant = Tenants.FirstOrDefault();
-                    
                     if(tenant!= null) 
                     {
                         
@@ -1258,20 +1260,18 @@ namespace Server.Services
                             await _tenants_Service.InsertAsync(company);
                             await _tenants_Service.CompleteAync();
 
-                            var notification          = new NOTIFICATIONS();
-                            notification.IsRead       = false;
-                            notification.Message      = "Your account created successfully";
-                            notification.UserId       = user.Id;
-                            notification.WorkflowStep = "Registration";
-                            notification.Timestamp    = DateTime.Now;
-                            await _notifications_Service.InsertAsync(notification);
-                            await _notifications_Service.CompleteAync();
+                            var Pass                  = new Apple_Pass_Account();
+                            Pass.Pass_Type_Identifier = "pass.com.faces2.ca";
+                            Pass.TenantId             = company.CompanyId;
+                            Pass.Serial_Number        = company.Id.ToString();
+                            await _apcService.InsertAsync(Pass);
+                            await _apcService.CompleteAync();
 
                             IList<ArenasTenants> list1 = await _tenants_Service.Find(x => x.CompanyName.ToLower() == model.CompanyName.ToLower());
 
                             if (list1.Count != 0)
                             {
-                                ArenasTenants tenant = list1.FirstOrDefault();
+                                ArenasTenants tenant    = list1.FirstOrDefault();
                                 user.CompanyName        = tenant.CompanyName;
                                 user.TenantId           = tenant.CompanyId;
 

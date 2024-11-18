@@ -12,5 +12,15 @@ namespace Server.Core
         Task<bool> Remove(Guid id);
         void RemoveRange(IEnumerable<T> entities);
         void Update(T entity);
+        Task<T?> FindOne(Expression<Func<T, bool>> predicate);
+        void Update(T data, object dataModel);
+        void Update(T data, params Expression<Func<T, object>>[] includeProperties);
+        void Update(IEnumerable<T> data);
+        void Update(IEnumerable<T> data, IList<object> dataModel);
+        void Update(IEnumerable<T> data, params Expression<Func<T, object>>[] includeProperties);
+        Task Save();
+        Task Transaction();
+        Task Commit();
+        Task Rollback();
     }
 }

@@ -12,14 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DigitalPasses\LoyaltyCard\" />
-    <Folder Include="DigitalPasses\MembershipCards\" />
-    <Folder Include="DigitalPasses\Coupon\" />
-    <Folder Include="DigitalPasses\BoardingPass\" />
-    <Folder Include="DigitalPasses\Voucher\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="dotnet-passbook" Version="3.2.4" />
   </ItemGroup>
 

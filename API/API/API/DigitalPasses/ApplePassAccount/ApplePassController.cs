@@ -1,4 +1,5 @@
-﻿using Server.Models;
+﻿using AutoMapper;
+using Server.Models;
 using Server.Domain;
 using Server.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -10,16 +11,19 @@ namespace API.API.DigitalPasses.ApplePassAccount
     [ApiController]
     public class ApplePassController : ControllerBase
     {
-        private readonly IApple_Pass_Account_Service applePassAccount_Service;
+        private readonly IApple_Pass_Account_Service _applePassAccount_Service;
         private readonly IHttpContextAccessor        _httpContextAccessor;
+        private readonly IMapper                     _iMapper;
         public ApplePassController
         (
           IApple_Pass_Account_Service apaService,
-          IHttpContextAccessor        httpContextAccessor
+          IHttpContextAccessor        httpContextAccessor,
+          IMapper                     Mapper
         )
         {
-            applePassAccount_Service = apaService;
-            _httpContextAccessor     = httpContextAccessor;
+            _applePassAccount_Service =  apaService;
+            _httpContextAccessor      =  httpContextAccessor;
+            _iMapper                  =  Mapper;
 
         }
 
@@ -31,11 +35,29 @@ namespace API.API.DigitalPasses.ApplePassAccount
             try
             {
                 var tenantId = Convert.ToInt32(_httpContextAccessor.HttpContext?.Items["CurrentTenant"]);
-                return await applePassAccount_Service.Find(x => x.TenantId == tenantId);
+                return await _applePassAccount_Service.Find(x => x.TenantId == tenantId);
             }
             catch (Exception e)
             {
               throw new Exception(e.Message + e.InnerException?.Message);
+            }
+        }
+
+        [HttpPost]
+        [Route("EditRequestApplePassAccount")]
+        [CustomAuthorize("Edit")]
+        public async Task<string> EditRequestApplePassAccount(ApplePassAccountModel Model)
+        {
+            try
+            {
+                var model = _iMapper.Map<Apple_Pass_Account>(Model);
+                _applePassAccount_Service.UpdateRecord(model);
+                await _applePassAccount_Service.CompleteAync();
+                return "OK";
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message + e.InnerException?.Message);
             }
         }
     }
