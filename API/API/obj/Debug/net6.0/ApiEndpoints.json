@@ -10,6 +10,78 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "API.API.DigitalPasses.ApplePassAccount.ApplePassController",
+    "Method": "EditRequestApplePassAccount",
+    "RelativePath": "api/ApplePass/EditRequestApplePassAccount",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Model",
+        "Type": "Server.Models.ApplePassAccountModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "API.API.DigitalPasses.ApplePassAccount.ApplePassController",
+    "Method": "GetApplePassAccount",
+    "RelativePath": "api/ApplePass/GetApplePassAccount",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IList\u00601[[Server.Domain.Apple_Pass_Account, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "API.API.DigitalPasses.ApplePassAccount.ApplePassController",
+    "Method": "NewApplePassAccount",
+    "RelativePath": "api/ApplePass/NewApplePassAccount",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Model",
+        "Type": "Server.Models.ApplePassAccountModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.Asset, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.AssetModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "Create",
     "RelativePath": "api/AssetManager",
@@ -1647,9 +1719,25 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "API.API.GiftCardsController",
+    "ContainingType": "API.API.DigitalPasses.GiftCardsController",
+    "Method": "DownloadGiftCard",
+    "RelativePath": "api/GiftCards/DownloadGiftCard",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "GiftCard",
+        "Type": "Server.Models.Apple_Passes_Gift_Card_Model",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.DigitalPasses.GiftCardsController",
     "Method": "GenerateGiftCard",
-    "RelativePath": "api/GiftCards/GiftCard",
+    "RelativePath": "api/GiftCards/GenerateGiftCard",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,

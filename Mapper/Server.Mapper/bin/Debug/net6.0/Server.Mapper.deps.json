@@ -387,7 +387,10 @@
           "dotnet-passbook": "3.2.4"
         },
         "runtime": {
-          "Server.Domain.dll": {}
+          "Server.Domain.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "Server.Models/1.0.0": {
@@ -395,7 +398,10 @@
           "dotnet-passbook": "3.2.4"
         },
         "runtime": {
-          "Server.Models.dll": {}
+          "Server.Models.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }

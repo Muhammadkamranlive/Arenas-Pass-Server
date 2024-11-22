@@ -8,5 +8,7 @@ namespace Server.Models
 {
     public class ApplePassAccountModel
     {
+        public string Pass_Type_Identifier { get; set; }
+        public string Team_Identifier      { get; set; }
     }
 }

@@ -1,23 +1,34 @@
-﻿using Server.Core;
+﻿using Server.UOW;
 using Server.Domain;
 using Server.Models;
+using Server.Repository;
+using Server.BaseService;
 
 namespace Server.Services
 {
-    public class Gift_Card_Service:IGift_Card_Service
+    public class Gift_Card_Service:Base_Service<GiftCard> ,IGift_Card_Service
     {
         #region Constructor
-        private readonly IApple_Passes_Service _applePasses_Service;
-        private readonly ERPDb                 _db;
+        private readonly IApple_Passes_Service    _applePasses_Service;
+        private readonly ITransaction_No_Service  tnService;
+        private readonly IGift_Cards_Repo        _iRepo;
+        private readonly IGet_Tenant_Id_Service _contextAccessor;
+
         public Gift_Card_Service
         (
-            IApple_Passes_Service applePasses_Service,
-            ERPDb db
-        ) 
+            IApple_Passes_Service    applePasses_Service,
+            ITransaction_No_Service  tn,
+            IUnitOfWork              unitOfWork,
+            IGift_Cards_Repo         iRepo,
+            IGet_Tenant_Id_Service contextAccessor
+
+        ) :base(unitOfWork,iRepo)
         {
             _applePasses_Service = applePasses_Service;
-            _db                  = db;
-        }
+            tnService            = tn;
+            _iRepo               = iRepo;
+            _contextAccessor     = contextAccessor;
+        } 
 
         #endregion
 
@@ -37,10 +48,11 @@ namespace Server.Services
                     Description = "OK",
                     Response    = null
                 };
-
+                int serialNo              = await tnService.GetTxnNo();
                 //Getting Pass
-                giftResponse= await _applePasses_Service.GiftCards( GiftCard );
+                giftResponse              = await _applePasses_Service.GiftCards( GiftCard,serialNo.ToString());
                 if (giftResponse.Status_Code != "200") { return giftResponse; }
+                
                 GiftCard gift             = new();
                 gift.Type                 = "GiftCard"; 
                 gift.Apple_Pass           = (byte[])giftResponse.Response;
@@ -50,9 +62,9 @@ namespace Server.Services
                 gift.Localized_Name       = GiftCard.Logo_Text;
                 gift.Terms_And_Conditions = GiftCard.Privacy_Policy;
                 gift.Logo                 = GiftCard.Logo_Url;
-                gift.Organization_Name    = GiftCard.Organization_Name;
-                gift.Serial_Number        = GiftCard.Serial_Number;
-                gift.Description          = GiftCard.Description;
+                gift.Organization_Name    = "ArenasPass";
+                gift.Serial_Number        = serialNo.ToString();
+                gift.Description          = string.IsNullOrEmpty(GiftCard.Description)?"N/A": GiftCard.Description;
                 gift.Web_Service_URL      = GiftCard.Webiste;
                 gift.Authentication_Token = "";
                 
@@ -65,10 +77,11 @@ namespace Server.Services
                 gift.Barcode_Format       = giftResponse.Description;
                 gift.Expiration_Date      = GiftCard.Expiry_Date;
                 gift.Relevant_Date        = GiftCard.Expiry_Date;
+                gift.TenantId             = _contextAccessor.GetTenantId();
                 gift.Balance              = !string.IsNullOrEmpty(GiftCard.Balance)? decimal.Parse(GiftCard.Balance):0;
 
-                _db.WalletPasses.Add(gift);
-                await _db.SaveChangesAsync();
+                await _iRepo.Add(gift);
+                await _iRepo.Commit();
                 //Saving the Gift Card
                 return giftResponse;
             }

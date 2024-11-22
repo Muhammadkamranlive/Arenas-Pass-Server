@@ -30,6 +30,38 @@ namespace Server.Core
 
 
         /// <summary>
+        /// Add Data and return the entity with the primary key.
+        /// </summary>
+        /// <param name="entity">The entity to add.</param>
+        /// <returns>The added entity with the primary key set.</returns>
+        public async Task<T> AddAsync(T entity)
+        {
+            var tenantId = Convert.ToInt32(_httpContextAccessor.HttpContext?.Items["CurrentTenant"]);
+
+            if (entity.GetType() != typeof(ArenasTenants))
+            {
+                PropertyInfo property = entity.GetType().GetProperty("TenantId");
+                if (property != null)
+                {
+                    property.SetValue(entity, tenantId);
+                }
+            }
+
+            // Add entity to the DbSet
+            await _dbSet.AddAsync(entity);
+
+            // Save changes to generate the primary key value
+            await _crmContext.SaveChangesAsync();
+
+            // Log the operation
+            await LogOperationAsync("Add", entity);
+
+            // Return the entity, which now includes the primary key
+            return entity;
+        }
+
+
+        /// <summary>
         /// Add Data
         /// </summary>
         /// <param name="entity"></param>

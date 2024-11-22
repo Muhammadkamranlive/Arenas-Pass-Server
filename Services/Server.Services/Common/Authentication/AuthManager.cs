@@ -1232,7 +1232,7 @@ namespace Server.Services
                      admin.Email              = model.Email;
                      admin.UserName           = model.Email;
                      admin.CompanyName        = model.CompanyName;
-                     admin.EmployeeId         =  await getEmployeeId() + 1; ;
+                     admin.EmployeeId         = await getEmployeeId() + 1;
                      admin.CompanyDesignation = "Onwer";
                      admin.image              = "https://firebasestorage.googleapis.com/v0/b/images-107c9.appspot.com/o/images.jfif?alt=media&token=09284390-5fd1-40f7-b91c-feabadf143a9";
                      var result               = await _userManager.CreateAsync(admin, model.Password);
@@ -1259,13 +1259,6 @@ namespace Server.Services
                             
                             await _tenants_Service.InsertAsync(company);
                             await _tenants_Service.CompleteAync();
-
-                            var Pass                  = new Apple_Pass_Account();
-                            Pass.Pass_Type_Identifier = "pass.com.faces2.ca";
-                            Pass.TenantId             = company.CompanyId;
-                            Pass.Serial_Number        = company.Id.ToString();
-                            await _apcService.InsertAsync(Pass);
-                            await _apcService.CompleteAync();
 
                             IList<ArenasTenants> list1 = await _tenants_Service.Find(x => x.CompanyName.ToLower() == model.CompanyName.ToLower());
 

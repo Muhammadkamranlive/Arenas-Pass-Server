@@ -3,28 +3,97 @@
   "WorkspaceRootPath": "E:\\work\\ANI Digital Passes\\Server\\Server\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{D21E34CE-2D10-44E4-8ABB-F3AAB178F306}|..\\API\\API\\API.csproj|e:\\work\\ani digital passes\\server\\api\\api\\migrations\\20241122023015_addednullablesinwallettenantid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84AC3136-23C3-45B8-A5F7-26E39F46B346}|..\\Domain\\Server.Domain\\Server.Domain.csproj|e:\\work\\ani digital passes\\server\\domain\\server.domain\\digitalpass\\applepasses\\walletpass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84AC3136-23C3-45B8-A5F7-26E39F46B346}|..\\Domain\\Server.Domain\\Server.Domain.csproj|e:\\work\\ani digital passes\\server\\domain\\server.domain\\tenants\\arenastenants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C6B9FE8-C9FE-4379-80C7-480F401AB17E}|..\\Services\\Server.Services\\Server.Services.csproj|e:\\work\\ani digital passes\\server\\services\\server.services\\digitalpasses\\giftcards\\igift_card_service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D21E34CE-2D10-44E4-8ABB-F3AAB178F306}|..\\API\\API\\API.csproj|e:\\work\\ani digital passes\\server\\api\\api\\api\\digitalpasses\\giftcards\\giftcardscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84AC3136-23C3-45B8-A5F7-26E39F46B346}|..\\Domain\\Server.Domain\\Server.Domain.csproj|e:\\work\\ani digital passes\\server\\domain\\server.domain\\digitalpass\\applepasses\\giftcard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D21E34CE-2D10-44E4-8ABB-F3AAB178F306}|..\\API\\API\\API.csproj|e:\\work\\ani digital passes\\server\\api\\api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C6B9FE8-C9FE-4379-80C7-480F401AB17E}|..\\Services\\Server.Services\\Server.Services.csproj|e:\\work\\ani digital passes\\server\\services\\server.services\\digitalpasses\\giftcards\\gift_card_service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C6B9FE8-C9FE-4379-80C7-480F401AB17E}|..\\Services\\Server.Services\\Server.Services.csproj|e:\\work\\ani digital passes\\server\\services\\server.services\\digitalpasses\\boardingpass\\boarding_pass_service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DAF6FC5-262D-4577-80F6-74B223816E72}|..\\Repository\\Server.Repository\\Server.Repository.csproj|e:\\work\\ani digital passes\\server\\repository\\server.repository\\digitalpasses\\giftcard\\gift_cards_repo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA53EBB4-49C9-4A50-A1B6-99A06FE2C998}|..\\Core\\Server.Core\\Server.Core.csproj|e:\\work\\ani digital passes\\server\\core\\server.core\\baserepo\\repo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C6B9FE8-C9FE-4379-80C7-480F401AB17E}|..\\Services\\Server.Services\\Server.Services.csproj|e:\\work\\ani digital passes\\server\\services\\server.services\\digitalpasses\\applepasses\\apple_passes_service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D21E34CE-2D10-44E4-8ABB-F3AAB178F306}|..\\API\\API\\API.csproj|e:\\work\\ani digital passes\\server\\api\\api\\api\\authentication\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18F5B13B-6BB7-4600-B7EB-21F7B4FBF652}|..\\Models\\Server.Models\\Server.Models.csproj|e:\\work\\ani digital passes\\server\\models\\server.models\\digitalpasses\\giftcards\\giftcardclientvalidationmodels\\apple_passes_gift_card_model.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C6B9FE8-C9FE-4379-80C7-480F401AB17E}|..\\Services\\Server.Services\\Server.Services.csproj|e:\\work\\ani digital passes\\server\\services\\server.services\\digitalpasses\\transaction\\transaction_no_service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C6B9FE8-C9FE-4379-80C7-480F401AB17E}|..\\Services\\Server.Services\\Server.Services.csproj|e:\\work\\ani digital passes\\server\\services\\server.services\\digitalpasses\\applepasses\\iapple_passes_service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D21E34CE-2D10-44E4-8ABB-F3AAB178F306}|..\\API\\API\\API.csproj|e:\\work\\ani digital passes\\server\\api\\api\\api\\digitalpasses\\digitalpassescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C6B9FE8-C9FE-4379-80C7-480F401AB17E}|..\\Services\\Server.Services\\Server.Services.csproj|e:\\work\\ani digital passes\\server\\services\\server.services\\common\\authentication\\authmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DAF6FC5-262D-4577-80F6-74B223816E72}|..\\Repository\\Server.Repository\\Server.Repository.csproj|e:\\work\\ani digital passes\\server\\repository\\server.repository\\digitalpasses\\transaction\\transaction_no_repo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84AC3136-23C3-45B8-A5F7-26E39F46B346}|..\\Domain\\Server.Domain\\Server.Domain.csproj|e:\\work\\ani digital passes\\server\\domain\\server.domain\\digitalpass\\transaction\\transaction_no.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA53EBB4-49C9-4A50-A1B6-99A06FE2C998}|..\\Core\\Server.Core\\Server.Core.csproj|e:\\work\\ani digital passes\\server\\core\\server.core\\baserepo\\irepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C6B9FE8-C9FE-4379-80C7-480F401AB17E}|..\\Services\\Server.Services\\Server.Services.csproj|e:\\work\\ani digital passes\\server\\services\\server.services\\digitalpasses\\transaction\\itransaction_no_service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DAF6FC5-262D-4577-80F6-74B223816E72}|..\\Repository\\Server.Repository\\Server.Repository.csproj|e:\\work\\ani digital passes\\server\\repository\\server.repository\\digitalpasses\\transaction\\itransaction_no_repo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA53EBB4-49C9-4A50-A1B6-99A06FE2C998}|..\\Core\\Server.Core\\Server.Core.csproj|e:\\work\\ani digital passes\\server\\core\\server.core\\database\\erpdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D21E34CE-2D10-44E4-8ABB-F3AAB178F306}|..\\API\\API\\API.csproj|e:\\work\\ani digital passes\\server\\api\\api\\api\\digitalpasses\\applepassaccount\\applepasscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18F5B13B-6BB7-4600-B7EB-21F7B4FBF652}|..\\Models\\Server.Models\\Server.Models.csproj|e:\\work\\ani digital passes\\server\\models\\server.models\\digitalpasses\\tickets\\apple_passes_ticket_model.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C6B9FE8-C9FE-4379-80C7-480F401AB17E}|..\\Services\\Server.Services\\Server.Services.csproj|e:\\work\\ani digital passes\\server\\services\\server.services\\digitalpasses\\voucher\\ivoucher_service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8C6B9FE8-C9FE-4379-80C7-480F401AB17E}|..\\Services\\Server.Services\\Server.Services.csproj|e:\\work\\ani digital passes\\server\\services\\server.services\\digitalpasses\\tickets\\ticket_service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8C6B9FE8-C9FE-4379-80C7-480F401AB17E}|..\\Services\\Server.Services\\Server.Services.csproj|e:\\work\\ani digital passes\\server\\services\\server.services\\digitalpasses\\tickets\\iticket_service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8C6B9FE8-C9FE-4379-80C7-480F401AB17E}|..\\Services\\Server.Services\\Server.Services.csproj|e:\\work\\ani digital passes\\server\\services\\server.services\\digitalpasses\\voucher\\ivoucher_service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{18F5B13B-6BB7-4600-B7EB-21F7B4FBF652}|..\\Models\\Server.Models\\Server.Models.csproj|e:\\work\\ani digital passes\\server\\models\\server.models\\digitalpasses\\tickets\\apple_passes_ticket_model.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8C6B9FE8-C9FE-4379-80C7-480F401AB17E}|..\\Services\\Server.Services\\Server.Services.csproj|e:\\work\\ani digital passes\\server\\services\\server.services\\digitalpasses\\voucher\\voucher_service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EA53EBB4-49C9-4A50-A1B6-99A06FE2C998}|..\\Core\\Server.Core\\Server.Core.csproj|e:\\work\\ani digital passes\\server\\core\\server.core\\baserepo\\repo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8C6B9FE8-C9FE-4379-80C7-480F401AB17E}|..\\Services\\Server.Services\\Server.Services.csproj|e:\\work\\ani digital passes\\server\\services\\server.services\\digitalpasses\\coupon\\coupon_service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8C6B9FE8-C9FE-4379-80C7-480F401AB17E}|..\\Services\\Server.Services\\Server.Services.csproj|e:\\work\\ani digital passes\\server\\services\\server.services\\digitalpasses\\giftcards\\gift_card_service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9DAF6FC5-262D-4577-80F6-74B223816E72}|..\\Repository\\Server.Repository\\Server.Repository.csproj|e:\\work\\ani digital passes\\server\\repository\\server.repository\\digitalpasses\\tickets\\itickets_repo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -37,9 +106,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{8C6B9FE8-C9FE-4379-80C7-480F401AB17E}|..\\Services\\Server.Services\\Server.Services.csproj|e:\\work\\ani digital passes\\server\\services\\server.services\\digitalpasses\\memembershipcards\\imembership_card_service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8C6B9FE8-C9FE-4379-80C7-480F401AB17E}|..\\Services\\Server.Services\\Server.Services.csproj|e:\\work\\ani digital passes\\server\\services\\server.services\\digitalpasses\\boardingpass\\boarding_pass_service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8C6B9FE8-C9FE-4379-80C7-480F401AB17E}|..\\Services\\Server.Services\\Server.Services.csproj|e:\\work\\ani digital passes\\server\\services\\server.services\\digitalpasses\\boardingpass\\iboarding_pass_service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -60,9 +126,6 @@
       "AbsoluteMoniker": "D:0:0:{9DAF6FC5-262D-4577-80F6-74B223816E72}|..\\Repository\\Server.Repository\\Server.Repository.csproj|e:\\work\\ani digital passes\\server\\repository\\server.repository\\digitalpasses\\punchcards\\ipunch_card_repo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{84AC3136-23C3-45B8-A5F7-26E39F46B346}|..\\Domain\\Server.Domain\\Server.Domain.csproj|e:\\work\\ani digital passes\\server\\domain\\server.domain\\digitalpass\\applepasses\\giftcard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{84AC3136-23C3-45B8-A5F7-26E39F46B346}|..\\Domain\\Server.Domain\\Server.Domain.csproj|e:\\work\\ani digital passes\\server\\domain\\server.domain\\digitalpass\\applepasses\\coupon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -73,9 +136,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{84AC3136-23C3-45B8-A5F7-26E39F46B346}|..\\Domain\\Server.Domain\\Server.Domain.csproj|e:\\work\\ani digital passes\\server\\domain\\server.domain\\digitalpass\\applepasses\\voucher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{84AC3136-23C3-45B8-A5F7-26E39F46B346}|..\\Domain\\Server.Domain\\Server.Domain.csproj|e:\\work\\ani digital passes\\server\\domain\\server.domain\\digitalpass\\applepasses\\walletpass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9DAF6FC5-262D-4577-80F6-74B223816E72}|..\\Repository\\Server.Repository\\Server.Repository.csproj|e:\\work\\ani digital passes\\server\\repository\\server.repository\\digitalpasses\\voucher\\voucher_repo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -115,6 +175,12 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{9DAF6FC5-262D-4577-80F6-74B223816E72}|..\\Repository\\Server.Repository\\Server.Repository.csproj|e:\\work\\ani digital passes\\server\\repository\\server.repository\\digitalpasses\\boardingpass\\iboarding_pass_repo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D21E34CE-2D10-44E4-8ABB-F3AAB178F306}|..\\API\\API\\API.csproj|e:\\work\\ani digital passes\\server\\api\\api\\migrations\\20241119120439_addedtransaction_no.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D21E34CE-2D10-44E4-8ABB-F3AAB178F306}|..\\API\\API\\API.csproj|e:\\work\\ani digital passes\\server\\api\\api\\migrations\\20241121173209_addednullablesinwallet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -124,89 +190,60 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Apple_Passes_Ticket_Model.cs",
-              "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Models\\Server.Models\\DigitalPasses\\Tickets\\Apple_Passes_Ticket_Model.cs",
-              "RelativeDocumentMoniker": "..\\Models\\Server.Models\\DigitalPasses\\Tickets\\Apple_Passes_Ticket_Model.cs",
-              "ToolTip": "E:\\work\\ANI Digital Passes\\Server\\Models\\Server.Models\\DigitalPasses\\Tickets\\Apple_Passes_Ticket_Model.cs",
-              "RelativeToolTip": "..\\Models\\Server.Models\\DigitalPasses\\Tickets\\Apple_Passes_Ticket_Model.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAA3wBgAAAA1AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T08:58:10.317Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Repo.cs",
-              "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Core\\Server.Core\\BaseRepo\\Repo.cs",
-              "RelativeDocumentMoniker": "..\\Core\\Server.Core\\BaseRepo\\Repo.cs",
-              "ToolTip": "E:\\work\\ANI Digital Passes\\Server\\Core\\Server.Core\\BaseRepo\\Repo.cs",
-              "RelativeToolTip": "..\\Core\\Server.Core\\BaseRepo\\Repo.cs",
-              "ViewState": "AQIAAFwAAAAAAAAAAAAUwGEBAAAUAAAA",
+              "DocumentIndex": 0,
+              "Title": "20241122023015_AddedNullablesinWalletTenantId.cs",
+              "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\API\\API\\Migrations\\20241122023015_AddedNullablesinWalletTenantId.cs",
+              "RelativeDocumentMoniker": "..\\API\\API\\Migrations\\20241122023015_AddedNullablesinWalletTenantId.cs",
+              "ToolTip": "E:\\work\\ANI Digital Passes\\Server\\API\\API\\Migrations\\20241122023015_AddedNullablesinWalletTenantId.cs",
+              "RelativeToolTip": "..\\API\\API\\Migrations\\20241122023015_AddedNullablesinWalletTenantId.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T07:03:11.991Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Voucher_Service.cs",
-              "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\DigitalPasses\\Voucher\\Voucher_Service.cs",
-              "RelativeDocumentMoniker": "..\\Services\\Server.Services\\DigitalPasses\\Voucher\\Voucher_Service.cs",
-              "ToolTip": "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\DigitalPasses\\Voucher\\Voucher_Service.cs",
-              "RelativeToolTip": "..\\Services\\Server.Services\\DigitalPasses\\Voucher\\Voucher_Service.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAsAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T06:59:45.648Z",
+              "WhenOpened": "2024-11-22T02:30:16.08Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "IVoucher_Service.cs",
-              "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\DigitalPasses\\Voucher\\IVoucher_Service.cs",
-              "RelativeDocumentMoniker": "..\\Services\\Server.Services\\DigitalPasses\\Voucher\\IVoucher_Service.cs",
-              "ToolTip": "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\DigitalPasses\\Voucher\\IVoucher_Service.cs",
-              "RelativeToolTip": "..\\Services\\Server.Services\\DigitalPasses\\Voucher\\IVoucher_Service.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAqwA0AAABdAAAA",
+              "Title": "ArenasTenants.cs",
+              "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Domain\\Server.Domain\\Tenants\\ArenasTenants.cs",
+              "RelativeDocumentMoniker": "..\\Domain\\Server.Domain\\Tenants\\ArenasTenants.cs",
+              "ToolTip": "E:\\work\\ANI Digital Passes\\Server\\Domain\\Server.Domain\\Tenants\\ArenasTenants.cs",
+              "RelativeToolTip": "..\\Domain\\Server.Domain\\Tenants\\ArenasTenants.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAA6wAYAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T06:59:09.995Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-22T02:28:27.331Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Ticket_Service.cs",
-              "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\DigitalPasses\\Tickets\\Ticket_Service.cs",
-              "RelativeDocumentMoniker": "..\\Services\\Server.Services\\DigitalPasses\\Tickets\\Ticket_Service.cs",
-              "ToolTip": "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\DigitalPasses\\Tickets\\Ticket_Service.cs",
-              "RelativeToolTip": "..\\Services\\Server.Services\\DigitalPasses\\Tickets\\Ticket_Service.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAYAAAA",
+              "DocumentIndex": 3,
+              "Title": "IGift_Card_Service.cs",
+              "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\DigitalPasses\\GiftCards\\IGift_Card_Service.cs",
+              "RelativeDocumentMoniker": "..\\Services\\Server.Services\\DigitalPasses\\GiftCards\\IGift_Card_Service.cs",
+              "ToolTip": "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\DigitalPasses\\GiftCards\\IGift_Card_Service.cs",
+              "RelativeToolTip": "..\\Services\\Server.Services\\DigitalPasses\\GiftCards\\IGift_Card_Service.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T06:56:21.554Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-21T17:36:37.463Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ITicket_Service.cs",
-              "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\DigitalPasses\\Tickets\\ITicket_Service.cs",
-              "RelativeDocumentMoniker": "..\\Services\\Server.Services\\DigitalPasses\\Tickets\\ITicket_Service.cs",
-              "ToolTip": "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\DigitalPasses\\Tickets\\ITicket_Service.cs",
-              "RelativeToolTip": "..\\Services\\Server.Services\\DigitalPasses\\Tickets\\ITicket_Service.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAYAAAAbAAAA",
+              "DocumentIndex": 9,
+              "Title": "Gift_Cards_Repo.cs",
+              "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Repository\\Server.Repository\\DigitalPasses\\GiftCard\\Gift_Cards_Repo.cs",
+              "RelativeDocumentMoniker": "..\\Repository\\Server.Repository\\DigitalPasses\\GiftCard\\Gift_Cards_Repo.cs",
+              "ToolTip": "E:\\work\\ANI Digital Passes\\Server\\Repository\\Server.Repository\\DigitalPasses\\GiftCard\\Gift_Cards_Repo.cs",
+              "RelativeToolTip": "..\\Repository\\Server.Repository\\DigitalPasses\\GiftCard\\Gift_Cards_Repo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T06:55:17.399Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+              "WhenOpened": "2024-11-22T02:13:53.163Z"
             },
             {
               "$type": "Document",
@@ -216,14 +253,337 @@
               "RelativeDocumentMoniker": "..\\Services\\Server.Services\\DigitalPasses\\GiftCards\\Gift_Card_Service.cs",
               "ToolTip": "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\DigitalPasses\\GiftCards\\Gift_Card_Service.cs",
               "RelativeToolTip": "..\\Services\\Server.Services\\DigitalPasses\\GiftCards\\Gift_Card_Service.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAABEAAAA",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAqwA4AAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T06:51:21.97Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T06:51:21.97Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "GiftCard.cs",
+              "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Domain\\Server.Domain\\DigitalPass\\ApplePasses\\GiftCard.cs",
+              "RelativeDocumentMoniker": "..\\Domain\\Server.Domain\\DigitalPass\\ApplePasses\\GiftCard.cs",
+              "ToolTip": "E:\\work\\ANI Digital Passes\\Server\\Domain\\Server.Domain\\DigitalPass\\ApplePasses\\GiftCard.cs",
+              "RelativeToolTip": "..\\Domain\\Server.Domain\\DigitalPass\\ApplePasses\\GiftCard.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAgAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T06:45:02.054Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "WalletPass.cs",
+              "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Domain\\Server.Domain\\DigitalPass\\ApplePasses\\WalletPass.cs",
+              "RelativeDocumentMoniker": "..\\Domain\\Server.Domain\\DigitalPass\\ApplePasses\\WalletPass.cs",
+              "ToolTip": "E:\\work\\ANI Digital Passes\\Server\\Domain\\Server.Domain\\DigitalPass\\ApplePasses\\WalletPass.cs",
+              "RelativeToolTip": "..\\Domain\\Server.Domain\\DigitalPass\\ApplePasses\\WalletPass.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAUwBUAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T06:44:58.175Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\API\\API\\Program.cs",
+              "RelativeDocumentMoniker": "..\\API\\API\\Program.cs",
+              "ToolTip": "E:\\work\\ANI Digital Passes\\Server\\API\\API\\Program.cs",
+              "RelativeToolTip": "..\\API\\API\\Program.cs",
+              "ViewState": "AgIAAFAAAAAAAAAAAIAzwFsAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T04:35:18.88Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "GiftCardsController.cs",
+              "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\API\\API\\API\\DigitalPasses\\GiftCards\\GiftCardsController.cs",
+              "RelativeDocumentMoniker": "..\\API\\API\\API\\DigitalPasses\\GiftCards\\GiftCardsController.cs",
+              "ToolTip": "E:\\work\\ANI Digital Passes\\Server\\API\\API\\API\\DigitalPasses\\GiftCards\\GiftCardsController.cs",
+              "RelativeToolTip": "..\\API\\API\\API\\DigitalPasses\\GiftCards\\GiftCardsController.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAADwv0EAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T05:15:03.566Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\API\\API\\API\\Authentication\\AuthController.cs",
+              "RelativeDocumentMoniker": "..\\API\\API\\API\\Authentication\\AuthController.cs",
+              "ToolTip": "E:\\work\\ANI Digital Passes\\Server\\API\\API\\API\\Authentication\\AuthController.cs",
+              "RelativeToolTip": "..\\API\\API\\API\\Authentication\\AuthController.cs",
+              "ViewState": "AgIAAPMBAAAAAAAAAAAgwF8AAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T04:32:58.001Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Boarding_Pass_Service.cs",
+              "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\DigitalPasses\\BoardingPass\\Boarding_Pass_Service.cs",
+              "RelativeDocumentMoniker": "..\\Services\\Server.Services\\DigitalPasses\\BoardingPass\\Boarding_Pass_Service.cs",
+              "ToolTip": "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\DigitalPasses\\BoardingPass\\Boarding_Pass_Service.cs",
+              "RelativeToolTip": "..\\Services\\Server.Services\\DigitalPasses\\BoardingPass\\Boarding_Pass_Service.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T06:11:54.885Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Apple_Passes_Gift_Card_Model.cs",
+              "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Models\\Server.Models\\DigitalPasses\\GiftCards\\GiftCardClientValidationModels\\Apple_Passes_Gift_Card_Model.cs",
+              "RelativeDocumentMoniker": "..\\Models\\Server.Models\\DigitalPasses\\GiftCards\\GiftCardClientValidationModels\\Apple_Passes_Gift_Card_Model.cs",
+              "ToolTip": "E:\\work\\ANI Digital Passes\\Server\\Models\\Server.Models\\DigitalPasses\\GiftCards\\GiftCardClientValidationModels\\Apple_Passes_Gift_Card_Model.cs",
+              "RelativeToolTip": "..\\Models\\Server.Models\\DigitalPasses\\GiftCards\\GiftCardClientValidationModels\\Apple_Passes_Gift_Card_Model.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAUwA0AAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T10:01:47.044Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Repo.cs",
+              "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Core\\Server.Core\\BaseRepo\\Repo.cs",
+              "RelativeDocumentMoniker": "..\\Core\\Server.Core\\BaseRepo\\Repo.cs",
+              "ToolTip": "E:\\work\\ANI Digital Passes\\Server\\Core\\Server.Core\\BaseRepo\\Repo.cs",
+              "RelativeToolTip": "..\\Core\\Server.Core\\BaseRepo\\Repo.cs",
+              "ViewState": "AgIAADIAAAAAAAAAAAAiwEYAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T07:03:11.991Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Apple_Passes_Service.cs",
+              "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\DigitalPasses\\ApplePasses\\Apple_Passes_Service.cs",
+              "RelativeDocumentMoniker": "..\\Services\\Server.Services\\DigitalPasses\\ApplePasses\\Apple_Passes_Service.cs",
+              "ToolTip": "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\DigitalPasses\\ApplePasses\\Apple_Passes_Service.cs",
+              "RelativeToolTip": "..\\Services\\Server.Services\\DigitalPasses\\ApplePasses\\Apple_Passes_Service.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T10:04:25.822Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Transaction_No_Service.cs",
+              "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\DigitalPasses\\Transaction\\Transaction_No_Service.cs",
+              "RelativeDocumentMoniker": "..\\Services\\Server.Services\\DigitalPasses\\Transaction\\Transaction_No_Service.cs",
+              "ToolTip": "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\DigitalPasses\\Transaction\\Transaction_No_Service.cs",
+              "RelativeToolTip": "..\\Services\\Server.Services\\DigitalPasses\\Transaction\\Transaction_No_Service.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAqwA0AAABfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T12:12:57.662Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
+              "Title": "20241121173209_AddedNullablesinWallet.cs",
+              "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\API\\API\\Migrations\\20241121173209_AddedNullablesinWallet.cs",
+              "RelativeDocumentMoniker": "..\\API\\API\\Migrations\\20241121173209_AddedNullablesinWallet.cs",
+              "ToolTip": "E:\\work\\ANI Digital Passes\\Server\\API\\API\\Migrations\\20241121173209_AddedNullablesinWallet.cs",
+              "RelativeToolTip": "..\\API\\API\\Migrations\\20241121173209_AddedNullablesinWallet.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-21T17:32:09.532Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Transaction_No_Repo.cs",
+              "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Repository\\Server.Repository\\DigitalPasses\\Transaction\\Transaction_No_Repo.cs",
+              "RelativeDocumentMoniker": "..\\Repository\\Server.Repository\\DigitalPasses\\Transaction\\Transaction_No_Repo.cs",
+              "ToolTip": "E:\\work\\ANI Digital Passes\\Server\\Repository\\Server.Repository\\DigitalPasses\\Transaction\\Transaction_No_Repo.cs",
+              "RelativeToolTip": "..\\Repository\\Server.Repository\\DigitalPasses\\Transaction\\Transaction_No_Repo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAsAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T12:09:52.392Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "DigitalPassesController.cs",
+              "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\API\\API\\API\\DigitalPasses\\DigitalPassesController.cs",
+              "RelativeDocumentMoniker": "..\\API\\API\\API\\DigitalPasses\\DigitalPassesController.cs",
+              "ToolTip": "E:\\work\\ANI Digital Passes\\Server\\API\\API\\API\\DigitalPasses\\DigitalPassesController.cs",
+              "RelativeToolTip": "..\\API\\API\\API\\DigitalPasses\\DigitalPassesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T13:48:43.984Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "IApple_Passes_Service.cs",
+              "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\DigitalPasses\\ApplePasses\\IApple_Passes_Service.cs",
+              "RelativeDocumentMoniker": "..\\Services\\Server.Services\\DigitalPasses\\ApplePasses\\IApple_Passes_Service.cs",
+              "ToolTip": "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\DigitalPasses\\ApplePasses\\IApple_Passes_Service.cs",
+              "RelativeToolTip": "..\\Services\\Server.Services\\DigitalPasses\\ApplePasses\\IApple_Passes_Service.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T13:50:37.221Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Transaction_No.cs",
+              "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Domain\\Server.Domain\\DigitalPass\\Transaction\\Transaction_No.cs",
+              "RelativeDocumentMoniker": "..\\Domain\\Server.Domain\\DigitalPass\\Transaction\\Transaction_No.cs",
+              "ToolTip": "E:\\work\\ANI Digital Passes\\Server\\Domain\\Server.Domain\\DigitalPass\\Transaction\\Transaction_No.cs",
+              "RelativeToolTip": "..\\Domain\\Server.Domain\\DigitalPass\\Transaction\\Transaction_No.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T11:49:31.376Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "IRepo.cs",
+              "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Core\\Server.Core\\BaseRepo\\IRepo.cs",
+              "RelativeDocumentMoniker": "..\\Core\\Server.Core\\BaseRepo\\IRepo.cs",
+              "ToolTip": "E:\\work\\ANI Digital Passes\\Server\\Core\\Server.Core\\BaseRepo\\IRepo.cs",
+              "RelativeToolTip": "..\\Core\\Server.Core\\BaseRepo\\IRepo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T13:45:39.67Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "AuthManager.cs",
+              "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\Common\\Authentication\\AuthManager.cs",
+              "RelativeDocumentMoniker": "..\\Services\\Server.Services\\Common\\Authentication\\AuthManager.cs",
+              "ToolTip": "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\Common\\Authentication\\AuthManager.cs",
+              "RelativeToolTip": "..\\Services\\Server.Services\\Common\\Authentication\\AuthManager.cs",
+              "ViewState": "AgIAAOMEAAAAAAAAAAAAwOwEAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T04:31:32.166Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "ITransaction_No_Service.cs",
+              "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\DigitalPasses\\Transaction\\ITransaction_No_Service.cs",
+              "RelativeDocumentMoniker": "..\\Services\\Server.Services\\DigitalPasses\\Transaction\\ITransaction_No_Service.cs",
+              "ToolTip": "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\DigitalPasses\\Transaction\\ITransaction_No_Service.cs",
+              "RelativeToolTip": "..\\Services\\Server.Services\\DigitalPasses\\Transaction\\ITransaction_No_Service.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAoAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T12:13:49.456Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "ITransaction_No_Repo.cs",
+              "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Repository\\Server.Repository\\DigitalPasses\\Transaction\\ITransaction_No_Repo.cs",
+              "RelativeDocumentMoniker": "..\\Repository\\Server.Repository\\DigitalPasses\\Transaction\\ITransaction_No_Repo.cs",
+              "ToolTip": "E:\\work\\ANI Digital Passes\\Server\\Repository\\Server.Repository\\DigitalPasses\\Transaction\\ITransaction_No_Repo.cs",
+              "RelativeToolTip": "..\\Repository\\Server.Repository\\DigitalPasses\\Transaction\\ITransaction_No_Repo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T12:06:13.353Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
+              "Title": "20241119120439_AddedTransaction_No.cs",
+              "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\API\\API\\Migrations\\20241119120439_AddedTransaction_No.cs",
+              "RelativeDocumentMoniker": "..\\API\\API\\Migrations\\20241119120439_AddedTransaction_No.cs",
+              "ToolTip": "E:\\work\\ANI Digital Passes\\Server\\API\\API\\Migrations\\20241119120439_AddedTransaction_No.cs",
+              "RelativeToolTip": "..\\API\\API\\Migrations\\20241119120439_AddedTransaction_No.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T12:04:39.954Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "ERPDb.cs",
+              "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Core\\Server.Core\\DataBase\\ERPDb.cs",
+              "RelativeDocumentMoniker": "..\\Core\\Server.Core\\DataBase\\ERPDb.cs",
+              "ToolTip": "E:\\work\\ANI Digital Passes\\Server\\Core\\Server.Core\\DataBase\\ERPDb.cs",
+              "RelativeToolTip": "..\\Core\\Server.Core\\DataBase\\ERPDb.cs",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAzwFMAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T07:15:31.804Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "ApplePassController.cs",
+              "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\API\\API\\API\\DigitalPasses\\ApplePassAccount\\ApplePassController.cs",
+              "RelativeDocumentMoniker": "..\\API\\API\\API\\DigitalPasses\\ApplePassAccount\\ApplePassController.cs",
+              "ToolTip": "E:\\work\\ANI Digital Passes\\Server\\API\\API\\API\\DigitalPasses\\ApplePassAccount\\ApplePassController.cs",
+              "RelativeToolTip": "..\\API\\API\\API\\DigitalPasses\\ApplePassAccount\\ApplePassController.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAA/wDAAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T05:28:07.42Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Apple_Passes_Ticket_Model.cs",
+              "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Models\\Server.Models\\DigitalPasses\\Tickets\\Apple_Passes_Ticket_Model.cs",
+              "RelativeDocumentMoniker": "..\\Models\\Server.Models\\DigitalPasses\\Tickets\\Apple_Passes_Ticket_Model.cs",
+              "ToolTip": "E:\\work\\ANI Digital Passes\\Server\\Models\\Server.Models\\DigitalPasses\\Tickets\\Apple_Passes_Ticket_Model.cs",
+              "RelativeToolTip": "..\\Models\\Server.Models\\DigitalPasses\\Tickets\\Apple_Passes_Ticket_Model.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABgAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T08:58:10.317Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "Voucher_Service.cs",
+              "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\DigitalPasses\\Voucher\\Voucher_Service.cs",
+              "RelativeDocumentMoniker": "..\\Services\\Server.Services\\DigitalPasses\\Voucher\\Voucher_Service.cs",
+              "ToolTip": "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\DigitalPasses\\Voucher\\Voucher_Service.cs",
+              "RelativeToolTip": "..\\Services\\Server.Services\\DigitalPasses\\Voucher\\Voucher_Service.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAuwAsAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T06:59:45.648Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "IVoucher_Service.cs",
+              "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\DigitalPasses\\Voucher\\IVoucher_Service.cs",
+              "RelativeDocumentMoniker": "..\\Services\\Server.Services\\DigitalPasses\\Voucher\\IVoucher_Service.cs",
+              "ToolTip": "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\DigitalPasses\\Voucher\\IVoucher_Service.cs",
+              "RelativeToolTip": "..\\Services\\Server.Services\\DigitalPasses\\Voucher\\IVoucher_Service.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA0AAABdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T06:59:09.995Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "Ticket_Service.cs",
+              "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\DigitalPasses\\Tickets\\Ticket_Service.cs",
+              "RelativeDocumentMoniker": "..\\Services\\Server.Services\\DigitalPasses\\Tickets\\Ticket_Service.cs",
+              "ToolTip": "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\DigitalPasses\\Tickets\\Ticket_Service.cs",
+              "RelativeToolTip": "..\\Services\\Server.Services\\DigitalPasses\\Tickets\\Ticket_Service.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T06:56:21.554Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "ITicket_Service.cs",
+              "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\DigitalPasses\\Tickets\\ITicket_Service.cs",
+              "RelativeDocumentMoniker": "..\\Services\\Server.Services\\DigitalPasses\\Tickets\\ITicket_Service.cs",
+              "ToolTip": "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\DigitalPasses\\Tickets\\ITicket_Service.cs",
+              "RelativeToolTip": "..\\Services\\Server.Services\\DigitalPasses\\Tickets\\ITicket_Service.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAYAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T06:55:17.399Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
               "Title": "Coupon_Service.cs",
               "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\DigitalPasses\\Coupon\\Coupon_Service.cs",
               "RelativeDocumentMoniker": "..\\Services\\Server.Services\\DigitalPasses\\Coupon\\Coupon_Service.cs",
@@ -231,12 +591,11 @@
               "RelativeToolTip": "..\\Services\\Server.Services\\DigitalPasses\\Coupon\\Coupon_Service.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T06:22:51.647Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T06:22:51.647Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 33,
               "Title": "Membership_Card_Service.cs",
               "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\DigitalPasses\\MemembershipCards\\Membership_Card_Service.cs",
               "RelativeDocumentMoniker": "..\\Services\\Server.Services\\DigitalPasses\\MemembershipCards\\Membership_Card_Service.cs",
@@ -244,12 +603,11 @@
               "RelativeToolTip": "..\\Services\\Server.Services\\DigitalPasses\\MemembershipCards\\Membership_Card_Service.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T06:52:28.322Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T06:52:28.322Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 34,
               "Title": "IMembership_Card_Service.cs",
               "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\DigitalPasses\\MemembershipCards\\IMembership_Card_Service.cs",
               "RelativeDocumentMoniker": "..\\Services\\Server.Services\\DigitalPasses\\MemembershipCards\\IMembership_Card_Service.cs",
@@ -257,12 +615,11 @@
               "RelativeToolTip": "..\\Services\\Server.Services\\DigitalPasses\\MemembershipCards\\IMembership_Card_Service.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T06:53:23.925Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T06:53:23.925Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 32,
               "Title": "Tickets_Repo.cs",
               "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Repository\\Server.Repository\\DigitalPasses\\Tickets\\Tickets_Repo.cs",
               "RelativeDocumentMoniker": "..\\Repository\\Server.Repository\\DigitalPasses\\Tickets\\Tickets_Repo.cs",
@@ -270,12 +627,11 @@
               "RelativeToolTip": "..\\Repository\\Server.Repository\\DigitalPasses\\Tickets\\Tickets_Repo.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAqwAYAAAA7AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T06:48:41.575Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T06:48:41.575Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 31,
               "Title": "ITickets_Repo.cs",
               "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Repository\\Server.Repository\\DigitalPasses\\Tickets\\ITickets_Repo.cs",
               "RelativeDocumentMoniker": "..\\Repository\\Server.Repository\\DigitalPasses\\Tickets\\ITickets_Repo.cs",
@@ -283,12 +639,11 @@
               "RelativeToolTip": "..\\Repository\\Server.Repository\\DigitalPasses\\Tickets\\ITickets_Repo.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAqwAoAAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T06:48:10.449Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T06:48:10.449Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 37,
               "Title": "BoardingPass.cs",
               "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Domain\\Server.Domain\\DigitalPass\\ApplePasses\\BoardingPass.cs",
               "RelativeDocumentMoniker": "..\\Domain\\Server.Domain\\DigitalPass\\ApplePasses\\BoardingPass.cs",
@@ -296,12 +651,11 @@
               "RelativeToolTip": "..\\Domain\\Server.Domain\\DigitalPass\\ApplePasses\\BoardingPass.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T06:45:03.156Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T06:45:03.156Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 36,
               "Title": "ICoupon_Service.cs",
               "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\DigitalPasses\\Coupon\\ICoupon_Service.cs",
               "RelativeDocumentMoniker": "..\\Services\\Server.Services\\DigitalPasses\\Coupon\\ICoupon_Service.cs",
@@ -309,12 +663,11 @@
               "RelativeToolTip": "..\\Services\\Server.Services\\DigitalPasses\\Coupon\\ICoupon_Service.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T06:23:21.607Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T06:23:21.607Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 35,
               "Title": "IBoarding_Pass_Service.cs",
               "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\DigitalPasses\\BoardingPass\\IBoarding_Pass_Service.cs",
               "RelativeDocumentMoniker": "..\\Services\\Server.Services\\DigitalPasses\\BoardingPass\\IBoarding_Pass_Service.cs",
@@ -322,25 +675,11 @@
               "RelativeToolTip": "..\\Services\\Server.Services\\DigitalPasses\\BoardingPass\\IBoarding_Pass_Service.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T06:12:10.861Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T06:12:10.861Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Boarding_Pass_Service.cs",
-              "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\DigitalPasses\\BoardingPass\\Boarding_Pass_Service.cs",
-              "RelativeDocumentMoniker": "..\\Services\\Server.Services\\DigitalPasses\\BoardingPass\\Boarding_Pass_Service.cs",
-              "ToolTip": "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\DigitalPasses\\BoardingPass\\Boarding_Pass_Service.cs",
-              "RelativeToolTip": "..\\Services\\Server.Services\\DigitalPasses\\BoardingPass\\Boarding_Pass_Service.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAiAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T06:11:54.885Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 40,
               "Title": "IPunch_Card_Repo.cs",
               "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Repository\\Server.Repository\\DigitalPasses\\PunchCards\\IPunch_Card_Repo.cs",
               "RelativeDocumentMoniker": "..\\Repository\\Server.Repository\\DigitalPasses\\PunchCards\\IPunch_Card_Repo.cs",
@@ -348,12 +687,11 @@
               "RelativeToolTip": "..\\Repository\\Server.Repository\\DigitalPasses\\PunchCards\\IPunch_Card_Repo.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T06:45:57.887Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T06:45:57.887Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 41,
               "Title": "Coupon.cs",
               "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Domain\\Server.Domain\\DigitalPass\\ApplePasses\\Coupon.cs",
               "RelativeDocumentMoniker": "..\\Domain\\Server.Domain\\DigitalPass\\ApplePasses\\Coupon.cs",
@@ -361,12 +699,11 @@
               "RelativeToolTip": "..\\Domain\\Server.Domain\\DigitalPass\\ApplePasses\\Coupon.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T06:45:04.908Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T06:45:04.908Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 42,
               "Title": "AppleWalletPass.cs",
               "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Domain\\Server.Domain\\DigitalPass\\ApplePasses\\AppleWalletPass.cs",
               "RelativeDocumentMoniker": "..\\Domain\\Server.Domain\\DigitalPass\\ApplePasses\\AppleWalletPass.cs",
@@ -374,12 +711,11 @@
               "RelativeToolTip": "..\\Domain\\Server.Domain\\DigitalPass\\ApplePasses\\AppleWalletPass.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T06:44:35.025Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T06:44:35.025Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 38,
               "Title": "Loyalty_Card_Service.cs",
               "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\DigitalPasses\\LoyaltyCards\\Loyalty_Card_Service.cs",
               "RelativeDocumentMoniker": "..\\Services\\Server.Services\\DigitalPasses\\LoyaltyCards\\Loyalty_Card_Service.cs",
@@ -387,12 +723,11 @@
               "RelativeToolTip": "..\\Services\\Server.Services\\DigitalPasses\\LoyaltyCards\\Loyalty_Card_Service.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T06:29:29.179Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T06:29:29.179Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 43,
               "Title": "EventTicket.cs",
               "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Domain\\Server.Domain\\DigitalPass\\ApplePasses\\EventTicket.cs",
               "RelativeDocumentMoniker": "..\\Domain\\Server.Domain\\DigitalPass\\ApplePasses\\EventTicket.cs",
@@ -400,25 +735,11 @@
               "RelativeToolTip": "..\\Domain\\Server.Domain\\DigitalPass\\ApplePasses\\EventTicket.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T06:45:02.631Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T06:45:02.631Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "GiftCard.cs",
-              "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Domain\\Server.Domain\\DigitalPass\\ApplePasses\\GiftCard.cs",
-              "RelativeDocumentMoniker": "..\\Domain\\Server.Domain\\DigitalPass\\ApplePasses\\GiftCard.cs",
-              "ToolTip": "E:\\work\\ANI Digital Passes\\Server\\Domain\\Server.Domain\\DigitalPass\\ApplePasses\\GiftCard.cs",
-              "RelativeToolTip": "..\\Domain\\Server.Domain\\DigitalPass\\ApplePasses\\GiftCard.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T06:45:02.054Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 39,
               "Title": "Punch_Card_Repo.cs",
               "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Repository\\Server.Repository\\DigitalPasses\\PunchCards\\Punch_Card_Repo.cs",
               "RelativeDocumentMoniker": "..\\Repository\\Server.Repository\\DigitalPasses\\PunchCards\\Punch_Card_Repo.cs",
@@ -426,12 +747,11 @@
               "RelativeToolTip": "..\\Repository\\Server.Repository\\DigitalPasses\\PunchCards\\Punch_Card_Repo.cs",
               "ViewState": "AQIAAAkAAAAAAAAAAAAUwBQAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T06:41:57.442Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T06:41:57.442Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 44,
               "Title": "Voucher.cs",
               "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Domain\\Server.Domain\\DigitalPass\\ApplePasses\\Voucher.cs",
               "RelativeDocumentMoniker": "..\\Domain\\Server.Domain\\DigitalPass\\ApplePasses\\Voucher.cs",
@@ -439,25 +759,11 @@
               "RelativeToolTip": "..\\Domain\\Server.Domain\\DigitalPass\\ApplePasses\\Voucher.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T06:45:00.796Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T06:45:00.796Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "WalletPass.cs",
-              "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Domain\\Server.Domain\\DigitalPass\\ApplePasses\\WalletPass.cs",
-              "RelativeDocumentMoniker": "..\\Domain\\Server.Domain\\DigitalPass\\ApplePasses\\WalletPass.cs",
-              "ToolTip": "E:\\work\\ANI Digital Passes\\Server\\Domain\\Server.Domain\\DigitalPass\\ApplePasses\\WalletPass.cs",
-              "RelativeToolTip": "..\\Domain\\Server.Domain\\DigitalPass\\ApplePasses\\WalletPass.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T06:44:58.175Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 46,
               "Title": "IVoucher_Repo.cs",
               "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Repository\\Server.Repository\\DigitalPasses\\Voucher\\IVoucher_Repo.cs",
               "RelativeDocumentMoniker": "..\\Repository\\Server.Repository\\DigitalPasses\\Voucher\\IVoucher_Repo.cs",
@@ -465,12 +771,11 @@
               "RelativeToolTip": "..\\Repository\\Server.Repository\\DigitalPasses\\Voucher\\IVoucher_Repo.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T06:39:56.988Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T06:39:56.988Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 45,
               "Title": "Voucher_Repo.cs",
               "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Repository\\Server.Repository\\DigitalPasses\\Voucher\\Voucher_Repo.cs",
               "RelativeDocumentMoniker": "..\\Repository\\Server.Repository\\DigitalPasses\\Voucher\\Voucher_Repo.cs",
@@ -478,12 +783,11 @@
               "RelativeToolTip": "..\\Repository\\Server.Repository\\DigitalPasses\\Voucher\\Voucher_Repo.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAQwBAAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T06:39:18.369Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T06:39:18.369Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 48,
               "Title": "IMembership_Card_Repo.cs",
               "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Repository\\Server.Repository\\DigitalPasses\\MembershipCards\\IMembership_Card_Repo.cs",
               "RelativeDocumentMoniker": "..\\Repository\\Server.Repository\\DigitalPasses\\MembershipCards\\IMembership_Card_Repo.cs",
@@ -491,12 +795,11 @@
               "RelativeToolTip": "..\\Repository\\Server.Repository\\DigitalPasses\\MembershipCards\\IMembership_Card_Repo.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T06:37:11.138Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T06:37:11.138Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 47,
               "Title": "Membership_Card_Repo.cs",
               "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Repository\\Server.Repository\\DigitalPasses\\MembershipCards\\Membership_Card_Repo.cs",
               "RelativeDocumentMoniker": "..\\Repository\\Server.Repository\\DigitalPasses\\MembershipCards\\Membership_Card_Repo.cs",
@@ -504,12 +807,11 @@
               "RelativeToolTip": "..\\Repository\\Server.Repository\\DigitalPasses\\MembershipCards\\Membership_Card_Repo.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAQwA4AAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T06:36:45.561Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T06:36:45.561Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 49,
               "Title": "Loyalty_Card_Repo.cs",
               "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Repository\\Server.Repository\\DigitalPasses\\LoyaltyCard\\Loyalty_Card_Repo.cs",
               "RelativeDocumentMoniker": "..\\Repository\\Server.Repository\\DigitalPasses\\LoyaltyCard\\Loyalty_Card_Repo.cs",
@@ -517,12 +819,11 @@
               "RelativeToolTip": "..\\Repository\\Server.Repository\\DigitalPasses\\LoyaltyCard\\Loyalty_Card_Repo.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T06:32:51.212Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T06:32:51.212Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 50,
               "Title": "ILoyalty_Card_Repo.cs",
               "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Repository\\Server.Repository\\DigitalPasses\\LoyaltyCard\\ILoyalty_Card_Repo.cs",
               "RelativeDocumentMoniker": "..\\Repository\\Server.Repository\\DigitalPasses\\LoyaltyCard\\ILoyalty_Card_Repo.cs",
@@ -530,12 +831,11 @@
               "RelativeToolTip": "..\\Repository\\Server.Repository\\DigitalPasses\\LoyaltyCard\\ILoyalty_Card_Repo.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T06:32:33.975Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T06:32:33.975Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 51,
               "Title": "ILoyalty_Card_Service.cs",
               "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\DigitalPasses\\LoyaltyCards\\ILoyalty_Card_Service.cs",
               "RelativeDocumentMoniker": "..\\Services\\Server.Services\\DigitalPasses\\LoyaltyCards\\ILoyalty_Card_Service.cs",
@@ -543,12 +843,11 @@
               "RelativeToolTip": "..\\Services\\Server.Services\\DigitalPasses\\LoyaltyCards\\ILoyalty_Card_Service.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T06:30:59.028Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T06:30:59.028Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 53,
               "Title": "ICoupon_Repo.cs",
               "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Repository\\Server.Repository\\DigitalPasses\\Coupon\\ICoupon_Repo.cs",
               "RelativeDocumentMoniker": "..\\Repository\\Server.Repository\\DigitalPasses\\Coupon\\ICoupon_Repo.cs",
@@ -556,12 +855,11 @@
               "RelativeToolTip": "..\\Repository\\Server.Repository\\DigitalPasses\\Coupon\\ICoupon_Repo.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T06:21:19.957Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T06:21:19.957Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 52,
               "Title": "Coupon_Repo.cs",
               "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Repository\\Server.Repository\\DigitalPasses\\Coupon\\Coupon_Repo.cs",
               "RelativeDocumentMoniker": "..\\Repository\\Server.Repository\\DigitalPasses\\Coupon\\Coupon_Repo.cs",
@@ -569,12 +867,11 @@
               "RelativeToolTip": "..\\Repository\\Server.Repository\\DigitalPasses\\Coupon\\Coupon_Repo.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T06:20:51.001Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T06:20:51.001Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 54,
               "Title": "Chat_Service.cs",
               "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\Notes\\Chat\\Chat_Service.cs",
               "RelativeDocumentMoniker": "..\\Services\\Server.Services\\Notes\\Chat\\Chat_Service.cs",
@@ -582,12 +879,11 @@
               "RelativeToolTip": "..\\Services\\Server.Services\\Notes\\Chat\\Chat_Service.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAA+AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T06:19:44.168Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T06:19:44.168Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 55,
               "Title": "Chat_Repo.cs",
               "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Repository\\Server.Repository\\Notes\\Chat\\Chat_Repo.cs",
               "RelativeDocumentMoniker": "..\\Repository\\Server.Repository\\Notes\\Chat\\Chat_Repo.cs",
@@ -595,12 +891,11 @@
               "RelativeToolTip": "..\\Repository\\Server.Repository\\Notes\\Chat\\Chat_Repo.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T06:19:28.02Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T06:19:28.02Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 57,
               "Title": "IBoarding_Pass_Repo.cs",
               "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Repository\\Server.Repository\\DigitalPasses\\BoardingPass\\IBoarding_Pass_Repo.cs",
               "RelativeDocumentMoniker": "..\\Repository\\Server.Repository\\DigitalPasses\\BoardingPass\\IBoarding_Pass_Repo.cs",
@@ -608,12 +903,11 @@
               "RelativeToolTip": "..\\Repository\\Server.Repository\\DigitalPasses\\BoardingPass\\IBoarding_Pass_Repo.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAqwAUAAAA7AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T06:16:38.977Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T06:16:38.977Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 56,
               "Title": "Boarding_Pass_Repo.cs",
               "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Repository\\Server.Repository\\DigitalPasses\\BoardingPass\\Boarding_Pass_Repo.cs",
               "RelativeDocumentMoniker": "..\\Repository\\Server.Repository\\DigitalPasses\\BoardingPass\\Boarding_Pass_Repo.cs",
@@ -621,8 +915,7 @@
               "RelativeToolTip": "..\\Repository\\Server.Repository\\DigitalPasses\\BoardingPass\\Boarding_Pass_Repo.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAABNAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T06:14:56.695Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T06:14:56.695Z"
             }
           ]
         }

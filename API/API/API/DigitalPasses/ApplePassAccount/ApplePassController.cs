@@ -60,5 +60,25 @@ namespace API.API.DigitalPasses.ApplePassAccount
                 throw new Exception(e.Message + e.InnerException?.Message);
             }
         }
+
+
+
+        [HttpPost]
+        [Route("NewApplePassAccount")]
+        [CustomAuthorize("Add")]
+        public async Task<string> NewApplePassAccount(ApplePassAccountModel Model)
+        {
+            try
+            {
+                var model = _iMapper.Map<Apple_Pass_Account>(Model);
+                _applePassAccount_Service.UpdateRecord(model);
+                await _applePassAccount_Service.CompleteAync();
+                return "OK";
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message + e.InnerException?.Message);
+            }
+        }
     }
 }

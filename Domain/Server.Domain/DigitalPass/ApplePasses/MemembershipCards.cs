@@ -13,6 +13,10 @@ namespace Server.Domain
         public string Membership_Tier     { get; set; }
         public DateTime? Expiration_Date  { get; set; }
         public string Additional_Benefits { get; set; }
+        public DateTime? Issue_Date       { get; set; }
+        public string Barcode_Type        { get; set; }
+        public string Barcode_Value       { get; set; }
+        public string? Status             { get; set; } 
     }
 
 }

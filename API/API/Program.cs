@@ -18,6 +18,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.Extensions.FileProviders;
+using Server.Services.DigitalPasses.Transaction;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -90,7 +91,10 @@ builder.Services.AddScoped<IPaymentService, PaymentService>();
 builder.Services.AddScoped<IApple_Passes_Service, Apple_Passes_Service>();
 builder.Services.AddScoped<IGift_Cards_Repo, Gift_Cards_Repo>();
 builder.Services.AddScoped<IGift_Card_Service, Gift_Card_Service>();
-
+builder.Services.AddScoped<IApple_Pass_Account_Repo, Apple_Pass_Account_Repo>();
+builder.Services.AddScoped<IApple_Pass_Account_Service, Apple_Pass_Account_Service>();
+builder.Services.AddScoped<ITransaction_No_Repo, Transaction_No_Repo>();
+builder.Services.AddScoped<ITransaction_No_Service, Transaction_No_Service>();
 builder.Services.ConfigureIdentity();
 builder.Services.AddHttpClient();
 builder.Services.AddAutoMapper(typeof(ConfigureDTOS));

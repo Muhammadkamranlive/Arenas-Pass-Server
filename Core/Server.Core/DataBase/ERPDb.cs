@@ -1,5 +1,6 @@
 ﻿using Server.Domain;
 using Microsoft.EntityFrameworkCore;
+using Server.Domain.DigitalPass.Transaction;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace Server.Core
@@ -39,6 +40,8 @@ namespace Server.Core
         public virtual DbSet<Designations> Designations                        { get; set; }
         public virtual DbSet<Chat> Chats                                       { get; set; }
         public DbSet<WalletPass> WalletPasses                                  { get; set; }
+        public DbSet<Apple_Pass_Account> Apple_Pass_Accounts                   { get; set; }
+        public DbSet<Transaction_No> Transaction_No                            { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -70,7 +73,16 @@ namespace Server.Core
             modelBuilder.Entity<ArenasTenants>()
                .Property(w => w.CompanyId)
                .ValueGeneratedOnAdd();
-           
+            modelBuilder.Entity<Apple_Pass_Account>()
+              .Property(w => w.Id)
+              .ValueGeneratedOnAdd();
+            modelBuilder.Entity<WalletPass>()
+             .Property(w => w.Id)
+             .ValueGeneratedOnAdd();
+            modelBuilder.Entity<Transaction_No>()
+            .Property(w => w.Id)
+            .ValueGeneratedOnAdd();
+
             foreach (var entityType in modelBuilder.Model.GetEntityTypes())
             {
 

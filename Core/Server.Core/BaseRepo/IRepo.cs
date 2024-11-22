@@ -22,5 +22,6 @@ namespace Server.Core
         Task Transaction();
         Task Commit();
         Task Rollback();
+        Task<T> AddAsync(T entity);
     }
 }

@@ -247,3 +247,7 @@ E:\work\ANI Digital Passes\Server\API\API\obj\Debug\net6.0\API.pdb
 E:\work\ANI Digital Passes\Server\API\API\obj\Debug\net6.0\API.genruntimeconfig.cache
 E:\work\ANI Digital Passes\Server\API\API\obj\Debug\net6.0\ref\API.dll
 E:\work\ANI Digital Passes\Server\API\API\bin\Debug\net6.0\Passbook.Generator.dll
+E:\work\ANI Digital Passes\Server\API\API\bin\Debug\net6.0\API.staticwebassets.endpoints.json
+E:\work\ANI Digital Passes\Server\API\API\obj\Debug\net6.0\staticwebassets.build.endpoints.json
+E:\work\ANI Digital Passes\Server\API\API\obj\Debug\net6.0\staticwebassets\msbuild.API.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+E:\work\ANI Digital Passes\Server\API\API\obj\Debug\net6.0\staticwebassets.upToDateCheck.txt
