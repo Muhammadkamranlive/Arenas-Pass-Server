@@ -9,8 +9,9 @@ namespace Server.Core
         Task<IEnumerable<T>> Find(Expression<Func<T, bool>> predicate);
         Task Add(T entity);
         Task AddRange(IEnumerable<T> entities);
-        Task<bool> Remove(Guid id);
+        Task<bool> Remove(dynamic id);
         void RemoveRange(IEnumerable<T> entities);
+        Task<string> DeletRange(Expression<Func<T, bool>> predicate);
         void Update(T entity);
         Task<T?> FindOne(Expression<Func<T, bool>> predicate);
         void Update(T data, object dataModel);

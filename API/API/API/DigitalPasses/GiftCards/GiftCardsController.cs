@@ -54,7 +54,7 @@ namespace API.API.DigitalPasses
             }
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("GetMerchantsGiftCard")]
         [CustomAuthorize("Read")]
         public async Task<dynamic> GetMerchantsGiftCard()
@@ -66,6 +66,105 @@ namespace API.API.DigitalPasses
                 IEnumerable<GiftCard> gifts     = await _Gift_Service.Find(x=>x.TenantId==tenantId);
                 return gifts;
                
+            }
+            catch (Exception ex)
+            {
+                var successResponse = new SuccessResponse
+                {
+                    Message = "Error" + ex.Message + (string.IsNullOrEmpty(ex.InnerException.Message) ? "" : ex.InnerException.Message)
+                };
+                return BadRequest(successResponse);
+            }
+        }
+
+
+        [HttpGet]
+        [Route("GetMerchantsGiftCardById")]
+        [CustomAuthorize("Read")]
+        public async Task<dynamic> GetMerchantsGiftCardById(int Id)
+        {
+            try
+            {
+
+                int tenantId = _httpContextAccessor.GetTenantId();
+                var gifts    = await _Gift_Service.FindOne(x => x.Id == Id && x.TenantId==tenantId);
+                return gifts;
+
+            }
+            catch (Exception ex)
+            {
+                var successResponse = new SuccessResponse
+                {
+                    Message = "Error" + ex.Message + (string.IsNullOrEmpty(ex.InnerException.Message) ? "" : ex.InnerException.Message)
+                };
+                return BadRequest(successResponse);
+            }
+        }
+
+
+        [HttpPut]
+        [Route("UpdateMerchantsGiftCard")]
+        [CustomAuthorize("Update")]
+        public async Task<dynamic> UpdateMerchantsGiftCard(Apple_Passes_Gift_Card_Model model)
+        {
+            try
+            {
+
+                var res= await _Gift_Service.UpdateGiftCard(model);
+                if (res.Status_Code != "200")
+                {
+                    var successRespons = new SuccessResponse
+                    {
+                        Message = res.Description
+                    };
+                    return BadRequest(successRespons);
+                }
+                var successResponse = new SuccessResponse
+                {
+                    Message = "Your Gift Card is updated successfully"
+                };
+                return Ok(successResponse);
+
+            }
+            catch (Exception ex)
+            {
+                var successResponse = new SuccessResponse
+                {
+                    Message = "Error" + ex.Message + (string.IsNullOrEmpty(ex.InnerException.Message) ? "" : ex.InnerException.Message)
+                };
+                return BadRequest(successResponse);
+            }
+        }
+
+        [HttpDelete]
+        [Route("DeleteMerchantsGiftCard")]
+        [CustomAuthorize("Delete")]
+        public async Task<dynamic> DeleteMerchantsGiftCard(int Id)
+        {
+            try
+            {
+
+                int tenantId      = _httpContextAccessor.GetTenantId();
+                var res           = await _Gift_Service.DeleteGiftCard(Id,tenantId);
+                if (res.Status_Code == "200")
+                {
+                    await _Gift_Service.CompleteAync();
+                    var successResponse = new SuccessResponse
+                    {
+                        Message = "Gift Card Deleted Successfully"
+                    };
+
+                    return Ok(successResponse);
+                }
+                else
+                {
+                    var successResponse = new SuccessResponse
+                    {
+                        Message = "Error in Deletion"
+                    };
+                    return BadRequest(successResponse);
+                }
+
             }
             catch (Exception ex)
             {

@@ -33,6 +33,7 @@ namespace Server.Services
         private readonly IHttpContextAccessor         _httpContextAccessor;
         private readonly IPaymentService              _paymentService;
         private readonly IApple_Pass_Account_Service  _apcService;
+        private readonly IGet_Tenant_Id_Service       _TentId_Service;
         #endregion
 
         #region Constructor
@@ -50,7 +51,8 @@ namespace Server.Services
             ITenants_Service              tenants_Service,
             IHttpContextAccessor          httpContextAccessor,
             IPaymentService               paymentService,
-            IApple_Pass_Account_Service   apc
+            IApple_Pass_Account_Service   apc,
+            IGet_Tenant_Id_Service        tentId
 
 
         )
@@ -68,6 +70,7 @@ namespace Server.Services
             _httpContextAccessor   = httpContextAccessor;
             _paymentService        = paymentService;
             _apcService            = apc;
+            _TentId_Service        = tentId;
 
         }
 
@@ -860,7 +863,10 @@ namespace Server.Services
                 new Claim("payment", payment ? "true" : "false"),
                 new Claim("TenantId", tenantId.ToString()),
                 new Claim("CompanyStatus", CompanyStatus),
-                new Claim("ProfileStatus", ProfileStatus)
+                new Claim("ProfileStatus", ProfileStatus),
+                new Claim("Name", user.FirstName+" "+user.LastName),
+                new Claim("CompanyName", user.CompanyName),
+                new Claim("CompanyDesignation", user.CompanyDesignation)
             }
             .Union(userClaims)
             .Union(roleClaims)
@@ -3707,6 +3713,80 @@ namespace Server.Services
                 return  ex.Message;
             }
         }
+
+
+
+
+        public async Task<List<string>> BulkImport(List<UserRegisterModel> userModels)
+        {
+            var results = new List<string>();
+
+            try
+            {
+                int tenantId                = _TentId_Service.GetTenantId();
+                ArenasTenants arenasTenants = await _tenants_Service.FindOne(x => x.CompanyId == tenantId);
+
+                if (arenasTenants == null)
+                {
+                    results.Add("Tenant not found.");
+                    return results;
+                }
+
+                var batchSize = 100; // Process users in batches of 100 for scalability
+                for (int i = 0; i < userModels.Count; i += batchSize)
+                {
+                    var batch = userModels.Skip(i).Take(batchSize);
+
+                    foreach (var model in batch)
+                    {
+                        var saveModel = new ApplicationUser
+                        {
+                            FirstName          = model.FirstName,
+                            LastName           = model.LastName,
+                            Email              = model.Email,
+                            UserName           = model.Email,
+                            EmployeeId         = await getEmployeeId() + 1,
+                            TenantId           = tenantId,
+                            CompanyDesignation = "Customer",
+                            CompanyName        = arenasTenants.CompanyName,
+                            isEmployee         = true
+                        };
+
+                        var result = await _userManager.CreateAsync(saveModel, model.Password);
+
+                        if (result.Succeeded)
+                        {
+                            var roleExists = await _roleManager.RoleExistsAsync("Customer");
+
+                            if (!roleExists)
+                            {
+                                await _roleManager.CreateAsync(new CustomRole
+                                {
+                                    Name = "Customer",
+                                    Permissions = "Read,Write,Delete,Update"
+                                });
+                            }
+
+                            await _userManager.AddToRoleAsync(saveModel, "Customer");
+                            results.Add($"User {model.Email} created successfully.");
+                        }
+                        else
+                        {
+                            results.Add($"Error creating user {model.Email}: {string.Join(", ", result.Errors.Select(x => x.Description))}");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                results.Add($"Error during bulk import: {ex.Message}");
+            }
+
+            return results;
+        }
+
+
+
     }
 
 

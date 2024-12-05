@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -10,6 +10,7 @@
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.2.0" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="dotnet-passbook" Version="3.2.4" />
+    <PackageReference Include="EPPlus" Version="7.5.1" />
     <PackageReference Include="MailKit" Version="4.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.19" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="6.0.14" />
@@ -21,6 +22,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Polybioz.HtmlRenderer.PdfSharp.Core" Version="1.0.0" />
     <PackageReference Include="Stripe.net" Version="43.22.0" />
   </ItemGroup>
 
@@ -29,6 +31,13 @@
     <ProjectReference Include="..\..\Domain\Server.Domain\Server.Domain.csproj" />
     <ProjectReference Include="..\..\Models\Server.Models\Server.Models.csproj" />
     <ProjectReference Include="..\..\UOW\Server.UOW\Server.UOW.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Reporting\Customers\" />
+    <Folder Include="Reporting\Merchants\" />
+    <Folder Include="Reporting\Transactions\" />
+    <Folder Include="Reporting\UsersReport\" />
   </ItemGroup>
 
 </Project>

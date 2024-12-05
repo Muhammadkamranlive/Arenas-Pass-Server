@@ -8,11 +8,11 @@ namespace Server.Models
 {
     public class Gift_Card_Model
     {
-        public string Pass_Type_Identifier { get; set; }
-        public string Team_Identifier      { get; set; }
-        public string Serial_Number        { get; set; }
-        public string Description          { get; set; }
-        public string Organization_Name    { get; set; }
+        public string Pass_Type_Identifier  { get; set; }
+        public string Team_Identifier       { get; set; }
+        public string Serial_Number         { get; set; }
+        public string Description           { get; set; }
+        public string Organization_Name     { get; set; }
         public string Logo_Text             { get; set; }
         public string Background_Color      { get; set; }
         public string Label_Color           { get; set; }

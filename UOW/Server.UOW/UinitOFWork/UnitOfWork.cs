@@ -34,7 +34,10 @@ namespace Server.UOW
                Designation_Repo         = new Designation_Repo(_crmContext, httpContextAccessor);
                chat_Repo                = new Chat_Repo(_crmContext, httpContextAccessor);
                Apple_Pass_Account       = new Apple_Pass_Account_Repo(_crmContext, httpContextAccessor);
-               
+               Process_Repo             = new User_Batch_Process_Repo(_crmContext, httpContextAccessor);
+               Wallet_Pass              = new Wallet_Passes_Repo(_crmContext, httpContextAccessor);
+               Account_Transaction      = new Account_Transaction_Repo(_crmContext,httpContextAccessor);
+               Account_Balance          = new Account_Balance_Repo (_crmContext, httpContextAccessor);
 
         }
         public IPasswordReset_Repo PasswordReset_Repo             { get; private set; }
@@ -59,6 +62,10 @@ namespace Server.UOW
         public IDesignation_Repo Designation_Repo                 { get; private set; }
         public IChat_Repo chat_Repo                               { get; private set; }
         public IApple_Pass_Account_Repo Apple_Pass_Account        { get; private set; }
+        public IUser_Batch_Process_Repo Process_Repo              { get; private set; }
+        public IWallet_Passes_Repo      Wallet_Pass               { get; private set; }
+        public IAccount_Transaction_Repo Account_Transaction      { get; private set; }
+        public IAccount_Balance_Repo Account_Balance              { get; private set; }
 
         public async void Dispose()
         {

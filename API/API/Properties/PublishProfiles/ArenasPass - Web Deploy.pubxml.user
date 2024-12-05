@@ -6,18 +6,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project>
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAMERC9oELK02DWQNfSoisFwAAAAACAAAAAAAQZgAAAAEAACAAAACCWTp1S50CKM+JC4UTQipkmNeV9zvSFj0mQIsSpDz8TgAAAAAOgAAAAAIAACAAAAAAbcxnTOmRNOpDvepc5M4ii6cdS07SvbuDp7hcvI9FcoAAAAC+FErlZnxHVcRtgZWG13M05b3AINkxeL4uhFTlx7kPmyHoqehHXCmMdDQKBTZ7uMM1U24q3VHCj636lMOs8B6lL3K0y7pR4GBsi3aOHMaFPvHH5/wknFh4h226GNL/PP9688KWEffdZMKqBvSnhfR3O7O3PS/ZGxETL6ezD05G6kAAAACbM24rF2fYD4rGG8tYKgDtwqY9Li2DcS2JBMFEbIY4ku9rptMV7iJbzVqnUG86As7W55oHHbQHfo/w12vWNsJX</EncryptedPassword>
-    <History>True|2024-10-22T17:11:04.1471443Z;True|2024-10-17T06:57:51.9505250+05:00;True|2024-10-17T06:15:15.0164137+05:00;True|2024-10-14T08:50:45.8547506+05:00;True|2024-10-11T10:33:13.0634755+05:00;True|2024-10-11T10:20:22.5292860+05:00;True|2024-09-30T22:36:31.2721832+05:00;</History>
+    <History>True|2024-12-01T15:57:35.3054881Z||;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
-    <DestinationConnectionStrings Include="sqlConnection">
-      <Value>Data Source=arenaspassdatabasedbserver.database.windows.net,1433%3bInitial Catalog=ArenasPassDatabase%3bUser ID=ArenasAdminKamran%3bPassword=29Feb%401234TK</Value>
-    </DestinationConnectionStrings>
-  </ItemGroup>
-  <ItemGroup>
-    <EFMigrations Include="Server.Core.ERPDb">
-      <Value>Data Source=arenaspassdatabasedbserver.database.windows.net,1433%3bInitial Catalog=ArenasPassDatabase%3bUser ID=ArenasAdminKamran%3bPassword=29Feb%401234TK</Value>
-    </EFMigrations>
+    <AzureDBConnectionStrings Include="Data Source=arenaspassdatabasedbserver.database.windows.net,1433;Initial Catalog=ArenasPassDatabase;Authentication=ActiveDirectoryManagedIdentity" />
+    <AzureDBConnectionStrings Include="Data Source=arenaspassdatabasedbserver.database.windows.net,1433;Initial Catalog=ArenasPassDatabase;User ID=ArenasAdminKamran;Password=29Feb@1234TK" />
+    <AzureDBConnectionStrings Include="REDACTED" />
+    <AzureDBConnectionStrings Include="Server=tcp:arenaspassdatabasedbserver.database.windows.net;Authentication=Active Directory Default;Database=ArenasPassDatabase" />
   </ItemGroup>
 </Project>

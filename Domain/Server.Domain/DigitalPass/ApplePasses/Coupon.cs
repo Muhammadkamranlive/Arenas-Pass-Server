@@ -8,12 +8,9 @@ namespace Server.Domain
 {
     public class Coupon : WalletPass
     {
-        public string OfferName               { get; set; }
-        public string DiscountType            { get; set; }  
-        public decimal DiscountValue          { get; set; }
-        public string ValidFor                { get; set; }  
-        public decimal? MinimumPurchaseAmount { get; set; }
-        public string TermsAndConditionsURL   { get; set; }
+        public string Offer_Code            { get; set; }
+        public decimal Discount_Percentage  { get; set; }
+        public string Is_Redeemed           { get; set; }
     }
 
 }

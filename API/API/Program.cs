@@ -4,6 +4,7 @@ using Stripe;
 using Server.UOW;
 using Server.Core;
 using API.RealTime;
+using Autofac.Core;
 using Server.Domain;
 using Server.Mapper;
 using Server.Models;
@@ -19,6 +20,7 @@ using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.Extensions.FileProviders;
 using Server.Services.DigitalPasses.Transaction;
+using Server.Services.DigitalPasses.WalletPasses;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -94,7 +96,21 @@ builder.Services.AddScoped<IGift_Card_Service, Gift_Card_Service>();
 builder.Services.AddScoped<IApple_Pass_Account_Repo, Apple_Pass_Account_Repo>();
 builder.Services.AddScoped<IApple_Pass_Account_Service, Apple_Pass_Account_Service>();
 builder.Services.AddScoped<ITransaction_No_Repo, Transaction_No_Repo>();
+builder.Services.AddScoped<IGet_Tenant_Id_Service, Get_Tenant_Id_Service>();
 builder.Services.AddScoped<ITransaction_No_Service, Transaction_No_Service>();
+builder.Services.AddScoped<ITenant_Api_Hits_Repo, Tenant_Api_Hits_Repo>();
+builder.Services.AddScoped<ITenant_Api_Hits_Service, Tenant_Api_Hists_Service>();
+builder.Services.AddScoped<ITenant_Key_History_Repo, Tenant_Key_History_Repo>();
+builder.Services.AddScoped<ITenant_Key_History_Service, Tenant_Key_History_Service>();
+builder.Services.AddScoped<ITenant_License_Repo, Tenant_License_Repo>();
+builder.Services.AddScoped<ITenant_License_Keys_Service, Tenant_License_Keys_Service>();
+builder.Services.AddScoped<IExcell_Import_Service, Excell_Import_Service>();
+builder.Services.AddScoped<IBulk_User_Import_Service, Bulk_User_Import_Service>();
+builder.Services.AddScoped<IUser_Batch_Process_Repo, User_Batch_Process_Repo>();
+builder.Services.AddScoped<IUser_Batch_Process_Service, User_Batch_Process_Service>();
+builder.Services.AddScoped<IReports_Appple_Passes_Service, Reports_Appple_Passes_Service>();
+builder.Services.AddScoped<IWallet_Pass_Service, Wallet_Pass_Service>();
+builder.Services.AddScoped<IWallet_Passes_Repo, Wallet_Passes_Repo>();
 builder.Services.ConfigureIdentity();
 builder.Services.AddHttpClient();
 builder.Services.AddAutoMapper(typeof(ConfigureDTOS));
@@ -106,7 +122,7 @@ builder.Services.AddScoped<CustomerService>();
 builder.Services.AddScoped<ChargeService>();
 builder.Services.AddScoped<Stripe.TokenService>();
 builder.Services.AddScoped<SubscriptionService>();
-
+builder.Services.AddScoped<KeyManagementService>();
 builder.Services.AddSignalR();
 
 builder.Services.AddControllers()
@@ -153,7 +169,7 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("CorsPolicy", builder =>
-        builder.WithOrigins("https://arenas-pass.web.app", "http://localhost:4200", "https://arenas-pass.web.app/", "https://arenascards.com")
+        builder.WithOrigins("https://arenas-pass.web.app", "http://localhost:4200", "https://arenas-pass.web.app/", "https://arenaspass.com")
             .AllowAnyMethod()
             .AllowAnyHeader()
             .AllowCredentials());

@@ -32,6 +32,9 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
+              "E:\\work\\ANI Digital Passes\\Server\\Models\\Server.Models\\Server.Models.csproj": {
+                "projectPath": "E:\\work\\ANI Digital Passes\\Server\\Models\\Server.Models\\Server.Models.csproj"
+              },
               "E:\\work\\ANI Digital Passes\\Server\\UOW\\Server.UOW\\Server.UOW.csproj": {
                 "projectPath": "E:\\work\\ANI Digital Passes\\Server\\UOW\\Server.UOW\\Server.UOW.csproj"
               }
@@ -54,6 +57,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Polybioz.HtmlRenderer.PdfSharp.Core": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
             "dotnet-passbook": {
               "target": "Package",
               "version": "[3.2.4, )"
@@ -171,6 +178,10 @@
               "target": "Package",
               "version": "[6.0.20, )"
             },
+            "Polybioz.HtmlRenderer.PdfSharp.Core": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
             "dotnet-passbook": {
               "target": "Package",
               "version": "[3.2.4, )"
@@ -258,6 +269,10 @@
               "target": "Package",
               "version": "[6.0.19, )"
             },
+            "Polybioz.HtmlRenderer.PdfSharp.Core": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
             "dotnet-passbook": {
               "target": "Package",
               "version": "[3.2.4, )"
@@ -329,6 +344,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Polybioz.HtmlRenderer.PdfSharp.Core": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
             "dotnet-passbook": {
               "target": "Package",
               "version": "[3.2.4, )"
@@ -407,6 +426,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Polybioz.HtmlRenderer.PdfSharp.Core": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
             "dotnet-passbook": {
               "target": "Package",
               "version": "[3.2.4, )"
@@ -499,6 +522,10 @@
               "target": "Package",
               "version": "[7.2.0, )"
             },
+            "EPPlus": {
+              "target": "Package",
+              "version": "[7.5.1, )"
+            },
             "MailKit": {
               "target": "Package",
               "version": "[4.2.0, )"
@@ -532,6 +559,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[6.0.20, )"
+            },
+            "Polybioz.HtmlRenderer.PdfSharp.Core": {
+              "target": "Package",
+              "version": "[1.0.0, )"
             },
             "Stripe.net": {
               "target": "Package",
@@ -615,6 +646,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Polybioz.HtmlRenderer.PdfSharp.Core": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
             "dotnet-passbook": {
               "target": "Package",
               "version": "[3.2.4, )"

@@ -24,5 +24,29 @@ namespace Server.Services
             var tenantId = Convert.ToInt32(_httpContextAccessor.HttpContext?.Items["CurrentTenant"]);
             return tenantId;
         }
+
+        public string GetUserId()
+        {
+            var tenantId = _httpContextAccessor.HttpContext?.Items["CurrentUserId"]?.ToString();
+            return tenantId;
+        }
+
+        public string GetUserName()
+        {
+            var Name = _httpContextAccessor.HttpContext?.Items["Name"]?.ToString();
+            return Name;
+        }
+
+        public string GetCompanyName()
+        {
+            var Name = _httpContextAccessor.HttpContext?.Items["CompanyName"]?.ToString();
+            return Name;
+        }
+
+        public string GetDesignation()
+        {
+            var Name = _httpContextAccessor.HttpContext?.Items["CompanyDesignation"]?.ToString();
+            return Name;
+        }
     }
 }

@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="dotnet-passbook" Version="3.2.4" />
+    <PackageReference Include="Polybioz.HtmlRenderer.PdfSharp.Core" Version="1.0.0" />
   </ItemGroup>
 
 </Project>

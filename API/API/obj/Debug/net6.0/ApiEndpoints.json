@@ -10,6 +10,36 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "API.API.APIManagement.APIManagementController",
+    "Method": "GetApiStats",
+    "RelativePath": "api/APIManagement/GetApiStats",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.APIManagement.APIManagementController",
+    "Method": "GetTenantApiKeys",
+    "RelativePath": "api/APIManagement/GetTenantApiKeys",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.APIManagement.APIManagementController",
+    "Method": "GetTenantKeyRotationHistory",
+    "RelativePath": "api/APIManagement/GetTenantKeyRotationHistory",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "API.API.DigitalPasses.ApplePassAccount.ApplePassController",
     "Method": "EditRequestApplePassAccount",
     "RelativePath": "api/ApplePass/EditRequestApplePassAccount",
@@ -900,6 +930,58 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "API.API.BulkImport.BulkImportController",
+    "Method": "GetPendingBatchProcess",
+    "RelativePath": "api/BulkImport/GetPendingBatchProcess",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.BulkImport.BulkImportController",
+    "Method": "PeformBatchProcess",
+    "RelativePath": "api/BulkImport/PeformBatchProcess",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.BulkImport.BulkImportController",
+    "Method": "UploadExcelFile",
+    "RelativePath": "api/BulkImport/UploadExcel",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "file",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.BulkImport.BulkImportController",
+    "Method": "UploadUsersFile",
+    "RelativePath": "api/BulkImport/UploadUsersFile",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "file",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.CandidateInfo, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.CandidateModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "Create",
     "RelativePath": "api/Candidate",
@@ -1719,6 +1801,48 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "API.API.Arenas_Dev.GiftCardApi.GiftCardDevController",
+    "Method": "GetGiftCardBySerialNo",
+    "RelativePath": "api/GiftCardDev/GetBySerialNo",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "SerialNo",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.Arenas_Dev.GiftCardApi.GiftCardDevController",
+    "Method": "GetGiftCards",
+    "RelativePath": "api/GiftCardDev/GetGiftCards",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.DigitalPasses.GiftCardsController",
+    "Method": "DeleteMerchantsGiftCard",
+    "RelativePath": "api/GiftCards/DeleteMerchantsGiftCard",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "API.API.DigitalPasses.GiftCardsController",
     "Method": "DownloadGiftCard",
     "RelativePath": "api/GiftCards/DownloadGiftCard",
@@ -1744,6 +1868,48 @@
     "Parameters": [
       {
         "Name": "GiftCard",
+        "Type": "Server.Models.Apple_Passes_Gift_Card_Model",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.DigitalPasses.GiftCardsController",
+    "Method": "GetMerchantsGiftCard",
+    "RelativePath": "api/GiftCards/GetMerchantsGiftCard",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.DigitalPasses.GiftCardsController",
+    "Method": "GetMerchantsGiftCardById",
+    "RelativePath": "api/GiftCards/GetMerchantsGiftCardById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.DigitalPasses.GiftCardsController",
+    "Method": "UpdateMerchantsGiftCard",
+    "RelativePath": "api/GiftCards/UpdateMerchantsGiftCard",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
         "Type": "Server.Models.Apple_Passes_Gift_Card_Model",
         "IsRequired": true
       }
@@ -1928,6 +2094,26 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.licenseKeyController.LicenseKeyController",
+    "Method": "CreateOrUpdateKeysForTenant",
+    "RelativePath": "api/LicenseKey/CreateOrUpdateKeysForTenant",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.licenseKeyController.LicenseKeyController",
+    "Method": "GetAPIKeysForTenant",
+    "RelativePath": "api/LicenseKey/GetAPIKeysForTenant",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -2655,6 +2841,134 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "API.API.Reporting.ReportingController",
+    "Method": "Get",
+    "RelativePath": "api/Reporting",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "API.API.Reporting.ReportingController",
+    "Method": "AllGiftCardReport",
+    "RelativePath": "api/Reporting/AllGiftCardReport",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "SerialNos",
+        "Type": "System.Collections.Generic.List\u00601[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.Reporting.ReportingController",
+    "Method": "GeneratePdf",
+    "RelativePath": "api/Reporting/GeneratePdf",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Server.Models.PdfDataModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.Reporting.ReportingController",
+    "Method": "GeneratePdfWithRepeat",
+    "RelativePath": "api/Reporting/GeneratePdfWithRepeat",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Server.Models.PdfDataModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.Reporting.ReportingController",
+    "Method": "GeneratePdfWithRepeatForAll",
+    "RelativePath": "api/Reporting/GeneratePdfWithRepeatForAll",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Server.Models.PdfDataModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.Reporting.ReportingController",
+    "Method": "GeneratePdfWithRepeatingHeader",
+    "RelativePath": "api/Reporting/GeneratePdfWithRepeatingHeader",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Server.Models.PdfDataModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.Reporting.ReportingController",
+    "Method": "SingleGiftCardReport",
+    "RelativePath": "api/Reporting/SingleGiftCardReport",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "SerialNo",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.Reporting.ReportingController",
+    "Method": "UsersListFormat",
+    "RelativePath": "api/Reporting/UsersListFormat",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Server.Models.PdfDataModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.GENERALTASK, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.GeneralTaskModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "Create",
     "RelativePath": "api/TaskManager",
@@ -2816,6 +3130,16 @@
         "IsRequired": false
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.DigitalPasses.WalletPass.WalletPassController",
+    "Method": "GetWalletPasses",
+    "RelativePath": "api/WalletPass/GetWalletPasses",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   }
 ]

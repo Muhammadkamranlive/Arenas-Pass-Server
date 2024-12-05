@@ -9,6 +9,10 @@ namespace Server.Services
 {
     public interface IGet_Tenant_Id_Service
     {
-        int GetTenantId();   
+        int GetTenantId();
+        string GetUserId();
+        string GetUserName();
+        string GetCompanyName();
+        string GetDesignation();
     }
 }

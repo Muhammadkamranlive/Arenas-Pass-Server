@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace Server.Repository
 {
-    public interface ITickets_Repo:IRepo<Ticket>
+    public interface ITickets_Repo:IRepo<EventTicket>
     {
     }
 }

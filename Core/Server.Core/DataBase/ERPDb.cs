@@ -42,18 +42,48 @@ namespace Server.Core
         public DbSet<WalletPass> WalletPasses                                  { get; set; }
         public DbSet<Apple_Pass_Account> Apple_Pass_Accounts                   { get; set; }
         public DbSet<Transaction_No> Transaction_No                            { get; set; }
+        public DbSet<TenantApiHitsHistory> TenantApiHitsHistories              { get; set; }
+        public DbSet<TenantKeyHistory> TenantKeyHistories                      { get; set; }
+        public DbSet<TenantLicenes> TenantLicenes                              { get; set; }
+        public DbSet<UserVoucher> UserVouchers                                 { get; set; }
+        public DbSet<Account_Transaction> Account_Transactions                 { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<WalletPass>().HasDiscriminator<string>("Type")
            .HasValue<GiftCard>("GiftCard");
+            modelBuilder.Entity<WalletPass>().HasDiscriminator<string>("Type")
+           .HasValue<Voucher>("Voucher");
+            modelBuilder.Entity<WalletPass>().HasDiscriminator<string>("Type")
+           .HasValue<Coupon>("Coupon");
+
+            modelBuilder.Entity<WalletPass>().HasDiscriminator<string>("Type")
+           .HasValue<EventTicket>("EventTicket");
+
+            modelBuilder.Entity<WalletPass>().HasDiscriminator<string>("Type")
+           .HasValue<LoyaltyCard>("LoyaltyCard");
+
+            modelBuilder.Entity<WalletPass>().HasDiscriminator<string>("Type")
+           .HasValue<MembershipCard>("MembershipCard");
+
+            modelBuilder.Entity<WalletPass>().HasDiscriminator<string>("Type")
+           .HasValue<BoardingPass>("BoardingPass");
+
+
+            modelBuilder.Entity<PunchCard>().HasDiscriminator<string>("Type")
+           .HasValue<PunchCard>("PunchCard");
 
             // Configure precision for Balance property
             modelBuilder.Entity<GiftCard>()
                         .Property(g => g.Balance)
-                        .HasColumnType("decimal(18, 2)"); 
-
+                        .HasColumnType("decimal(18, 2)");
+            modelBuilder.Entity<Voucher>()
+                       .Property(g => g.Amount)
+                       .HasColumnType("decimal(18, 2)");
+            modelBuilder.Entity<Coupon>()
+                      .Property(g => g.Discount_Percentage)
+                      .HasColumnType("decimal(18, 2)");
 
             modelBuilder.Entity<BlogPage>()
                .Property(w => w.Id)
@@ -79,9 +109,32 @@ namespace Server.Core
             modelBuilder.Entity<WalletPass>()
              .Property(w => w.Id)
              .ValueGeneratedOnAdd();
+            
             modelBuilder.Entity<Transaction_No>()
             .Property(w => w.Id)
             .ValueGeneratedOnAdd();
+
+            modelBuilder.Entity<TenantLicenes>()
+           .Property(w => w.Id)
+           .ValueGeneratedOnAdd();
+            modelBuilder.Entity<TenantKeyHistory>()
+           .Property(w => w.Id)
+           .ValueGeneratedOnAdd();
+
+            modelBuilder.Entity<TenantApiHitsHistory>()
+           .Property(w => w.Id)
+           .ValueGeneratedOnAdd();
+
+            modelBuilder.Entity<UserVoucher>()
+           .Property(w => w.Id)
+           .ValueGeneratedOnAdd();
+            modelBuilder.Entity<Account_Transaction>()
+           .Property(w => w.Id)
+           .ValueGeneratedOnAdd();
+
+            modelBuilder.Entity<Account_Transaction>()
+                      .Property(g => g.Amount)
+                      .HasColumnType("decimal(18, 2)");
 
             foreach (var entityType in modelBuilder.Model.GetEntityTypes())
             {

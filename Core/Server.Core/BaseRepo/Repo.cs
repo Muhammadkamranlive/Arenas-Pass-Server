@@ -12,7 +12,7 @@ namespace Server.Core
     public class Repo<T> : IRepo<T> where T : class
     {
         private readonly ERPDb                _crmContext;
-        private readonly DbSet<T>             _dbSet;
+        public readonly DbSet<T>             _dbSet;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private IDbContextTransaction         _currentTransaction;
 
@@ -154,7 +154,7 @@ namespace Server.Core
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public async Task<bool> Remove(Guid id)
+        public async Task<bool> Remove(dynamic id)
         {
             var GernericeEntitiy = await _dbSet.FindAsync(id);
             if (GernericeEntitiy != null)
@@ -173,10 +173,18 @@ namespace Server.Core
         public void RemoveRange(IEnumerable<T> entities)
         {
             _dbSet.RemoveRange(entities);
-            foreach (var entity in entities)
-            {
-                LogOperationAsync("Remove", entity);
+            
+        }
+
+        public async Task<string> DeletRange(Expression<Func<T, bool>> predicate)
+        {
+           var entities  = await _dbSet.Where(predicate).ToListAsync();
+           if (entities.Count != 0)
+           {
+               _dbSet.RemoveRange(entities);
+               LogOperationAsync("Remove", entities);
             }
+           return "OK";
         }
         /// <summary>
         /// Update 
@@ -225,9 +233,33 @@ namespace Server.Core
                 UserId        = UserId==null? "uid":UserId
             };
             _crmContext.Logs.Add(log);
-            await _crmContext.SaveChangesAsync();
         }
 
+
+        private string  LogOperationAsync(string operation, IList<T> entity)
+        {
+            var tenantId = Convert.ToInt32(_httpContextAccessor.HttpContext?.Items["CurrentTenant"]);
+            var UserId   = _httpContextAccessor.HttpContext?.Items["CurrentUserId"]?.ToString();
+            
+            IList<AdminLogs> Logs = new List<AdminLogs>();
+            foreach (var item in entity)
+            {
+                var log = new AdminLogs
+                {
+                    EntityType    = typeof(T).Name,
+                    Content       = SerializeEntity(item),
+                    Timestamp     = DateTime.UtcNow,
+                    OperationType = operation,
+                    TenantId      = tenantId,
+                    UserId        = UserId == null ? "uid" : UserId
+                };
+
+                Logs.Add(log);
+            }
+            _crmContext.Logs.AddRange(Logs);
+
+            return "OK";
+        }
 
         /// <summary>
         /// Update

@@ -40,35 +40,35 @@ namespace Server.Services
                 };
 
                 // Getting Pass
-                voucherResponse  = _applePasses_Service.Vouchers(VoucherModel);
-                if (voucherResponse.Status_Code != "200") { return voucherResponse; }
+                //voucherResponse  = _applePasses_Service.Vouchers(VoucherModel);
+                //if (voucherResponse.Status_Code != "200") { return voucherResponse; }
 
-                Voucher voucher              = new();
-                voucher.Type                 = "Voucher";
-                voucher.Apple_Pass           = (byte[])voucherResponse.Response;
-                voucher.Background_Color     = VoucherModel.Background_Color;
-                voucher.Label_Color          = VoucherModel.Label_Color;
-                voucher.Foreground_Color     = VoucherModel.Foreground_Color;
-                voucher.Localized_Name       = "N/A";
-                voucher.Terms_And_Conditions = "N/A";
-                voucher.Logo                 = "N/A";
-                voucher.Organization_Name    = VoucherModel.Organization_Name;
-                voucher.Serial_Number        = VoucherModel.Serial_Number;
-                voucher.Description          = VoucherModel.Description;
-                voucher.Web_Service_URL      = "N/A";
-                voucher.Authentication_Token = "";
+                //Voucher voucher              = new();
+                //voucher.Type                 = "Voucher";
+                //voucher.Apple_Pass           = (byte[])voucherResponse.Response;
+                //voucher.Background_Color     = VoucherModel.Background_Color;
+                //voucher.Label_Color          = VoucherModel.Label_Color;
+                //voucher.Foreground_Color     = VoucherModel.Foreground_Color;
+                //voucher.Localized_Name       = "N/A";
+                //voucher.Terms_And_Conditions = "N/A";
+                //voucher.Logo                 = "N/A";
+                //voucher.Organization_Name    = VoucherModel.Organization_Name;
+                //voucher.Serial_Number        = VoucherModel.Serial_Number;
+                //voucher.Description          = VoucherModel.Description;
+                //voucher.Web_Service_URL      = "N/A";
+                //voucher.Authentication_Token = "";
 
-                // Set properties specific to Voucher
-                voucher.Voucher_Code    = "N/A";
-                voucher.Issuer          = "N/A";
-                voucher.Amount          = !string.IsNullOrEmpty(VoucherModel.Amount) ? decimal.Parse(VoucherModel.Amount) : 0;
-                voucher.Currency_Code   = "N/A";
-                voucher.Expiration_Date = VoucherModel.Expiry_Date;
+                //// Set properties specific to Voucher
+                //voucher.Voucher_Code    = "N/A";
+                //voucher.Issuer          = "N/A";
+                //voucher.Amount          = !string.IsNullOrEmpty(VoucherModel.Amount) ? decimal.Parse(VoucherModel.Amount) : 0;
+                //voucher.Currency_Code   = "N/A";
+                //voucher.Expiration_Date = VoucherModel.Expiry_Date;
 
-                //Saving
-                await _voucher_Repo.Transaction();
-                await _voucher_Repo.Add(voucher);
-                await _voucher_Repo.Commit();
+                ////Saving
+                //await _voucher_Repo.Transaction();
+                //await _voucher_Repo.Add(voucher);
+                //await _voucher_Repo.Commit();
 
                 return voucherResponse;
             }

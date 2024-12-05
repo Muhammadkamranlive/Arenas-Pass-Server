@@ -6,7 +6,7 @@ using Server.BaseService;
 
 namespace Server.Services
 {
-    public class Ticket_Service : Base_Service<Ticket>, ITicket_Service
+    public class Ticket_Service : Base_Service<EventTicket>, ITicket_Service
     {
         #region Constructor
         private readonly IApple_Passes_Service _applePasses_Service;
@@ -42,36 +42,36 @@ namespace Server.Services
                     Response    = null
                 };
 
-                // Getting Pass
-                ticketResponse  =  _applePasses_Service.GenerateTicket(TicketModel);
-                if (ticketResponse.Status_Code != "200") { return ticketResponse; }
+                //// Getting Pass
+                //ticketResponse  =  _applePasses_Service.GenerateTicket(TicketModel);
+                //if (ticketResponse.Status_Code != "200") { return ticketResponse; }
 
-                Ticket ticket               = new();
-                ticket.Type                 = "Ticket";
-                ticket.Apple_Pass           = (byte[])ticketResponse.Response;
-                ticket.Background_Color     = TicketModel.Background_Color;
-                ticket.Label_Color          = TicketModel.Label_Color;
-                ticket.Foreground_Color     = TicketModel.Foreground_Color;
-                ticket.Localized_Name       = TicketModel.Logo_Text;
-                ticket.Terms_And_Conditions = TicketModel.Privacy_Policy;
-                ticket.Logo                 = TicketModel.Logo_Url;
-                ticket.Organization_Name    = TicketModel.Organization_Name;
-                ticket.Serial_Number        = TicketModel.Serial_Number;
-                ticket.Description          = TicketModel.Description;
-                ticket.Web_Service_URL      = "N/A";
-                ticket.Authentication_Token = "";
+                //Ticket ticket               = new();
+                //ticket.Type                 = "Ticket";
+                //ticket.Apple_Pass           = (byte[])ticketResponse.Response;
+                //ticket.Background_Color     = TicketModel.Background_Color;
+                //ticket.Label_Color          = TicketModel.Label_Color;
+                //ticket.Foreground_Color     = TicketModel.Foreground_Color;
+                //ticket.Localized_Name       = TicketModel.Logo_Text;
+                //ticket.Terms_And_Conditions = TicketModel.Privacy_Policy;
+                //ticket.Logo                 = TicketModel.Logo_Url;
+                //ticket.Organization_Name    = TicketModel.Organization_Name;
+                //ticket.Serial_Number        = TicketModel.Serial_Number;
+                //ticket.Description          = TicketModel.Description;
+                //ticket.Web_Service_URL      = "N/A";
+                //ticket.Authentication_Token = "";
 
-                // Set properties specific to Ticket
-                ticket.Event_Name           = TicketModel.Event_Name;
-                ticket.Venue                = TicketModel.Venue;
-                ticket.Seat_Number          = TicketModel.Seat_Number;
-                ticket.Event_Date           = TicketModel.Event_Date;
-                ticket.Barcode_Type         = "N/A";
-                ticket.Barcode_Format       = "N/A";
+                //// Set properties specific to Ticket
+                //ticket.Event_Name           = TicketModel.Event_Name;
+                //ticket.Venue                = TicketModel.Venue;
+                //ticket.Seat_Number          = TicketModel.Seat_Number;
+                //ticket.Event_Date           = TicketModel.Event_Date;
+                //ticket.Barcode_Type         = "N/A";
+                //ticket.Barcode_Format       = "N/A";
 
-                await _ticketets_Repo.Transaction();
-                await _ticketets_Repo.Add(ticket);
-                await _ticketets_Repo.Commit();
+                //await _ticketets_Repo.Transaction();
+                //await _ticketets_Repo.Add(ticket);
+                //await _ticketets_Repo.Commit();
 
                 return ticketResponse;
             }

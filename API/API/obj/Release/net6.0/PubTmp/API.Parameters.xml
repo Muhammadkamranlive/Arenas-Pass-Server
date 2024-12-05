@@ -3,7 +3,4 @@
   <parameter name="IIS Web Application Name" description="" value="ArenasPass" tags="IisApp">
     <parameterEntry kind="ProviderPath" scope="IisApp" match="^E:\\work\\ANI\ Digital\ Passes\\Server\\API\\API\\obj\\Release\\net6\.0\\PubTmp\\Out\\$" />
   </parameter>
-  <parameter name="Server.Core.ERPDb" description="" value="Data Source=arenaspassdatabasedbserver.database.windows.net,1433;Initial Catalog=ArenasPassDatabase;User ID=ArenasAdminKamran;Password=29Feb@1234TK" tags="dbfullsql">
-    <parameterEntry kind="ProviderPath" scope="dbfullsql" match="^E:\\work\\ANI\ Digital\ Passes\\Server\\API\\API\\obj\\Release\\net6\.0\\PubTmp\\EFSQLScripts\\Server\.Core\.ERPDb\.sql$" />
-  </parameter>
 </parameters>

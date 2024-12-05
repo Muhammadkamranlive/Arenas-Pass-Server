@@ -26,6 +26,10 @@ namespace Server.UOW
         public IDesignation_Repo         Designation_Repo         { get;}
         public IChat_Repo                chat_Repo                { get;}
         public IApple_Pass_Account_Repo  Apple_Pass_Account       { get;}
+        public IUser_Batch_Process_Repo  Process_Repo             { get;}
+        public IWallet_Passes_Repo       Wallet_Pass              { get;}
+        public IAccount_Transaction_Repo Account_Transaction      { get;}
+        public IAccount_Balance_Repo     Account_Balance          { get;}
         Task<int> Save();
     }
 }

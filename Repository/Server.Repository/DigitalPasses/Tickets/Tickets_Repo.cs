@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace Server.Repository
 {
-    public class Tickets_Repo : Repo<Ticket>, ITickets_Repo
+    public class Tickets_Repo : Repo<EventTicket>, ITickets_Repo
     {
         public Tickets_Repo
         (

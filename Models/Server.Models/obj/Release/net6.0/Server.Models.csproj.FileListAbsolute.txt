@@ -22,3 +22,4 @@ E:\work\ANI Digital Passes\Server\Models\Server.Models\obj\Release\net6.0\Server
 E:\work\ANI Digital Passes\Server\Models\Server.Models\obj\Release\net6.0\refint\Server.Models.dll
 E:\work\ANI Digital Passes\Server\Models\Server.Models\obj\Release\net6.0\Server.Models.pdb
 E:\work\ANI Digital Passes\Server\Models\Server.Models\obj\Release\net6.0\ref\Server.Models.dll
+E:\work\ANI Digital Passes\Server\Models\Server.Models\obj\Release\net6.0\Server.Models.csproj.AssemblyReference.cache
