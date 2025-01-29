@@ -31,6 +31,19 @@ namespace API.TenantMiddleware
                 {
                     context.Items["CurrentUserId"] = userIdClaim.Value;
                 }
+                // Extract UserId claim
+                var Name = userIdentity.Claims.FirstOrDefault(c => c.Type == "Name");
+                if (Name != null)
+                {
+                    context.Items["Name"] = Name.Value;
+                }
+                // Extract UserId claim
+                var CompanyName = userIdentity.Claims.FirstOrDefault(c => c.Type == "CompanyName");
+                if (CompanyName != null)
+                {
+                    context.Items["CompanyName"] = CompanyName.Value;
+                }
+
             }
 
             await _next(context);

@@ -8,7 +8,6 @@ namespace Server.Models
 {
     public class Redeem_Gift_Card_Model
     {
-        public int? Id                    { get; set; }
         public int Card_Id                { get; set; }
         public string Card_Type           { get; set; }
         public string Customer_First_Name { get; set; }
@@ -24,5 +23,13 @@ namespace Server.Models
         public decimal Amount             { get; set; }
         public string Redemption_Type     { get; set; }
         public string CustomerId          { get; set; }
+    }
+
+    public class Redeem_Gift_CardByEmail_Model
+    {
+        public int Card_Id            { get; set; }
+        public decimal Amount         { get; set; }
+        public string Redemption_Type { get; set; }
+        public string Customer_Email  { get; set; }
     }
 }

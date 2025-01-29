@@ -8,9 +8,9 @@ namespace Server.Domain
 {
     public class LoyaltyCard : WalletPass
     {
-        public string Program_Name       { get; set; }
-        public int    Points_Balance     { get; set; }
-        public string Reward_Details     { get; set; }
+        public string  Program_Name       { get; set; }
+        public decimal Points_Balance     { get; set; }
+        public string  Reward_Details     { get; set; }
     }
 
 

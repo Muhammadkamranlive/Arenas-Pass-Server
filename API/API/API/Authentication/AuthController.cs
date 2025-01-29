@@ -600,6 +600,7 @@ namespace API.Authentication
         [HttpGet]
         [Route("GetMerchants")]
         [CustomAuthorize("Read")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator,SuperAdmin")]
         public async Task<IActionResult> GetMerchants()
         {
             var users = await authManager.GetAll();
@@ -2076,6 +2077,8 @@ namespace API.Authentication
             ";
             return emailTemplate;
         }
+    
+    
     }
 
 

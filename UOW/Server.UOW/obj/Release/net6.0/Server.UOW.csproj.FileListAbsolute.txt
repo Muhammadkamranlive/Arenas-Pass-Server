@@ -38,3 +38,5 @@ E:\work\ANI Digital Passes\Server\UOW\Server.UOW\obj\Release\net6.0\Server.UOW.d
 E:\work\ANI Digital Passes\Server\UOW\Server.UOW\obj\Release\net6.0\refint\Server.UOW.dll
 E:\work\ANI Digital Passes\Server\UOW\Server.UOW\obj\Release\net6.0\Server.UOW.pdb
 E:\work\ANI Digital Passes\Server\UOW\Server.UOW\obj\Release\net6.0\ref\Server.UOW.dll
+E:\work\ANI Digital Passes\Server\UOW\Server.UOW\bin\Release\net6.0\Server.Configurations.dll
+E:\work\ANI Digital Passes\Server\UOW\Server.UOW\bin\Release\net6.0\Server.Configurations.pdb

@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace Server.Repository
 {
-    public class Membership_Card_Repo : Repo<MembershipCard>
+    public class Membership_Card_Repo : Repo<MembershipCard>,IMembership_Card_Repo
     {
         public Membership_Card_Repo
         (

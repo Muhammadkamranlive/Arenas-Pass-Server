@@ -567,6 +567,18 @@ namespace Server.Services
                 return ex.Message + ex.InnerException?.Message;
             }
         }
+        public async Task<dynamic> FindById(int uid)
+        {
+            try
+            {
+                var user = await _userManager.Users.Where(x=>x.TenantId==uid).FirstOrDefaultAsync();
+                return user;
+            }
+            catch (Exception ex)
+            {
+                return ex.Message + ex.InnerException?.Message;
+            }
+        }
         public async Task<dynamic> UpdateUser(UpdateUserModel user)
         {
             try
@@ -1023,7 +1035,7 @@ namespace Server.Services
             try
             {
                 var tenantId    = Convert.ToInt32(_httpContextAccessor.HttpContext?.Items["CurrentTenant"]);
-                if (tenantId!=4)
+                if (tenantId!=1)
                 {
                     var users       = await _userManager.Users.Where(x => x.TenantId == tenantId).ToListAsync();
                     var userResults = users.Select(user =>
@@ -1074,6 +1086,42 @@ namespace Server.Services
                     return userResults.ToList();
                 }
                
+            }
+            catch (Exception ex)
+            {
+                return ex.Message + ex.InnerException?.Message;
+            }
+        }
+
+
+        public async Task<IEnumerable> GetAllUsersWithRoles(int tenantId)
+        {
+            try
+            {
+                    var users = await _userManager.Users.Where(x => x.TenantId == tenantId).ToListAsync();
+                    var userResults = users.Select(user =>
+                    {
+                        var roles = _userManager.GetRolesAsync(user);
+
+                        return new
+                        {
+                            user.Id,
+                            user.FirstName,
+                            user.MiddleName,
+                            user.LastName,
+                            user.Email,
+                            Roles = roles.Result.FirstOrDefault(),
+                            user.image,
+                            user.defaultPassword,
+                            user.CompanyName,
+                            user.EmployeeId,
+                            user.CompanyDesignation
+                        };
+                    }).ToList();
+
+                    return userResults.ToList();
+               
+
             }
             catch (Exception ex)
             {
@@ -3785,8 +3833,40 @@ namespace Server.Services
             return results;
         }
 
+        public async Task<IList<AllUsersModel>> GetUsersListByIds(IList<string> Ids)
+        {
+            try
+            {
+                var allUsers                     = _userManager.Users.Where(x => Ids.Contains(x.Id)).ToList();
+                IList<AllUsersModel>   Userslist =  new List<AllUsersModel>();
 
+                for (int i = 0; i < allUsers.Count; i++)
+                {
+                    var roles = await _userManager.GetRolesAsync(allUsers[i]);
+                    Userslist.Add
+                    (
+                        new AllUsersModel()
+                        {
+                            Id           = allUsers[i].Id,
+                            FirstName    = allUsers[i].FirstName,
+                            MiddleName   = allUsers[i].MiddleName,
+                            LastName     = allUsers[i].LastName,
+                            Email        = allUsers[i].Email,
+                            Roles        = roles.FirstOrDefault(),
+                            Image        = allUsers[i].image,
+                            CompanyName  = allUsers[i].CompanyName,
+                            EmployeeId   = allUsers[i].EmployeeId,
+                        }
+                    );
+                }
+               return Userslist;
+            }
+            catch (Exception ex)
+            {
 
+                throw new Exception(ex.Message);
+            }
+        }
     }
 
 

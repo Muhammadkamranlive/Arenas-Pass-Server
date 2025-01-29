@@ -33,7 +33,7 @@ namespace API.API.CustomerCare
 
         [HttpGet]
         [Route("UnAssignedCases")]
-        //[CustomAuthorize("Read")]
+        [CustomAuthorize("Read")]
         public async Task<IActionResult> UnAssignedCases()
         {
             try

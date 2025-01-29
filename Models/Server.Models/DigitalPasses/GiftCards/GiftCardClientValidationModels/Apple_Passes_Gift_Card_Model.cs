@@ -9,8 +9,8 @@ namespace Server.Models
 {
     public class Apple_Passes_Gift_Card_Model:WalletPassModel
     {
-        public string  Balance              { get; set; }
-        public string  Currency_Code        { get; set; }
-        public string  Currency_Sign        { get; set; }
+        public decimal  Balance              { get; set; }
+        public string   Currency_Code        { get; set; }
+        public string?  Currency_Sign        { get; set; }
     }
 }

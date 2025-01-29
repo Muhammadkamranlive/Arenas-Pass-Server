@@ -227,7 +227,6 @@ E:\work\ANI Digital Passes\Server\API\API\obj\Debug\net6.0\API.GeneratedMSBuildE
 E:\work\ANI Digital Passes\Server\API\API\obj\Debug\net6.0\API.AssemblyInfoInputs.cache
 E:\work\ANI Digital Passes\Server\API\API\obj\Debug\net6.0\API.AssemblyInfo.cs
 E:\work\ANI Digital Passes\Server\API\API\obj\Debug\net6.0\API.csproj.CoreCompileInputs.cache
-E:\work\ANI Digital Passes\Server\API\API\obj\Debug\net6.0\API.MvcApplicationPartsAssemblyInfo.cs
 E:\work\ANI Digital Passes\Server\API\API\obj\Debug\net6.0\API.MvcApplicationPartsAssemblyInfo.cache
 E:\work\ANI Digital Passes\Server\API\API\obj\Debug\net6.0\API.sourcelink.json
 E:\work\ANI Digital Passes\Server\API\API\obj\Debug\net6.0\staticwebassets.build.json
@@ -269,3 +268,6 @@ E:\work\ANI Digital Passes\Server\API\API\bin\Debug\net6.0\SixLabors.Core.dll
 E:\work\ANI Digital Passes\Server\API\API\bin\Debug\net6.0\SixLabors.Fonts.dll
 E:\work\ANI Digital Passes\Server\API\API\bin\Debug\net6.0\SixLabors.ImageSharp.dll
 E:\work\ANI Digital Passes\Server\API\API\obj\Debug\net6.0\staticwebassets.upToDateCheck.txt
+E:\work\ANI Digital Passes\Server\API\API\bin\Debug\net6.0\Server.Configurations.dll
+E:\work\ANI Digital Passes\Server\API\API\bin\Debug\net6.0\Server.Configurations.pdb
+E:\work\ANI Digital Passes\Server\API\API\obj\Debug\net6.0\API.MvcApplicationPartsAssemblyInfo.cs

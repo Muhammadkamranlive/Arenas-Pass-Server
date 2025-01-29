@@ -9,7 +9,7 @@ namespace Server.Domain
     public class Account_Balance
     {
         public int    Id                        { get; set; }
-        public string Tenant_Id                 { get; set; }
+        public int    Tenant_Id                 { get; set; }
         public string ACCOUNT_NO                { get; set; }
         public string Account_Type              { get; set; }
         public string Customer_FName            { get; set; }

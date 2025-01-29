@@ -8,10 +8,7 @@ namespace Server.Domain
 {
     public class Voucher : WalletPass
     {
-        public decimal Amount              { get; set; }
-        public string Currency_Code        { get; set; }
-        public string Currency_Sign        { get; set; }
-        public string Offer                { get; set; }
+        public decimal Discount_Percentage { get; set; }
     }
 
 }

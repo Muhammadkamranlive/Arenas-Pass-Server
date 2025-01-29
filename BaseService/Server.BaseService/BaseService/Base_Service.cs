@@ -5,6 +5,7 @@ using Server.Models;
 using Newtonsoft.Json;
 using System.Linq.Expressions;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace Server.BaseService
 {
@@ -118,7 +119,7 @@ namespace Server.BaseService
                 Description = "OK",
                 Response    = "OK"
             };
-            if (entity.Count == 0)
+            if (entity==null || entity.Count == 0)
             {
                 giftResponse = new ResponseModel<string>()
                 {
@@ -159,7 +160,6 @@ namespace Server.BaseService
             try
             {
                 _genericRepository.Update(data,includeProperties);
-                _genericRepository.Save();
             }
             catch (Exception ex)
             {
@@ -214,8 +214,7 @@ namespace Server.BaseService
         {
             try
             {
-                _genericRepository.Update(data,includeProperties);
-                _genericRepository.Save();
+                _genericRepository.Update(data,includeProperties);            
             }
             catch (Exception ex)
             {
@@ -263,6 +262,11 @@ namespace Server.BaseService
         public async Task<T> AddAsync(T entity)
         {
             return await _genericRepository.AddAsync(entity);
+        }
+
+        public async Task<T> AddReturn(T entity)
+        {
+            return await _genericRepository.AddReturn(entity);
         }
     }
 

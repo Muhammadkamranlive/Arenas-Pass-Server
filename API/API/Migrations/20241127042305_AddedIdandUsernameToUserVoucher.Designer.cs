@@ -1930,7 +1930,7 @@ namespace API.Migrations
                 {
                     b.HasBaseType("Server.Domain.WalletPass");
 
-                    b.Property<decimal>("Amount")
+                    b.Property<decimal>("Discount_Percentage")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Currency_Code")

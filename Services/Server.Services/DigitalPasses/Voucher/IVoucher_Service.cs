@@ -11,6 +11,6 @@ namespace Server.Services
 {
     public interface IVoucher_Service:IBase_Service<Voucher>
     {
-        Task<ResponseModel<string>> GenerateVoucher(Apple_Passes_Voucher_Model VoucherModel);
+        
     }
 }

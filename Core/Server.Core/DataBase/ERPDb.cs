@@ -1,5 +1,6 @@
 ﻿using Server.Domain;
 using Microsoft.EntityFrameworkCore;
+using Server.Domain.PassTransmission;
 using Server.Domain.DigitalPass.Transaction;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
@@ -47,6 +48,9 @@ namespace Server.Core
         public DbSet<TenantLicenes> TenantLicenes                              { get; set; }
         public DbSet<UserVoucher> UserVouchers                                 { get; set; }
         public DbSet<Account_Transaction> Account_Transactions                 { get; set; }
+        public DbSet<Account_Balance> Account_Balance                          { get; set; }
+        public DbSet<Pass_Transmission> Pass_Transmission                      { get; set; }
+        public DbSet<UsersVault> UserVault                                     { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -74,12 +78,18 @@ namespace Server.Core
             modelBuilder.Entity<PunchCard>().HasDiscriminator<string>("Type")
            .HasValue<PunchCard>("PunchCard");
 
+            modelBuilder.Entity<UsersVault>()
+                      .Property(g => g.Amount)
+                      .HasColumnType("decimal(18, 2)");
             // Configure precision for Balance property
             modelBuilder.Entity<GiftCard>()
                         .Property(g => g.Balance)
                         .HasColumnType("decimal(18, 2)");
+            modelBuilder.Entity<LoyaltyCard>()
+                       .Property(g => g.Points_Balance)
+                       .HasColumnType("decimal(18, 2)");
             modelBuilder.Entity<Voucher>()
-                       .Property(g => g.Amount)
+                       .Property(g => g.Discount_Percentage)
                        .HasColumnType("decimal(18, 2)");
             modelBuilder.Entity<Coupon>()
                       .Property(g => g.Discount_Percentage)
@@ -128,6 +138,7 @@ namespace Server.Core
             modelBuilder.Entity<UserVoucher>()
            .Property(w => w.Id)
            .ValueGeneratedOnAdd();
+
             modelBuilder.Entity<Account_Transaction>()
            .Property(w => w.Id)
            .ValueGeneratedOnAdd();
@@ -136,6 +147,18 @@ namespace Server.Core
                       .Property(g => g.Amount)
                       .HasColumnType("decimal(18, 2)");
 
+           modelBuilder.Entity<Account_Balance>()
+          .Property(w => w.Id)
+          .ValueGeneratedOnAdd();
+
+           modelBuilder.Entity<Account_Balance>()
+                      .Property(g => g.Amount)
+                      .HasColumnType("decimal(18, 2)");
+
+           modelBuilder.Entity<Pass_Transmission>()
+                      .Property(w => w.Id)
+                      .ValueGeneratedOnAdd();
+                      
             foreach (var entityType in modelBuilder.Model.GetEntityTypes())
             {
 

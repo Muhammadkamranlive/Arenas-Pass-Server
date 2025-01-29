@@ -31,6 +31,16 @@
   },
   {
     "ContainingType": "API.API.APIManagement.APIManagementController",
+    "Method": "GetTenantDetail",
+    "RelativePath": "api/APIManagement/GetTenantDetail",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.APIManagement.APIManagementController",
     "Method": "GetTenantKeyRotationHistory",
     "RelativePath": "api/APIManagement/GetTenantKeyRotationHistory",
     "HttpMethod": "GET",
@@ -1861,7 +1871,7 @@
   {
     "ContainingType": "API.API.DigitalPasses.GiftCardsController",
     "Method": "GenerateGiftCard",
-    "RelativePath": "api/GiftCards/GenerateGiftCard",
+    "RelativePath": "api/GiftCards/GenerateCard",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -1870,6 +1880,54 @@
         "Name": "GiftCard",
         "Type": "Server.Models.Apple_Passes_Gift_Card_Model",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.DigitalPasses.GiftCardsController",
+    "Method": "GetGiftCardById",
+    "RelativePath": "api/GiftCards/GetCardById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.DigitalPasses.GiftCardsController",
+    "Method": "GetGiftCardBySerialNo",
+    "RelativePath": "api/GiftCards/GetGiftCardBySerialNo",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "SerialNo",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.DigitalPasses.GiftCardsController",
+    "Method": "GetGiftCardWithCustomerEmail",
+    "RelativePath": "api/GiftCards/GetGiftCardWithCustomerEmail",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "email",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -1895,6 +1953,48 @@
       {
         "Name": "Id",
         "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.DigitalPasses.GiftCardsController",
+    "Method": "GetMerchantsRedeemableGiftCard",
+    "RelativePath": "api/GiftCards/GetMerchantsRedeemableGiftCard",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.DigitalPasses.GiftCardsController",
+    "Method": "GiftCardBalance",
+    "RelativePath": "api/GiftCards/GiftCardBalance",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "SerialNo",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.DigitalPasses.GiftCardsController",
+    "Method": "GiftCardTransactions",
+    "RelativePath": "api/GiftCards/GiftCardTransactions",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "SerialNo",
+        "Type": "System.String",
         "IsRequired": false
       }
     ],
@@ -2117,6 +2217,122 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "API.API.DigitalPasses.LoyaltyCards.LoayaltyController",
+    "Method": "DeleteMerchantsCard",
+    "RelativePath": "api/Loayalty/DeleteMerchantsCard",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.DigitalPasses.LoyaltyCards.LoayaltyController",
+    "Method": "DownloadCard",
+    "RelativePath": "api/Loayalty/DownloadCard",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "GiftCard",
+        "Type": "Server.Models.Apple_Passes_Loyalty_Card_Model",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.DigitalPasses.LoyaltyCards.LoayaltyController",
+    "Method": "GenerateCard",
+    "RelativePath": "api/Loayalty/GenerateCard",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Server.Models.Apple_Passes_Loyalty_Card_Model",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.DigitalPasses.LoyaltyCards.LoayaltyController",
+    "Method": "GetCardById",
+    "RelativePath": "api/Loayalty/GetCardById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.DigitalPasses.LoyaltyCards.LoayaltyController",
+    "Method": "GetMerchantsCard",
+    "RelativePath": "api/Loayalty/GetMerchantsCard",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.DigitalPasses.LoyaltyCards.LoayaltyController",
+    "Method": "GetMerchantsCardById",
+    "RelativePath": "api/Loayalty/GetMerchantsCardById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.DigitalPasses.LoyaltyCards.LoayaltyController",
+    "Method": "GetMerchantsRedeemableCard",
+    "RelativePath": "api/Loayalty/GetMerchantsRedeemableCard",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.DigitalPasses.LoyaltyCards.LoayaltyController",
+    "Method": "UpdateMerchantsCard",
+    "RelativePath": "api/Loayalty/UpdateMerchantsCard",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Server.Models.Apple_Passes_Loyalty_Card_Model",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.ZoomMeetings, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.ZooMeetingModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "Create",
     "RelativePath": "api/Meetings",
@@ -2228,6 +2444,122 @@
         "Name": "uid",
         "Type": "System.String",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.DigitalPasses.MembershipController",
+    "Method": "DeleteMerchantsGiftCard",
+    "RelativePath": "api/Membership/DeleteMerchantsGiftCard",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.DigitalPasses.MembershipController",
+    "Method": "DownloadGiftCard",
+    "RelativePath": "api/Membership/DownloadGiftCard",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "GiftCard",
+        "Type": "Server.Models.Apple_Passes_Membership_Card_Model",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.DigitalPasses.MembershipController",
+    "Method": "GenerateGiftCard",
+    "RelativePath": "api/Membership/GenerateCard",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Server.Models.Apple_Passes_Membership_Card_Model",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.DigitalPasses.MembershipController",
+    "Method": "GetCardById",
+    "RelativePath": "api/Membership/GetCardById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.DigitalPasses.MembershipController",
+    "Method": "GetMerchantsCardById",
+    "RelativePath": "api/Membership/GetMerchantsCardById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.DigitalPasses.MembershipController",
+    "Method": "GetMerchantsGiftCard",
+    "RelativePath": "api/Membership/GetMerchantsGiftCard",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.DigitalPasses.MembershipController",
+    "Method": "GetMerchantsRedeemableMemCard",
+    "RelativePath": "api/Membership/GetMerchantsRedeemableMemCard",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.DigitalPasses.MembershipController",
+    "Method": "UpdateMerchantsGiftCard",
+    "RelativePath": "api/Membership/UpdateMerchantsGiftCard",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Server.Models.Apple_Passes_Membership_Card_Model",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -2402,6 +2734,48 @@
         "Name": "id",
         "Type": "System.Guid",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.PassAssignment.PassAssignmentController",
+    "Method": "AssignPassToCustomer",
+    "RelativePath": "api/PassAssignment/AssignPassToCustomer",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Server.Models.Assign_Pass_Model",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.PassTransmission.PassTransmissionController",
+    "Method": "GetPassToSend",
+    "RelativePath": "api/PassTransmission/GetPassToSend",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.PassTransmission.PassTransmissionController",
+    "Method": "SendPassToCustomer",
+    "RelativePath": "api/PassTransmission/SendPassToCustomer",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "System.Collections.Generic.IList\u00601[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -2841,20 +3215,152 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "API.API.Reporting.ReportingController",
-    "Method": "Get",
-    "RelativePath": "api/Reporting",
+    "ContainingType": "API.API.DigitalPasses.PunchCardApi.PunchCardController",
+    "Method": "DeleteMerchantsCard",
+    "RelativePath": "api/PunchCard/DeleteMerchantsCard",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.DigitalPasses.PunchCardApi.PunchCardController",
+    "Method": "DownloadCard",
+    "RelativePath": "api/PunchCard/DownloadCard",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "GiftCard",
+        "Type": "Server.Models.Apple_Passes_Punch_Card_Model",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.DigitalPasses.PunchCardApi.PunchCardController",
+    "Method": "GenerateCard",
+    "RelativePath": "api/PunchCard/GenerateCard",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Server.Models.Apple_Passes_Punch_Card_Model",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.DigitalPasses.PunchCardApi.PunchCardController",
+    "Method": "GetCardById",
+    "RelativePath": "api/PunchCard/GetCardById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.DigitalPasses.PunchCardApi.PunchCardController",
+    "Method": "GetMerchantsCard",
+    "RelativePath": "api/PunchCard/GetMerchantsCard",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": [
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.DigitalPasses.PunchCardApi.PunchCardController",
+    "Method": "GetMerchantsCardById",
+    "RelativePath": "api/PunchCard/GetMerchantsCardById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
       {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
-    ]
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.DigitalPasses.PunchCardApi.PunchCardController",
+    "Method": "GetMerchantsRedeemableCard",
+    "RelativePath": "api/PunchCard/GetMerchantsRedeemableCard",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.DigitalPasses.PunchCardApi.PunchCardController",
+    "Method": "UpdateMerchantsCard",
+    "RelativePath": "api/PunchCard/UpdateMerchantsCard",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Server.Models.Apple_Passes_Punch_Card_Model",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.Redemption.RedemptionController",
+    "Method": "RedeemGiftCard",
+    "RelativePath": "api/Redemption/RedeemGiftCard",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Server.Models.Redeem_Gift_Card_Model",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.Redemption.RedemptionController",
+    "Method": "RedeemOnlineGiftCard",
+    "RelativePath": "api/Redemption/RedeemOnlineGiftCard",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Server.Models.Redeem_Gift_Card_Model",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "API.API.Reporting.ReportingController",
@@ -2874,15 +3380,15 @@
   },
   {
     "ContainingType": "API.API.Reporting.ReportingController",
-    "Method": "GeneratePdf",
-    "RelativePath": "api/Reporting/GeneratePdf",
+    "Method": "EmployeeDetailedReportForAll",
+    "RelativePath": "api/Reporting/EmployeeDetailedReportForAll",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "model",
-        "Type": "Server.Models.PdfDataModel",
+        "Name": "EmployeesList",
+        "Type": "System.Collections.Generic.IList\u00601[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": true
       }
     ],
@@ -2892,38 +3398,6 @@
     "ContainingType": "API.API.Reporting.ReportingController",
     "Method": "GeneratePdfWithRepeat",
     "RelativePath": "api/Reporting/GeneratePdfWithRepeat",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "model",
-        "Type": "Server.Models.PdfDataModel",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "API.API.Reporting.ReportingController",
-    "Method": "GeneratePdfWithRepeatForAll",
-    "RelativePath": "api/Reporting/GeneratePdfWithRepeatForAll",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "model",
-        "Type": "Server.Models.PdfDataModel",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "API.API.Reporting.ReportingController",
-    "Method": "GeneratePdfWithRepeatingHeader",
-    "RelativePath": "api/Reporting/GeneratePdfWithRepeatingHeader",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -2961,8 +3435,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "model",
-        "Type": "Server.Models.PdfDataModel",
+        "Name": "UsersIdList",
+        "Type": "System.Collections.Generic.IList\u00601[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": true
       }
     ],
@@ -3043,6 +3517,166 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "API.API.TenantInformation.TenantInformationController",
+    "Method": "GetApiStats",
+    "RelativePath": "api/TenantInformation/GetApiStats",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "TenantId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.TenantInformation.TenantInformationController",
+    "Method": "getById",
+    "RelativePath": "api/TenantInformation/getById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "uid",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.TenantInformation.TenantInformationController",
+    "Method": "GetTenantApiKeys",
+    "RelativePath": "api/TenantInformation/GetTenantApiKeys",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "TenantId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.TenantInformation.TenantInformationController",
+    "Method": "GetTenantKeyRotationHistory",
+    "RelativePath": "api/TenantInformation/GetTenantKeyRotationHistory",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "TenantId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.TenantInformation.TenantInformationController",
+    "Method": "GetUserWithRoles",
+    "RelativePath": "api/TenantInformation/GetUserWithRoles",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "TenantId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.TenantInformation.TenantInformationController",
+    "Method": "GetWalletPasses",
+    "RelativePath": "api/TenantInformation/GetWalletPasses",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "TenantId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.TenantInformation.TenantInformationController",
+    "Method": "Notifications",
+    "RelativePath": "api/TenantInformation/Notifications",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "TenantId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.TenantInformation.TenantInformationController",
+    "Method": "OpeningBalanceByTenant",
+    "RelativePath": "api/TenantInformation/OpeningBalanceByTenant",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "TenantId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.TenantInformation.TenantInformationController",
+    "Method": "TenantLogs",
+    "RelativePath": "api/TenantInformation/TenantLogs",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "TenantId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.TenantInformation.TenantInformationController",
+    "Method": "TransactionsByTenant",
+    "RelativePath": "api/TenantInformation/TransactionsByTenant",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "TenantId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.Trainings, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.TrainingModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "Create",
     "RelativePath": "api/Training",
@@ -3117,6 +3751,90 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "API.API.Transaction.TransactionController",
+    "Method": "OpeningBalanceByCustomerEmail",
+    "RelativePath": "api/Transaction/OpeningBalanceByCustomerEmail",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Email",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.Transaction.TransactionController",
+    "Method": "OpeningBalanceByTenant",
+    "RelativePath": "api/Transaction/OpeningBalanceByTenant",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.Transaction.TransactionController",
+    "Method": "TenantTransactions",
+    "RelativePath": "api/Transaction/TenantTransactions",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cardId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.Transaction.TransactionController",
+    "Method": "TransactionsByCustomerEmail",
+    "RelativePath": "api/Transaction/TransactionsByCustomerEmail",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "email",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.Transaction.TransactionController",
+    "Method": "TransactionsByTenant",
+    "RelativePath": "api/Transaction/TransactionsByTenant",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.Transaction.TransactionController",
+    "Method": "VaultBalance",
+    "RelativePath": "api/Transaction/VaultBalance",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Email",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "API.API.MediaController.UploadController",
     "Method": "UploadImage",
     "RelativePath": "api/Upload",
@@ -3130,6 +3848,16 @@
         "IsRequired": false
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.DigitalPasses.WalletPass.WalletPassController",
+    "Method": "GetWallet",
+    "RelativePath": "api/WalletPass/GetWallet",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {

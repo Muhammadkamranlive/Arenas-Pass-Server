@@ -38,7 +38,7 @@ namespace Server.Services
         /// </summary>
         /// <param name="GiftCard"></param>
         /// <returns></returns>
-        //public async Task<ResponseModel<string>> GenerateGiftCard(Apple_Passes_Gift_Card_Model GiftCard)
+        //public async Task<ResponseModel<string>> GenerateCard(Apple_Passes_Gift_Card_Model GiftCard)
         //{
         //    try
         //    {

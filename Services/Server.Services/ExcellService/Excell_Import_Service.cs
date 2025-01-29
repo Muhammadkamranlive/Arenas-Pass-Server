@@ -199,6 +199,7 @@ namespace Server.Services
                 }
                 ApplicationUser userDetail  = await authManagerService.FindById(UserId);
                 ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
+
                 using (var stream = new MemoryStream())
                 {
                     await file.CopyToAsync(stream);
@@ -212,7 +213,16 @@ namespace Server.Services
                             {
                                 continue; 
                             }
+                            // Validate headers
+                            var headerFirstName = worksheet.Cells[1, 1]?.Text.Trim();
+                            var headerLastName  = worksheet.Cells[1, 2]?.Text.Trim();
+                            var headerEmail     = worksheet.Cells[1, 3]?.Text.Trim();
 
+                            if (headerFirstName != "First Name" || headerLastName != "Last Name" || headerEmail != "Email")
+                            {
+                                retValue.Description = "Invalid file format. Ensure the headers are 'First Name', 'Last Name', and 'Email'.";
+                                return retValue;
+                            }
                             int totalRows = worksheet.Dimension.Rows;
 
                             for (int row = 2; row <= totalRows; row++) 

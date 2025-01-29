@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Text;
+using Server.Configurations;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 
@@ -22,6 +23,7 @@ namespace Server.Domain
         public string Tenant_Id           { get; set; }
         public DateTime Created_At        { get; set; }
         public string Txn_Type            { get; set; }
+        public string RedemptionType      { get; set; }=RedemptionStatusModel.InStore;
 
         public Account_Transaction()
         {

@@ -17,6 +17,11 @@
 
   <ItemGroup>
     <Folder Include="DigitalPass\VaultManagement\" />
+    <Folder Include="Payments\Charges\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Server\Server.Configurations\Server.Configurations.csproj" />
   </ItemGroup>
 
 </Project>

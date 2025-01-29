@@ -47,7 +47,7 @@ namespace API.Migrations
                 nullable: true);
 
             migrationBuilder.AddColumn<decimal>(
-                name: "Amount",
+                name: "Discount_Percentage",
                 table: "WalletPasses",
                 type: "decimal(18,2)",
                 nullable: true);
@@ -354,7 +354,7 @@ namespace API.Migrations
                 table: "WalletPasses");
 
             migrationBuilder.DropColumn(
-                name: "Amount",
+                name: "Discount_Percentage",
                 table: "WalletPasses");
 
             migrationBuilder.DropColumn(

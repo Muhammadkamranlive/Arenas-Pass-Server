@@ -37,7 +37,7 @@ namespace Server.Services
             return Name;
         }
 
-        public string GetCompanyName()
+        public string GetCompanyName() 
         {
             var Name = _httpContextAccessor.HttpContext?.Items["CompanyName"]?.ToString();
             return Name;

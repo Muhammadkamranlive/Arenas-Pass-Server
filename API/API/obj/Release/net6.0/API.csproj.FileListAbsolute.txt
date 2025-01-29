@@ -269,3 +269,5 @@ E:\work\ANI Digital Passes\Server\API\API\bin\Release\net6.0\SixLabors.ImageShar
 E:\work\ANI Digital Passes\Server\API\API\bin\Release\net6.0\System.Text.Encodings.Web.dll
 E:\work\ANI Digital Passes\Server\API\API\bin\Release\net6.0\System.Text.Json.dll
 E:\work\ANI Digital Passes\Server\API\API\bin\Release\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+E:\work\ANI Digital Passes\Server\API\API\bin\Release\net6.0\Server.Configurations.dll
+E:\work\ANI Digital Passes\Server\API\API\bin\Release\net6.0\Server.Configurations.pdb

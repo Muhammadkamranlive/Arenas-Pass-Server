@@ -14,6 +14,7 @@ namespace Server.Services
         Task<IEnumerable<IdentityError>> RegisterUsers(AddUsersModel adminDto);
         Task<IEnumerable<IdentityError>> RegisterHospital(RegisterUserModel adminDto);
         Task<dynamic> FindById(string uid);
+        Task<dynamic> FindById(int uid);
         Task<dynamic> UpdateUser(UpdateUserModel user);
         Task<dynamic> UpdateCRMUser(AddUsersModel user);
         Task<dynamic> FindbyEmail(string email);
@@ -44,5 +45,8 @@ namespace Server.Services
         Task<string> SendResetPassword(string Id);
         Task<dynamic> GetTenantsDetailbyId(string OnwerId);
         Task<IEnumerable<IdentityError>> RegisterSuperAdmin(RegisterUserModel adminDto);
+        Task<IList<AllUsersModel>> GetUsersListByIds(IList<string> Ids);
+        Task<IEnumerable> GetAllUsersWithRoles(int tenantId);
+
     }
 }

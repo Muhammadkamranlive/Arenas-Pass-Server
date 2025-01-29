@@ -65,7 +65,7 @@ namespace Server.Services
                     return giftResponse;
                 }
 
-                else if (string.IsNullOrWhiteSpace(model.Balance) || string.IsNullOrEmpty(model.Balance)) 
+                else if (string.IsNullOrWhiteSpace(model.Balance.ToString()) || string.IsNullOrEmpty(model.Balance.ToString())) 
                 {
                     giftResponse.Status_Code = "404";
                     giftResponse.Description = "Balance is required.";
@@ -93,9 +93,9 @@ namespace Server.Services
                 };
 
                 // Add primary field (Balance)
-                request.AddPrimaryField(new StandardField("balance", "Balance", model.Balance)
+                request.AddPrimaryField(new StandardField("balance", "Balance", model.Balance.ToString())
                 {
-                    AttributedValue   = model.Balance,
+                    AttributedValue   = model.Balance.ToString(),
                     DataDetectorTypes = DataDetectorTypes.PKDataDetectorNone
                 });
 
@@ -118,22 +118,7 @@ namespace Server.Services
                        DataDetectorTypes = DataDetectorTypes.PKDataDetectorTypeCalendarEvent
                    });
                 }
-                if (model.Relevant_Date != null)
-                {
-                    request.AddBackField(new StandardField("relevant-date", "Relevant Date", model.Relevant_Date.Value.ToString("MM/dd/yyyy"))
-                    {
-                        AttributedValue = model.Relevant_Date.Value.ToString("MM/dd/yyyy"),
-                        DataDetectorTypes = DataDetectorTypes.PKDataDetectorTypeCalendarEvent
-                    });
-                }
-                if (model.Effective_Date != null)
-                {
-                    request.AddBackField(new StandardField("effective-date", "Effective Date", model.Effective_Date.Value.ToString("MM/dd/yyyy"))
-                    {
-                        AttributedValue = model.Effective_Date.Value.ToString("MM/dd/yyyy"),
-                        DataDetectorTypes = DataDetectorTypes.PKDataDetectorTypeCalendarEvent
-                    });
-                }
+                
                 if (!string.IsNullOrWhiteSpace(model.Email) || !string.IsNullOrEmpty(model.Email))
                 {
                    request.AddBackField(new StandardField("email", "Email", model.Email)
@@ -208,15 +193,7 @@ namespace Server.Services
                     });
                 }
                  
-                if(!string.IsNullOrEmpty(model.Webiste) || !string.IsNullOrWhiteSpace(model.Webiste))
-                {
-                    // Add Website back field
-                    request.AddBackField(new StandardField("website", "Website", model.Webiste)
-                    {
-                        AttributedValue   = model.Webiste,
-                        DataDetectorTypes = DataDetectorTypes.PKDataDetectorTypeLink
-                    });
-                }
+               
                 
                 if(!string.IsNullOrEmpty(model.Message) || !string.IsNullOrWhiteSpace(model.Message))
                 {
@@ -239,7 +216,7 @@ namespace Server.Services
                 //Sender /Reciever 
                 if (!string.IsNullOrWhiteSpace(model.Sender_Name))
                 {
-                    request.AddBackField(new StandardField("sender", "Frome", model.Sender_Name)
+                    request.AddBackField(new StandardField("sender", "From", model.Sender_Name)
                     {
                         AttributedValue = model.Sender_Name,
                         DataDetectorTypes = DataDetectorTypes.PKDataDetectorNone
@@ -250,15 +227,6 @@ namespace Server.Services
                     request.AddBackField(new StandardField("description", "Receiver", model.Recipient_Name)
                     {
                         AttributedValue = model.Recipient_Name,
-                        DataDetectorTypes = DataDetectorTypes.PKDataDetectorNone
-                    });
-                }
-
-                if (!string.IsNullOrWhiteSpace(model.Issuer))
-                {
-                    request.AddBackField(new StandardField("Issuer", "Issuer", model.Issuer)
-                    {
-                        AttributedValue = model.Issuer,
                         DataDetectorTypes = DataDetectorTypes.PKDataDetectorNone
                     });
                 }
@@ -370,22 +338,7 @@ namespace Server.Services
                         DataDetectorTypes = DataDetectorTypes.PKDataDetectorTypeCalendarEvent
                     });
                 }
-                if (model.Relevant_Date != null)
-                {
-                    request.AddBackField(new StandardField("relevant-date", "Relevant Date", model.Relevant_Date.Value.ToString("MM/dd/yyyy"))
-                    {
-                        AttributedValue   = model.Relevant_Date.Value.ToString("MM/dd/yyyy"),
-                        DataDetectorTypes = DataDetectorTypes.PKDataDetectorTypeCalendarEvent
-                    });
-                }
-                if (model.Effective_Date != null)
-                {
-                    request.AddBackField(new StandardField("effective-date", "Effective Date", model.Effective_Date.Value.ToString("MM/dd/yyyy"))
-                    {
-                        AttributedValue = model.Effective_Date.Value.ToString("MM/dd/yyyy"),
-                        DataDetectorTypes = DataDetectorTypes.PKDataDetectorTypeCalendarEvent
-                    });
-                }
+                
                 if (!string.IsNullOrWhiteSpace(model.Email) || !string.IsNullOrEmpty(model.Email))
                 {
                     request.AddBackField(new StandardField("email", "Email", model.Email)
@@ -460,15 +413,7 @@ namespace Server.Services
                     });
                 }
 
-                if (!string.IsNullOrEmpty(model.Webiste) || !string.IsNullOrWhiteSpace(model.Webiste))
-                {
-                    // Add Website back field
-                    request.AddBackField(new StandardField("website", "Website", model.Webiste)
-                    {
-                        AttributedValue   = model.Webiste,
-                        DataDetectorTypes = DataDetectorTypes.PKDataDetectorTypeLink
-                    });
-                }
+                
 
                 if (!string.IsNullOrEmpty(model.Message) || !string.IsNullOrWhiteSpace(model.Message))
                 {
@@ -506,14 +451,7 @@ namespace Server.Services
                     });
                 }
 
-                if (!string.IsNullOrWhiteSpace(model.Issuer))
-                {
-                    request.AddBackField(new StandardField("Issuer", "Issuer", model.Issuer)
-                    {
-                        AttributedValue   = model.Issuer,
-                        DataDetectorTypes = DataDetectorTypes.PKDataDetectorNone
-                    });
-                }
+                
 
                 // Load certificates with appropriate flags for security
                 X509KeyStorageFlags flags      = X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.Exportable;
@@ -579,9 +517,9 @@ namespace Server.Services
                 };
 
                 // Primary Field: Discount
-                request.AddPrimaryField(new StandardField("discount", model.Offer, model.Amount.ToString())
+                request.AddPrimaryField(new StandardField("discount", model.Card_Holder_Title, model.Discount_Percentage.ToString())
                 {
-                    AttributedValue = model.Amount.ToString()
+                    AttributedValue = model.Discount_Percentage.ToString()
                 });
 
                 //Secondary Field
@@ -594,22 +532,6 @@ namespace Server.Services
                     });
                 }
                 //Back Properties
-                if (!string.IsNullOrEmpty(model.Currency_Code))
-                {
-                    request.AddBackField(new StandardField("Currency_Code", "Currency", model.Currency_Code)
-                    {
-                        AttributedValue   = model.Currency_Code,
-                        DataDetectorTypes = DataDetectorTypes.PKDataDetectorNone,
-                    });
-                }
-                if (!string.IsNullOrEmpty(model.Is_Redeemed))
-                {
-                    request.AddBackField(new StandardField("redeem-status", "Redeem Status", model.Is_Redeemed)
-                    {
-                        AttributedValue   = model.Is_Redeemed,
-                        DataDetectorTypes = DataDetectorTypes.PKDataDetectorNone,
-                    });
-                }
                 if (model.Expiration_Date != null)
                 {
                     request.AddBackField(new StandardField("expiry-date", "Expiry Date", model.Expiration_Date.Value.ToString("MM/dd/yyyy"))
@@ -618,22 +540,7 @@ namespace Server.Services
                         DataDetectorTypes = DataDetectorTypes.PKDataDetectorTypeCalendarEvent
                     });
                 }
-                if (model.Relevant_Date != null)
-                {
-                    request.AddBackField(new StandardField("relevant-date", "Relevant Date", model.Relevant_Date.Value.ToString("MM/dd/yyyy"))
-                    {
-                        AttributedValue   = model.Relevant_Date.Value.ToString("MM/dd/yyyy"),
-                        DataDetectorTypes = DataDetectorTypes.PKDataDetectorTypeCalendarEvent
-                    });
-                }
-                if (model.Effective_Date != null)
-                {
-                    request.AddBackField(new StandardField("effective-date", "Effective Date", model.Effective_Date.Value.ToString("MM/dd/yyyy"))
-                    {
-                        AttributedValue = model.Effective_Date.Value.ToString("MM/dd/yyyy"),
-                        DataDetectorTypes = DataDetectorTypes.PKDataDetectorTypeCalendarEvent
-                    });
-                }
+                
                 if (!string.IsNullOrWhiteSpace(model.Email) || !string.IsNullOrEmpty(model.Email))
                 {
                     request.AddBackField(new StandardField("email", "Email", model.Email)
@@ -708,15 +615,7 @@ namespace Server.Services
                     });
                 }
 
-                if (!string.IsNullOrEmpty(model.Webiste) || !string.IsNullOrWhiteSpace(model.Webiste))
-                {
-                    // Add Website back field
-                    request.AddBackField(new StandardField("website", "Website", model.Webiste)
-                    {
-                        AttributedValue   = model.Webiste,
-                        DataDetectorTypes = DataDetectorTypes.PKDataDetectorTypeLink
-                    });
-                }
+                
 
                 if (!string.IsNullOrEmpty(model.Message) || !string.IsNullOrWhiteSpace(model.Message))
                 {
@@ -754,15 +653,7 @@ namespace Server.Services
                     });
                 }
 
-                if (!string.IsNullOrWhiteSpace(model.Issuer))
-                {
-                    request.AddBackField(new StandardField("Issuer", "Issuer", model.Issuer)
-                    {
-                        AttributedValue   = model.Issuer,
-                        DataDetectorTypes = DataDetectorTypes.PKDataDetectorNone
-                    });
-                }
-
+                
                 // Load certificates with appropriate flags for security
                 X509KeyStorageFlags flags      = X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.Exportable;
                 request.AppleWWDRCACertificate = new X509Certificate2(appleCertificatePath);
@@ -861,22 +752,7 @@ namespace Server.Services
                         DataDetectorTypes = DataDetectorTypes.PKDataDetectorTypeCalendarEvent
                     });
                 }
-                if (model.Relevant_Date != null)
-                {
-                    request.AddBackField(new StandardField("relevant-date", "Relevant Date", model.Relevant_Date.Value.ToString("MM/dd/yyyy"))
-                    {
-                        AttributedValue   = model.Relevant_Date.Value.ToString("MM/dd/yyyy"),
-                        DataDetectorTypes = DataDetectorTypes.PKDataDetectorTypeCalendarEvent
-                    });
-                }
-                if (model.Effective_Date != null)
-                {
-                    request.AddBackField(new StandardField("effective-date", "Effective Date", model.Effective_Date.Value.ToString("MM/dd/yyyy"))
-                    {
-                        AttributedValue = model.Effective_Date.Value.ToString("MM/dd/yyyy"),
-                        DataDetectorTypes = DataDetectorTypes.PKDataDetectorTypeCalendarEvent
-                    });
-                }
+                
                 if (!string.IsNullOrWhiteSpace(model.Email) || !string.IsNullOrEmpty(model.Email))
                 {
                     request.AddBackField(new StandardField("email", "Email", model.Email)
@@ -951,15 +827,7 @@ namespace Server.Services
                     });
                 }
 
-                if (!string.IsNullOrEmpty(model.Webiste) || !string.IsNullOrWhiteSpace(model.Webiste))
-                {
-                    // Add Website back field
-                    request.AddBackField(new StandardField("website", "Website", model.Webiste)
-                    {
-                        AttributedValue   = model.Webiste,
-                        DataDetectorTypes = DataDetectorTypes.PKDataDetectorTypeLink
-                    });
-                }
+                
 
                 if (!string.IsNullOrEmpty(model.Message) || !string.IsNullOrWhiteSpace(model.Message))
                 {
@@ -997,15 +865,7 @@ namespace Server.Services
                     });
                 }
 
-                if (!string.IsNullOrWhiteSpace(model.Issuer))
-                {
-                    request.AddBackField(new StandardField("Issuer", "Issuer", model.Issuer)
-                    {
-                        AttributedValue   = model.Issuer,
-                        DataDetectorTypes = DataDetectorTypes.PKDataDetectorNone
-                    });
-                }
-
+               
                 // Load certificates with appropriate flags for security
                 X509KeyStorageFlags flags      = X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.Exportable;
                 request.AppleWWDRCACertificate = new X509Certificate2(appleCertificatePath);
@@ -1096,22 +956,7 @@ namespace Server.Services
                         DataDetectorTypes = DataDetectorTypes.PKDataDetectorTypeCalendarEvent
                     });
                 }
-                if (model.Relevant_Date != null)
-                {
-                    request.AddBackField(new StandardField("relevant-date", "Relevant Date", model.Relevant_Date.Value.ToString("MM/dd/yyyy"))
-                    {
-                        AttributedValue   = model.Relevant_Date.Value.ToString("MM/dd/yyyy"),
-                        DataDetectorTypes = DataDetectorTypes.PKDataDetectorTypeCalendarEvent
-                    });
-                }
-                if (model.Effective_Date != null)
-                {
-                    request.AddBackField(new StandardField("effective-date", "Effective Date", model.Effective_Date.Value.ToString("MM/dd/yyyy"))
-                    {
-                        AttributedValue = model.Effective_Date.Value.ToString("MM/dd/yyyy"),
-                        DataDetectorTypes = DataDetectorTypes.PKDataDetectorTypeCalendarEvent
-                    });
-                }
+                
                 if (!string.IsNullOrWhiteSpace(model.Email) || !string.IsNullOrEmpty(model.Email))
                 {
                     request.AddBackField(new StandardField("email", "Email", model.Email)
@@ -1186,16 +1031,7 @@ namespace Server.Services
                     });
                 }
 
-                if (!string.IsNullOrEmpty(model.Webiste) || !string.IsNullOrWhiteSpace(model.Webiste))
-                {
-                    // Add Website back field
-                    request.AddBackField(new StandardField("website", "Website", model.Webiste)
-                    {
-                        AttributedValue   = model.Webiste,
-                        DataDetectorTypes = DataDetectorTypes.PKDataDetectorTypeLink
-                    });
-                }
-
+                
                 if (!string.IsNullOrEmpty(model.Message) || !string.IsNullOrWhiteSpace(model.Message))
                 {
                     // Add Notes back field
@@ -1232,14 +1068,7 @@ namespace Server.Services
                     });
                 }
 
-                if (!string.IsNullOrWhiteSpace(model.Issuer))
-                {
-                    request.AddBackField(new StandardField("Issuer", "Issuer", model.Issuer)
-                    {
-                        AttributedValue   = model.Issuer,
-                        DataDetectorTypes = DataDetectorTypes.PKDataDetectorNone
-                    });
-                }
+                
 
                 // Load certificates with appropriate flags for security
                 X509KeyStorageFlags flags      = X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.Exportable;
@@ -1311,10 +1140,7 @@ namespace Server.Services
 
 
                 //Secondary Field
-                if (model.Effective_Date != null)
-                {
-                    request.AddSecondaryField(new StandardField("date", "Date", model.Effective_Date.Value.ToString("MMMM dd, yyyy hh:mm tt")));
-                }
+               
                 if (!string.IsNullOrEmpty(model.VenueName))
                 {
                     request.AddSecondaryField(new StandardField("venue", "Venue", model.VenueName));
@@ -1346,22 +1172,7 @@ namespace Server.Services
                         DataDetectorTypes = DataDetectorTypes.PKDataDetectorTypeCalendarEvent
                     });
                 }
-                if (model.Relevant_Date != null)
-                {
-                    request.AddBackField(new StandardField("relevant-date", "Relevant Date", model.Relevant_Date.Value.ToString("MM/dd/yyyy"))
-                    {
-                        AttributedValue   = model.Relevant_Date.Value.ToString("MM/dd/yyyy"),
-                        DataDetectorTypes = DataDetectorTypes.PKDataDetectorTypeCalendarEvent
-                    });
-                }
-                if (model.Effective_Date != null)
-                {
-                    request.AddBackField(new StandardField("effective-date", "Effective Date", model.Effective_Date.Value.ToString("MM/dd/yyyy"))
-                    {
-                        AttributedValue = model.Effective_Date.Value.ToString("MM/dd/yyyy"),
-                        DataDetectorTypes = DataDetectorTypes.PKDataDetectorTypeCalendarEvent
-                    });
-                }
+                
                 if (!string.IsNullOrWhiteSpace(model.Email) || !string.IsNullOrEmpty(model.Email))
                 {
                     request.AddBackField(new StandardField("email", "Email", model.Email)
@@ -1436,15 +1247,7 @@ namespace Server.Services
                     });
                 }
 
-                if (!string.IsNullOrEmpty(model.Webiste) || !string.IsNullOrWhiteSpace(model.Webiste))
-                {
-                    // Add Website back field
-                    request.AddBackField(new StandardField("website", "Website", model.Webiste)
-                    {
-                        AttributedValue   = model.Webiste,
-                        DataDetectorTypes = DataDetectorTypes.PKDataDetectorTypeLink
-                    });
-                }
+                
 
                 if (!string.IsNullOrEmpty(model.Message) || !string.IsNullOrWhiteSpace(model.Message))
                 {
@@ -1482,14 +1285,7 @@ namespace Server.Services
                     });
                 }
 
-                if (!string.IsNullOrWhiteSpace(model.Issuer))
-                {
-                    request.AddBackField(new StandardField("Issuer", "Issuer", model.Issuer)
-                    {
-                        AttributedValue   = model.Issuer,
-                        DataDetectorTypes = DataDetectorTypes.PKDataDetectorNone
-                    });
-                }
+               
 
                 // Load certificates with appropriate flags for security
                 X509KeyStorageFlags flags      = X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.Exportable;
@@ -1582,22 +1378,7 @@ namespace Server.Services
                         DataDetectorTypes = DataDetectorTypes.PKDataDetectorTypeCalendarEvent
                     });
                 }
-                if (model.Relevant_Date != null)
-                {
-                    request.AddBackField(new StandardField("relevant-date", "Relevant Date", model.Relevant_Date.Value.ToString("MM/dd/yyyy"))
-                    {
-                        AttributedValue   = model.Relevant_Date.Value.ToString("MM/dd/yyyy"),
-                        DataDetectorTypes = DataDetectorTypes.PKDataDetectorTypeCalendarEvent
-                    });
-                }
-                if (model.Effective_Date != null)
-                {
-                    request.AddBackField(new StandardField("effective-date", "Effective Date", model.Effective_Date.Value.ToString("MM/dd/yyyy"))
-                    {
-                        AttributedValue = model.Effective_Date.Value.ToString("MM/dd/yyyy"),
-                        DataDetectorTypes = DataDetectorTypes.PKDataDetectorTypeCalendarEvent
-                    });
-                }
+                
                 if (!string.IsNullOrWhiteSpace(model.Email) || !string.IsNullOrEmpty(model.Email))
                 {
                     request.AddBackField(new StandardField("email", "Email", model.Email)
@@ -1672,15 +1453,7 @@ namespace Server.Services
                     });
                 }
 
-                if (!string.IsNullOrEmpty(model.Webiste) || !string.IsNullOrWhiteSpace(model.Webiste))
-                {
-                    // Add Website back field
-                    request.AddBackField(new StandardField("website", "Website", model.Webiste)
-                    {
-                        AttributedValue   = model.Webiste,
-                        DataDetectorTypes = DataDetectorTypes.PKDataDetectorTypeLink
-                    });
-                }
+                
 
                 if (!string.IsNullOrEmpty(model.Message) || !string.IsNullOrWhiteSpace(model.Message))
                 {
@@ -1718,14 +1491,7 @@ namespace Server.Services
                     });
                 }
 
-                if (!string.IsNullOrWhiteSpace(model.Issuer))
-                {
-                    request.AddBackField(new StandardField("Issuer", "Issuer", model.Issuer)
-                    {
-                        AttributedValue   = model.Issuer,
-                        DataDetectorTypes = DataDetectorTypes.PKDataDetectorNone
-                    });
-                }
+               
 
                 // Load certificates with appropriate flags for security
                 X509KeyStorageFlags flags      = X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.Exportable;
@@ -1882,22 +1648,7 @@ namespace Server.Services
                         DataDetectorTypes = DataDetectorTypes.PKDataDetectorTypeCalendarEvent
                     });
                 }
-                if (model.Relevant_Date != null)
-                {
-                    request.AddBackField(new StandardField("relevant-date", "Relevant Date", model.Relevant_Date.Value.ToString("MM/dd/yyyy"))
-                    {
-                        AttributedValue   = model.Relevant_Date.Value.ToString("MM/dd/yyyy"),
-                        DataDetectorTypes = DataDetectorTypes.PKDataDetectorTypeCalendarEvent
-                    });
-                }
-                if (model.Effective_Date != null)
-                {
-                    request.AddBackField(new StandardField("effective-date", "Effective Date", model.Effective_Date.Value.ToString("MM/dd/yyyy"))
-                    {
-                        AttributedValue = model.Effective_Date.Value.ToString("MM/dd/yyyy"),
-                        DataDetectorTypes = DataDetectorTypes.PKDataDetectorTypeCalendarEvent
-                    });
-                }
+               
                 if (!string.IsNullOrWhiteSpace(model.Email) || !string.IsNullOrEmpty(model.Email))
                 {
                     request.AddBackField(new StandardField("email", "Email", model.Email)
@@ -1972,15 +1723,7 @@ namespace Server.Services
                     });
                 }
 
-                if (!string.IsNullOrEmpty(model.Webiste) || !string.IsNullOrWhiteSpace(model.Webiste))
-                {
-                    // Add Website back field
-                    request.AddBackField(new StandardField("website", "Website", model.Webiste)
-                    {
-                        AttributedValue   = model.Webiste,
-                        DataDetectorTypes = DataDetectorTypes.PKDataDetectorTypeLink
-                    });
-                }
+               
 
                 if (!string.IsNullOrEmpty(model.Message) || !string.IsNullOrWhiteSpace(model.Message))
                 {
@@ -2018,14 +1761,7 @@ namespace Server.Services
                     });
                 }
 
-                if (!string.IsNullOrWhiteSpace(model.Issuer))
-                {
-                    request.AddBackField(new StandardField("Issuer", "Issuer", model.Issuer)
-                    {
-                        AttributedValue   = model.Issuer,
-                        DataDetectorTypes = DataDetectorTypes.PKDataDetectorNone
-                    });
-                }
+               
 
                 // Load certificates with appropriate flags for security
                 X509KeyStorageFlags flags      = X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.Exportable;

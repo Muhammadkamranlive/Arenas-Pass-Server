@@ -8,6 +8,7 @@ using PdfSharpCore.Pdf;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using TheArtOfDev.HtmlRenderer.PdfSharp;
 
 namespace Server.Services
@@ -242,7 +243,7 @@ namespace Server.Services
         }
 
 
-        public async Task<ResponseModel<string>> EmployeeDetailedReportForAll()
+        public async Task<ResponseModel<string>> EmployeeDetailedReportForAll(IList<string> EMPIDs)
         {
             try
             {
@@ -250,7 +251,7 @@ namespace Server.Services
                 var response = new ResponseModel<string> { Status_Code = "200", Description = "OK" };
 
                 // Fetch all employees
-                IList<AllUsersModel> allUsers = (IList<AllUsersModel>)await _authManager.GetAll();
+                IList<AllUsersModel> allUsers = await _authManager.GetUsersListByIds(EMPIDs);
                 if (!allUsers.Any())
                 {
                     return new ResponseModel<string> { Status_Code = "404", Description = "No employees found" };
@@ -585,7 +586,15 @@ namespace Server.Services
 			}
         }
 
-        public async Task<ResponseModel<string>> EmployeeReportListFormat()
+
+
+
+        /// <summary>
+        /// Employees List Style Export
+        /// </summary>
+        /// <param name="EmployeeIds"></param>
+        /// <returns></returns>
+        public async Task<ResponseModel<string>> EmployeeReportListFormat(IList<string> EmployeeIds)
         {
             try
             {
@@ -593,11 +602,15 @@ namespace Server.Services
                 var response = new ResponseModel<string> { Status_Code = "200", Description = "OK" };
 
                 // Fetch all employees
-                IList<AllUsersModel> allUsers = (IList<AllUsersModel>)await _authManager.GetAll();
+                var  allUsers = await _authManager.GetUsersListByIds(EmployeeIds);
+
                 if (!allUsers.Any())
                 {
-                    return new ResponseModel<string> { Status_Code = "404", Description = "No employees found" };
+                    return new ResponseModel<string> { Status_Code = "404", Description = "No user found" };
                 }
+
+               
+               
 
                 // Start HTML Builder
                 var htmlBuilder = new StringBuilder();
@@ -820,13 +833,11 @@ namespace Server.Services
                 <table>
                     <tr>
                         <th>Expiration Date</th>
-                        <th>Effective Date</th>
                         <th>Recipient Name</th>
                         <th>Sender Name</th>
                     </tr>
                     <tr>
                         <td>{Gift.Expiration_Date}</td>
-                        <td>{Gift.Effective_Date}</td>
                         <td>{Gift.Recipient_Name}</td>
                         <td>{Gift.Sender_Name}</td>
                     </tr>
@@ -844,13 +855,13 @@ namespace Server.Services
                             <th>Email</th>
                             <th>Phone</th>
                             <th>Address</th>
-                            <th>Website</th>
+                        
                         </tr>
                         <tr>
                             <td>{Gift.Email}</td>
                             <td>{Gift.Phone}</td>
                             <td>{Gift.Address}</td>
-                            <td>{Gift.Webiste}</td>
+                           
                         </tr>
                     </table>
                 ");
@@ -972,14 +983,12 @@ namespace Server.Services
                 <tr>
                     <th>Logo Text</th>
                     <th>Card Holder Name</th>
-                    <th>Barcode Type</th>
-                    <th>Barcode Format</th>
+                    <th>Encoding Type</th>
                 </tr>
                 <tr>
                     <td>{pass.Logo_Text}</td>
                     <td>{pass.Card_holder_Name}</td>
-                    <td>{pass.Barcode_Type}</td>
-                    <td>{pass.Barcode_Format}</td>
+                    <td>{pass.Code_Type}</td>
                 </tr>
             </table>");
 
@@ -989,13 +998,11 @@ namespace Server.Services
             <table>
                 <tr>
                     <th>Expiration Date</th>
-                    <th>Effective Date</th>
                     <th>Recipient Name</th>
                     <th>Sender Name</th>
                 </tr>
                 <tr>
                     <td>{pass.Expiration_Date}</td>
-                    <td>{pass.Effective_Date}</td>
                     <td>{pass.Recipient_Name}</td>
                     <td>{pass.Sender_Name}</td>
                 </tr>
@@ -1009,13 +1016,11 @@ namespace Server.Services
                     <th>Email</th>
                     <th>Phone</th>
                     <th>Address</th>
-                    <th>Website</th>
                 </tr>
                 <tr>
                     <td>{pass.Email}</td>
                     <td>{pass.Phone}</td>
                     <td>{pass.Address}</td>
-                    <td>{pass.Webiste}</td>
                 </tr>
             </table>");
                 }

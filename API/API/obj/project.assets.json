@@ -2111,6 +2111,16 @@
           "bin/placeholder/Server.BaseService.dll": {}
         }
       },
+      "Server.Configurations/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Server.Configurations.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Server.Configurations.dll": {}
+        }
+      },
       "Server.Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -2144,6 +2154,7 @@
           "MailKit": "4.2.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.19",
           "Polybioz.HtmlRenderer.PdfSharp.Core": "1.0.0",
+          "Server.Configurations": "1.0.0",
           "dotnet-passbook": "3.2.4"
         },
         "compile": {
@@ -2231,6 +2242,7 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.20",
           "Polybioz.HtmlRenderer.PdfSharp.Core": "1.0.0",
           "Server.BaseService": "1.0.0",
+          "Server.Configurations": "1.0.0",
           "Server.Domain": "1.0.0",
           "Server.Models": "1.0.0",
           "Server.UOW": "1.0.0",
@@ -5430,6 +5442,11 @@
       "path": "../../BaseService/Server.BaseService/Server.BaseService.csproj",
       "msbuildProject": "../../BaseService/Server.BaseService/Server.BaseService.csproj"
     },
+    "Server.Configurations/1.0.0": {
+      "type": "project",
+      "path": "../../Server/Server.Configurations/Server.Configurations.csproj",
+      "msbuildProject": "../../Server/Server.Configurations/Server.Configurations.csproj"
+    },
     "Server.Core/1.0.0": {
       "type": "project",
       "path": "../../Core/Server.Core/Server.Core.csproj",
@@ -5520,6 +5537,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -5552,7 +5570,7 @@
       "restoreAuditProperties": {
         "enableAudit": "true",
         "auditLevel": "low",
-        "auditMode": "all"
+        "auditMode": "direct"
       },
       "SdkAnalysisLevel": "9.0.100"
     },
@@ -5638,16 +5656,8 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1900",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://api.nuget.org/v3/index.json."
-    }
-  ]
+  }
 }

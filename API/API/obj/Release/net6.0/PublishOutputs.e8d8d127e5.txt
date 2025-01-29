@@ -99,6 +99,7 @@ E:\work\ANI Digital Passes\Server\API\API\obj\Release\net6.0\PubTmp\Out\runtimes
 E:\work\ANI Digital Passes\Server\API\API\obj\Release\net6.0\PubTmp\Out\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
 E:\work\ANI Digital Passes\Server\API\API\obj\Release\net6.0\PubTmp\Out\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 E:\work\ANI Digital Passes\Server\API\API\obj\Release\net6.0\PubTmp\Out\Server.BaseService.dll
+E:\work\ANI Digital Passes\Server\API\API\obj\Release\net6.0\PubTmp\Out\Server.Configurations.dll
 E:\work\ANI Digital Passes\Server\API\API\obj\Release\net6.0\PubTmp\Out\Server.Core.dll
 E:\work\ANI Digital Passes\Server\API\API\obj\Release\net6.0\PubTmp\Out\Server.Domain.dll
 E:\work\ANI Digital Passes\Server\API\API\obj\Release\net6.0\PubTmp\Out\Server.Mapper.dll
@@ -112,6 +113,7 @@ E:\work\ANI Digital Passes\Server\API\API\obj\Release\net6.0\PubTmp\Out\Server.M
 E:\work\ANI Digital Passes\Server\API\API\obj\Release\net6.0\PubTmp\Out\Server.Middlewares.pdb
 E:\work\ANI Digital Passes\Server\API\API\obj\Release\net6.0\PubTmp\Out\Server.Models.pdb
 E:\work\ANI Digital Passes\Server\API\API\obj\Release\net6.0\PubTmp\Out\Server.Services.pdb
+E:\work\ANI Digital Passes\Server\API\API\obj\Release\net6.0\PubTmp\Out\Server.Configurations.pdb
 E:\work\ANI Digital Passes\Server\API\API\obj\Release\net6.0\PubTmp\Out\Server.Core.pdb
 E:\work\ANI Digital Passes\Server\API\API\obj\Release\net6.0\PubTmp\Out\Server.Domain.pdb
 E:\work\ANI Digital Passes\Server\API\API\obj\Release\net6.0\PubTmp\Out\Server.Repository.pdb

@@ -16,6 +16,7 @@ using API.TenantMiddleware;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Server.Services.DigitalPasses;
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.Extensions.FileProviders;
@@ -111,6 +112,29 @@ builder.Services.AddScoped<IUser_Batch_Process_Service, User_Batch_Process_Servi
 builder.Services.AddScoped<IReports_Appple_Passes_Service, Reports_Appple_Passes_Service>();
 builder.Services.AddScoped<IWallet_Pass_Service, Wallet_Pass_Service>();
 builder.Services.AddScoped<IWallet_Passes_Repo, Wallet_Passes_Repo>();
+builder.Services.AddScoped<IValidate_Txn_Service, Validate_Txn_Service>();
+builder.Services.AddScoped<IPass_Transmission_Repo, Pass_Transmission_Repo>();
+builder.Services.AddScoped<ISend_Pass_Customer_Service,Send_Pass_Customer_Service>();
+builder.Services.AddScoped<IAccount_Balance_Repo, Account_Balance_Repo>();
+builder.Services.AddScoped<IAccount_Balance_Service, Account_Balance_Service>();
+builder.Services.AddScoped<IAccount_Transaction_Repo, Account_Transaction_Repo>();
+builder.Services.AddScoped<IAccount_Transaction_Service, Account_Transaction_Service >();
+builder.Services.AddScoped<IAssign_Pass_Customer_Service, Assign_Pass_Customer_Service>();
+builder.Services.AddScoped<IMembership_Card_Service, Membership_Card_Service>();
+builder.Services.AddScoped<IMembership_Card_Repo,Membership_Card_Repo>();
+
+builder.Services.AddScoped<ILoyalty_Card_Repo, Loyalty_Card_Repo>();
+builder.Services.AddScoped<ILoyalty_Card_Service, Loyalty_Card_Service>();
+
+builder.Services.AddScoped<IPunch_Card_Repo, Punch_Card_Repo>();
+builder.Services.AddScoped<IPunch_Card_Service, Punch_Card_Service>();
+
+
+
+builder.Services.AddScoped<IUser_Vault_Repo, User_Vault_Repo>();
+builder.Services.AddScoped<IUserVault_Service, UserVault_Service>();
+
+
 builder.Services.ConfigureIdentity();
 builder.Services.AddHttpClient();
 builder.Services.AddAutoMapper(typeof(ConfigureDTOS));
@@ -123,6 +147,7 @@ builder.Services.AddScoped<ChargeService>();
 builder.Services.AddScoped<Stripe.TokenService>();
 builder.Services.AddScoped<SubscriptionService>();
 builder.Services.AddScoped<KeyManagementService>();
+
 builder.Services.AddSignalR();
 
 builder.Services.AddControllers()
@@ -169,7 +194,7 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("CorsPolicy", builder =>
-        builder.WithOrigins("https://arenas-pass.web.app", "http://localhost:4200", "https://arenas-pass.web.app/", "https://arenaspass.com")
+        builder.WithOrigins("https://arenas-pass.web.app", "http://localhost:4200", "https://arenas-pass.web.app/", "https://arenaspass.com", "https://arenascards.com", "https://arenas-cards.web.app")
             .AllowAnyMethod()
             .AllowAnyHeader()
             .AllowCredentials());

@@ -1,22 +1,20 @@
-﻿using Server.Domain;
+﻿using System.Text;
+using Server.Domain;
 using Server.Models;
+using Server.Configurations;
 
 namespace Server.Services
 {
     public class Validate_Txn_Service:IValidate_Txn_Service
     {
-        private readonly IAccount_Transaction_Service txn_service;
-        private readonly IGift_Card_Service           giftCard_service;
+
         private readonly IAccount_Balance_Service     actBalance_Service;
         public Validate_Txn_Service
         (
-           IAccount_Transaction_Service act,
-           IGift_Card_Service           giftCard,
            IAccount_Balance_Service     actBal
         )
         {
-            txn_service        = act;
-            giftCard_service   = giftCard;
+
             actBalance_Service = actBal;
 
         }
@@ -31,7 +29,7 @@ namespace Server.Services
             {
                 ResponseModel<string> responseModel = new ResponseModel<string>() { Status_Code = "200", Description = "OK", Response = "OK" };
                 //CheckAccount Balance 
-                Account_Balance account_Balance     = await actBalance_Service.FindOne(x=>x.ACCOUNT_NO==account_Transaction.Card_Id.ToString() && x.Tenant_Id == account_Transaction.Tenant_Id);
+                Account_Balance account_Balance     = await actBalance_Service.FindOne(x=>x.ACCOUNT_NO==account_Transaction.Card_Id.ToString() && x.Tenant_Id.ToString() == account_Transaction.Tenant_Id);
                 responseModel                       = CatchExceptionNull(account_Balance);
                 
                 if (responseModel.Status_Code != "200")
@@ -41,11 +39,12 @@ namespace Server.Services
                     return responseModel;
                 }
 
-                //validate Transaction Amount
-                account_Balance.Amount = account_Balance.Amount - PrevtxnAmount;
-                if (account_Balance.Amount < account_Transaction.Amount)
+                //validate Transaction Discount_Percentage
+                decimal  BalanceAmount = account_Balance.Amount;
+                BalanceAmount          = BalanceAmount - PrevtxnAmount;
+                if (BalanceAmount < account_Transaction.Amount)
                 {
-                    responseModel.Description = "Transaction Amount should need exceed from available amount";
+                    responseModel.Description = "Transaction amount should not exceed from available amount";
                     responseModel.Status_Code = "400";
                     return responseModel;
                 }
@@ -57,21 +56,22 @@ namespace Server.Services
                     return responseModel;
                 }
 
-                else if (account_Balance.Amount == account_Transaction.Amount)
+                else if (BalanceAmount == account_Transaction.Amount)
                 {
-                    responseModel.Description = "OK";
-                    responseModel.Response    = "F";
+                    responseModel.Description = (BalanceAmount - account_Transaction.Amount).ToString();
+                    responseModel.Response    = Pass_Redemption_Status_GModel.FullRedeemed;
                     responseModel.Status_Code = "200";
                 }
-                else if(account_Balance.Amount > account_Transaction.Amount)
+                else if(BalanceAmount > account_Transaction.Amount)
                 {
-                    responseModel.Description = "OK";
-                    responseModel.Response    = "P";
+                    responseModel.Description = (BalanceAmount -account_Transaction.Amount).ToString();
+                    responseModel.Response    = Pass_Redemption_Status_GModel.PartialyRedeemed;
                     responseModel.Status_Code = "200";
                     return responseModel;
                 }
 
-               
+
+                
                 return responseModel;
             }
             catch (Exception ex)

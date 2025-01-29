@@ -38,6 +38,8 @@ namespace Server.UOW
                Wallet_Pass              = new Wallet_Passes_Repo(_crmContext, httpContextAccessor);
                Account_Transaction      = new Account_Transaction_Repo(_crmContext,httpContextAccessor);
                Account_Balance          = new Account_Balance_Repo (_crmContext, httpContextAccessor);
+               Pass_Transaction         = new Pass_Transmission_Repo(_crmContext, httpContextAccessor);
+               User_Vault               = new User_Vault_Repo(_crmContext, httpContextAccessor);
 
         }
         public IPasswordReset_Repo PasswordReset_Repo             { get; private set; }
@@ -66,6 +68,9 @@ namespace Server.UOW
         public IWallet_Passes_Repo      Wallet_Pass               { get; private set; }
         public IAccount_Transaction_Repo Account_Transaction      { get; private set; }
         public IAccount_Balance_Repo Account_Balance              { get; private set; }
+        public IPass_Transmission_Repo Pass_Transaction            { get; private set; }
+
+        public IUser_Vault_Repo User_Vault { get; private set; }
 
         public async void Dispose()
         {

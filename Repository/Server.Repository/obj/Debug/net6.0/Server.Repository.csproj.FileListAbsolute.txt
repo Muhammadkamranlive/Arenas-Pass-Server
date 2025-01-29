@@ -34,3 +34,5 @@ E:\work\ANI Digital Passes\Server\Repository\Server.Repository\obj\Debug\net6.0\
 E:\work\ANI Digital Passes\Server\Repository\Server.Repository\obj\Debug\net6.0\refint\Server.Repository.dll
 E:\work\ANI Digital Passes\Server\Repository\Server.Repository\obj\Debug\net6.0\Server.Repository.pdb
 E:\work\ANI Digital Passes\Server\Repository\Server.Repository\obj\Debug\net6.0\ref\Server.Repository.dll
+E:\work\ANI Digital Passes\Server\Repository\Server.Repository\bin\Debug\net6.0\Server.Configurations.dll
+E:\work\ANI Digital Passes\Server\Repository\Server.Repository\bin\Debug\net6.0\Server.Configurations.pdb

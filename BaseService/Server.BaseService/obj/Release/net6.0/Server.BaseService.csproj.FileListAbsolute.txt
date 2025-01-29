@@ -42,3 +42,7 @@ E:\work\ANI Digital Passes\Server\BaseService\Server.BaseService\obj\Release\net
 E:\work\ANI Digital Passes\Server\BaseService\Server.BaseService\obj\Release\net6.0\refint\Server.BaseService.dll
 E:\work\ANI Digital Passes\Server\BaseService\Server.BaseService\obj\Release\net6.0\Server.BaseService.pdb
 E:\work\ANI Digital Passes\Server\BaseService\Server.BaseService\obj\Release\net6.0\ref\Server.BaseService.dll
+E:\work\ANI Digital Passes\Server\BaseService\Server.BaseService\bin\Release\net6.0\Server.Configurations.dll
+E:\work\ANI Digital Passes\Server\BaseService\Server.BaseService\bin\Release\net6.0\Server.Models.dll
+E:\work\ANI Digital Passes\Server\BaseService\Server.BaseService\bin\Release\net6.0\Server.Models.pdb
+E:\work\ANI Digital Passes\Server\BaseService\Server.BaseService\bin\Release\net6.0\Server.Configurations.pdb

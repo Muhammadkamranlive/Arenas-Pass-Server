@@ -12,6 +12,9 @@ namespace Server.Services
     public interface IAccount_Transaction_Service:IBase_Service<Account_Transaction>
     {
         Task<ResponseModel<string>> RedeemGiftCard(Redeem_Gift_Card_Model redeem_Gift);
-        Task<ResponseModel<string>> RedeemGiftCardByUserId(Redeem_Gift_CardByUserId_Model model);
+        Task<ResponseModel<string>> RedeemGiftCardOnline(Redeem_Gift_Card_Model redeem_Gift);
+
+        // Task<ResponseModel<string>> RedeemGiftCardByUserId(Redeem_Gift_CardByUserId_Model model);
+        //Task<ResponseModel<string>> RedeemGiftCardByEmail(Redeem_Gift_CardByEmail_Model model);
     }
 }

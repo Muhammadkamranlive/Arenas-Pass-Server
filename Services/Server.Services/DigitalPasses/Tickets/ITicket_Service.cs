@@ -6,6 +6,6 @@ namespace Server.Services
 {
     public interface ITicket_Service:IBase_Service<EventTicket>
     {
-        Task<ResponseModel<string>> GenerateTicket(Apple_Passes_Ticket_Model TicketModel);
+       
     }
 }

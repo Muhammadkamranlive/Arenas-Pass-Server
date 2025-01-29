@@ -138,7 +138,7 @@ namespace API.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<decimal>("Amount")
+                    b.Property<decimal>("Discount_Percentage")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("Card_Id")
@@ -1996,7 +1996,7 @@ namespace API.Migrations
                 {
                     b.HasBaseType("Server.Domain.WalletPass");
 
-                    b.Property<decimal>("Amount")
+                    b.Property<decimal>("Discount_Percentage")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Currency_Code")

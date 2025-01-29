@@ -34,3 +34,5 @@ E:\work\ANI Digital Passes\Server\Core\Server.Core\obj\Debug\net6.0\refint\Serve
 E:\work\ANI Digital Passes\Server\Core\Server.Core\obj\Debug\net6.0\Server.Core.pdb
 E:\work\ANI Digital Passes\Server\Core\Server.Core\obj\Debug\net6.0\Server.Core.genruntimeconfig.cache
 E:\work\ANI Digital Passes\Server\Core\Server.Core\obj\Debug\net6.0\ref\Server.Core.dll
+E:\work\ANI Digital Passes\Server\Core\Server.Core\bin\Debug\net6.0\Server.Configurations.dll
+E:\work\ANI Digital Passes\Server\Core\Server.Core\bin\Debug\net6.0\Server.Configurations.pdb

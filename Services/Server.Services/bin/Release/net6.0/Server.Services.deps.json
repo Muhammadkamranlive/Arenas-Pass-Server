@@ -21,6 +21,7 @@
           "Microsoft.EntityFrameworkCore.Tools": "6.0.20",
           "Polybioz.HtmlRenderer.PdfSharp.Core": "1.0.0",
           "Server.BaseService": "1.0.0",
+          "Server.Configurations": "1.0.0",
           "Server.Domain": "1.0.0",
           "Server.Models": "1.0.0",
           "Server.UOW": "1.0.0",
@@ -1202,11 +1203,20 @@
       "Server.BaseService/1.0.0": {
         "dependencies": {
           "Polybioz.HtmlRenderer.PdfSharp.Core": "1.0.0",
+          "Server.Models": "1.0.0",
           "Server.UOW": "1.0.0",
           "dotnet-passbook": "3.2.4"
         },
         "runtime": {
           "Server.BaseService.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Server.Configurations/1.0.0": {
+        "runtime": {
+          "Server.Configurations.dll": {
             "assemblyVersion": "1.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -1241,6 +1251,7 @@
           "MailKit": "4.2.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.19",
           "Polybioz.HtmlRenderer.PdfSharp.Core": "1.0.0",
+          "Server.Configurations": "1.0.0",
           "dotnet-passbook": "3.2.4"
         },
         "runtime": {
@@ -2097,6 +2108,11 @@
       "hashPath": "system.windows.extensions.6.0.0.nupkg.sha512"
     },
     "Server.BaseService/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Server.Configurations/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

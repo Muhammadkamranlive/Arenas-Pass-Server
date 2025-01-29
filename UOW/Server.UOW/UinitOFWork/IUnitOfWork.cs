@@ -30,6 +30,8 @@ namespace Server.UOW
         public IWallet_Passes_Repo       Wallet_Pass              { get;}
         public IAccount_Transaction_Repo Account_Transaction      { get;}
         public IAccount_Balance_Repo     Account_Balance          { get;}
+        public IPass_Transmission_Repo    Pass_Transaction         { get;}
+        public IUser_Vault_Repo          User_Vault                { get;}
         Task<int> Save();
     }
 }

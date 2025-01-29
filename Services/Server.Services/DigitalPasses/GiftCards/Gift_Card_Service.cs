@@ -3,6 +3,7 @@ using Server.Domain;
 using Server.Models;
 using Server.Repository;
 using Server.BaseService;
+using Server.Configurations;
 
 namespace Server.Services
 {
@@ -41,7 +42,7 @@ namespace Server.Services
                     Response    = null
                 };
             
-                giftResponse.Description= await _iRepo.DeletRange(x=>x.TenantId==tenantId && x.Id==GiftCardId);
+                giftResponse.Description= await _iRepo.DeletRange(x=>x.TenantId==tenantId && x.Id==GiftCardId && x.Pass_Status==Pass_Redemption_Status_GModel.Template);
                  
                 if( giftResponse.Description!="OK")
                 {
@@ -86,8 +87,7 @@ namespace Server.Services
                 //Getting Pass
                 
                 GiftCard gift             = new();
-                gift.Type                 = "GiftCard"; 
-                gift.Apple_Pass           = (byte[])giftResponse.Response;
+                gift.Type                 = Pass_Type_GModel.GiftCard; 
                 gift.Background_Color     = GiftCard.Background_Color;
                 gift.Label_Color          = GiftCard.Label_Color;
                 gift.Foreground_Color     = GiftCard.Foreground_Color;
@@ -99,37 +99,37 @@ namespace Server.Services
                 gift.Organization_Name    = "ArenasPass";
                 gift.Serial_Number        = serialNo.ToString();
                 gift.Description          = string.IsNullOrEmpty(GiftCard.Description)?"N/A": GiftCard.Description;
-                gift.Web_Service_URL      = GiftCard.Webiste;
-                gift.Authentication_Token = "";
-                
-                // Set properties specific to GiftCard
                 gift.Currency_Code        = GiftCard.Currency_Code;
                 gift.Recipient_Name       = GiftCard.Recipient_Name;
                 gift.Sender_Name          = GiftCard.Sender_Name;
                 gift.Message              = GiftCard.Message;  
                 gift.Code_Type            = GiftCard.Code_Type;
-                gift.Barcode_Format       = giftResponse.Description;
                 gift.Expiration_Date      = GiftCard.Expiration_Date;
-                gift.Relevant_Date        = GiftCard.Relevant_Date;
                 gift.TenantId             = _contextAccessor.GetTenantId();
-                gift.Balance              = !string.IsNullOrEmpty(GiftCard.Balance)? decimal.Parse(GiftCard.Balance):0;
-
+                gift.Balance              = !string.IsNullOrEmpty(GiftCard.Balance.ToString())? decimal.Parse(GiftCard.Balance.ToString()):0;
                 gift.Card_Holder_Title    = GiftCard.Card_Holder_Title;
                 gift.Card_holder_Name     = GiftCard.Card_holder_Name;
-                gift.Effective_Date       = GiftCard.Effective_Date;
-                gift.Issuer               = GiftCard.Issuer;
+                gift.Issuer               = _contextAccessor.GetCompanyName();
                 gift.Email                = GiftCard.Email;
                 gift.Phone                = GiftCard.Phone;
                 gift.Address              = GiftCard.Address;
-                gift.Currency_Sign        = GiftCard.Currency_Sign;
+                gift.Currency_Sign        = GiftCard.Currency_Code == "Dollar" ? "$" : "€";
 
-                await _iRepo.Add(gift);
-                await _iRepo.Commit();
+                var res =await _iRepo.AddReturn(gift);
+                
+                if (res == null)
+                {
+                    giftResponse.Status_Code = "404";
+                    giftResponse.Description = "Error in inserting Gift Card Please try again later";
+                }
+
+                await _iRepo.Save();
                 //Saving the Gift Card
                 return giftResponse;
             }
             catch (Exception ex)
             {
+                await Rollback();
                 ResponseModel<string> giftResponse = new ResponseModel<string>()
                 {
                     Status_Code = "500",
@@ -161,7 +161,7 @@ namespace Server.Services
                 GiftCard gift             = await _iRepo.FindOne(x=>x.Id==GiftCard.Id);
                 if (gift == null) { giftResponse.Status_Code = "404"; giftResponse.Description = "No reocrd found"; return giftResponse; }
 
-                gift.Apple_Pass           = giftResponse.Response != null ? (byte[])giftResponse.Response : gift.Apple_Pass;
+               
                 gift.Background_Color     = !string.IsNullOrEmpty(GiftCard.Background_Color) ? GiftCard.Background_Color : gift.Background_Color;
                 gift.Label_Color          = !string.IsNullOrEmpty(GiftCard.Label_Color) ? GiftCard.Label_Color : gift.Label_Color;
                 gift.Foreground_Color     = !string.IsNullOrEmpty(GiftCard.Foreground_Color) ? GiftCard.Foreground_Color : gift.Foreground_Color;
@@ -172,29 +172,20 @@ namespace Server.Services
                 gift.Logo_Text            = !string.IsNullOrEmpty(GiftCard.Logo_Text) ? GiftCard.Logo_Text : gift.Logo_Text;
                 gift.Organization_Name    = "ArenasPass"; // Always set this property
                 gift.Description          = !string.IsNullOrEmpty(GiftCard.Description) ? GiftCard.Description : gift.Description;
-                gift.Web_Service_URL      = !string.IsNullOrEmpty(GiftCard.Webiste) ? GiftCard.Webiste : gift.Web_Service_URL;
-                gift.Authentication_Token = gift.Authentication_Token ?? ""; // Ensure a default value
-
                 gift.Currency_Code        = !string.IsNullOrEmpty(GiftCard.Currency_Code) ? GiftCard.Currency_Code : gift.Currency_Code;
                 gift.Recipient_Name       = !string.IsNullOrEmpty(GiftCard.Recipient_Name) ? GiftCard.Recipient_Name : gift.Recipient_Name;
                 gift.Sender_Name          = !string.IsNullOrEmpty(GiftCard.Sender_Name) ? GiftCard.Sender_Name : gift.Sender_Name;
                 gift.Message              = !string.IsNullOrEmpty(GiftCard.Message) ? GiftCard.Message : gift.Message;
                 gift.Code_Type            = !string.IsNullOrEmpty(GiftCard.Code_Type) ? GiftCard.Code_Type : gift.Code_Type;
-                gift.Barcode_Format       = !string.IsNullOrEmpty(giftResponse.Description) ? giftResponse.Description : gift.Barcode_Format;
                 gift.Expiration_Date      = GiftCard.Expiration_Date ?? gift.Expiration_Date;
-                gift.Relevant_Date        = GiftCard.Relevant_Date ?? gift.Relevant_Date;
-                gift.Balance              = !string.IsNullOrEmpty(GiftCard.Balance) ? decimal.Parse(GiftCard.Balance) : gift.Balance;
-
+                gift.Balance              = !string.IsNullOrEmpty(GiftCard.Balance.ToString()) ? decimal.Parse(GiftCard.Balance.ToString()) : gift.Balance;
                 gift.Card_Holder_Title    = !string.IsNullOrEmpty(GiftCard.Card_Holder_Title) ? GiftCard.Card_Holder_Title : gift.Card_Holder_Title;
                 gift.Card_holder_Name     = !string.IsNullOrEmpty(GiftCard.Card_holder_Name) ? GiftCard.Card_holder_Name : gift.Card_holder_Name;
-                gift.Effective_Date       = GiftCard.Effective_Date ?? gift.Effective_Date;
-                gift.Issuer               = !string.IsNullOrEmpty(GiftCard.Issuer) ? GiftCard.Issuer : gift.Issuer;
+                gift.Issuer               = _contextAccessor.GetCompanyName();
                 gift.Email                = !string.IsNullOrEmpty(GiftCard.Email) ? GiftCard.Email : gift.Email;
                 gift.Phone                = !string.IsNullOrEmpty(GiftCard.Phone) ? GiftCard.Phone : gift.Phone;
                 gift.Address              = !string.IsNullOrEmpty(GiftCard.Address) ? GiftCard.Address : gift.Address;
-                gift.Currency_Sign        = gift.Currency_Code=="Dollar"? "$": "€";
-                gift.Webiste              = !string.IsNullOrEmpty(GiftCard.Webiste)? GiftCard.Webiste:gift.Webiste;
-
+                gift.Currency_Sign        = GiftCard.Currency_Code=="Dollar"?"$": "€";
                 _iRepo.Update(gift);
                 await _iRepo.Save();
 
@@ -202,7 +193,7 @@ namespace Server.Services
             }
             catch (Exception ex)
             {
-                ResponseModel<string> giftResponse = new ResponseModel<string>()
+                ResponseModel<string> giftResponse = new()
                 {
                     Status_Code = "500",
                     Description = ex.Message,
@@ -212,27 +203,35 @@ namespace Server.Services
             }
         }
 
-        public ResponseModel<string> ValidateGiftCardForRedemption(GiftCard GiftCard)
+        public ResponseModel<string> ValidateGiftCardForRedemption(GiftCard GiftCard, Redeem_Gift_Card_Model model)
         {
             try
             {
                 ResponseModel<string> RedeemResponse = new ResponseModel<string>() { Status_Code = "200", Description = "OK" };
-                if (GiftCard.Pass_Status == "Template")
+
+                if (GiftCard.Email != model.Email)
+                {
+                    RedeemResponse.Status_Code = "400";
+                    RedeemResponse.Description = "Error the Customer Email dose not matches with Redemption Detail";
+                    return RedeemResponse;
+                }
+
+                if (GiftCard.Pass_Status == Pass_Redemption_Status_GModel.Template)
                 {
                     RedeemResponse.Status_Code = "400";
                     RedeemResponse.Description = "Error the Gift card is currently Template cannot be Redeemable. Kindly send this card to any customer first by providing the customer detail, after that it can be redeemable";
                     return RedeemResponse;
                 }
-                else if (GiftCard.Pass_Status == "Redeemed")
+                else if (GiftCard.Pass_Status == Pass_Redemption_Status_GModel.FullRedeemed)
                 {
                     RedeemResponse.Status_Code = "400";
                     RedeemResponse.Description = "Error the Gift card is already Redeemed";
                     return RedeemResponse;
                 }
-                else if (GiftCard.Pass_Status != "Redeemable" || GiftCard.Pass_Status != "Partial-Redeemable")
+                else if (GiftCard.Pass_Status == Pass_Redemption_Status_GModel.PartialyRedeemed )
                 {
-                    RedeemResponse.Status_Code = "400";
-                    RedeemResponse.Description = "Error the Gift card current status is not Redeemable.Kindly re-assign to customer";
+                    RedeemResponse.Status_Code = "200";
+                    RedeemResponse.Description = "OK";
                     return RedeemResponse;
                 }
                 return RedeemResponse;
