@@ -17,7 +17,6 @@
 
   <ItemGroup>
     <Folder Include="DigitalPass\VaultManagement\" />
-    <Folder Include="Payments\Charges\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -11,7 +11,6 @@ namespace Server.Domain
         public int Id                      { get; set; }
         public string PlanName             { get; set; } 
         public string PlanDescription      { get; set; }
-        public string PlanFeatures         { get; set; }
         public decimal Price               { get; set; } 
         public string Currency             { get; set; } = "USD"; 
         public string BillingCycle         { get; set; } 
