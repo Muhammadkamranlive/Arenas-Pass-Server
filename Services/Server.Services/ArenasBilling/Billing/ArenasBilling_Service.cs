@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Server.Core;
 using Server.Domain;
+using Server.Repository;
 using Server.BaseService;
 using System.Threading.Tasks;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ namespace Server.Services
     public class ArenasBilling_Service : Base_Service<ArenasBilling>, IArenasBilling_Service
     {
         public ArenasBilling_Service
-        ( IUnitOfWork unitOfWork, IRepo<ArenasBilling> genericRepository
+        ( IUnitOfWork unitOfWork, IArenas_Billing_Repo genericRepository
         ) : base(unitOfWork, genericRepository)
         {
         }

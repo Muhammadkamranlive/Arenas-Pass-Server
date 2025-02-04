@@ -82,8 +82,8 @@ namespace API.API.Transaction
         {
             try
             {
-                var TenantId = get_Tenant_Id_Service.GetTenantId();
-                return await account_Transaction_Service.Find(x => x.Tenant_Id == TenantId.ToString() && x.Email==email);
+                
+                return await account_Transaction_Service.Find(x => x.Email==email);
             }
             catch (Exception ex)
             {
@@ -103,8 +103,8 @@ namespace API.API.Transaction
         {
             try
             {
-                var TenantId = get_Tenant_Id_Service.GetTenantId();
-                return await account_Balance_Service.Find(x => x.Tenant_Id==TenantId && x.Customer_Email == Email);
+                
+                return await account_Balance_Service.Find(x =>  x.Customer_Email == Email);
             }
             catch (Exception ex)
             {
@@ -125,8 +125,6 @@ namespace API.API.Transaction
         {
             try
             {
-                var TenantId = get_Tenant_Id_Service.GetTenantId();
-
                 return await userVault_Service.Find(x => x.UserEmail == Email);
             }
             catch (Exception ex)

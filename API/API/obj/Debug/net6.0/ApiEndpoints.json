@@ -3518,6 +3518,22 @@
   },
   {
     "ContainingType": "API.API.TenantInformation.TenantInformationController",
+    "Method": "FindUserById",
+    "RelativePath": "api/TenantInformation/FindUserById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "uid",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.TenantInformation.TenantInformationController",
     "Method": "GetApiStats",
     "RelativePath": "api/TenantInformation/GetApiStats",
     "HttpMethod": "GET",
@@ -3550,6 +3566,22 @@
   },
   {
     "ContainingType": "API.API.TenantInformation.TenantInformationController",
+    "Method": "GetDevTickets",
+    "RelativePath": "api/TenantInformation/GetDevTickets",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "TenantId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.TenantInformation.TenantInformationController",
     "Method": "GetTenantApiKeys",
     "RelativePath": "api/TenantInformation/GetTenantApiKeys",
     "HttpMethod": "GET",
@@ -3558,6 +3590,22 @@
     "Parameters": [
       {
         "Name": "TenantId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.TenantInformation.TenantInformationController",
+    "Method": "GetTenantInfo",
+    "RelativePath": "api/TenantInformation/GetTenantInfo",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "uid",
         "Type": "System.Int32",
         "IsRequired": false
       }

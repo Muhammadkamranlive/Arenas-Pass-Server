@@ -73,6 +73,8 @@ namespace API.API.Arenas_Dev.GiftCardApi
                         privateKey = license.privateKey,
                         publicKey  = license.publicKey,
                         TenantId   = license.TenantId,
+                        ApiMethod  = "GetGiftCards",
+                        RequestType = "Get"
                     };
 
                     dbt.TenantApiHitsHistories.Add(obj);
@@ -138,6 +140,8 @@ namespace API.API.Arenas_Dev.GiftCardApi
                         privateKey = license.privateKey,
                         publicKey  = license.publicKey,
                         TenantId   = license.TenantId,
+                        ApiMethod   = "GetBySerialNo",
+                        RequestType = "Get"
                     };
 
                     dbt.TenantApiHitsHistories.Add(obj);

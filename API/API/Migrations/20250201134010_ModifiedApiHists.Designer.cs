@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Server.Core;
 
@@ -11,9 +12,10 @@ using Server.Core;
 namespace API.Migrations
 {
     [DbContext(typeof(ERPDb))]
-    partial class ERPDbModelSnapshot : ModelSnapshot
+    [Migration("20250201134010_ModifiedApiHists")]
+    partial class ModifiedApiHists
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

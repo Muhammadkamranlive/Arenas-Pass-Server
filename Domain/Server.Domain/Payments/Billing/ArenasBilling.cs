@@ -11,6 +11,7 @@ namespace Server.Domain
         public int Id                        { get; set; }
         public int TenantId                  { get; set; }
         public string CompanyName            { get; set; }
+        public string CompanyEmail           { get; set; }
         public string StripePaymentPlanId    { get; set; }
         public DateTime SubscriptionStarted  { get; set; }
         public int      BonusDays            { get; set; }

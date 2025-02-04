@@ -69,6 +69,16 @@ namespace API.API.TenantInformation
 
 
         [HttpGet]
+        [Route("GetDevTickets")]
+        [CustomAuthorize("Read")]
+        public async Task<IActionResult> GetDevTickets(int TenantId)
+        {
+            var users = await _caseManageService.Find(x=>x.TenantId==TenantId);
+            return Ok(users);
+        }
+
+
+        [HttpGet]
         [Route("getById")]
         [CustomAuthorize("Read")]
         public async Task<ActionResult> getById(int uid)
@@ -76,6 +86,45 @@ namespace API.API.TenantInformation
             try
             {
                 var authResponse = await _authManager.FindById(uid);
+                return Ok(authResponse);
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex);
+            }
+        }
+
+        /// <summary>
+        /// Find User By User Id
+        /// </summary>
+        /// <param name="uid"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("FindUserById")]
+        [CustomAuthorize("Read")]
+        public async Task<ActionResult> FindUserById(string uid)
+        {
+            try
+            {
+                var authResponse = await _authManager.FindById(uid);
+                return Ok(authResponse);
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex);
+            }
+        }
+
+        [HttpGet]
+        [Route("GetTenantInfo")]
+        [CustomAuthorize("Read")]
+        public async Task<ActionResult> GetTenantInfo(int uid)
+        {
+            try
+            {
+                var authResponse = await _tenantService.FindOne(x=>x.CompanyId==uid);
                 return Ok(authResponse);
             }
             catch (Exception ex)
@@ -181,7 +230,7 @@ namespace API.API.TenantInformation
         {
             try
             {
-                var Apis = await _Pass_Service.Find(x => x.TenantId == TenantId);
+                var Apis = await _giftCardService.Find(x => x.TenantId == TenantId);
                 return Ok(Apis);
             }
             catch (Exception ex)
@@ -231,6 +280,10 @@ namespace API.API.TenantInformation
                 throw new Exception(ex.Message);
             }
         }
+
+
+
+        
 
     }
 }

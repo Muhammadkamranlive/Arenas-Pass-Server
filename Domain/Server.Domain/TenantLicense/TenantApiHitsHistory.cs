@@ -13,6 +13,8 @@ namespace Server.Domain
         public string publicKey   { get; set; }
         public DateTime CreatedAt { get; set; }
         public int TenantId       { get; set; }
+        public string ApiMethod   { get; set; } ="";
+        public string RequestType { get; set; } = "Get";
 
         public TenantApiHitsHistory()
         {

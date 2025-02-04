@@ -40,6 +40,7 @@ namespace Server.UOW
                Account_Balance          = new Account_Balance_Repo (_crmContext, httpContextAccessor);
                Pass_Transaction         = new Pass_Transmission_Repo(_crmContext, httpContextAccessor);
                User_Vault               = new User_Vault_Repo(_crmContext, httpContextAccessor);
+               Arenas_Billing           = new Arenas_Billing_Repo(_crmContext, httpContextAccessor);
 
         }
         public IPasswordReset_Repo PasswordReset_Repo             { get; private set; }
@@ -71,6 +72,8 @@ namespace Server.UOW
         public IPass_Transmission_Repo Pass_Transaction            { get; private set; }
 
         public IUser_Vault_Repo User_Vault { get; private set; }
+
+        public IArenas_Billing_Repo Arenas_Billing { get; private set; }
 
         public async void Dispose()
         {

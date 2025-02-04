@@ -32,7 +32,7 @@ namespace Server.UOW
         public IAccount_Balance_Repo     Account_Balance           { get;}
         public IPass_Transmission_Repo    Pass_Transaction         { get;}
         public IUser_Vault_Repo          User_Vault                { get;}
-        public IArenas_Billing_Repo  Arenas_Billing                { get;}
+        public IArenas_Billing_Repo      Arenas_Billing            { get;}
         Task<int> Save();
     }
 }

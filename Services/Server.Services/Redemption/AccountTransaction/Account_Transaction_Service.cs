@@ -63,22 +63,22 @@ namespace Server.Services
                 decimal txnAmount                   = PrevTxns.Sum(x => x.Amount);
                 Account_Transaction txnModel        = new()
                 {
-                    Tenant_Id               = TenantId.ToString(),
-                    Amount                  = redeem_Gift.Amount,
-                    Card_Id                 = Convert.ToInt32(GiftCard.Serial_Number),
-                    Card_Type               = "GiftCard",
-                    Customer_First_Name     = redeem_Gift.Customer_First_Name,
-                    Customer_Last_Name      = redeem_Gift.Customer_Last_Name,
-                    Email                   = redeem_Gift.Email,
-                    DrCrFlag                = "D",
-                    Processor_Id            = userId,
-                    Processor_Name          = UserName,
-                    RedemptionType          = RedemptionStatusModel.InStore 
+                    Tenant_Id                       = TenantId.ToString(),
+                    Amount                          = redeem_Gift.Amount,
+                    Card_Id                         = Convert.ToInt32(GiftCard.Serial_Number),
+                    Card_Type                       = "GiftCard",
+                    Customer_First_Name             = redeem_Gift.Customer_First_Name,
+                    Customer_Last_Name              = redeem_Gift.Customer_Last_Name,
+                    Email                           = redeem_Gift.Email,
+                    DrCrFlag                        = "D",
+                    Processor_Id                    = userId,
+                    Processor_Name                  = UserName,
+                    RedemptionType                  = RedemptionStatusModel.InStore 
                     
                 };
 
                 //Validate  Transaction
-                RedeemResponse              = await vtService.ValidateTxn(txnModel,txnAmount);
+                RedeemResponse                  = await vtService.ValidateTxn(txnModel,txnAmount);
                 if (RedeemResponse.Status_Code != "200")
                 {
                     return RedeemResponse;
@@ -90,7 +90,7 @@ namespace Server.Services
                 //Pass Redemption
                 var NewTxNo              = await transaction_No_Service.GetTxnNo();
                 GiftCard.Pass_Status     = txnModel.Txn_Type;
-                GiftCard.Recipient_Name  = txnModel.Customer_First_Name + "" + txnModel.Customer_Last_Name;
+                GiftCard.Recipient_Name  = txnModel.Customer_First_Name ;
                 GiftCard.Email           = txnModel.Email;
                 GiftCard.Sender_Name     = CompanyName;
                 //update balance 

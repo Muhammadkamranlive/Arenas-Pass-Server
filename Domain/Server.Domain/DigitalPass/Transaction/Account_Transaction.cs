@@ -13,7 +13,7 @@ namespace Server.Domain
         public int Card_Id                { get; set; }
         public string Card_Type           { get; set; }
         public string Customer_First_Name { get; set; }
-        public string Customer_Last_Name  { get; set; }
+        public string Customer_Last_Name  { get; set; } = "";
         public string Email               { get; set; }
         public decimal Amount             { get; set; }
         public string DrCrFlag            { get; set; }
