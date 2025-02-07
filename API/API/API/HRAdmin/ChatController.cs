@@ -12,13 +12,13 @@ namespace API.API.HRAdmin
     public class ChatController : ParentController<Chat, ChatModel>
     {
         private readonly IChat_Service          _Service;
-        private readonly IAuthManager           _authManager;
+        private readonly IAuth_Manager_Service           _authManager;
 
         public ChatController
         (
             IChat_Service service,
             IMapper mapper,
-            IAuthManager authManager
+            IAuth_Manager_Service authManager
         ) : base(service, mapper)
         {
             _Service = service;

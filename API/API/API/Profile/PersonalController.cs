@@ -12,32 +12,32 @@ namespace API.API.Profile
     public class PersonalController : ParentController<Personal, PersonalModel>
     {
         private readonly IProfile_Service _Service;
-        private readonly IAuthManager    _authManager;
+        private readonly IAuth_Manager_Service    _authManager;
         private readonly IEmergencyContact_Service _emergencyContactService;
         private readonly IJobExperience_Service _jobExperienceService;
-        private readonly IProfessionalLicense_Service _professionalLicenseService;
+        private readonly IProfessional_License_Service _professionalLicenseService;
         private readonly IDependent_Service      _dependentService;
         private readonly IAttachments_Service   _attachments_Service;
         private readonly IEducations_Service    _educations_Service;
         private readonly IGeneralTask_Service   _generalTask_Service;
         private readonly INotifications_Service _notifications_Service;
-        private readonly ICaseManagment_Service _caseManagment_Service;
+        private readonly ICase_Managment_Service _caseManagment_Service;
         private readonly ITraining_Service      _training_Service;
       
         public PersonalController
         (
             IProfile_Service               service,
             IMapper                        mapper,
-            IAuthManager                   authManager,
+            IAuth_Manager_Service                   authManager,
             IEmergencyContact_Service      emergencyContact_Service,
             IJobExperience_Service         jobExperience,
             IAttachments_Service           attachments_Service,
-            IProfessionalLicense_Service   professionalLicense_Service,
+            IProfessional_License_Service   professionalLicense_Service,
             IDependent_Service             dependent_Service,
             IEducations_Service            educations_Service,
             IGeneralTask_Service           generalTask_Service,
             INotifications_Service         notifications_Service,
-            ICaseManagment_Service         caseManagment_Service,
+            ICase_Managment_Service         caseManagment_Service,
             ITraining_Service              training_Service
         ) : base(service, mapper)
         {

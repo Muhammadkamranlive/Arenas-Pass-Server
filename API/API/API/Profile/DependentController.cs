@@ -12,12 +12,12 @@ namespace API.API.Profile
     public class DependentController : ParentController<Dependent, DependentModel>
     {
         private readonly IDependent_Service _Service;
-        private readonly IAuthManager      _authManager;
+        private readonly IAuth_Manager_Service      _authManager;
         public DependentController
         (
             IDependent_Service service,
             IMapper mapper,
-            IAuthManager authManager
+            IAuth_Manager_Service authManager
         ) : base(service, mapper)
         {
             _Service = service;

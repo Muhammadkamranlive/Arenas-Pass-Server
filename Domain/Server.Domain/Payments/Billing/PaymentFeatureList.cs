@@ -12,6 +12,13 @@ namespace Server.Domain
         public string FeatureTitle       { get; set; }
         public string FeatureDescription { get; set; }
         public int PaymentPlanId         { get; set; }
+        public DateTime Created_At       { get; set; }
+        public DateTime? Updated_At      { get; set; }
+        public string UserId             { get; set; }
+        public PaymentFeatureList()
+        {
+            Created_At = DateTime.UtcNow;  
+        }
 
     }
 }

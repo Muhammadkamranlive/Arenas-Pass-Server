@@ -15,7 +15,7 @@ namespace Server.Services
     {
         public Apple_Pass_Account_Service
         (
-            IUnitOfWork unitOfWork, IApple_Pass_Account_Repo iRepo
+            IUnit_Of_Work_Repo unitOfWork, IApple_Pass_Account_Repo iRepo
         ) : base(unitOfWork, iRepo)
         {
         }

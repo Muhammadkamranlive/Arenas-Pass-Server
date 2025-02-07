@@ -12,12 +12,12 @@ namespace API.API.Profile
     public class EucationController : ParentController<Education, EducationModel>
     {
         private readonly IEducations_Service _Service;
-        private readonly IAuthManager        _authManager;
+        private readonly IAuth_Manager_Service        _authManager;
         public EucationController
         (
             IEducations_Service service,
             IMapper mapper,
-            IAuthManager authManager
+            IAuth_Manager_Service authManager
         ) : base(service, mapper)
         {
             _Service     = service;

@@ -7,7 +7,7 @@ namespace Server.Services
 {
     public class Designation_Service:Base_Service<Designations>, IDesignation_Service
     {
-        public Designation_Service(IUnitOfWork unitOfWork, IDesignation_Repo _Repo) : base(unitOfWork, _Repo)
+        public Designation_Service(IUnit_Of_Work_Repo unitOfWork, IDesignation_Repo _Repo) : base(unitOfWork, _Repo)
         {
 
         }

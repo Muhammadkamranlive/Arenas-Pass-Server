@@ -17,14 +17,14 @@ namespace Server.Services
     {
         private readonly IBulk_User_Import_Service   blkService;
         private readonly IGet_Tenant_Id_Service      getTenantIdService;
-        private readonly IAuthManager                authManagerService;
+        private readonly IAuth_Manager_Service                authManagerService;
         private readonly ITransaction_No_Service     empIdService;
         private readonly IUser_Batch_Process_Service btchService;
         public Excell_Import_Service
         (
             IBulk_User_Import_Service   blk, 
             IGet_Tenant_Id_Service      getTenantId, 
-            IAuthManager                authManager,
+            IAuth_Manager_Service                authManager,
             ITransaction_No_Service     empId,
             IUser_Batch_Process_Service btch
         )

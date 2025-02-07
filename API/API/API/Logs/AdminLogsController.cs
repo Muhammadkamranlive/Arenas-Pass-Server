@@ -16,7 +16,7 @@ namespace API.API.HRAdmin
 
 
         [HttpGet]
-        [CustomAuthorize("Read")]
+        //[CustomAuthorize("Read")]
         public async Task<IActionResult> Logs()
         {
             try

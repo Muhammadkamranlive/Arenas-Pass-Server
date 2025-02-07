@@ -7,7 +7,7 @@ namespace Server.Services
 {
     public class AssetManager_Service:Base_Service<Asset>, IAssetManager_Service
     {
-        public AssetManager_Service(IUnitOfWork unitOfWork, IAssetManager_Repo _Repo) : base(unitOfWork, _Repo)
+        public AssetManager_Service(IUnit_Of_Work_Repo unitOfWork, IAssetManager_Repo _Repo) : base(unitOfWork, _Repo)
         {
 
         }

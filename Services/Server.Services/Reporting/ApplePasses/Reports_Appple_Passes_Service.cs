@@ -15,13 +15,13 @@ namespace Server.Services
 {
     public class Reports_Appple_Passes_Service : IReports_Appple_Passes_Service
     {
-        private readonly IAuthManager                 _authManager;
+        private readonly IAuth_Manager_Service                 _authManager;
         private readonly ITenants_Service             _tenantsService;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IGift_Card_Service           _giftCardService;
         public Reports_Appple_Passes_Service
         (
-                IAuthManager                 auth,
+                IAuth_Manager_Service                 auth,
                 ITenants_Service             tenantsService,
                 UserManager<ApplicationUser> userManager,
                 IGift_Card_Service           card_Service

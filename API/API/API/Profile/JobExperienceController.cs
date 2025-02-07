@@ -12,12 +12,12 @@ namespace API.API.Profile
     public class JobExperienceController : ParentController<JobExperience, JobExperienceModel>
     {
         private readonly IJobExperience_Service    _Service;
-        private readonly IAuthManager             _authManager;
+        private readonly IAuth_Manager_Service             _authManager;
         public JobExperienceController
         (
             IJobExperience_Service service,
             IMapper mapper,
-            IAuthManager authManager
+            IAuth_Manager_Service authManager
         ) : base(service, mapper)
         {
             _Service = service;

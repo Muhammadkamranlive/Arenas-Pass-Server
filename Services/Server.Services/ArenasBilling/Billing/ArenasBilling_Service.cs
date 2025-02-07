@@ -14,7 +14,7 @@ namespace Server.Services
     public class ArenasBilling_Service : Base_Service<ArenasBilling>, IArenasBilling_Service
     {
         public ArenasBilling_Service
-        ( IUnitOfWork unitOfWork, IArenas_Billing_Repo genericRepository
+        ( IUnit_Of_Work_Repo unitOfWork, IArenas_Billing_Repo genericRepository
         ) : base(unitOfWork, genericRepository)
         {
         }

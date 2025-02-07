@@ -19,20 +19,20 @@ namespace Server.Services
         private readonly IGet_Tenant_Id_Service       _Tenant_Id_Service;
         private readonly ITransaction_No_Service      _transaction_No_Service;
         private readonly IGift_Card_Service           _gift_Service;
-        private readonly IAuthManager                 _authManager_Service;
+        private readonly IAuth_Manager_Service                 _authManager_Service;
         private readonly IAccount_Balance_Service     _account_Balance_Service;
         private readonly IWallet_Pass_Service         _wallet_Pass_Service;
         private readonly IMembership_Card_Service     _membership_Card_Service;
         private readonly ILoyalty_Card_Service        _loyalty_Card_Service;
         private readonly IPunch_Card_Service          _punch_Card_Service;
         public Assign_Pass_Customer_Service
-        (   IUnitOfWork                  unitOfWork,
+        (   IUnit_Of_Work_Repo                  unitOfWork,
             IAccount_Transaction_Repo    genericRepository,
             IAccount_Transaction_Service account_Transaction,
             IGet_Tenant_Id_Service       get_Tenant_Id,
             ITransaction_No_Service      transaction_No,
             IGift_Card_Service           gift_Card,
-            IAuthManager                 authManager,
+            IAuth_Manager_Service                 authManager,
             IWallet_Pass_Service         wallet_Pass,
             IAccount_Balance_Service     account_Balance,
             IMembership_Card_Service     membership_Card,

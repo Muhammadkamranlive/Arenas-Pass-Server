@@ -35,9 +35,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ArenasBilling\Charges\" />
-    <Folder Include="ArenasBilling\FeatureLists\" />
-    <Folder Include="ArenasBilling\PaymentPlans\" />
     <Folder Include="Reporting\Customers\" />
     <Folder Include="Reporting\Merchants\" />
     <Folder Include="Reporting\Transactions\" />

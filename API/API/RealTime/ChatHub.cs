@@ -9,16 +9,16 @@ namespace API.RealTime
     public class ChatHub : Hub
     {
         private readonly INotifications_Service _notifications_Service;
-        private readonly ICaseComments_Service _caseComments_Service;
-        private readonly ICaseManagment_Service caseManageService;
+        private readonly ICase_Comments_Service _caseComments_Service;
+        private readonly ICase_Managment_Service caseManageService;
         private readonly IChat_Service _chat_Service;
-        private IAuthManager _authManager;
+        private IAuth_Manager_Service _authManager;
         public ChatHub
         (
             INotifications_Service notifications_Service,
-            ICaseComments_Service caseComments_Service,
-            ICaseManagment_Service service,
-            IAuthManager authManager,
+            ICase_Comments_Service caseComments_Service,
+            ICase_Managment_Service service,
+            IAuth_Manager_Service authManager,
             IChat_Service chat_Service
         )
         {

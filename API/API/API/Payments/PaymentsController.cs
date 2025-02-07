@@ -18,7 +18,7 @@ namespace API.API.Payments
         private readonly ChargeService    _chargeService;
         private readonly CustomerService  _customerService;
         private readonly TokenService     _tokenService;
-        private readonly IPaymentService  _paymentService;
+        private readonly IPayment_With_Strip_Service  _paymentService;
 
         public PaymentsController
         (
@@ -27,7 +27,7 @@ namespace API.API.Payments
             ChargeService          chargeService,
             CustomerService        customerService,
             TokenService           tokenService,
-            IPaymentService        paymentService
+            IPayment_With_Strip_Service        paymentService
         )
         {
             stripeModel      = Model.Value;

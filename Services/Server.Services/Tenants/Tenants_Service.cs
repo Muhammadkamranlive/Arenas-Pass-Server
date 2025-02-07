@@ -7,7 +7,7 @@ namespace Server.Services
 {
     public class Tenants_Service:Base_Service<ArenasTenants>, ITenants_Service
     {
-        public Tenants_Service(IUnitOfWork unitOfWork ,ITenants_Repo tenants_Repo):base(unitOfWork,tenants_Repo)
+        public Tenants_Service(IUnit_Of_Work_Repo unitOfWork ,ITenants_Repo tenants_Repo):base(unitOfWork,tenants_Repo)
         {
             
         }

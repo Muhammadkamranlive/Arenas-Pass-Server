@@ -8,14 +8,14 @@ namespace Server.Services
 {
     public class Tenant_License_Keys_Service : Base_Service<TenantLicenes>, ITenant_License_Keys_Service
     {
-        private readonly ITenant_License_Repo        iRepo;
+        private readonly ITenant_License_Keys_Repo        iRepo;
         private readonly KeyManagementService        keyService;
         private readonly IGet_Tenant_Id_Service      tenantId_Service;
         private readonly ITenant_Key_History_Service tkhService;
         public Tenant_License_Keys_Service
         (
-            IUnitOfWork unitOfWork,
-            ITenant_License_Repo genericRepository,
+            IUnit_Of_Work_Repo unitOfWork,
+            ITenant_License_Keys_Repo genericRepository,
             KeyManagementService key,
             IGet_Tenant_Id_Service get_Tenant_,
             ITenant_Key_History_Service tkh

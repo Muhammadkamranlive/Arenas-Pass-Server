@@ -15,7 +15,7 @@ namespace Server.Services
     {
         public Account_Balance_Service
         (
-            IUnitOfWork unitOfWork, 
+            IUnit_Of_Work_Repo unitOfWork, 
             IAccount_Balance_Repo genericRepository
         ) : base(unitOfWork, genericRepository)
         {

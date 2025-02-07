@@ -12,13 +12,13 @@ namespace API.API.Transaction
         private readonly IAccount_Transaction_Service account_Transaction_Service;
         private readonly IGet_Tenant_Id_Service get_Tenant_Id_Service;
         private readonly IAccount_Balance_Service account_Balance_Service;
-        private readonly IUserVault_Service userVault_Service;
+        private readonly IUser_Vault_Service userVault_Service;
         public TransactionController
         (
             IAccount_Transaction_Service _Transaction,
             IGet_Tenant_Id_Service       get_Tenant_Id,
             IAccount_Balance_Service     account_Balance,
-            IUserVault_Service           userVault
+            IUser_Vault_Service           userVault
         )
         {
             account_Transaction_Service = _Transaction;

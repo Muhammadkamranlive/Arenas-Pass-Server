@@ -11,15 +11,15 @@ namespace API.API.CustomerCare
     [ApiController]
     public class CaseController : ParentController<Case, CaseModel>
     {
-        private readonly ICaseManagment_Service _Service;
-        private readonly ICaseComments_Service  _cService;
-        private readonly IAuthManager           _authManager;
+        private readonly ICase_Managment_Service _Service;
+        private readonly ICase_Comments_Service  _cService;
+        private readonly IAuth_Manager_Service           _authManager;
         public CaseController
         (
-            ICaseManagment_Service service,
+            ICase_Managment_Service service,
             IMapper mapper,
-            IAuthManager authManager,
-            ICaseComments_Service c
+            IAuth_Manager_Service authManager,
+            ICase_Comments_Service c
         ) : base(service, mapper)
         {
             _Service     = service;

@@ -12,12 +12,12 @@ namespace API.API.HRAdmin
     public class HRAdminNotesController : ParentController<HRNotes, HRNoteModel>
     {
         private readonly IHRNotes_Service       _Service;
-        private readonly IAuthManager           _authManager;
+        private readonly IAuth_Manager_Service           _authManager;
         public HRAdminNotesController
         (
             IHRNotes_Service service,
             IMapper mapper,
-            IAuthManager authManager
+            IAuth_Manager_Service authManager
         ) : base(service, mapper)
         {
             _Service = service;

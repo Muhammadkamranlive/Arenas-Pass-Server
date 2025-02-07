@@ -20,7 +20,12 @@ namespace Server.Domain
         public string     Status            { get; set; }  
         public bool       IsDeleted         { get; set; }  
         public DateTime   CreatedAt         { get; set; }
-        public DateTime?  UpdatedAt         { get; set; }  
+        public DateTime?  UpdatedAt         { get; set; }
+        public string     UserId            { get; set; }
+        public TenantCharges()
+        {
+            CreatedAt = DateTime.UtcNow;
+        }
     }
 
     public enum ChargeType

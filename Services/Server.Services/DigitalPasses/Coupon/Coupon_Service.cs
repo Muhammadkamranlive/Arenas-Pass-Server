@@ -10,7 +10,7 @@ namespace Server.Services
     {
         public Coupon_Service
         (
-            IUnitOfWork unitOfWork, 
+            IUnit_Of_Work_Repo unitOfWork, 
             ICoupon_Repo iRepo
         ) : base(unitOfWork, iRepo)
         {

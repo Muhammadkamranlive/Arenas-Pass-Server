@@ -13,13 +13,13 @@ namespace API.Authentication
     public class DesginationController : ParentController<Designations, DesginationModel>
     {
         private readonly IDesignation_Service _Service;
-        private readonly IAuthManager _authManager;
+        private readonly IAuth_Manager_Service _authManager;
         private readonly IMapper _mapper;
         public DesginationController
         (
             IDesignation_Service service,
             IMapper mapper,
-            IAuthManager authManager
+            IAuth_Manager_Service authManager
         ) : base(service, mapper)
         {
             _Service = service;

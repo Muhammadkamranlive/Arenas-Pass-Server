@@ -17,22 +17,22 @@ namespace API.Authentication
     {
         private readonly IMapper mapper;
         private readonly ILogger<AuthController> logger;
-        private readonly IAuthManager             authManager;
+        private readonly IAuth_Manager_Service             authManager;
         private readonly IHttpClientFactory      _httpClientFactory;
-        private readonly IPasswordReset_Service  _passwordService;
+        private readonly IPassword_Reset_Service  _passwordService;
         private readonly IEmail_Service          _emailService;
         private readonly ITenants_Service        _tenants_Service;
-        private readonly IPaymentService         _paymentService;
+        private readonly IPayment_With_Strip_Service         _paymentService;
         public AuthController
         (
           IHttpClientFactory      httpClientFactory,
           IMapper                 mapper, 
           ILogger<AuthController> logger,
-          IAuthManager            authManager,
-          IPasswordReset_Service  passwordReset_Service,
+          IAuth_Manager_Service            authManager,
+          IPassword_Reset_Service  passwordReset_Service,
           IEmail_Service          emailService,
           ITenants_Service        tenants_Service,
-          IPaymentService         paymentService
+          IPayment_With_Strip_Service         paymentService
         )
         {
 

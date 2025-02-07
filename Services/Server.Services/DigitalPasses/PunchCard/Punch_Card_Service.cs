@@ -11,7 +11,7 @@ using Server.Configurations;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 
-namespace Server.Services.DigitalPasses
+namespace Server.Services
 {
     public class Punch_Card_Service : Base_Service<PunchCard>, IPunch_Card_Service
     {
@@ -26,7 +26,7 @@ namespace Server.Services.DigitalPasses
         (
             IApple_Passes_Service    applePasses_Service,
             ITransaction_No_Service  tn,
-            IUnitOfWork unitOfWork,
+            IUnit_Of_Work_Repo unitOfWork,
             IPunch_Card_Repo iRepo,
             IGet_Tenant_Id_Service contextAccessor
 

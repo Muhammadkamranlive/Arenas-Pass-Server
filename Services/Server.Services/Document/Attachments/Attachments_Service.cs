@@ -9,7 +9,7 @@ namespace Server.Services
     public class Attachments_Service:Base_Service<Attachments>, IAttachments_Service
     {
         private readonly IAttachments_Repo iRepo;
-        public Attachments_Service(IUnitOfWork unitOfWork, IAttachments_Repo _Repo) : base(unitOfWork, _Repo)
+        public Attachments_Service(IUnit_Of_Work_Repo unitOfWork, IAttachments_Repo _Repo) : base(unitOfWork, _Repo)
         {
             iRepo = _Repo;
         }

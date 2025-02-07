@@ -14,20 +14,20 @@ namespace Server.Services
         private readonly IGift_Card_Service      gift_Card_Service;
         private readonly ITransaction_No_Service transaction_No_Service;
         private readonly IGet_Tenant_Id_Service  tenant_Id_Service;
-        private readonly IAuthManager            auth_Manager_Service;
+        private readonly IAuth_Manager_Service            auth_Manager_Service;
         private readonly IValidate_Txn_Service   vtService;
-        private readonly IUserVault_Service      user_vault_Service;
+        private readonly IUser_Vault_Service      user_vault_Service;
         private readonly ITenants_Service        tenants_Service;
         public Account_Transaction_Service
         (
-            IUnitOfWork               unitOfWork, 
+            IUnit_Of_Work_Repo               unitOfWork, 
             IAccount_Transaction_Repo genericRepository,
             IGift_Card_Service        gift_Card,
             ITransaction_No_Service   transaction_No,
             IGet_Tenant_Id_Service    get_Tenant_Id,
-            IAuthManager              authManager,
+            IAuth_Manager_Service              authManager,
             IValidate_Txn_Service     vt,
-            IUserVault_Service        user_vault,
+            IUser_Vault_Service        user_vault,
             ITenants_Service           tenants
         ) : base(unitOfWork, genericRepository)
         {

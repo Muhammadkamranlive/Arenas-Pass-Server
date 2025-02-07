@@ -9,7 +9,7 @@ using System.Collections.Generic;
 
 namespace Server.Repository
 {
-    public class Payment_Plans_Repo : Repo<PaymentPlan>, IPayment_Plans_Repo
+    public class Payment_Plans_Repo : Repo<Payment_Plans>, IPayment_Plans_Repo
     {
         public Payment_Plans_Repo(ERPDb coursecontext, IHttpContextAccessor httpContextAccessor) : base(coursecontext, httpContextAccessor)
         {

@@ -11,7 +11,7 @@ namespace API.API.TenantInformation
     {
         #region Constructor
         private readonly INotifications_Service       _notifyService;
-        private readonly IAuthManager                 _authManager;
+        private readonly IAuth_Manager_Service                 _authManager;
         private readonly ITenants_Service             _tenantService;
         private readonly IAccount_Balance_Service     _accountBalanceService;
         private readonly IAccount_Transaction_Service _accountTransactionService;
@@ -19,14 +19,14 @@ namespace API.API.TenantInformation
         private readonly ITenant_License_Keys_Service _License_Keys_Service;
         private readonly ITenant_Api_Hits_Service     _tenant_Api_Hits_Service;
         private readonly ITenant_Key_History_Service  _tenant_Key_History_Service;
-        private readonly ICaseManagment_Service       _caseManageService;
-        private readonly ICaseComments_Service        _casecommentService;
+        private readonly ICase_Managment_Service       _caseManageService;
+        private readonly ICase_Comments_Service        _casecommentService;
         private readonly ILog_Service                 _log_Servie;
         private readonly IWallet_Pass_Service        _Pass_Service;
         public TenantInformationController
         (
             INotifications_Service       no_Service, 
-            IAuthManager                 authManager,
+            IAuth_Manager_Service                 authManager,
             ITenants_Service             tenant,
             IAccount_Balance_Service     account_Balance,
             IAccount_Transaction_Service accountxn,
@@ -34,8 +34,8 @@ namespace API.API.TenantInformation
             ITenant_License_Keys_Service tenant_Keys,
             ITenant_Api_Hits_Service     tenant_Api_Hits,
             ITenant_Key_History_Service  tenant_Key_History,
-            ICaseManagment_Service       caseManagment,
-            ICaseComments_Service        caseComments,
+            ICase_Managment_Service       caseManagment,
+            ICase_Comments_Service        caseComments,
             ILog_Service                 log,
             IWallet_Pass_Service         wallet_Pass
         )

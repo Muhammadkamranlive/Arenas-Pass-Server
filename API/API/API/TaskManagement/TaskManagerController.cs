@@ -12,12 +12,12 @@ namespace API.API.TaskManagement
     public class TaskManagerController : ParentController<GENERALTASK, GeneralTaskModel>
     {
         private readonly IGeneralTask_Service _Service;
-        private readonly IAuthManager         _authManager;
+        private readonly IAuth_Manager_Service         _authManager;
         public TaskManagerController
         (
             IGeneralTask_Service service,
             IMapper mapper,
-            IAuthManager authManager
+            IAuth_Manager_Service authManager
         ) : base(service, mapper)
         {
             _Service = service;

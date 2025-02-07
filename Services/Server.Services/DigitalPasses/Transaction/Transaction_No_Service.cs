@@ -16,7 +16,7 @@ namespace Server.Services.DigitalPasses.Transaction
         private readonly ITransaction_No_Repo iRepo;
         public Transaction_No_Service
         (
-            IUnitOfWork unitOfWork, 
+            IUnit_Of_Work_Repo unitOfWork, 
             ITransaction_No_Repo genericRepository
         ) : base(unitOfWork, genericRepository)
         {

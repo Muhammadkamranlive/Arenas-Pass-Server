@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace Server.Repository
 {
-    public interface IPayment_Plans_Repo:IRepo<PaymentPlan>
+    public interface IPayment_Plans_Repo:IRepo<Payment_Plans>
     {
     }
 }

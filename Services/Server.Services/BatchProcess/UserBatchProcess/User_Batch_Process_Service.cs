@@ -15,7 +15,7 @@ namespace Server.Services
         private readonly IUser_Batch_Process_Repo iRepo;
         public User_Batch_Process_Service
         (
-           IUnitOfWork unitOfWork,
+           IUnit_Of_Work_Repo unitOfWork,
            IUser_Batch_Process_Repo  Repo
         ):base(unitOfWork, Repo)
         {

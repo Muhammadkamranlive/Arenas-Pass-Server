@@ -11,16 +11,16 @@ namespace API.API.Zoom
   [ApiController]
   public class MeetingsController : ParentController<ZoomMeetings, ZooMeetingModel>
   {
-    private readonly IZoomService _zoomService;
-    private readonly IZoomMeeting_Service _zoomMeetingService;
-    private readonly IAuthManager _authManager;
+    private readonly IZoom_Service _zoomService;
+    private readonly IZoom_Meeting_Service _zoomMeetingService;
+    private readonly IAuth_Manager_Service _authManager;
     private readonly IEmail_Service _emailService;
     public MeetingsController
     (
-      IAuthManager authManager,
-      IZoomMeeting_Service service,
+      IAuth_Manager_Service authManager,
+      IZoom_Meeting_Service service,
       IMapper mapper,
-      IZoomService zoomService,
+      IZoom_Service zoomService,
       IEmail_Service emailService
 
 

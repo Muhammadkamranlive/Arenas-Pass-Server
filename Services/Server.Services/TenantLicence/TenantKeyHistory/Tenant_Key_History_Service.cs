@@ -16,7 +16,7 @@ namespace Server.Services
         private readonly ITenant_Key_History_Repo iRepo;
         public Tenant_Key_History_Service
         (
-            IUnitOfWork unitOfWork, ITenant_Key_History_Repo genericRepository
+            IUnit_Of_Work_Repo unitOfWork, ITenant_Key_History_Repo genericRepository
         ) : base(unitOfWork, genericRepository)
         {
             iRepo = genericRepository;

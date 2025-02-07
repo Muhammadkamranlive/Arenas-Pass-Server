@@ -7,7 +7,7 @@ namespace Server.Services
 {
     public class JobExperience_Service:Base_Service<JobExperience>, IJobExperience_Service
     {
-        public JobExperience_Service(IUnitOfWork unitOfWork, IJobExperience_Repo _Repo) : base(unitOfWork, _Repo)
+        public JobExperience_Service(IUnit_Of_Work_Repo unitOfWork, IJob_Experience_Repo _Repo) : base(unitOfWork, _Repo)
         {
 
         }

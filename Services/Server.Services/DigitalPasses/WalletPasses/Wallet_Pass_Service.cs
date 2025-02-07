@@ -17,8 +17,8 @@ namespace Server.Services.DigitalPasses.WalletPasses
         private readonly ERPDb _dbt;
         public Wallet_Pass_Service
         (
-            IUnitOfWork unitOfWork, 
-            IWallet_Passes_Repo genericRepository,
+            IUnit_Of_Work_Repo unitOfWork, 
+            IWallet_Pass_Repo genericRepository,
             ERPDb eRPDb
          ) : base(unitOfWork, genericRepository)
         {

@@ -26,7 +26,7 @@ namespace Server.Services
         private readonly IGet_Tenant_Id_Service       _Tenant_Id_Service;
         private readonly ERPDb                       _context;
         public Send_Pass_Customer_Service
-        (   IUnitOfWork                   unitOfWork,
+        (   IUnit_Of_Work_Repo                   unitOfWork,
             IPass_Transmission_Repo       genericRepository,
             IWallet_Pass_Service          wallet_Pass,
             IEmail_Service                email,

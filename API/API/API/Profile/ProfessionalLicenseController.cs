@@ -11,13 +11,13 @@ namespace API.API.Profile
     [ApiController]
     public class ProfessionalLicenseController : ParentController<ProfessionalLicense,ProfessionalLicenseModel>
     {
-        private readonly IProfessionalLicense_Service _Service;
-        private readonly IAuthManager                _authManager;
+        private readonly IProfessional_License_Service _Service;
+        private readonly IAuth_Manager_Service                _authManager;
         public ProfessionalLicenseController
         (
-            IProfessionalLicense_Service service,
+            IProfessional_License_Service service,
             IMapper                      mapper,
-            IAuthManager                 authManager
+            IAuth_Manager_Service                 authManager
         ) : base(service, mapper)
         {
             _Service = service;

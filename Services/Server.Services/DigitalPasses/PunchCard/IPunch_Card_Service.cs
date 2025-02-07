@@ -7,7 +7,7 @@ using Server.Models;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 
-namespace Server.Services.DigitalPasses
+namespace Server.Services
 {
     public interface IPunch_Card_Service :IBase_Service<PunchCard>
     {

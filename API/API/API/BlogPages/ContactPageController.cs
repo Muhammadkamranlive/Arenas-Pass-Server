@@ -11,9 +11,9 @@ namespace API.BlogPages
     [ApiController]
     public class ContactPageController : ParentController<ContactPage, ContactModel>
     {
-        private readonly IContactPage_Service _pagesService;
+        private readonly IContact_Page_Service _pagesService;
         private readonly IMapper              _mapper;
-        public ContactPageController(IContactPage_Service service, IMapper mapper) : base(service, mapper)
+        public ContactPageController(IContact_Page_Service service, IMapper mapper) : base(service, mapper)
         {
             _pagesService = service;
             _mapper       = mapper;

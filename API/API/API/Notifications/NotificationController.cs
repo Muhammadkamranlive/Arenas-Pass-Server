@@ -12,12 +12,12 @@ namespace API.API.Notifications
     public class NotificationController : ParentController<NOTIFICATIONS, NotificationsModel>
     {
         private readonly INotifications_Service _Service;
-        private readonly IAuthManager           _authManager;
+        private readonly IAuth_Manager_Service           _authManager;
         public NotificationController
         (
             INotifications_Service service,
             IMapper mapper,
-            IAuthManager authManager
+            IAuth_Manager_Service authManager
         ) : base(service, mapper)
         {
             _Service = service;

@@ -11,14 +11,14 @@ namespace API.BlogPages
     [ApiController]
     public class PageController : ParentController<WebPages, WebPagesModel>
     {
-        private readonly IWebPage_Service _Service;
-        private readonly IAuthManager     _authManager;
+        private readonly IWeb_Page_Service _Service;
+        private readonly IAuth_Manager_Service     _authManager;
         private readonly IMapper          _mapper;
         public PageController
         (
-            IWebPage_Service service,
+            IWeb_Page_Service service,
             IMapper mapper,
-            IAuthManager authManager
+            IAuth_Manager_Service authManager
         ) : base(service, mapper)
         {
             _Service     = service;

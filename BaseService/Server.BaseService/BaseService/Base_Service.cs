@@ -11,9 +11,9 @@ namespace Server.BaseService
 {
     public class Base_Service<T> : IBase_Service<T> where T : class
     {
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly IUnit_Of_Work_Repo _unitOfWork;
         private readonly IRepo<T> _genericRepository;
-        public Base_Service(IUnitOfWork unitOfWork, IRepo<T> genericRepository)
+        public Base_Service(IUnit_Of_Work_Repo unitOfWork, IRepo<T> genericRepository)
         {
             _unitOfWork        = unitOfWork;
             _genericRepository = genericRepository;

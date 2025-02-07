@@ -20,7 +20,7 @@ namespace Server.Services
         (
             IApple_Passes_Service    applePasses_Service,
             ITransaction_No_Service  tn,
-            IUnitOfWork              unitOfWork,
+            IUnit_Of_Work_Repo              unitOfWork,
             IVoucher_Repo            iRepo,
             IGet_Tenant_Id_Service   contextAccessor
 
