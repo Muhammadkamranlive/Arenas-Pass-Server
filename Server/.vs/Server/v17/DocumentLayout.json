@@ -1,29 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "E:\\work\\ANI Digital Passes\\Server\\Server\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{9DAF6FC5-262D-4577-80F6-74B223816E72}|..\\Repository\\Server.Repository\\Server.Repository.csproj|e:\\work\\ani digital passes\\server\\repository\\server.repository\\logs\\log_repo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8C6B9FE8-C9FE-4379-80C7-480F401AB17E}|..\\Services\\Server.Services\\Server.Services.csproj|e:\\work\\ani digital passes\\server\\services\\server.services\\logs\\log_service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D21E34CE-2D10-44E4-8ABB-F3AAB178F306}|..\\API\\API\\API.csproj|e:\\work\\ani digital passes\\server\\api\\api\\api\\logs\\adminlogscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D21E34CE-2D10-44E4-8ABB-F3AAB178F306}|..\\API\\API\\API.csproj|e:\\work\\ani digital passes\\server\\api\\api\\extensionmethods\\serviceregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D21E34CE-2D10-44E4-8ABB-F3AAB178F306}|..\\API\\API\\API.csproj|e:\\work\\ani digital passes\\server\\api\\api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D21E34CE-2D10-44E4-8ABB-F3AAB178F306}|..\\API\\API\\API.csproj|e:\\work\\ani digital passes\\server\\api\\api\\api\\payments\\billingmodelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D21E34CE-2D10-44E4-8ABB-F3AAB178F306}|..\\API\\API\\API.csproj|e:\\work\\ani digital passes\\server\\api\\api\\api\\payments\\paymentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -31,102 +9,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
               "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Log_Repo.cs",
-              "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Repository\\Server.Repository\\Logs\\Log_Repo.cs",
-              "RelativeDocumentMoniker": "..\\Repository\\Server.Repository\\Logs\\Log_Repo.cs",
-              "ToolTip": "E:\\work\\ANI Digital Passes\\Server\\Repository\\Server.Repository\\Logs\\Log_Repo.cs",
-              "RelativeToolTip": "..\\Repository\\Server.Repository\\Logs\\Log_Repo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-05T12:12:38.447Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Log_Service.cs",
-              "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\Logs\\Log_Service.cs",
-              "RelativeDocumentMoniker": "..\\Services\\Server.Services\\Logs\\Log_Service.cs",
-              "ToolTip": "E:\\work\\ANI Digital Passes\\Server\\Services\\Server.Services\\Logs\\Log_Service.cs",
-              "RelativeToolTip": "..\\Services\\Server.Services\\Logs\\Log_Service.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-05T12:09:50.172Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AdminLogsController.cs",
-              "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\API\\API\\API\\Logs\\AdminLogsController.cs",
-              "RelativeDocumentMoniker": "..\\API\\API\\API\\Logs\\AdminLogsController.cs",
-              "ToolTip": "E:\\work\\ANI Digital Passes\\Server\\API\\API\\API\\Logs\\AdminLogsController.cs",
-              "RelativeToolTip": "..\\API\\API\\API\\Logs\\AdminLogsController.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAUwAsAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-05T11:57:24.27Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ServiceRegistration.cs",
-              "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\API\\API\\ExtensionMethods\\ServiceRegistration.cs",
-              "RelativeDocumentMoniker": "..\\API\\API\\ExtensionMethods\\ServiceRegistration.cs",
-              "ToolTip": "E:\\work\\ANI Digital Passes\\Server\\API\\API\\ExtensionMethods\\ServiceRegistration.cs",
-              "RelativeToolTip": "..\\API\\API\\ExtensionMethods\\ServiceRegistration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-05T11:54:02.289Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Program.cs",
-              "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\API\\API\\Program.cs",
-              "RelativeDocumentMoniker": "..\\API\\API\\Program.cs",
-              "ToolTip": "E:\\work\\ANI Digital Passes\\Server\\API\\API\\Program.cs",
-              "RelativeToolTip": "..\\API\\API\\Program.cs",
-              "ViewState": "AgIAAHoAAAAAAAAAAAAWwI0AAABSAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-05T11:50:04.155Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "BillingModelController.cs",
-              "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\API\\API\\API\\Payments\\BillingModelController.cs",
-              "RelativeDocumentMoniker": "..\\API\\API\\API\\Payments\\BillingModelController.cs",
-              "ToolTip": "E:\\work\\ANI Digital Passes\\Server\\API\\API\\API\\Payments\\BillingModelController.cs",
-              "RelativeToolTip": "..\\API\\API\\API\\Payments\\BillingModelController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-05T11:49:54.491Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "PaymentsController.cs",
-              "DocumentMoniker": "E:\\work\\ANI Digital Passes\\Server\\API\\API\\API\\Payments\\PaymentsController.cs",
-              "RelativeDocumentMoniker": "..\\API\\API\\API\\Payments\\PaymentsController.cs",
-              "ToolTip": "E:\\work\\ANI Digital Passes\\Server\\API\\API\\API\\Payments\\PaymentsController.cs",
-              "RelativeToolTip": "..\\API\\API\\API\\Payments\\PaymentsController.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAkwCAAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-05T08:50:40.359Z",
-              "EditorCaption": ""
             }
           ]
         }

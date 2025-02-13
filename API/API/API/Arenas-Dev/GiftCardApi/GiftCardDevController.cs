@@ -14,7 +14,7 @@ namespace API.API.Arenas_Dev.GiftCardApi
         private readonly ITenant_Api_Hits_Service     tahService;
         private readonly ITenant_License_Keys_Service tlkService;
         private readonly ERPDb                        dbt;
-        private readonly IGift_Card_Service           giftCardService;
+        private readonly IGift_Card_Service           _giftCardService;
         public GiftCardDevController
         (
             ITenant_Api_Hits_Service tah, 
@@ -25,7 +25,7 @@ namespace API.API.Arenas_Dev.GiftCardApi
         {
             tahService      = tah;
             tlkService      = tlk;
-            giftCardService = gift;
+            _giftCardService = gift;
             dbt             = db;
         }
 
@@ -65,7 +65,7 @@ namespace API.API.Arenas_Dev.GiftCardApi
                 }
 
                 // If valid, log the API hit and return gift cards
-                var gifts = await giftCardService.Find(x=>x.TenantId==license.TenantId);
+                var gifts = await _giftCardService.Find(x=>x.TenantId==license.TenantId);
                 if (gifts.Count != 0)
                 {
                     TenantApiHitsHistory obj = new TenantApiHitsHistory
@@ -132,7 +132,7 @@ namespace API.API.Arenas_Dev.GiftCardApi
                 }
 
                 // If valid, log the API hit and return gift cards
-                var gifts  = await giftCardService.FindOne(x=>x.TenantId==license.TenantId && x.Serial_Number==SerialNo);
+                var gifts  = await _giftCardService.FindOne(x=>x.TenantId==license.TenantId && x.Serial_Number==SerialNo);
                 if (gifts!=null)
                 {
                     TenantApiHitsHistory obj = new TenantApiHitsHistory
