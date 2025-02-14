@@ -25,9 +25,7 @@ namespace API.API.Payments
         }
 
 
-        #region MyRegion
-
-        
+        #region Features
         /// <summary>
         /// add payment features 
         /// </summary>
@@ -156,9 +154,138 @@ namespace API.API.Payments
             }
         }
         #endregion
-        
-        
-        
+
+        #region Tenant Charges
+        /// <summary>
+        /// add payment features 
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("AddPaymentFeatures")]
+        public async Task<dynamic> AddTenantCharges(Payment_Feature_Model model)
+        {
+            try
+            {
+                ResponseModel<string> response = await _Tenant_Charges_Service.AddFeatures(model);
+                if (response.Status_Code != "200")
+                {
+                    return BadRequest(response);
+                }
+                else
+                {
+                    return Ok(response);
+                }
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e.Message);
+            }
+        }
+
+
+        /// <summary>
+        /// udate payment features 
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        [HttpPut]
+        [Route("UpdatePaymentFeatures")]
+        public async Task<dynamic> UpdatePaymentFeatures(Payment_Feature_Model model)
+        {
+            try
+            {
+                ResponseModel<string> response = await _Payment_Features_Service.UpdateFeatures(model);
+                if (response.Status_Code != "200")
+                {
+                    return BadRequest(response);
+                }
+                else
+                {
+                    return Ok(response);
+                }
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e.Message);
+            }
+        }
+
+        /// <summary>
+        /// udate payment features 
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        [HttpPut]
+        [Route("DeletePaymentFeatures")]
+        public async Task<dynamic> DeletePaymentFeatures(int Id)
+        {
+            try
+            {
+                await _Payment_Features_Service.Delete(Id);
+                int count = await _Payment_Features_Service.CompleteAync();
+                ResponseModel<string> response = new ResponseModel<string>();
+                if (count == 0)
+                {
+                    response.Status_Code = "400";
+                    response.Description = "Payment features not found";
+                }
+                else
+                {
+                    response.Status_Code = "200";
+                    response.Description = "Payment features successfully deleted";
+                }
+                return Ok(response);
+
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e.Message);
+            }
+        }
+        /// <summary>
+        /// udate payment features 
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        [HttpPut]
+        [Route("GetPaymentFeaturesById")]
+        public async Task<dynamic> GetPaymentFeaturesById(int Id)
+        {
+            try
+            {
+                var paymentfeatures = await _Payment_Features_Service.FindOne(x => x.Id == Id);
+                return Ok(paymentfeatures);
+
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e.Message);
+            }
+        }
+        /// <summary>
+        /// udate payment features 
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        [HttpPut]
+        [Route("GetPaymentFeatures")]
+        public async Task<dynamic> GetPaymentFeatures(int paymentPlanId)
+        {
+            try
+            {
+                var paymentfeatures = await _Payment_Features_Service.Find(x => x.PaymentPlanId == paymentPlanId);
+                return Ok(paymentfeatures);
+
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e.Message);
+            }
+        }
+        #endregion
+
+
         #region Payment Plans
 
         /// <summary>

@@ -1,47 +1,56 @@
 {
   "format": 1,
   "restore": {
-    "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/API/API/API.csproj": {}
+    "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\API\\API\\API.csproj": {}
   },
   "projects": {
-    "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/API/API/API.csproj": {
+    "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\API\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/API/API/API.csproj",
+        "projectUniqueName": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\API\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/API/API/API.csproj",
-        "packagesPath": "/Users/kamran/.nuget/packages/",
-        "outputPath": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/API/API/obj/",
+        "projectPath": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\API\\API\\API.csproj",
+        "packagesPath": "C:\\Users\\muhammadkamran\\.nuget\\packages\\",
+        "outputPath": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\API\\API\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "/Users/kamran/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\muhammadkamran\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "/usr/local/share/dotnet/library-packs": {},
-          "/usr/local/share/dotnet/sdk/7.0.317/Sdks/Microsoft.NET.Sdk.Web/library-packs": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "D:\\DevOps\\FWBLMS\\HalanTransferFeature\\Premium\\Server\\Packages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/BaseService/Server.BaseService/Server.BaseService.csproj": {
-                "projectPath": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/BaseService/Server.BaseService/Server.BaseService.csproj"
+              "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\BaseService\\Server.BaseService\\Server.BaseService.csproj": {
+                "projectPath": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\BaseService\\Server.BaseService\\Server.BaseService.csproj"
               },
-              "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Mapper/Server.Mapper/Server.Mapper.csproj": {
-                "projectPath": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Mapper/Server.Mapper/Server.Mapper.csproj"
+              "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Mapper\\Server.Mapper\\Server.Mapper.csproj": {
+                "projectPath": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Mapper\\Server.Mapper\\Server.Mapper.csproj"
               },
-              "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Middlewares/Server.Middlewares/Server.Middlewares.csproj": {
-                "projectPath": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Middlewares/Server.Middlewares/Server.Middlewares.csproj"
+              "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Middlewares\\Server.Middlewares\\Server.Middlewares.csproj": {
+                "projectPath": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Middlewares\\Server.Middlewares\\Server.Middlewares.csproj"
               },
-              "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Models/Server.Models/Server.Models.csproj": {
-                "projectPath": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Models/Server.Models/Server.Models.csproj"
+              "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Models\\Server.Models\\Server.Models.csproj": {
+                "projectPath": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Models\\Server.Models\\Server.Models.csproj"
               },
-              "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Services/Server.Services/Server.Services.csproj": {
-                "projectPath": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Services/Server.Services/Server.Services.csproj"
+              "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Services\\Server.Services\\Server.Services.csproj": {
+                "projectPath": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Services\\Server.Services\\Server.Services.csproj"
               }
             }
           }
@@ -129,15 +138,19 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.31, 6.0.31]"
+              "version": "[6.0.36, 6.0.36]"
             },
             {
-              "name": "Microsoft.NETCore.App.Host.osx-x64",
-              "version": "[6.0.31, 6.0.31]"
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[6.0.36, 6.0.36]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.31, 6.0.31]"
+              "version": "[6.0.36, 6.0.36]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.36, 6.0.36]"
             }
           ],
           "frameworkReferences": {
@@ -148,38 +161,48 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.317/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.308\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/BaseService/Server.BaseService/Server.BaseService.csproj": {
+    "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\BaseService\\Server.BaseService\\Server.BaseService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/BaseService/Server.BaseService/Server.BaseService.csproj",
+        "projectUniqueName": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\BaseService\\Server.BaseService\\Server.BaseService.csproj",
         "projectName": "Server.BaseService",
-        "projectPath": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/BaseService/Server.BaseService/Server.BaseService.csproj",
-        "packagesPath": "/Users/kamran/.nuget/packages/",
-        "outputPath": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/BaseService/Server.BaseService/obj/",
+        "projectPath": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\BaseService\\Server.BaseService\\Server.BaseService.csproj",
+        "packagesPath": "C:\\Users\\muhammadkamran\\.nuget\\packages\\",
+        "outputPath": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\BaseService\\Server.BaseService\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "/Users/kamran/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\muhammadkamran\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "/usr/local/share/dotnet/library-packs": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "D:\\DevOps\\FWBLMS\\HalanTransferFeature\\Premium\\Server\\Packages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Models/Server.Models/Server.Models.csproj": {
-                "projectPath": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Models/Server.Models/Server.Models.csproj"
+              "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Models\\Server.Models\\Server.Models.csproj": {
+                "projectPath": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Models\\Server.Models\\Server.Models.csproj"
               },
-              "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/UOW/Server.UOW/Server.UOW.csproj": {
-                "projectPath": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/UOW/Server.UOW/Server.UOW.csproj"
+              "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\UOW\\Server.UOW\\Server.UOW.csproj": {
+                "projectPath": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\UOW\\Server.UOW\\Server.UOW.csproj"
               }
             }
           }
@@ -217,11 +240,15 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.31, 6.0.31]"
+              "version": "[6.0.36, 6.0.36]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.31, 6.0.31]"
+              "version": "[6.0.36, 6.0.36]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.36, 6.0.36]"
             }
           ],
           "frameworkReferences": {
@@ -229,35 +256,45 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.317/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.308\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Core/Server.Core/Server.Core.csproj": {
+    "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Core\\Server.Core\\Server.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Core/Server.Core/Server.Core.csproj",
+        "projectUniqueName": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Core\\Server.Core\\Server.Core.csproj",
         "projectName": "Server.Core",
-        "projectPath": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Core/Server.Core/Server.Core.csproj",
-        "packagesPath": "/Users/kamran/.nuget/packages/",
-        "outputPath": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Core/Server.Core/obj/",
+        "projectPath": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Core\\Server.Core\\Server.Core.csproj",
+        "packagesPath": "C:\\Users\\muhammadkamran\\.nuget\\packages\\",
+        "outputPath": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Core\\Server.Core\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "/Users/kamran/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\muhammadkamran\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "/usr/local/share/dotnet/library-packs": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "D:\\DevOps\\FWBLMS\\HalanTransferFeature\\Premium\\Server\\Packages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Domain/Server.Domain/Server.Domain.csproj": {
-                "projectPath": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Domain/Server.Domain/Server.Domain.csproj"
+              "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Domain\\Server.Domain\\Server.Domain.csproj": {
+                "projectPath": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Domain\\Server.Domain\\Server.Domain.csproj"
               }
             }
           }
@@ -337,11 +374,15 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.31, 6.0.31]"
+              "version": "[6.0.36, 6.0.36]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.31, 6.0.31]"
+              "version": "[6.0.36, 6.0.36]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.36, 6.0.36]"
             }
           ],
           "frameworkReferences": {
@@ -349,35 +390,45 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.317/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.308\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Domain/Server.Domain/Server.Domain.csproj": {
+    "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Domain\\Server.Domain\\Server.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Domain/Server.Domain/Server.Domain.csproj",
+        "projectUniqueName": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Domain\\Server.Domain\\Server.Domain.csproj",
         "projectName": "Server.Domain",
-        "projectPath": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Domain/Server.Domain/Server.Domain.csproj",
-        "packagesPath": "/Users/kamran/.nuget/packages/",
-        "outputPath": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Domain/Server.Domain/obj/",
+        "projectPath": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Domain\\Server.Domain\\Server.Domain.csproj",
+        "packagesPath": "C:\\Users\\muhammadkamran\\.nuget\\packages\\",
+        "outputPath": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Domain\\Server.Domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "/Users/kamran/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\muhammadkamran\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "/usr/local/share/dotnet/library-packs": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "D:\\DevOps\\FWBLMS\\HalanTransferFeature\\Premium\\Server\\Packages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Server/Server.Configurations/Server.Configurations.csproj": {
-                "projectPath": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Server/Server.Configurations/Server.Configurations.csproj"
+              "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Server\\Server.Configurations\\Server.Configurations.csproj": {
+                "projectPath": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Server\\Server.Configurations\\Server.Configurations.csproj"
               }
             }
           }
@@ -431,11 +482,15 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.31, 6.0.31]"
+              "version": "[6.0.36, 6.0.36]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.31, 6.0.31]"
+              "version": "[6.0.36, 6.0.36]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.36, 6.0.36]"
             }
           ],
           "frameworkReferences": {
@@ -443,38 +498,48 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.317/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.308\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Mapper/Server.Mapper/Server.Mapper.csproj": {
+    "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Mapper\\Server.Mapper\\Server.Mapper.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Mapper/Server.Mapper/Server.Mapper.csproj",
+        "projectUniqueName": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Mapper\\Server.Mapper\\Server.Mapper.csproj",
         "projectName": "Server.Mapper",
-        "projectPath": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Mapper/Server.Mapper/Server.Mapper.csproj",
-        "packagesPath": "/Users/kamran/.nuget/packages/",
-        "outputPath": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Mapper/Server.Mapper/obj/",
+        "projectPath": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Mapper\\Server.Mapper\\Server.Mapper.csproj",
+        "packagesPath": "C:\\Users\\muhammadkamran\\.nuget\\packages\\",
+        "outputPath": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Mapper\\Server.Mapper\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "/Users/kamran/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\muhammadkamran\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "/usr/local/share/dotnet/library-packs": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "D:\\DevOps\\FWBLMS\\HalanTransferFeature\\Premium\\Server\\Packages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Domain/Server.Domain/Server.Domain.csproj": {
-                "projectPath": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Domain/Server.Domain/Server.Domain.csproj"
+              "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Domain\\Server.Domain\\Server.Domain.csproj": {
+                "projectPath": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Domain\\Server.Domain\\Server.Domain.csproj"
               },
-              "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Models/Server.Models/Server.Models.csproj": {
-                "projectPath": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Models/Server.Models/Server.Models.csproj"
+              "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Models\\Server.Models\\Server.Models.csproj": {
+                "projectPath": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Models\\Server.Models\\Server.Models.csproj"
               }
             }
           }
@@ -516,11 +581,15 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.31, 6.0.31]"
+              "version": "[6.0.36, 6.0.36]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.31, 6.0.31]"
+              "version": "[6.0.36, 6.0.36]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.36, 6.0.36]"
             }
           ],
           "frameworkReferences": {
@@ -528,27 +597,37 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.317/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.308\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Middlewares/Server.Middlewares/Server.Middlewares.csproj": {
+    "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Middlewares\\Server.Middlewares\\Server.Middlewares.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Middlewares/Server.Middlewares/Server.Middlewares.csproj",
+        "projectUniqueName": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Middlewares\\Server.Middlewares\\Server.Middlewares.csproj",
         "projectName": "Server.Middlewares",
-        "projectPath": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Middlewares/Server.Middlewares/Server.Middlewares.csproj",
-        "packagesPath": "/Users/kamran/.nuget/packages/",
-        "outputPath": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Middlewares/Server.Middlewares/obj/",
+        "projectPath": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Middlewares\\Server.Middlewares\\Server.Middlewares.csproj",
+        "packagesPath": "C:\\Users\\muhammadkamran\\.nuget\\packages\\",
+        "outputPath": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Middlewares\\Server.Middlewares\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "/Users/kamran/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\muhammadkamran\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "/usr/local/share/dotnet/library-packs": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "D:\\DevOps\\FWBLMS\\HalanTransferFeature\\Premium\\Server\\Packages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -594,11 +673,15 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.31, 6.0.31]"
+              "version": "[6.0.36, 6.0.36]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.31, 6.0.31]"
+              "version": "[6.0.36, 6.0.36]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.36, 6.0.36]"
             }
           ],
           "frameworkReferences": {
@@ -606,27 +689,37 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.317/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.308\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Models/Server.Models/Server.Models.csproj": {
+    "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Models\\Server.Models\\Server.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Models/Server.Models/Server.Models.csproj",
+        "projectUniqueName": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Models\\Server.Models\\Server.Models.csproj",
         "projectName": "Server.Models",
-        "projectPath": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Models/Server.Models/Server.Models.csproj",
-        "packagesPath": "/Users/kamran/.nuget/packages/",
-        "outputPath": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Models/Server.Models/obj/",
+        "projectPath": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Models\\Server.Models\\Server.Models.csproj",
+        "packagesPath": "C:\\Users\\muhammadkamran\\.nuget\\packages\\",
+        "outputPath": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Models\\Server.Models\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "/Users/kamran/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\muhammadkamran\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "/usr/local/share/dotnet/library-packs": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "D:\\DevOps\\FWBLMS\\HalanTransferFeature\\Premium\\Server\\Packages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -668,11 +761,15 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.31, 6.0.31]"
+              "version": "[6.0.36, 6.0.36]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.31, 6.0.31]"
+              "version": "[6.0.36, 6.0.36]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.36, 6.0.36]"
             }
           ],
           "frameworkReferences": {
@@ -680,38 +777,48 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.317/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.308\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Repository/Server.Repository/Server.Repository.csproj": {
+    "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Repository\\Server.Repository\\Server.Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Repository/Server.Repository/Server.Repository.csproj",
+        "projectUniqueName": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Repository\\Server.Repository\\Server.Repository.csproj",
         "projectName": "Server.Repository",
-        "projectPath": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Repository/Server.Repository/Server.Repository.csproj",
-        "packagesPath": "/Users/kamran/.nuget/packages/",
-        "outputPath": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Repository/Server.Repository/obj/",
+        "projectPath": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Repository\\Server.Repository\\Server.Repository.csproj",
+        "packagesPath": "C:\\Users\\muhammadkamran\\.nuget\\packages\\",
+        "outputPath": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Repository\\Server.Repository\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "/Users/kamran/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\muhammadkamran\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "/usr/local/share/dotnet/library-packs": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "D:\\DevOps\\FWBLMS\\HalanTransferFeature\\Premium\\Server\\Packages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Core/Server.Core/Server.Core.csproj": {
-                "projectPath": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Core/Server.Core/Server.Core.csproj"
+              "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Core\\Server.Core\\Server.Core.csproj": {
+                "projectPath": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Core\\Server.Core\\Server.Core.csproj"
               },
-              "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Domain/Server.Domain/Server.Domain.csproj": {
-                "projectPath": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Domain/Server.Domain/Server.Domain.csproj"
+              "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Domain\\Server.Domain\\Server.Domain.csproj": {
+                "projectPath": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Domain\\Server.Domain\\Server.Domain.csproj"
               }
             }
           }
@@ -749,11 +856,15 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.31, 6.0.31]"
+              "version": "[6.0.36, 6.0.36]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.31, 6.0.31]"
+              "version": "[6.0.36, 6.0.36]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.36, 6.0.36]"
             }
           ],
           "frameworkReferences": {
@@ -761,27 +872,37 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.317/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.308\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Server/Server.Configurations/Server.Configurations.csproj": {
+    "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Server\\Server.Configurations\\Server.Configurations.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Server/Server.Configurations/Server.Configurations.csproj",
+        "projectUniqueName": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Server\\Server.Configurations\\Server.Configurations.csproj",
         "projectName": "Server.Configurations",
-        "projectPath": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Server/Server.Configurations/Server.Configurations.csproj",
-        "packagesPath": "/Users/kamran/.nuget/packages/",
-        "outputPath": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Server/Server.Configurations/obj/",
+        "projectPath": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Server\\Server.Configurations\\Server.Configurations.csproj",
+        "packagesPath": "C:\\Users\\muhammadkamran\\.nuget\\packages\\",
+        "outputPath": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Server\\Server.Configurations\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "/Users/kamran/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\muhammadkamran\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "/usr/local/share/dotnet/library-packs": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "D:\\DevOps\\FWBLMS\\HalanTransferFeature\\Premium\\Server\\Packages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -813,11 +934,15 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.31, 6.0.31]"
+              "version": "[6.0.36, 6.0.36]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.31, 6.0.31]"
+              "version": "[6.0.36, 6.0.36]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.36, 6.0.36]"
             }
           ],
           "frameworkReferences": {
@@ -825,47 +950,57 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.317/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.308\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Services/Server.Services/Server.Services.csproj": {
+    "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Services\\Server.Services\\Server.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Services/Server.Services/Server.Services.csproj",
+        "projectUniqueName": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Services\\Server.Services\\Server.Services.csproj",
         "projectName": "Server.Services",
-        "projectPath": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Services/Server.Services/Server.Services.csproj",
-        "packagesPath": "/Users/kamran/.nuget/packages/",
-        "outputPath": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Services/Server.Services/obj/",
+        "projectPath": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Services\\Server.Services\\Server.Services.csproj",
+        "packagesPath": "C:\\Users\\muhammadkamran\\.nuget\\packages\\",
+        "outputPath": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Services\\Server.Services\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "/Users/kamran/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\muhammadkamran\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "/usr/local/share/dotnet/library-packs": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "D:\\DevOps\\FWBLMS\\HalanTransferFeature\\Premium\\Server\\Packages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/BaseService/Server.BaseService/Server.BaseService.csproj": {
-                "projectPath": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/BaseService/Server.BaseService/Server.BaseService.csproj"
+              "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\BaseService\\Server.BaseService\\Server.BaseService.csproj": {
+                "projectPath": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\BaseService\\Server.BaseService\\Server.BaseService.csproj"
               },
-              "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Domain/Server.Domain/Server.Domain.csproj": {
-                "projectPath": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Domain/Server.Domain/Server.Domain.csproj"
+              "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Domain\\Server.Domain\\Server.Domain.csproj": {
+                "projectPath": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Domain\\Server.Domain\\Server.Domain.csproj"
               },
-              "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Models/Server.Models/Server.Models.csproj": {
-                "projectPath": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Models/Server.Models/Server.Models.csproj"
+              "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Models\\Server.Models\\Server.Models.csproj": {
+                "projectPath": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Models\\Server.Models\\Server.Models.csproj"
               },
-              "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Server/Server.Configurations/Server.Configurations.csproj": {
-                "projectPath": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Server/Server.Configurations/Server.Configurations.csproj"
+              "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Server\\Server.Configurations\\Server.Configurations.csproj": {
+                "projectPath": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Server\\Server.Configurations\\Server.Configurations.csproj"
               },
-              "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/UOW/Server.UOW/Server.UOW.csproj": {
-                "projectPath": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/UOW/Server.UOW/Server.UOW.csproj"
+              "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\UOW\\Server.UOW\\Server.UOW.csproj": {
+                "projectPath": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\UOW\\Server.UOW\\Server.UOW.csproj"
               }
             }
           }
@@ -953,11 +1088,15 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.31, 6.0.31]"
+              "version": "[6.0.36, 6.0.36]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.31, 6.0.31]"
+              "version": "[6.0.36, 6.0.36]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.36, 6.0.36]"
             }
           ],
           "frameworkReferences": {
@@ -965,38 +1104,48 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.317/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.308\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/UOW/Server.UOW/Server.UOW.csproj": {
+    "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\UOW\\Server.UOW\\Server.UOW.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/UOW/Server.UOW/Server.UOW.csproj",
+        "projectUniqueName": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\UOW\\Server.UOW\\Server.UOW.csproj",
         "projectName": "Server.UOW",
-        "projectPath": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/UOW/Server.UOW/Server.UOW.csproj",
-        "packagesPath": "/Users/kamran/.nuget/packages/",
-        "outputPath": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/UOW/Server.UOW/obj/",
+        "projectPath": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\UOW\\Server.UOW\\Server.UOW.csproj",
+        "packagesPath": "C:\\Users\\muhammadkamran\\.nuget\\packages\\",
+        "outputPath": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\UOW\\Server.UOW\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "/Users/kamran/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\muhammadkamran\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "/usr/local/share/dotnet/library-packs": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "D:\\DevOps\\FWBLMS\\HalanTransferFeature\\Premium\\Server\\Packages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Core/Server.Core/Server.Core.csproj": {
-                "projectPath": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Core/Server.Core/Server.Core.csproj"
+              "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Core\\Server.Core\\Server.Core.csproj": {
+                "projectPath": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Core\\Server.Core\\Server.Core.csproj"
               },
-              "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Repository/Server.Repository/Server.Repository.csproj": {
-                "projectPath": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Repository/Server.Repository/Server.Repository.csproj"
+              "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Repository\\Server.Repository\\Server.Repository.csproj": {
+                "projectPath": "D:\\Kamran project\\Learning Porjects\\ARENA\\Arenas-Pass-Server\\Repository\\Server.Repository\\Server.Repository.csproj"
               }
             }
           }
@@ -1034,11 +1183,15 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.31, 6.0.31]"
+              "version": "[6.0.36, 6.0.36]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.31, 6.0.31]"
+              "version": "[6.0.36, 6.0.36]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.36, 6.0.36]"
             }
           ],
           "frameworkReferences": {
@@ -1046,7 +1199,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.317/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.308\\RuntimeIdentifierGraph.json"
         }
       }
     }
