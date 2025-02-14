@@ -57,7 +57,7 @@ namespace API.API.Payments
         
         
         /// <summary>
-        /// add payment features 
+        /// udate payment features 
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
@@ -76,6 +76,79 @@ namespace API.API.Payments
                 {
                     return Ok(response);
                 }
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e.Message);
+            }
+        }
+        
+        /// <summary>
+        /// udate payment features 
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        [HttpPut]
+        [Route("DeletePaymentFeatures")]
+        public async Task<dynamic> DeletePaymentFeatures(int Id)
+        {
+            try
+            {
+                await _Payment_Features_Service.Delete(Id);
+                int count  =  await _Payment_Features_Service.CompleteAync();
+                ResponseModel<string> response = new ResponseModel<string>();
+                if (count == 0)
+                {
+                    response.Status_Code = "400";
+                    response.Description = "Payment features not found";
+                }
+                else
+                {
+                    response.Status_Code = "200";
+                    response.Description = "Payment features successfully deleted";
+                }
+                return Ok(response);
+                
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e.Message);
+            }
+        }
+        /// <summary>
+        /// udate payment features 
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        [HttpPut]
+        [Route("GetPaymentFeaturesById")]
+        public async Task<dynamic> GetPaymentFeaturesById(int Id)
+        {
+            try
+            {
+                var paymentfeatures= await _Payment_Features_Service.FindOne(x=>x.Id==Id);
+                return Ok(paymentfeatures);
+                
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e.Message);
+            }
+        }
+        /// <summary>
+        /// udate payment features 
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        [HttpPut]
+        [Route("GetPaymentFeatures")]
+        public async Task<dynamic> GetPaymentFeatures(int paymentPlanId)
+        {
+            try
+            {
+                var paymentfeatures= await _Payment_Features_Service.Find(x => x.PaymentPlanId == paymentPlanId);
+                return Ok(paymentfeatures);
+                
             }
             catch (Exception e)
             {
