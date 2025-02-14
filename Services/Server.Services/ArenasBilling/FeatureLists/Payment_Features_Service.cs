@@ -70,7 +70,7 @@ namespace Server.Services
         public async Task<ResponseModel<string>> UpdateFeatures(Payment_Feature_Model model)
         {
            try
-            {
+           {
                 ResponseModel<string> response         = new ResponseModel<string>() { Status_Code = "200", Description = "Payment plan is added successfully" };
                 int tenantId                           = _tenant_id_service.GetTenantId();
                 string userId                          = _tenant_id_service.GetUserId();
@@ -103,12 +103,12 @@ namespace Server.Services
                 await CompleteAync();
                 return response;
 
-            }
-            catch (Exception ex)
-            {
+           }
+           catch (Exception ex)
+           {
                 await Rollback();
                 return CatchException(ex);
-            }
+           }
         }
     }
 }
