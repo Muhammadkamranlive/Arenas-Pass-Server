@@ -1,38 +1,57 @@
-D:\Freelance\ERP\Server\Mapper\Server.Mapper\bin\Debug\net6.0\Server.Mapper.deps.json
-D:\Freelance\ERP\Server\Mapper\Server.Mapper\bin\Debug\net6.0\Server.Mapper.dll
-D:\Freelance\ERP\Server\Mapper\Server.Mapper\bin\Debug\net6.0\Server.Mapper.pdb
-D:\Freelance\ERP\Server\Mapper\Server.Mapper\bin\Debug\net6.0\Server.Domain.dll
-D:\Freelance\ERP\Server\Mapper\Server.Mapper\bin\Debug\net6.0\Server.Models.dll
-D:\Freelance\ERP\Server\Mapper\Server.Mapper\bin\Debug\net6.0\Server.Domain.pdb
-D:\Freelance\ERP\Server\Mapper\Server.Mapper\bin\Debug\net6.0\Server.Models.pdb
-D:\Freelance\ERP\Server\Mapper\Server.Mapper\obj\Debug\net6.0\Server.Mapper.csproj.AssemblyReference.cache
-D:\Freelance\ERP\Server\Mapper\Server.Mapper\obj\Debug\net6.0\Server.Mapper.GeneratedMSBuildEditorConfig.editorconfig
-D:\Freelance\ERP\Server\Mapper\Server.Mapper\obj\Debug\net6.0\Server.Mapper.AssemblyInfoInputs.cache
-D:\Freelance\ERP\Server\Mapper\Server.Mapper\obj\Debug\net6.0\Server.Mapper.AssemblyInfo.cs
-D:\Freelance\ERP\Server\Mapper\Server.Mapper\obj\Debug\net6.0\Server.Mapper.csproj.CoreCompileInputs.cache
-D:\Freelance\ERP\Server\Mapper\Server.Mapper\obj\Debug\net6.0\Server.M.154D317D.Up2Date
-D:\Freelance\ERP\Server\Mapper\Server.Mapper\obj\Debug\net6.0\Server.Mapper.dll
-D:\Freelance\ERP\Server\Mapper\Server.Mapper\obj\Debug\net6.0\refint\Server.Mapper.dll
-D:\Freelance\ERP\Server\Mapper\Server.Mapper\obj\Debug\net6.0\Server.Mapper.pdb
-D:\Freelance\ERP\Server\Mapper\Server.Mapper\obj\Debug\net6.0\ref\Server.Mapper.dll
-D:\Freelance\ERP\Server\Mapper\Server.Mapper\obj\Debug\net6.0\Server.Mapper.sourcelink.json
-E:\work\ANI Digital Passes\Server\Mapper\Server.Mapper\bin\Debug\net6.0\Server.Mapper.deps.json
-E:\work\ANI Digital Passes\Server\Mapper\Server.Mapper\bin\Debug\net6.0\Server.Mapper.dll
-E:\work\ANI Digital Passes\Server\Mapper\Server.Mapper\bin\Debug\net6.0\Server.Mapper.pdb
-E:\work\ANI Digital Passes\Server\Mapper\Server.Mapper\bin\Debug\net6.0\Server.Domain.dll
-E:\work\ANI Digital Passes\Server\Mapper\Server.Mapper\bin\Debug\net6.0\Server.Models.dll
-E:\work\ANI Digital Passes\Server\Mapper\Server.Mapper\bin\Debug\net6.0\Server.Domain.pdb
-E:\work\ANI Digital Passes\Server\Mapper\Server.Mapper\bin\Debug\net6.0\Server.Models.pdb
-E:\work\ANI Digital Passes\Server\Mapper\Server.Mapper\obj\Debug\net6.0\Server.Mapper.csproj.AssemblyReference.cache
-E:\work\ANI Digital Passes\Server\Mapper\Server.Mapper\obj\Debug\net6.0\Server.Mapper.GeneratedMSBuildEditorConfig.editorconfig
-E:\work\ANI Digital Passes\Server\Mapper\Server.Mapper\obj\Debug\net6.0\Server.Mapper.AssemblyInfoInputs.cache
-E:\work\ANI Digital Passes\Server\Mapper\Server.Mapper\obj\Debug\net6.0\Server.Mapper.AssemblyInfo.cs
-E:\work\ANI Digital Passes\Server\Mapper\Server.Mapper\obj\Debug\net6.0\Server.Mapper.csproj.CoreCompileInputs.cache
-E:\work\ANI Digital Passes\Server\Mapper\Server.Mapper\obj\Debug\net6.0\Server.Mapper.sourcelink.json
-E:\work\ANI Digital Passes\Server\Mapper\Server.Mapper\obj\Debug\net6.0\Server.M.154D317D.Up2Date
-E:\work\ANI Digital Passes\Server\Mapper\Server.Mapper\obj\Debug\net6.0\Server.Mapper.dll
-E:\work\ANI Digital Passes\Server\Mapper\Server.Mapper\obj\Debug\net6.0\refint\Server.Mapper.dll
-E:\work\ANI Digital Passes\Server\Mapper\Server.Mapper\obj\Debug\net6.0\Server.Mapper.pdb
-E:\work\ANI Digital Passes\Server\Mapper\Server.Mapper\obj\Debug\net6.0\ref\Server.Mapper.dll
-E:\work\ANI Digital Passes\Server\Mapper\Server.Mapper\bin\Debug\net6.0\Server.Configurations.dll
-E:\work\ANI Digital Passes\Server\Mapper\Server.Mapper\bin\Debug\net6.0\Server.Configurations.pdb
+D:/Freelance/ERP/Server/Mapper/Server.Mapper/bin/Debug/net6.0/Server.Mapper.deps.json
+D:/Freelance/ERP/Server/Mapper/Server.Mapper/bin/Debug/net6.0/Server.Mapper.dll
+D:/Freelance/ERP/Server/Mapper/Server.Mapper/bin/Debug/net6.0/Server.Mapper.pdb
+D:/Freelance/ERP/Server/Mapper/Server.Mapper/bin/Debug/net6.0/Server.Domain.dll
+D:/Freelance/ERP/Server/Mapper/Server.Mapper/bin/Debug/net6.0/Server.Models.dll
+D:/Freelance/ERP/Server/Mapper/Server.Mapper/bin/Debug/net6.0/Server.Domain.pdb
+D:/Freelance/ERP/Server/Mapper/Server.Mapper/bin/Debug/net6.0/Server.Models.pdb
+D:/Freelance/ERP/Server/Mapper/Server.Mapper/obj/Debug/net6.0/Server.Mapper.csproj.AssemblyReference.cache
+D:/Freelance/ERP/Server/Mapper/Server.Mapper/obj/Debug/net6.0/Server.Mapper.GeneratedMSBuildEditorConfig.editorconfig
+D:/Freelance/ERP/Server/Mapper/Server.Mapper/obj/Debug/net6.0/Server.Mapper.AssemblyInfoInputs.cache
+D:/Freelance/ERP/Server/Mapper/Server.Mapper/obj/Debug/net6.0/Server.Mapper.AssemblyInfo.cs
+D:/Freelance/ERP/Server/Mapper/Server.Mapper/obj/Debug/net6.0/Server.Mapper.csproj.CoreCompileInputs.cache
+D:/Freelance/ERP/Server/Mapper/Server.Mapper/obj/Debug/net6.0/Server.M.154D317D.Up2Date
+D:/Freelance/ERP/Server/Mapper/Server.Mapper/obj/Debug/net6.0/Server.Mapper.dll
+D:/Freelance/ERP/Server/Mapper/Server.Mapper/obj/Debug/net6.0/refint/Server.Mapper.dll
+D:/Freelance/ERP/Server/Mapper/Server.Mapper/obj/Debug/net6.0/Server.Mapper.pdb
+D:/Freelance/ERP/Server/Mapper/Server.Mapper/obj/Debug/net6.0/ref/Server.Mapper.dll
+D:/Freelance/ERP/Server/Mapper/Server.Mapper/obj/Debug/net6.0/Server.Mapper.sourcelink.json
+E:/work/ANI Digital Passes/Server/Mapper/Server.Mapper/bin/Debug/net6.0/Server.Mapper.deps.json
+E:/work/ANI Digital Passes/Server/Mapper/Server.Mapper/bin/Debug/net6.0/Server.Mapper.dll
+E:/work/ANI Digital Passes/Server/Mapper/Server.Mapper/bin/Debug/net6.0/Server.Mapper.pdb
+E:/work/ANI Digital Passes/Server/Mapper/Server.Mapper/bin/Debug/net6.0/Server.Domain.dll
+E:/work/ANI Digital Passes/Server/Mapper/Server.Mapper/bin/Debug/net6.0/Server.Models.dll
+E:/work/ANI Digital Passes/Server/Mapper/Server.Mapper/bin/Debug/net6.0/Server.Domain.pdb
+E:/work/ANI Digital Passes/Server/Mapper/Server.Mapper/bin/Debug/net6.0/Server.Models.pdb
+E:/work/ANI Digital Passes/Server/Mapper/Server.Mapper/obj/Debug/net6.0/Server.Mapper.csproj.AssemblyReference.cache
+E:/work/ANI Digital Passes/Server/Mapper/Server.Mapper/obj/Debug/net6.0/Server.Mapper.GeneratedMSBuildEditorConfig.editorconfig
+E:/work/ANI Digital Passes/Server/Mapper/Server.Mapper/obj/Debug/net6.0/Server.Mapper.AssemblyInfoInputs.cache
+E:/work/ANI Digital Passes/Server/Mapper/Server.Mapper/obj/Debug/net6.0/Server.Mapper.AssemblyInfo.cs
+E:/work/ANI Digital Passes/Server/Mapper/Server.Mapper/obj/Debug/net6.0/Server.Mapper.csproj.CoreCompileInputs.cache
+E:/work/ANI Digital Passes/Server/Mapper/Server.Mapper/obj/Debug/net6.0/Server.Mapper.sourcelink.json
+E:/work/ANI Digital Passes/Server/Mapper/Server.Mapper/obj/Debug/net6.0/Server.M.154D317D.Up2Date
+E:/work/ANI Digital Passes/Server/Mapper/Server.Mapper/obj/Debug/net6.0/Server.Mapper.dll
+E:/work/ANI Digital Passes/Server/Mapper/Server.Mapper/obj/Debug/net6.0/refint/Server.Mapper.dll
+E:/work/ANI Digital Passes/Server/Mapper/Server.Mapper/obj/Debug/net6.0/Server.Mapper.pdb
+E:/work/ANI Digital Passes/Server/Mapper/Server.Mapper/obj/Debug/net6.0/ref/Server.Mapper.dll
+E:/work/ANI Digital Passes/Server/Mapper/Server.Mapper/bin/Debug/net6.0/Server.Configurations.dll
+E:/work/ANI Digital Passes/Server/Mapper/Server.Mapper/bin/Debug/net6.0/Server.Configurations.pdb
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Mapper/Server.Mapper/bin/Debug/net6.0/Server.Mapper.deps.json
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Mapper/Server.Mapper/bin/Debug/net6.0/Server.Mapper.dll
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Mapper/Server.Mapper/bin/Debug/net6.0/Server.Mapper.pdb
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Mapper/Server.Mapper/bin/Debug/net6.0/Server.Configurations.dll
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Mapper/Server.Mapper/bin/Debug/net6.0/Server.Domain.dll
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Mapper/Server.Mapper/bin/Debug/net6.0/Server.Models.dll
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Mapper/Server.Mapper/bin/Debug/net6.0/Server.Domain.pdb
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Mapper/Server.Mapper/bin/Debug/net6.0/Server.Models.pdb
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Mapper/Server.Mapper/bin/Debug/net6.0/Server.Configurations.pdb
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Mapper/Server.Mapper/obj/Debug/net6.0/Server.Mapper.csproj.AssemblyReference.cache
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Mapper/Server.Mapper/obj/Debug/net6.0/Server.Mapper.GeneratedMSBuildEditorConfig.editorconfig
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Mapper/Server.Mapper/obj/Debug/net6.0/Server.Mapper.AssemblyInfoInputs.cache
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Mapper/Server.Mapper/obj/Debug/net6.0/Server.Mapper.AssemblyInfo.cs
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Mapper/Server.Mapper/obj/Debug/net6.0/Server.Mapper.csproj.CoreCompileInputs.cache
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Mapper/Server.Mapper/obj/Debug/net6.0/Server.Mapper.csproj.CopyComplete
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Mapper/Server.Mapper/obj/Debug/net6.0/Server.Mapper.dll
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Mapper/Server.Mapper/obj/Debug/net6.0/refint/Server.Mapper.dll
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Mapper/Server.Mapper/obj/Debug/net6.0/Server.Mapper.pdb
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Mapper/Server.Mapper/obj/Debug/net6.0/ref/Server.Mapper.dll

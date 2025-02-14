@@ -1581,40 +1581,33 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\TK\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "/Users/kamran/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\work\\ANI Digital Passes\\Server\\Domain\\Server.Domain\\Server.Domain.csproj",
+      "projectUniqueName": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Domain/Server.Domain/Server.Domain.csproj",
       "projectName": "Server.Domain",
-      "projectPath": "E:\\work\\ANI Digital Passes\\Server\\Domain\\Server.Domain\\Server.Domain.csproj",
-      "packagesPath": "C:\\Users\\TK\\.nuget\\packages\\",
-      "outputPath": "E:\\work\\ANI Digital Passes\\Server\\Domain\\Server.Domain\\obj\\",
+      "projectPath": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Domain/Server.Domain/Server.Domain.csproj",
+      "packagesPath": "/Users/kamran/.nuget/packages/",
+      "outputPath": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Domain/Server.Domain/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\TK\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/kamran/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
+        "/usr/local/share/dotnet/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "E:\\work\\ANI Digital Passes\\Server\\Server\\Server.Configurations\\Server.Configurations.csproj": {
-              "projectPath": "E:\\work\\ANI Digital Passes\\Server\\Server\\Server.Configurations\\Server.Configurations.csproj"
+            "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Server/Server.Configurations/Server.Configurations.csproj": {
+              "projectPath": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Server/Server.Configurations/Server.Configurations.csproj"
             }
           }
         }
@@ -1623,13 +1616,7 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.100"
+      }
     },
     "frameworks": {
       "net6.0": {
@@ -1671,12 +1658,22 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[6.0.31, 6.0.31]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[6.0.31, 6.0.31]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.317/RuntimeIdentifierGraph.json"
       }
     }
   }

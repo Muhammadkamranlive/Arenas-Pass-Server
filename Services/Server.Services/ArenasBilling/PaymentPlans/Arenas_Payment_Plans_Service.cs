@@ -9,6 +9,7 @@ using Server.Models;
 using Server.BaseService;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using Server.Repository;
 
 namespace Server.Services
 {
@@ -19,7 +20,7 @@ namespace Server.Services
         (
             IUnit_Of_Work_Repo unitOfWork,
             IGet_Tenant_Id_Service get_Tenant_Id,
-            IRepo<Payment_Plans> genericRepository
+            IPayment_Plans_Repo genericRepository
         ) : base(unitOfWork, genericRepository)
         {
             _tenant_id_service = get_Tenant_Id;

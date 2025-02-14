@@ -67,7 +67,7 @@ namespace Server.Services
             }
         }
 
-        public async Task<ResponseModel<string>> UpdatePaymentPlan(Payment_Feature_Model model)
+        public async Task<ResponseModel<string>> UpdateFeatures(Payment_Feature_Model model)
         {
            try
             {
