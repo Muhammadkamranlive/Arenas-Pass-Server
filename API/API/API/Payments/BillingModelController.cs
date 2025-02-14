@@ -25,7 +25,67 @@ namespace API.API.Payments
         }
 
 
+        #region MyRegion
 
+        
+        /// <summary>
+        /// add payment features 
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("AddPaymentFeatures")]
+        public async Task<dynamic> AddPaymentFeatures(Payment_Feature_Model model)
+        {
+            try
+            {
+                 ResponseModel<string> response=  await _Payment_Features_Service.AddFeatures(model);
+                 if (response.Status_Code != "200")
+                 {
+                     return BadRequest(response);
+                 }
+                 else
+                 {
+                     return Ok(response);
+                 }
+            }
+            catch (Exception e)
+            {
+               return StatusCode(500, e.Message);
+            }
+        }
+        
+        
+        /// <summary>
+        /// add payment features 
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        [HttpPut]
+        [Route("UpdatePaymentFeatures")]
+        public async Task<dynamic> UpdatePaymentFeatures(Payment_Feature_Model model)
+        {
+            try
+            {
+                ResponseModel<string> response=  await _Payment_Features_Service.UpdateFeatures(model);
+                if (response.Status_Code != "200")
+                {
+                    return BadRequest(response);
+                }
+                else
+                {
+                    return Ok(response);
+                }
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e.Message);
+            }
+        }
+        #endregion
+        
+        
+        
         #region Payment Plans
 
         /// <summary>
@@ -135,7 +195,7 @@ namespace API.API.Payments
         /// <param name="model"></param>
         /// <returns></returns>
         [HttpGet]
-        [Route("GetPayementPlanById")]
+        [Route("DeletePaymentPlan")]
         public async Task<dynamic> DeletePaymentPlan(int Id)
         {
             try
