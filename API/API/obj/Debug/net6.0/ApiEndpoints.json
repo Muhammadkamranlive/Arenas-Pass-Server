@@ -788,6 +788,234 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "API.API.Payments.BillingModelController",
+    "Method": "AddPayementPlan",
+    "RelativePath": "api/BillingModel/AddPayementPlan",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Server.Models.PaymentPlansModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.Payments.BillingModelController",
+    "Method": "AddPaymentFeatures",
+    "RelativePath": "api/BillingModel/AddPaymentFeatures",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Server.Models.Payment_Feature_Model",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.Payments.BillingModelController",
+    "Method": "AddTenantCharges",
+    "RelativePath": "api/BillingModel/AddTenantCharges",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Server.Models.ChargesModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.Payments.BillingModelController",
+    "Method": "DeleteCharges",
+    "RelativePath": "api/BillingModel/DeleteCharges",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.Payments.BillingModelController",
+    "Method": "DeletePaymentFeatures",
+    "RelativePath": "api/BillingModel/DeletePaymentFeatures",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.Payments.BillingModelController",
+    "Method": "DeletePaymentPlan",
+    "RelativePath": "api/BillingModel/DeletePaymentPlan",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.Payments.BillingModelController",
+    "Method": "GeChargesById",
+    "RelativePath": "api/BillingModel/GeChargesById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.Payments.BillingModelController",
+    "Method": "GetAllcharges",
+    "RelativePath": "api/BillingModel/GetAllcharges",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.Payments.BillingModelController",
+    "Method": "GetAllPayementPlans",
+    "RelativePath": "api/BillingModel/GetAllPayementPlans",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.Payments.BillingModelController",
+    "Method": "GetAllPayementPlans",
+    "RelativePath": "api/BillingModel/GetPayementPlanById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.Payments.BillingModelController",
+    "Method": "GetPaymentFeatures",
+    "RelativePath": "api/BillingModel/GetPaymentFeatures",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "paymentPlanId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.Payments.BillingModelController",
+    "Method": "GetPaymentFeaturesById",
+    "RelativePath": "api/BillingModel/GetPaymentFeaturesById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.Payments.BillingModelController",
+    "Method": "UpdateCharges",
+    "RelativePath": "api/BillingModel/UpdateCharges",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Server.Models.ChargesModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.Payments.BillingModelController",
+    "Method": "UpdatePaymentFeatures",
+    "RelativePath": "api/BillingModel/UpdatePaymentFeatures",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Server.Models.Payment_Feature_Model",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.Payments.BillingModelController",
+    "Method": "UpdatePaymenttPlan",
+    "RelativePath": "api/BillingModel/UpdatePaymenttPlan",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Server.Models.PaymentPlansModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "API.Controllers.ParentController\u00602[[Server.Domain.BlogPage, Server.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Server.Models.BlogModel, Server.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "Create",
     "RelativePath": "api/Blog",
