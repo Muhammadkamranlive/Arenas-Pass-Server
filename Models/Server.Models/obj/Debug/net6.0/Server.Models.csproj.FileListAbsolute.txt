@@ -35,3 +35,4 @@ E:/work/ANI Digital Passes/Server/Models/Server.Models/obj/Debug/net6.0/Server.M
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Models/Server.Models/obj/Debug/net6.0/refint/Server.Models.dll
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Models/Server.Models/obj/Debug/net6.0/Server.Models.pdb
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Models/Server.Models/obj/Debug/net6.0/ref/Server.Models.dll
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Models/Server.Models/obj/Debug/net6.0/Server.Models.sourcelink.json

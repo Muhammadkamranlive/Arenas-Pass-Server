@@ -37,8 +37,9 @@ E:/work/ANI Digital Passes/Server/Domain/Server.Domain/obj/Debug/net6.0/Server.D
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Domain/Server.Domain/obj/Debug/net6.0/Server.Domain.AssemblyInfoInputs.cache
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Domain/Server.Domain/obj/Debug/net6.0/Server.Domain.AssemblyInfo.cs
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Domain/Server.Domain/obj/Debug/net6.0/Server.Domain.csproj.CoreCompileInputs.cache
-/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Domain/Server.Domain/obj/Debug/net6.0/Server.Domain.csproj.CopyComplete
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Domain/Server.Domain/obj/Debug/net6.0/Server.Domain.dll
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Domain/Server.Domain/obj/Debug/net6.0/refint/Server.Domain.dll
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Domain/Server.Domain/obj/Debug/net6.0/Server.Domain.pdb
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Domain/Server.Domain/obj/Debug/net6.0/ref/Server.Domain.dll
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Domain/Server.Domain/obj/Debug/net6.0/Server.Domain.sourcelink.json
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Domain/Server.Domain/obj/Debug/net6.0/Server.D.83D9AE4D.Up2Date

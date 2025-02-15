@@ -409,9 +409,10 @@ E:/work/ANI Digital Passes/Server/API/API/obj/Debug/net6.0/API.MvcApplicationPar
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/API/API/obj/Debug/net6.0/staticwebassets.build.json
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/API/API/obj/Debug/net6.0/staticwebassets.development.json
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/API/API/obj/Debug/net6.0/scopedcss/bundle/API.styles.css
-/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/API/API/obj/Debug/net6.0/API.csproj.CopyComplete
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/API/API/obj/Debug/net6.0/API.dll
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/API/API/obj/Debug/net6.0/refint/API.dll
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/API/API/obj/Debug/net6.0/API.pdb
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/API/API/obj/Debug/net6.0/API.genruntimeconfig.cache
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/API/API/obj/Debug/net6.0/ref/API.dll
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/API/API/obj/Debug/net6.0/API.sourcelink.json
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/API/API/obj/Debug/net6.0/API.csproj.Up2Date

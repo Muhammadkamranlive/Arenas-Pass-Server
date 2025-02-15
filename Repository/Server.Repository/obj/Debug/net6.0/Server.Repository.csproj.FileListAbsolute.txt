@@ -50,8 +50,9 @@ E:/work/ANI Digital Passes/Server/Repository/Server.Repository/bin/Debug/net6.0/
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Repository/Server.Repository/obj/Debug/net6.0/Server.Repository.AssemblyInfoInputs.cache
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Repository/Server.Repository/obj/Debug/net6.0/Server.Repository.AssemblyInfo.cs
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Repository/Server.Repository/obj/Debug/net6.0/Server.Repository.csproj.CoreCompileInputs.cache
-/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Repository/Server.Repository/obj/Debug/net6.0/Server.Repository.csproj.CopyComplete
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Repository/Server.Repository/obj/Debug/net6.0/Server.Repository.dll
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Repository/Server.Repository/obj/Debug/net6.0/refint/Server.Repository.dll
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Repository/Server.Repository/obj/Debug/net6.0/Server.Repository.pdb
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Repository/Server.Repository/obj/Debug/net6.0/ref/Server.Repository.dll
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Repository/Server.Repository/obj/Debug/net6.0/Server.Repository.sourcelink.json
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Repository/Server.Repository/obj/Debug/net6.0/Server.R.1B2FA24D.Up2Date

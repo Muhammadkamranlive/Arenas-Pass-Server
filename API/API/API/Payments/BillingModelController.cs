@@ -86,7 +86,7 @@ namespace API.API.Payments
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        [HttpPut]
+        [HttpDelete]
         [Route("DeletePaymentFeatures")]
         public async Task<dynamic> DeletePaymentFeatures(int Id)
         {
@@ -118,7 +118,7 @@ namespace API.API.Payments
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        [HttpPut]
+        [HttpGet]
         [Route("GetPaymentFeaturesById")]
         public async Task<dynamic> GetPaymentFeaturesById(int Id)
         {
@@ -138,7 +138,7 @@ namespace API.API.Payments
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        [HttpPut]
+        [HttpGet]
         [Route("GetPaymentFeatures")]
         public async Task<dynamic> GetPaymentFeatures(int paymentPlanId)
         {
@@ -162,12 +162,12 @@ namespace API.API.Payments
         /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost]
-        [Route("AddPaymentFeatures")]
-        public async Task<dynamic> AddTenantCharges(Payment_Feature_Model model)
+        [Route("AddTenantCharges")]
+        public async Task<dynamic> AddTenantCharges(ChargesModel model)
         {
             try
             {
-                ResponseModel<string> response = await _Tenant_Charges_Service.AddFeatures(model);
+                ResponseModel<string> response = await _Tenant_Charges_Service.AddCharges(model);
                 if (response.Status_Code != "200")
                 {
                     return BadRequest(response);
@@ -190,12 +190,12 @@ namespace API.API.Payments
         /// <param name="model"></param>
         /// <returns></returns>
         [HttpPut]
-        [Route("UpdatePaymentFeatures")]
-        public async Task<dynamic> UpdatePaymentFeatures(Payment_Feature_Model model)
+        [Route("UpdateCharges")]
+        public async Task<dynamic> UpdateCharges(ChargesModel model)
         {
             try
             {
-                ResponseModel<string> response = await _Payment_Features_Service.UpdateFeatures(model);
+                ResponseModel<string> response = await _Tenant_Charges_Service.UpdateCharges(model);
                 if (response.Status_Code != "200")
                 {
                     return BadRequest(response);
@@ -216,24 +216,24 @@ namespace API.API.Payments
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        [HttpPut]
-        [Route("DeletePaymentFeatures")]
-        public async Task<dynamic> DeletePaymentFeatures(int Id)
+        [HttpDelete]
+        [Route("DeleteCharges")]
+        public async Task<dynamic> DeleteCharges(int Id)
         {
             try
             {
-                await _Payment_Features_Service.Delete(Id);
-                int count = await _Payment_Features_Service.CompleteAync();
+                await _Tenant_Charges_Service.Delete(Id);
+                int count = await _Tenant_Charges_Service.CompleteAync();
                 ResponseModel<string> response = new ResponseModel<string>();
                 if (count == 0)
                 {
                     response.Status_Code = "400";
-                    response.Description = "Payment features not found";
+                    response.Description = "charges not found";
                 }
                 else
                 {
                     response.Status_Code = "200";
-                    response.Description = "Payment features successfully deleted";
+                    response.Description = "charges successfully deleted";
                 }
                 return Ok(response);
 
@@ -248,13 +248,13 @@ namespace API.API.Payments
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        [HttpPut]
-        [Route("GetPaymentFeaturesById")]
-        public async Task<dynamic> GetPaymentFeaturesById(int Id)
+        [HttpGet]
+        [Route("GeChargesById")]
+        public async Task<dynamic> GeChargesById(int Id)
         {
             try
             {
-                var paymentfeatures = await _Payment_Features_Service.FindOne(x => x.Id == Id);
+                var paymentfeatures = await _Tenant_Charges_Service.FindOne(x => x.Id == Id);
                 return Ok(paymentfeatures);
 
             }
@@ -268,13 +268,13 @@ namespace API.API.Payments
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        [HttpPut]
-        [Route("GetPaymentFeatures")]
-        public async Task<dynamic> GetPaymentFeatures(int paymentPlanId)
+        [HttpGet]
+        [Route("GetAllcharges")]
+        public async Task<dynamic> GetAllcharges()
         {
             try
             {
-                var paymentfeatures = await _Payment_Features_Service.Find(x => x.PaymentPlanId == paymentPlanId);
+                var paymentfeatures = await _Payment_Features_Service.GetAll();
                 return Ok(paymentfeatures);
 
             }
@@ -322,7 +322,7 @@ namespace API.API.Payments
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        [HttpPost]
+        [HttpPut]
         [Route("UpdatePaymenttPlan")]
         public async Task<dynamic> UpdatePaymenttPlan(PaymentPlansModel model)
         {

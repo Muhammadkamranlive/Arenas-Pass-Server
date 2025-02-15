@@ -66,8 +66,9 @@ E:/work/ANI Digital Passes/Server/BaseService/Server.BaseService/bin/Debug/net6.
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/BaseService/Server.BaseService/obj/Debug/net6.0/Server.BaseService.AssemblyInfoInputs.cache
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/BaseService/Server.BaseService/obj/Debug/net6.0/Server.BaseService.AssemblyInfo.cs
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/BaseService/Server.BaseService/obj/Debug/net6.0/Server.BaseService.csproj.CoreCompileInputs.cache
-/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/BaseService/Server.BaseService/obj/Debug/net6.0/Server.BaseService.csproj.CopyComplete
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/BaseService/Server.BaseService/obj/Debug/net6.0/Server.BaseService.dll
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/BaseService/Server.BaseService/obj/Debug/net6.0/refint/Server.BaseService.dll
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/BaseService/Server.BaseService/obj/Debug/net6.0/Server.BaseService.pdb
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/BaseService/Server.BaseService/obj/Debug/net6.0/ref/Server.BaseService.dll
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/BaseService/Server.BaseService/obj/Debug/net6.0/Server.BaseService.sourcelink.json
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/BaseService/Server.BaseService/obj/Debug/net6.0/Server.B.2AFD8523.Up2Date
