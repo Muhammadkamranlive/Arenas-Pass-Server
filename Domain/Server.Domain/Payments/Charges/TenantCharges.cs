@@ -12,9 +12,6 @@ namespace Server.Domain
         public string     ChargeName        { get; set; }
         public string     ChargeType        { get; set; }  
         public decimal?   ChargeAmount      { get; set; }  
-        public decimal?   ChargePercentage  { get; set; }  
-        public decimal?   MaxChargeAmount   { get; set; }  
-        public string     Currency          { get; set; }  
         public string     ChargeDescription { get; set; } 
         public string     Status            { get; set; }  
         public DateTime   CreatedAt         { get; set; }

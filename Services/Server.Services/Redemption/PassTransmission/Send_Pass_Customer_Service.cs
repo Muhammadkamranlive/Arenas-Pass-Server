@@ -45,6 +45,72 @@ namespace Server.Services
             _context                 = context;
         }
 
+        public async Task<ResponseModel<string>> SendtoUser(IList<string> listCards,string message,string subjectmessage)
+        {
+            try
+            {
+                ResponseModel<string> response = new ResponseModel<string>() { Status_Code = "200",Description="OK",Response="OK" };
+
+                //find cards list
+                var tenantId = _Tenant_Id_Service.GetTenantId();
+
+                IList<WalletPass> passesList   = await _wallet_Pass_Service.Find(x => listCards.Contains(x.Serial_Number) && x.TenantId==tenantId);
+                response                       = CatchExceptionNull(passesList);
+                if (response.Status_Code != "200")
+                {
+                    return response;
+                }
+                IList<Account_Balance> account_Balances = await _account_Balance_Service.Find(x => listCards.Contains(x.ACCOUNT_NO) && x.Tenant_Id == tenantId);
+                response                                = CatchExceptionNull(account_Balances);
+
+                if (response.Status_Code != "200")
+                {
+                    response.Description = "Card is not present in account balance section card is fake";
+                    return response;
+                }
+                
+                passesList = passesList.Where(x=> account_Balances.Where(x=>x.Account_Status==AccountStatus.PendingForSend).Select(x=>x.ACCOUNT_NO).Contains(x.Serial_Number)).ToList();
+                response   = CatchExceptionNull(passesList);
+                if (response.Status_Code != "200")
+                {
+                    response.Description = "Cards are sent already";
+                    return response;
+                }
+
+                IList<Pass_Transmission> list = new List<Pass_Transmission>();
+                for (int i = 0; i < passesList.Count; i++)
+                {
+                    string otp       = passesList[i].Serial_Number;
+                    string username  = passesList[i].Recipient_Name;
+                    string body      = CreateEmailBodyCustomMessage(otp, username,passesList[i].Address, passesList[i].Sender_Name,message);
+                    string subject   = subjectmessage;
+                    //loop through email
+                    await _email_Service.SendEmailAsync(passesList[i].Email,subject,body);
+                    Pass_Transmission model = new Pass_Transmission()
+                    {
+                        Pass_Trans_Status = Pass_Transmission_Status_GModel.Sent,
+                        Card_Id           = passesList[i].Id,
+                        Email             = passesList[i].Email
+                    };
+
+                    list.Add(model);
+                    
+                }
+                foreach (var item in account_Balances)
+                {
+                    item.Account_Status = AccountStatus.Open;
+                }
+                _account_Balance_Service.Update(account_Balances,x=>x.Account_Status);
+                await AddRange(list);
+                await CompleteAync();
+                return response;
+            }
+            catch (Exception ex)
+            {
+
+                return CatchException(ex);
+            }
+        }
         public async Task<ResponseModel<string>> SendtoUser(IList<string> listCards)
         {
             try
@@ -199,6 +265,131 @@ namespace Server.Services
         <div class=""content"">
             <h2>Dear {Username},</h2>
             <p>We’re excited to inform you that you’ve received a pass from <strong>{StoreName}</strong>! 🎉</p>
+
+            <h3 style=""color: black;"">Pass Details:</h3>
+            <div class=""table-container"">
+                <table>
+                    <tr>
+                        <th>From</th>
+                        <td>{StoreName}</td>
+                    </tr>
+                    <tr>
+                        <th>Redeem at</th>
+                        <td>{storeLocation}</td>
+                    </tr>
+                    <tr>
+                        <th>Pass Serial Number</th>
+                        <td>{OTP}</td>
+                    </tr>
+                </table>
+            </div>
+
+            <p style=""color: black;"">To redeem your pass, simply visit the store at the above address.</p>
+
+            <strong style=""color: black;"">Important: Please keep your pass's serial number confidential and do not share it with anyone to ensure its security.</strong>
+
+            <p style=""color: black;"">If you have any questions or need assistance, feel free to reach out to us.</p>
+
+            <p style=""color: black;"">Thank you for choosing <strong>{StoreName}</strong>!</p>
+        </div>
+
+        <div class=""footer"">
+            <p>Need Help? Please send any feedback or bug info to <a href=""mailto:info@arenaspass.com"">info@arenaspass.com</a></p>
+            <p>950 Dannon View, SW Suite 4103 Atlanta, GA 30331</p>
+            <p>Phone: <a href=""tel:4045930993"">404-593-0993</a></p>
+        </div>
+    </div>
+</body>
+</html>
+
+            ";
+            return emailTemplate;
+        }
+
+         private static string CreateEmailBodyCustomMessage(string OTP, string Username,string storeLocation,string StoreName,string message)
+        {
+            string emailTemplate = $@"
+               <!DOCTYPE html>
+<html lang=""en"">
+<head>
+    <meta charset=""UTF-8"">
+    <meta name=""viewport"" content=""width=device-width, initial-scale=1.0"">
+    <title>Email Template</title>
+    <style>
+        body {{
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }}
+        .email-container {{
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+        }}
+        .header {{
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }}
+        .header img {{
+            max-width: 150px;
+            margin-bottom: 10px;
+        }}
+        .content {{
+            padding: 20px;
+            line-height: 1.6;
+        }}
+        .table-container {{
+            margin-top: 20px;
+        }}
+        table {{
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }}
+        th, td {{
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }}
+        th {{
+            background-color: #f8f8f8;
+        }}
+        .footer {{
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+        }}
+        .footer a {{
+            color: #ffdd57;
+            text-decoration: none;
+        }}
+        .footer a:hover {{
+            text-decoration: underline;
+        }}
+    </style>
+</head>
+<body>
+    <div class=""email-container"">
+        <div class=""header"">
+            <img src=""https://firebasestorage.googleapis.com/v0/b/images-107c9.appspot.com/o/icon-128x128.png?alt=media&token=1b17b3bf-2bd7-441a-a16f-e747420c4783"" alt=""Arenas Pass Logo"">
+            <h1>Welcome to Arenas Pass</h1>
+            <p>Your gateway to exclusive offers and deals!</p>
+        </div>
+
+        <div class=""content"">
+            <h2>Dear {Username},</h2>
+            <p>
+              {message} 
+           </p>
 
             <h3 style=""color: black;"">Pass Details:</h3>
             <div class=""table-container"">

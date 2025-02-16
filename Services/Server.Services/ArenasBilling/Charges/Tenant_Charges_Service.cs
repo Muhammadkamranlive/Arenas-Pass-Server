@@ -34,15 +34,12 @@ namespace Server.Services
             {
                 ResponseModel<string> responseModel = new ResponseModel<string>(){Status_Code = "200",Description = "OK"};
                 TenantCharges obj= new TenantCharges();
-                obj.Currency = model.Currency;
                 obj.ChargeAmount = model.ChargeAmount;
                 obj.Status = model.Status;
                 obj.ChargeType = model.ChargeType;
                 obj.ChargeDescription = model.ChargeDescription;
                 obj.ChargeName = model.ChargeName;
-                obj.ChargePercentage = model.ChargePercentage;
                 obj.ChargeType = model.ChargeType;
-                obj.MaxChargeAmount = model.MaxChargeAmount;
                 obj.UserId          = _get_Tenant_Id_Service.GetUserId();
                 var response =await _tenant_Charges_Repo.AddReturn(obj);
                 if (response!=null)
@@ -72,15 +69,15 @@ namespace Server.Services
                     return responseModel;
                 }
                 
-                obj.Currency             = model.Currency;
+           
                 obj.ChargeAmount         = model.ChargeAmount;
                 obj.Status               = model.Status;
                 obj.ChargeType           = model.ChargeType;
                 obj.ChargeDescription    = model.ChargeDescription;
                 obj.ChargeName           = model.ChargeName;
-                obj.ChargePercentage     = model.ChargePercentage;
+    
                 obj.ChargeType           = model.ChargeType;
-                obj.MaxChargeAmount      = model.MaxChargeAmount;
+           
                 obj.UserId               = _get_Tenant_Id_Service.GetUserId();
                 obj.UpdatedAt            = DateTime.Now;
                 obj.Status               = model.Status;

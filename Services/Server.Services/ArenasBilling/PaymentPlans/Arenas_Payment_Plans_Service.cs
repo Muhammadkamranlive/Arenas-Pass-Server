@@ -50,7 +50,8 @@ namespace Server.Services
                 payment_Plans.Is_Deleted               = false;
                 payment_Plans.Trial_Period_Days        = model.Trial_Period_Days;
                 payment_Plans.UserId                   = userId;
-                
+                payment_Plans.Plan_Description         = model.Plan_Description;
+                payment_Plans.Max_Users                = model.Max_Users;
                 payment_Plans = await AddReturn( payment_Plans );
                 if (payment_Plans == null) 
                 {
@@ -89,7 +90,7 @@ namespace Server.Services
         {
             try
             {
-                ResponseModel<string> response         = new ResponseModel<string>() { Status_Code = "200", Description = "Payment plan is added successfully" };
+                ResponseModel<string> response         = new ResponseModel<string>() { Status_Code = "200", Description = "Payment plan is updated successfully" };
                 int tenantId                           = _tenant_id_service.GetTenantId();
                 string userId                          = _tenant_id_service.GetUserId();
                 Payment_Plans payment_Plans            = await FindOne(x=>x.Id==model.Id);
@@ -111,7 +112,7 @@ namespace Server.Services
                 payment_Plans.Trial_Period_Days        = model.Trial_Period_Days;
                 payment_Plans.UserId                   = userId;
                 payment_Plans.Updated_At               = DateTime.UtcNow;
-                
+                payment_Plans.Max_Users                = model.Max_Users;
                 Update(payment_Plans);
                 if (payment_Plans == null) 
                 {

@@ -1,15 +1,11 @@
-﻿using Stripe;
+﻿
 using Server.Models;
 using Server.Domain;
 using Server.Services;
-using Passbook.Generator;
+
 using Server.Configurations;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Http;
-using Passbook.Generator.Fields;
-using Microsoft.Extensions.Logging;
-using PdfSharpCore.Drawing.BarCodes;
-using System.Security.Cryptography.X509Certificates;
+
 
 namespace API.API.DigitalPasses
 {
@@ -73,6 +69,28 @@ namespace API.API.DigitalPasses
 
                 int tenantId                    = _httpContextAccessor.GetTenantId(); 
                 IEnumerable<GiftCard> gifts     = await _Gift_Service.Find(x=>x.TenantId==tenantId && x.Pass_Status==Pass_Redemption_Status_GModel.Template);
+                return gifts;
+               
+            }
+            catch (Exception ex)
+            {
+                var successResponse = new SuccessResponse
+                {
+                    Message = "Error" + ex.Message + (string.IsNullOrEmpty(ex.InnerException.Message) ? "" : ex.InnerException.Message)
+                };
+                return BadRequest(successResponse);
+            }
+        }
+        
+        
+        [HttpGet]
+        [Route("GetMerchantsGiftCardsCommunity")]
+        [CustomAuthorize("Read")]
+        public async Task<dynamic> GetMerchantsGiftCardsCommunity()
+        {
+            try
+            {
+                IEnumerable<GiftCard> gifts     = await _Gift_Service.Find(x=>x.Pass_Status==Pass_Redemption_Status_GModel.Public);
                 return gifts;
                
             }
@@ -383,5 +401,27 @@ namespace API.API.DigitalPasses
             }
         }
 
+        [HttpPut]
+        [Route("Addtocommunitytab")]
+        public async Task<dynamic> Addtocommunitytab(IList<int> cardids)
+        {
+            try
+            {
+                ResponseModel<string> res = await _Gift_Service.PublishGiftCardToCommunity(cardids);
+                if (res.Status_Code != "200")
+                {
+                    return BadRequest(res);
+                }
+                return Ok(res);
+            }
+            catch (Exception ex)
+            {
+                var successResponse = new SuccessResponse
+                {
+                    Message = "Error" + ex.Message + (string.IsNullOrEmpty(ex.InnerException.Message) ? "" : ex.InnerException.Message)
+                };
+                return BadRequest(successResponse);
+            }
+        }
     }
 }

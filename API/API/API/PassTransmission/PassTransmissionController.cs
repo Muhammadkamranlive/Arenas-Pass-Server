@@ -43,6 +43,32 @@ namespace API.API.PassTransmission
                 throw new Exception(ex.Message);
             }
         }
+        
+        [HttpPost]
+        [Route("SendPassToCustomerwithcustomMessage")]
+        [CustomAuthorize("Read")]
+        public async Task<dynamic> SendPassToCustomerwithcustomMessage(IList<string> model,string message,string subject)
+        {
+            try
+            {
+                ResponseModel<string> response = await sendPass_Service.SendtoUser(model, message, subject);
+                if (response.Status_Code != "200")
+                {
+                    return BadRequest(response);
+                }
+                else
+                {
+                    return Ok(response);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
+        
+        
 
         [HttpGet]
         [Route("GetPassToSend")]

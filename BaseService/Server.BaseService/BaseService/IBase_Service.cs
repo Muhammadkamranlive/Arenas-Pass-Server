@@ -8,6 +8,7 @@ namespace Server.Core
         Task<T?> Get(Guid id);
         Task<IList<T>> Find(Expression<Func<T, bool>> predicate);
         Task<T> FindOne(Expression<Func<T, bool>> predicate);
+        Task<ResponseModel<string>> FindOneAndDelete(Expression<Func<T, bool>> predicate);
         Task<IEnumerable<T>> GetAll();
         Task<bool> Delete(dynamic id);
         Task InsertAsync(T entity);

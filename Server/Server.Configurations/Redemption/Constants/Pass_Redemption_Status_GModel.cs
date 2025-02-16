@@ -12,5 +12,6 @@ namespace Server.Configurations
         public const string Redeemable       = "Redeemable";
         public const string PartialyRedeemed = "PartialyRedeemed";
         public const string FullRedeemed     = "FullRedeemed";
+        public const string Public           = "Public";
     }
 }

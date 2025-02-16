@@ -6,9 +6,6 @@ public class ChargesModel
     public string     ChargeName        { get; set; }
     public string     ChargeType        { get; set; }  
     public decimal?   ChargeAmount      { get; set; }  
-    public decimal?   ChargePercentage  { get; set; }  
-    public decimal?   MaxChargeAmount   { get; set; }  
-    public string     Currency          { get; set; }  
     public string     ChargeDescription { get; set; } 
     public string     Status            { get; set; }
 }

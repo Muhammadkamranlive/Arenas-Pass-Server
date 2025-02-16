@@ -51,6 +51,32 @@ namespace Server.BaseService
             return tempRecord;
         }
 
+        public async Task<ResponseModel<string>> FindOneAndDelete(Expression<Func<T, bool>> predicate)
+        {
+            try
+            {
+                ResponseModel<string> response = new ResponseModel<string>() {Status_Code = "200",Description = "OK"};
+                var paylpad=await _genericRepository.Find(predicate);
+                if (paylpad.Count()>0)
+                {
+                    _genericRepository.RemoveRange(paylpad);
+                    await CompleteAync();
+                    response.Description="OK Record is deleted successfully.";
+                }
+                else
+                {
+                    response.Status_Code = "404";
+                    response.Description = "Not Found";
+                }
+
+                return response;
+            }
+            catch (Exception e)
+            {
+                return CatchException(e);
+            }
+        }
+
         public async Task<IEnumerable<T>> GetAll()
         {
             return await _genericRepository.GetAll();

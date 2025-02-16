@@ -8,7 +8,7 @@ namespace Server.Models
 {
     public class PaymentPlansModel
     {
-        public int Id                        { get; set; }
+        public int Id { get; set; }
         public string Plan_Name              { get; set; } 
         public string Plan_Description       { get; set; }
         public decimal Price                 { get; set; } 
@@ -18,9 +18,8 @@ namespace Server.Models
         public int Max_Users                 { get; set; } 
         public int Max_Cards                 { get; set; } 
         public bool Supports_Custom_Branding { get; set; } 
-        public bool Is_Deleted               { get; set; }
         public bool Is_Active                { get; set; }
-        public string UserId                 { get; set; }
+
         
     }
 }

@@ -394,16 +394,14 @@ namespace API.API.Payments
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        [HttpGet]
+        [HttpDelete]
         [Route("DeletePaymentPlan")]
         public async Task<dynamic> DeletePaymentPlan(int Id)
         {
             try
             {
-                ResponseModel<string> response = new() { Status_Code = "200", Description = "Deletion success",Response=true };
-                response.Response            = await _Payment_Plans_Service.Delete(Id);
-                await _Payment_Plans_Service.CompleteAync(); 
-                return Ok(response.Description);
+               var res= await _Payment_Plans_Service.FindOneAndDelete(x=>x.Id==Id);
+               return Ok(res);
             }
             catch (Exception ex)
             {

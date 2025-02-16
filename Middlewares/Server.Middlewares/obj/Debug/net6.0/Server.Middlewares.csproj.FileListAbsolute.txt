@@ -37,16 +37,3 @@ E:/work/ANI Digital Passes/Server/Middlewares/Server.Middlewares/obj/Debug/net6.
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Middlewares/Server.Middlewares/obj/Debug/net6.0/Server.Middlewares.pdb
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Middlewares/Server.Middlewares/obj/Debug/net6.0/ref/Server.Middlewares.dll
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Middlewares/Server.Middlewares/obj/Debug/net6.0/Server.Middlewares.sourcelink.json
-E:\work\ANI Digital Passes\Server\Middlewares\Server.Middlewares\bin\Debug\net6.0\Server.Middlewares.deps.json
-E:\work\ANI Digital Passes\Server\Middlewares\Server.Middlewares\bin\Debug\net6.0\Server.Middlewares.dll
-E:\work\ANI Digital Passes\Server\Middlewares\Server.Middlewares\bin\Debug\net6.0\Server.Middlewares.pdb
-E:\work\ANI Digital Passes\Server\Middlewares\Server.Middlewares\obj\Debug\net6.0\Server.Middlewares.csproj.AssemblyReference.cache
-E:\work\ANI Digital Passes\Server\Middlewares\Server.Middlewares\obj\Debug\net6.0\Server.Middlewares.GeneratedMSBuildEditorConfig.editorconfig
-E:\work\ANI Digital Passes\Server\Middlewares\Server.Middlewares\obj\Debug\net6.0\Server.Middlewares.AssemblyInfoInputs.cache
-E:\work\ANI Digital Passes\Server\Middlewares\Server.Middlewares\obj\Debug\net6.0\Server.Middlewares.AssemblyInfo.cs
-E:\work\ANI Digital Passes\Server\Middlewares\Server.Middlewares\obj\Debug\net6.0\Server.Middlewares.csproj.CoreCompileInputs.cache
-E:\work\ANI Digital Passes\Server\Middlewares\Server.Middlewares\obj\Debug\net6.0\Server.Middlewares.sourcelink.json
-E:\work\ANI Digital Passes\Server\Middlewares\Server.Middlewares\obj\Debug\net6.0\Server.Middlewares.dll
-E:\work\ANI Digital Passes\Server\Middlewares\Server.Middlewares\obj\Debug\net6.0\refint\Server.Middlewares.dll
-E:\work\ANI Digital Passes\Server\Middlewares\Server.Middlewares\obj\Debug\net6.0\Server.Middlewares.pdb
-E:\work\ANI Digital Passes\Server\Middlewares\Server.Middlewares\obj\Debug\net6.0\ref\Server.Middlewares.dll

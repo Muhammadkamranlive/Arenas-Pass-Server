@@ -31,6 +31,34 @@ namespace Server.Services
             _contextAccessor     = contextAccessor;
         }
 
+        public async Task<ResponseModel<string>> PublishGiftCardToCommunity(IList<int> listofgiftcards)
+        {
+            try
+            {
+                ResponseModel<string> response = new ResponseModel<string>() { Status_Code = "200", Description = "Giftcards added to community successfully", Response = "OK" };
+                IList<GiftCard> passesList     = await Find(x => listofgiftcards.Contains(x.Id));
+                response                       = CatchExceptionNull(passesList);
+                if (response.Status_Code != "200")
+                {
+                    return response;
+                }
+                //apply public status
+                for (int i = 0; i < passesList.Count; i++)
+                {
+                    passesList[i].Pass_Status = Pass_Redemption_Status_GModel.Public;
+                }
+                
+                Update(passesList,x=>x.Pass_Status);
+                await CompleteAync();
+                return response;
+            }
+            catch (Exception ex)
+            {
+
+                return CatchException(ex);
+            }
+        }
+
         public async Task<ResponseModel<string>> DeleteGiftCard(int GiftCardId, int tenantId)
         {
             try
