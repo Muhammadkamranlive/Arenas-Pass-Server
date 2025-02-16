@@ -188,13 +188,13 @@ namespace Server.Services
                 gift_Card_Service.Update(GiftCard);
 
                 //Adding Vault
-                UsersVault usersVault = new UsersVault()
+                Vault usersVault = new Vault()
                 {
                     TenantId   = TenantId,
                     UserId     = userId,
-                    UserEmail  = GiftCard.Email,
+                    Email      = GiftCard.Email,
                     Amount     = GiftCard.Balance,
-                    VaultType = VaultType.Merchant
+                    VaultType  = VaultType.Merchant
 
                 };
 

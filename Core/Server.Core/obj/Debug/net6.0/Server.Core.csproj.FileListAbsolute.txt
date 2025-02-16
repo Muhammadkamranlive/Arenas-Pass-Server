@@ -56,3 +56,23 @@ E:/work/ANI Digital Passes/Server/Core/Server.Core/bin/Debug/net6.0/Server.Confi
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Core/Server.Core/obj/Debug/net6.0/ref/Server.Core.dll
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Core/Server.Core/obj/Debug/net6.0/Server.Core.sourcelink.json
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Core/Server.Core/obj/Debug/net6.0/Server.C.511BE109.Up2Date
+E:\work\ANI Digital Passes\Server\Core\Server.Core\bin\Debug\net6.0\Server.Core.deps.json
+E:\work\ANI Digital Passes\Server\Core\Server.Core\bin\Debug\net6.0\Server.Core.runtimeconfig.json
+E:\work\ANI Digital Passes\Server\Core\Server.Core\bin\Debug\net6.0\Server.Core.dll
+E:\work\ANI Digital Passes\Server\Core\Server.Core\bin\Debug\net6.0\Server.Core.pdb
+E:\work\ANI Digital Passes\Server\Core\Server.Core\bin\Debug\net6.0\Server.Configurations.dll
+E:\work\ANI Digital Passes\Server\Core\Server.Core\bin\Debug\net6.0\Server.Domain.dll
+E:\work\ANI Digital Passes\Server\Core\Server.Core\bin\Debug\net6.0\Server.Domain.pdb
+E:\work\ANI Digital Passes\Server\Core\Server.Core\bin\Debug\net6.0\Server.Configurations.pdb
+E:\work\ANI Digital Passes\Server\Core\Server.Core\obj\Debug\net6.0\Server.Core.csproj.AssemblyReference.cache
+E:\work\ANI Digital Passes\Server\Core\Server.Core\obj\Debug\net6.0\Server.Core.GeneratedMSBuildEditorConfig.editorconfig
+E:\work\ANI Digital Passes\Server\Core\Server.Core\obj\Debug\net6.0\Server.Core.AssemblyInfoInputs.cache
+E:\work\ANI Digital Passes\Server\Core\Server.Core\obj\Debug\net6.0\Server.Core.AssemblyInfo.cs
+E:\work\ANI Digital Passes\Server\Core\Server.Core\obj\Debug\net6.0\Server.Core.csproj.CoreCompileInputs.cache
+E:\work\ANI Digital Passes\Server\Core\Server.Core\obj\Debug\net6.0\Server.Core.sourcelink.json
+E:\work\ANI Digital Passes\Server\Core\Server.Core\obj\Debug\net6.0\Server.C.511BE109.Up2Date
+E:\work\ANI Digital Passes\Server\Core\Server.Core\obj\Debug\net6.0\Server.Core.dll
+E:\work\ANI Digital Passes\Server\Core\Server.Core\obj\Debug\net6.0\refint\Server.Core.dll
+E:\work\ANI Digital Passes\Server\Core\Server.Core\obj\Debug\net6.0\Server.Core.pdb
+E:\work\ANI Digital Passes\Server\Core\Server.Core\obj\Debug\net6.0\Server.Core.genruntimeconfig.cache
+E:\work\ANI Digital Passes\Server\Core\Server.Core\obj\Debug\net6.0\ref\Server.Core.dll

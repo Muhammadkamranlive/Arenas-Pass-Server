@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace Server.Services
 {
-    public interface IUser_Vault_Service:IBase_Service<UsersVault>
+    public interface IUser_Vault_Service:IBase_Service<Vault>
     {
     }
 }

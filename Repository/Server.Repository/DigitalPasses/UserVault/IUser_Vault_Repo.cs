@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace Server.Repository
 {
-    public interface IUser_Vault_Repo:IRepo<UsersVault>
+    public interface IUser_Vault_Repo:IRepo<Vault>
     {
 
     }

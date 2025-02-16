@@ -125,7 +125,7 @@ namespace API.API.Transaction
         {
             try
             {
-                return await userVault_Service.Find(x => x.UserEmail == Email);
+                return await userVault_Service.Find(x => x.Email == Email);
             }
             catch (Exception ex)
             {

@@ -1595,7 +1595,7 @@ namespace API.Migrations
                     b.ToTable("Trainings");
                 });
 
-            modelBuilder.Entity("Server.Domain.UsersVault", b =>
+            modelBuilder.Entity("Server.Domain.Vault", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1635,7 +1635,7 @@ namespace API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("UserVault");
+                    b.ToTable("Vault");
                 });
 
             modelBuilder.Entity("Server.Domain.UserVoucher", b =>
