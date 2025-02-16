@@ -84,8 +84,8 @@ namespace Server.Services
 
                 //find tenant
                 var tenantName                 = _Tenant_Id_Service.GetCompanyName();
-                var TenantId                = _Tenant_Id_Service.GetTenantId();
-                var userId                = _Tenant_Id_Service.GetUserId();
+                var TenantId                   = _Tenant_Id_Service.GetTenantId();
+                var userId                     = _Tenant_Id_Service.GetUserId();
                 var userName                   = _Tenant_Id_Service.GetUserName();
 
                 //find Wallet and Its Type
@@ -148,8 +148,8 @@ namespace Server.Services
                     account_Transaction.Amount                  = giftCard.Balance;
                     account_Transaction.Card_Id                 = serialNo;
                     account_Transaction.Card_Type               = giftCard.Type;
-                    account_Transaction.Customer_First_Name     = model.Customer_Name;
-                    account_Transaction.Customer_Last_Name      = model.Customer_Name;
+                    account_Transaction.Customer_Name           = model.Customer_Name;
+                    
                     account_Transaction.Email                   = model.Customer_email;
                     account_Transaction.DrCrFlag                = Account_Txn_Flag_GModel.Credit;
                     account_Transaction.Processor_Id            = userId;
@@ -199,8 +199,8 @@ namespace Server.Services
                     account_Transaction.Amount                  = 0;
                     account_Transaction.Card_Id                 = serialNo;
                     account_Transaction.Card_Type               = giftCard.Type;
-                    account_Transaction.Customer_First_Name     = model.Customer_Name;
-                    account_Transaction.Customer_Last_Name      = model.Customer_Name;
+                    account_Transaction.Customer_Name           = model.Customer_Name;
+                   
                     account_Transaction.Email                   = model.Customer_email;
                     account_Transaction.DrCrFlag                = Account_Txn_Flag_GModel.Non_Financial;
                     account_Transaction.Processor_Id            = userId;
@@ -250,8 +250,8 @@ namespace Server.Services
                     account_Transaction.Amount                  = 0;
                     account_Transaction.Card_Id                 = serialNo;
                     account_Transaction.Card_Type               = giftCard.Type;
-                    account_Transaction.Customer_First_Name     = model.Customer_Name;
-                    account_Transaction.Customer_Last_Name      = model.Customer_Name;
+                    account_Transaction.Customer_Name     = model.Customer_Name;
+                    
                     account_Transaction.Email                   = model.Customer_email;
                     account_Transaction.DrCrFlag                = Account_Txn_Flag_GModel.Non_Financial;
                     account_Transaction.Processor_Id            = userId;
@@ -301,8 +301,8 @@ namespace Server.Services
                     account_Transaction.Amount                  = 0;
                     account_Transaction.Card_Id                 = serialNo;
                     account_Transaction.Card_Type               = giftCard.Type;
-                    account_Transaction.Customer_First_Name     = model.Customer_Name;
-                    account_Transaction.Customer_Last_Name      = model.Customer_Name;
+                    account_Transaction.Customer_Name     = model.Customer_Name;
+                    
                     account_Transaction.Email                   = model.Customer_email;
                     account_Transaction.DrCrFlag                = Account_Txn_Flag_GModel.Non_Financial;
                     account_Transaction.Processor_Id            = userId;

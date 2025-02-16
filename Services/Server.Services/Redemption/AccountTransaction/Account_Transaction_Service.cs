@@ -67,8 +67,8 @@ namespace Server.Services
                     Amount                          = redeem_Gift.Amount,
                     Card_Id                         = Convert.ToInt32(GiftCard.Serial_Number),
                     Card_Type                       = "GiftCard",
-                    Customer_First_Name             = redeem_Gift.Customer_First_Name,
-                    Customer_Last_Name              = redeem_Gift.Customer_Last_Name,
+                    Customer_Name                   = redeem_Gift.Customer_First_Name,
+                   
                     Email                           = redeem_Gift.Email,
                     DrCrFlag                        = "D",
                     Processor_Id                    = userId,
@@ -90,7 +90,7 @@ namespace Server.Services
                 //Pass TransactionType
                 var NewTxNo              = await transaction_No_Service.GetTxnNo();
                 GiftCard.Pass_Status     = txnModel.Txn_Type;
-                GiftCard.Recipient_Name  = txnModel.Customer_First_Name ;
+                GiftCard.Recipient_Name  = txnModel.Customer_Name ;
                 GiftCard.Email           = txnModel.Email;
                 GiftCard.Sender_Name     = CompanyName;
                 //update balance 
@@ -157,8 +157,7 @@ namespace Server.Services
                     Amount                  = redeem_Gift.Amount,
                     Card_Id                 = Convert.ToInt32(GiftCard.Serial_Number),
                     Card_Type               = "GiftCard",
-                    Customer_First_Name     = redeem_Gift.Customer_First_Name,
-                    Customer_Last_Name      = redeem_Gift.Customer_Last_Name,
+                    Customer_Name           = redeem_Gift.Customer_First_Name,
                     Email                   = redeem_Gift.Email,
                     DrCrFlag                = "D",
                     Processor_Id            = userId,
@@ -179,7 +178,7 @@ namespace Server.Services
                 //Pass TransactionType
                 var NewTxNo              = await transaction_No_Service.GetTxnNo();
                 GiftCard.Pass_Status     = txnModel.Txn_Type;
-                GiftCard.Recipient_Name  = txnModel.Customer_First_Name + "" + txnModel.Customer_Last_Name;
+                GiftCard.Recipient_Name  = txnModel.Customer_Name;
                 GiftCard.Email           = txnModel.Email;
                 GiftCard.Sender_Name     = CompanyName;
                 //update balance 

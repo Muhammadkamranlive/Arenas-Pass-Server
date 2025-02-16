@@ -12,8 +12,8 @@ using Server.Core;
 namespace API.Migrations
 {
     [DbContext(typeof(ERPDb))]
-    [Migration("20241203183532_addedRedemption")]
-    partial class addedRedemption
+    [Migration("20250216115659_UpdatedTransaction1.1")]
+    partial class UpdatedTransaction11
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -130,6 +130,64 @@ namespace API.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Server.Domain.Account_Balance", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("ACCOUNT_NO")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Account_Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Account_Type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("Created_At")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Customer_Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Customer_FName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Customer_LName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Process_By")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Processor")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Tenant_Id")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Txn_Time")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Account_Balance");
+                });
+
             modelBuilder.Entity("Server.Domain.Account_Transaction", b =>
                 {
                     b.Property<int>("Id")
@@ -138,7 +196,7 @@ namespace API.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<decimal>("Discount_Percentage")
+                    b.Property<decimal>("Amount")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("Card_Id")
@@ -152,10 +210,6 @@ namespace API.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Customer_Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Customer_Last_Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -175,11 +229,19 @@ namespace API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("RedemptionType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Tenant_Id")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Txn_Time")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Txn_Type")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -374,6 +436,49 @@ namespace API.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("Server.Domain.ArenasBilling", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("BonusDays")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CompanyEmail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CompanyName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Created_At")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("NextPaymentDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("StripePaymentPlanId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("SubscriptionStarted")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("TenantId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("Update_At")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ArenasBillings");
+                });
+
             modelBuilder.Entity("Server.Domain.ArenasTenants", b =>
                 {
                     b.Property<Guid>("Id")
@@ -387,10 +492,7 @@ namespace API.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("CompanyId")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CompanyId"), 1L, 1);
 
                     b.Property<string>("CompanyName")
                         .IsRequired()
@@ -1157,6 +1259,30 @@ namespace API.Migrations
                     b.ToTable("NOTIFICATIONs");
                 });
 
+            modelBuilder.Entity("Server.Domain.PassTransmission.Pass_Transmission", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("Card_Id")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Pass_Trans_Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Pass_Transmission");
+                });
+
             modelBuilder.Entity("Server.Domain.PasswordResetDomain", b =>
                 {
                     b.Property<Guid>("Id")
@@ -1181,6 +1307,100 @@ namespace API.Migrations
                         .HasName("PK_Server.Domain.PasswordResetDomain_Id");
 
                     b.ToTable("PasswordResetDomains");
+                });
+
+            modelBuilder.Entity("Server.Domain.Payment_Plans", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Billing_Cycle")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Created_At")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Currency_Code")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Is_Active")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Is_Deleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("Max_Cards")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Max_Users")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Plan_Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Plan_Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<bool>("Supports_Custom_Branding")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("Trial_Period_Days")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("Updated_At")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Payment_Plans");
+                });
+
+            modelBuilder.Entity("Server.Domain.PaymentFeatureList", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("Created_At")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("FeatureDescription")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FeatureTitle")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PaymentPlanId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("Updated_At")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PaymentFeatureLists");
                 });
 
             modelBuilder.Entity("Server.Domain.Personal", b =>
@@ -1365,8 +1585,16 @@ namespace API.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<string>("ApiMethod")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("RequestType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("TenantId")
                         .HasColumnType("int");
@@ -1382,6 +1610,48 @@ namespace API.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TenantApiHitsHistories");
+                });
+
+            modelBuilder.Entity("Server.Domain.TenantCharges", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<decimal?>("ChargeAmount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("ChargeDescription")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ChargeName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ChargeType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TenantCharges");
                 });
 
             modelBuilder.Entity("Server.Domain.TenantKeyHistory", b =>
@@ -1558,6 +1828,40 @@ namespace API.Migrations
                     b.ToTable("UserVouchers");
                 });
 
+            modelBuilder.Entity("Server.Domain.Vault", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Lastupdated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("TenantId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("VaultType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Vault");
+                });
+
             modelBuilder.Entity("Server.Domain.WalletPass", b =>
                 {
                     b.Property<int>("Id")
@@ -1569,20 +1873,8 @@ namespace API.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("Apple_Pass")
-                        .HasColumnType("varbinary(max)");
-
-                    b.Property<string>("Authentication_Token")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Background_Color")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Barcode_Format")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Barcode_Type")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Card_Holder_Title")
@@ -1596,9 +1888,6 @@ namespace API.Migrations
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("Effective_Date")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
@@ -1646,9 +1935,6 @@ namespace API.Migrations
                     b.Property<string>("Recipient_Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("Relevant_Date")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Sender_Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -1664,12 +1950,6 @@ namespace API.Migrations
 
                     b.Property<string>("Type")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Web_Service_URL")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Webiste")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -1865,7 +2145,8 @@ namespace API.Migrations
                     b.HasBaseType("Server.Domain.WalletPass");
 
                     b.Property<decimal>("Discount_Percentage")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(18,2)")
+                        .HasColumnName("Coupon_Discount_Percentage");
 
                     b.Property<string>("Is_Redeemed")
                         .IsRequired()
@@ -1918,13 +2199,11 @@ namespace API.Migrations
 
                     b.Property<string>("Currency_Code")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("GiftCard_Currency_Code");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Currency_Sign")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("GiftCard_Currency_Sign");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasDiscriminator().HasValue("GiftCard");
                 });
@@ -1933,8 +2212,8 @@ namespace API.Migrations
                 {
                     b.HasBaseType("Server.Domain.WalletPass");
 
-                    b.Property<int>("Points_Balance")
-                        .HasColumnType("int");
+                    b.Property<decimal>("Points_Balance")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Program_Name")
                         .IsRequired()
@@ -1953,7 +2232,6 @@ namespace API.Migrations
                     b.HasBaseType("Server.Domain.WalletPass");
 
                     b.Property<string>("Additional_Benefits")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Member_Name")
@@ -1961,7 +2239,6 @@ namespace API.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Membership_Number")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Status")
@@ -1998,18 +2275,6 @@ namespace API.Migrations
 
                     b.Property<decimal>("Discount_Percentage")
                         .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("Currency_Code")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Currency_Sign")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Offer")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasDiscriminator().HasValue("Voucher");
                 });

@@ -207,11 +207,7 @@ namespace API.Migrations
                     b.Property<DateTime>("Created_At")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Customer_First_Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Customer_Last_Name")
+                    b.Property<string>("Customer_Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

@@ -871,7 +871,7 @@
     "ContainingType": "API.API.Payments.BillingModelController",
     "Method": "DeletePaymentPlan",
     "RelativePath": "api/BillingModel/DeletePaymentPlan",
-    "HttpMethod": "GET",
+    "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -2066,6 +2066,22 @@
   },
   {
     "ContainingType": "API.API.DigitalPasses.GiftCardsController",
+    "Method": "Addtocommunitytab",
+    "RelativePath": "api/GiftCards/Addtocommunitytab",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cardids",
+        "Type": "System.Collections.Generic.IList\u00601[[System.Int32, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.DigitalPasses.GiftCardsController",
     "Method": "DeleteMerchantsGiftCard",
     "RelativePath": "api/GiftCards/DeleteMerchantsGiftCard",
     "HttpMethod": "DELETE",
@@ -2184,6 +2200,16 @@
         "IsRequired": false
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.DigitalPasses.GiftCardsController",
+    "Method": "GetMerchantsGiftCardsCommunity",
+    "RelativePath": "api/GiftCards/GetMerchantsGiftCardsCommunity",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -3004,6 +3030,32 @@
         "Name": "model",
         "Type": "System.Collections.Generic.IList\u00601[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.API.PassTransmission.PassTransmissionController",
+    "Method": "SendPassToCustomerwithcustomMessage",
+    "RelativePath": "api/PassTransmission/SendPassToCustomerwithcustomMessage",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "System.Collections.Generic.IList\u00601[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      },
+      {
+        "Name": "message",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "subject",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
