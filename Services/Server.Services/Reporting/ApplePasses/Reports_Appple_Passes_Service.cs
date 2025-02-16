@@ -828,8 +828,8 @@ namespace Server.Services
 
                 htmlBuilder.Append($@"
                
-                 <!-- Redemption Details Table -->
-                <div class=""section-title"">Redemption Details</div>
+                 <!-- TransactionType Details Table -->
+                <div class=""section-title"">TransactionType Details</div>
                 <table>
                     <tr>
                         <th>Expiration Date</th>
@@ -992,9 +992,9 @@ namespace Server.Services
                 </tr>
             </table>");
 
-                    // Redemption Details Table
+                    // TransactionType Details Table
                     htmlBuilder.Append($@"
-            <div class=""section-title"">Redemption Details</div>
+            <div class=""section-title"">TransactionType Details</div>
             <table>
                 <tr>
                     <th>Expiration Date</th>

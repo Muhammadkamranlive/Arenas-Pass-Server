@@ -20,7 +20,7 @@ namespace API.API.Redemption
         }
 
         /// <summary>
-        /// Redemption
+        /// TransactionType
         /// </summary>
         /// <returns></returns>
         [HttpPost]
@@ -49,7 +49,7 @@ namespace API.API.Redemption
 
 
         /// <summary>
-        /// Redemption
+        /// TransactionType
         /// </summary>
         /// <returns></returns>
         [HttpPost]

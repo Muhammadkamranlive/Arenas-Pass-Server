@@ -32,7 +32,7 @@ namespace Server.Services
         {
             try
             {
-                ResponseModel<string> responseModel = new ResponseModel<string>(){Status_Code = "200",Description = "OK"};
+                ResponseModel<string> responseModel = new ResponseModel<string>(){Status_Code = "200",Description = "OK Charges added successfully."};
                 TenantCharges obj= new TenantCharges();
                 obj.ChargeAmount = model.ChargeAmount;
                 obj.Status = model.Status;
@@ -59,7 +59,7 @@ namespace Server.Services
         {
             try
             {
-                ResponseModel<string> responseModel = new ResponseModel<string>(){Status_Code = "200",Description = "OK"};
+                ResponseModel<string> responseModel = new ResponseModel<string>(){Status_Code = "200",Description = "OK Charges update successfully."};
                 TenantCharges obj= await FindOne(x=>x.Id==model.Id);
                 
                 if (obj == null)

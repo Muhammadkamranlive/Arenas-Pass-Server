@@ -36,16 +36,3 @@ E:/work/ANI Digital Passes/Server/Models/Server.Models/obj/Debug/net6.0/Server.M
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Models/Server.Models/obj/Debug/net6.0/Server.Models.pdb
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Models/Server.Models/obj/Debug/net6.0/ref/Server.Models.dll
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Models/Server.Models/obj/Debug/net6.0/Server.Models.sourcelink.json
-E:\work\ANI Digital Passes\Server\Models\Server.Models\bin\Debug\net6.0\Server.Models.deps.json
-E:\work\ANI Digital Passes\Server\Models\Server.Models\bin\Debug\net6.0\Server.Models.dll
-E:\work\ANI Digital Passes\Server\Models\Server.Models\bin\Debug\net6.0\Server.Models.pdb
-E:\work\ANI Digital Passes\Server\Models\Server.Models\obj\Debug\net6.0\Server.Models.csproj.AssemblyReference.cache
-E:\work\ANI Digital Passes\Server\Models\Server.Models\obj\Debug\net6.0\Server.Models.GeneratedMSBuildEditorConfig.editorconfig
-E:\work\ANI Digital Passes\Server\Models\Server.Models\obj\Debug\net6.0\Server.Models.AssemblyInfoInputs.cache
-E:\work\ANI Digital Passes\Server\Models\Server.Models\obj\Debug\net6.0\Server.Models.AssemblyInfo.cs
-E:\work\ANI Digital Passes\Server\Models\Server.Models\obj\Debug\net6.0\Server.Models.csproj.CoreCompileInputs.cache
-E:\work\ANI Digital Passes\Server\Models\Server.Models\obj\Debug\net6.0\Server.Models.sourcelink.json
-E:\work\ANI Digital Passes\Server\Models\Server.Models\obj\Debug\net6.0\Server.Models.dll
-E:\work\ANI Digital Passes\Server\Models\Server.Models\obj\Debug\net6.0\refint\Server.Models.dll
-E:\work\ANI Digital Passes\Server\Models\Server.Models\obj\Debug\net6.0\Server.Models.pdb
-E:\work\ANI Digital Passes\Server\Models\Server.Models\obj\Debug\net6.0\ref\Server.Models.dll

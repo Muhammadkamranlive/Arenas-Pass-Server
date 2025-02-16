@@ -222,19 +222,7 @@ namespace API.API.Payments
         {
             try
             {
-                await _Tenant_Charges_Service.Delete(Id);
-                int count = await _Tenant_Charges_Service.CompleteAync();
-                ResponseModel<string> response = new ResponseModel<string>();
-                if (count == 0)
-                {
-                    response.Status_Code = "400";
-                    response.Description = "charges not found";
-                }
-                else
-                {
-                    response.Status_Code = "200";
-                    response.Description = "charges successfully deleted";
-                }
+                var response = await _Tenant_Charges_Service.FindOneAndDelete(x=>x.Id==Id);
                 return Ok(response);
 
             }
@@ -274,7 +262,7 @@ namespace API.API.Payments
         {
             try
             {
-                var paymentfeatures = await _Payment_Features_Service.GetAll();
+                var paymentfeatures = await _Tenant_Charges_Service.GetAll();
                 return Ok(paymentfeatures);
 
             }

@@ -240,7 +240,7 @@ namespace Server.Services
                 if (GiftCard.Email != model.Email)
                 {
                     RedeemResponse.Status_Code = "400";
-                    RedeemResponse.Description = "Error the Customer Email dose not matches with Redemption Detail";
+                    RedeemResponse.Description = "Error the Customer Email dose not matches with TransactionType Detail";
                     return RedeemResponse;
                 }
 

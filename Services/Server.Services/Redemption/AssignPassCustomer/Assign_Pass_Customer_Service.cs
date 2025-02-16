@@ -84,8 +84,8 @@ namespace Server.Services
 
                 //find tenant
                 var tenantName                 = _Tenant_Id_Service.GetCompanyName();
-                var TenantId                   = _Tenant_Id_Service.GetTenantId();
-                var userId                     = _Tenant_Id_Service.GetUserId();
+                var TenantId                = _Tenant_Id_Service.GetTenantId();
+                var userId                = _Tenant_Id_Service.GetUserId();
                 var userName                   = _Tenant_Id_Service.GetUserName();
 
                 //find Wallet and Its Type

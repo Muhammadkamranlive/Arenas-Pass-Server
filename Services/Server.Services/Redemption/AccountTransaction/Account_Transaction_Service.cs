@@ -87,7 +87,7 @@ namespace Server.Services
                 //Update txnModel card status R
                 txnModel.Txn_Type        = (string)RedeemResponse.Response;
 
-                //Pass Redemption
+                //Pass TransactionType
                 var NewTxNo              = await transaction_No_Service.GetTxnNo();
                 GiftCard.Pass_Status     = txnModel.Txn_Type;
                 GiftCard.Recipient_Name  = txnModel.Customer_First_Name ;
@@ -176,7 +176,7 @@ namespace Server.Services
                 //Update txnModel card status R
                 txnModel.Txn_Type        = (string)RedeemResponse.Response;
 
-                //Pass Redemption
+                //Pass TransactionType
                 var NewTxNo              = await transaction_No_Service.GetTxnNo();
                 GiftCard.Pass_Status     = txnModel.Txn_Type;
                 GiftCard.Recipient_Name  = txnModel.Customer_First_Name + "" + txnModel.Customer_Last_Name;
@@ -193,11 +193,8 @@ namespace Server.Services
                     TenantId   = TenantId,
                     UserId     = userId,
                     UserEmail  = GiftCard.Email,
-                    StoreId    = GiftCard.TenantId.ToString(),
-                    StoreName  = GiftCard.Organization_Name,
-                    StoreEmail = string.IsNullOrEmpty(Tenant.AddressLine1)? Tenant.CompanyName:"N/A",
                     Amount     = GiftCard.Balance,
-                    Redemption = RedemptionStatusModel.Vault
+                    VaultType = VaultType.Merchant
 
                 };
 

@@ -241,7 +241,7 @@ namespace API.API.TenantInformation
 
 
         /// <summary>
-        /// Redemption
+        /// TransactionType
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -262,7 +262,7 @@ namespace API.API.TenantInformation
 
 
         /// <summary>
-        /// Redemption
+        /// TransactionType
         /// </summary>
         /// <returns></returns>
         [HttpGet]

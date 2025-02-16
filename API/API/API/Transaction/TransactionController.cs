@@ -31,7 +31,7 @@ namespace API.API.Transaction
 
         #region Transactions 
         /// <summary>
-        /// Redemption
+        /// TransactionType
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -51,7 +51,7 @@ namespace API.API.Transaction
         }
 
         /// <summary>
-        /// Redemption
+        /// TransactionType
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -72,7 +72,7 @@ namespace API.API.Transaction
         }
 
         /// <summary>
-        /// Redemption
+        /// TransactionType
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -93,7 +93,7 @@ namespace API.API.Transaction
         }
 
         /// <summary>
-        /// Redemption
+        /// TransactionType
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -115,7 +115,7 @@ namespace API.API.Transaction
 
 
         /// <summary>
-        /// Redemption
+        /// TransactionType
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -135,7 +135,7 @@ namespace API.API.Transaction
         }
 
         /// <summary>
-        /// Redemption
+        /// TransactionType
         /// </summary>
         /// <returns></returns>
         [HttpGet]
