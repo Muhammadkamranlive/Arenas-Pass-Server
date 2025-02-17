@@ -22,6 +22,8 @@ namespace Server.Services
         private readonly IGet_Tenant_Id_Service _get_Tenant_Id_Service;
         private readonly IAccount_Transaction_Service  _account_Transaction_Service;
         private readonly UserManager<ApplicationUser> _auth_Manager_Service;
+        private readonly RoleManager<CustomRole>      _roleManager;
+        private readonly IUser_Vault_Service    _vault_Service;
         public Payment_With_Strip_Service
         (
             IOptions<StripeModel> Model,
@@ -32,7 +34,9 @@ namespace Server.Services
             SubscriptionService   subscriptionService,
             IGet_Tenant_Id_Service get_Tenant_Id_Service,
             IAccount_Transaction_Service account_Transaction_Service,
-            UserManager<ApplicationUser>  auth_Manager_Service
+            UserManager<ApplicationUser>  auth_Manager_Service,
+            RoleManager<CustomRole>  roleManager,
+            IUser_Vault_Service  vault_Service
         )
         {
             stripeModel          = Model.Value;
@@ -44,6 +48,8 @@ namespace Server.Services
             _get_Tenant_Id_Service = get_Tenant_Id_Service;
             _account_Transaction_Service = account_Transaction_Service;
             _auth_Manager_Service = auth_Manager_Service;
+            _roleManager = roleManager;
+            _vault_Service     = vault_Service;
 
         }
         
@@ -89,15 +95,39 @@ namespace Server.Services
                 StripeConfiguration.ApiKey = stripeModel.SecreteKey;
                 var service              = new PaymentIntentService();
                 var paymentIntent        = await service.GetAsync(request.PaymentIntentId);
+                
                 if (paymentIntent.Status == "succeeded")
                 {
+                       var role = await _auth_Manager_Service.GetRolesAsync(user);
+                       if (role == null || role.Count == 0 )
+                       {
+                           role.Add("Customer");
+                       }
+                       Vault  vault = new Vault()
+                       {
+                         UserId      = _get_Tenant_Id_Service.GetUserId(),
+                         Email       = request.Email, 
+                         VaultType   = role.FirstOrDefault(),
+                         TenantId    = _get_Tenant_Id_Service.GetTenantId(),
+                         Lastupdated = DateTime.UtcNow
+                       };
+                       //user vault
+                       var resv=await _vault_Service.AddReturn(vault);
+                       if (resv == null)
+                       {
+                           response.Status_Code = "400";
+                           response.Description = "Vault not Added";
+                           return response;
+                       }
+
+                       await _vault_Service.CompleteAync();
                        //saving account Transaction Detail
                        Account_Transaction account_Transaction = new Account_Transaction();
                        account_Transaction.Tenant_Id               = _get_Tenant_Id_Service.GetTenantId().ToString();
                        account_Transaction.Amount                  = paymentIntent.Amount / 100;
                        account_Transaction.Card_Id                 = 11;
                        account_Transaction.Card_Type               = paymentIntent.Id;
-                       account_Transaction.Customer_Name           = user.FirstName + " " + user.LastName;
+                       account_Transaction.Customer_First_Name     = user.FirstName + " " + user.LastName;
                        account_Transaction.Email                   = user.Email;
                        account_Transaction.DrCrFlag                = Account_Txn_Flag_GModel.Credit;
                        account_Transaction.Processor_Id            = _get_Tenant_Id_Service.GetUserId();
@@ -117,6 +147,7 @@ namespace Server.Services
                 else
                 {
                     response.Status_Code = "500";
+                    response.Description = paymentIntent.Status;
                     response.Response    = paymentIntent.CancellationReason;
                 }
                 return response;

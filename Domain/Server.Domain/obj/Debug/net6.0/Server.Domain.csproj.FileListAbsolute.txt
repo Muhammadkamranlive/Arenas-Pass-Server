@@ -41,20 +41,5 @@ E:/work/ANI Digital Passes/Server/Domain/Server.Domain/obj/Debug/net6.0/Server.D
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Domain/Server.Domain/obj/Debug/net6.0/refint/Server.Domain.dll
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Domain/Server.Domain/obj/Debug/net6.0/Server.Domain.pdb
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Domain/Server.Domain/obj/Debug/net6.0/ref/Server.Domain.dll
-/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Domain/Server.Domain/obj/Debug/net6.0/Server.Domain.csproj.CopyComplete
-E:\work\ANI Digital Passes\Server\Domain\Server.Domain\bin\Debug\net6.0\Server.Domain.deps.json
-E:\work\ANI Digital Passes\Server\Domain\Server.Domain\bin\Debug\net6.0\Server.Domain.dll
-E:\work\ANI Digital Passes\Server\Domain\Server.Domain\bin\Debug\net6.0\Server.Domain.pdb
-E:\work\ANI Digital Passes\Server\Domain\Server.Domain\bin\Debug\net6.0\Server.Configurations.dll
-E:\work\ANI Digital Passes\Server\Domain\Server.Domain\bin\Debug\net6.0\Server.Configurations.pdb
-E:\work\ANI Digital Passes\Server\Domain\Server.Domain\obj\Debug\net6.0\Server.Domain.csproj.AssemblyReference.cache
-E:\work\ANI Digital Passes\Server\Domain\Server.Domain\obj\Debug\net6.0\Server.Domain.GeneratedMSBuildEditorConfig.editorconfig
-E:\work\ANI Digital Passes\Server\Domain\Server.Domain\obj\Debug\net6.0\Server.Domain.AssemblyInfoInputs.cache
-E:\work\ANI Digital Passes\Server\Domain\Server.Domain\obj\Debug\net6.0\Server.Domain.AssemblyInfo.cs
-E:\work\ANI Digital Passes\Server\Domain\Server.Domain\obj\Debug\net6.0\Server.Domain.csproj.CoreCompileInputs.cache
-E:\work\ANI Digital Passes\Server\Domain\Server.Domain\obj\Debug\net6.0\Server.Domain.sourcelink.json
-E:\work\ANI Digital Passes\Server\Domain\Server.Domain\obj\Debug\net6.0\Server.D.83D9AE4D.Up2Date
-E:\work\ANI Digital Passes\Server\Domain\Server.Domain\obj\Debug\net6.0\Server.Domain.dll
-E:\work\ANI Digital Passes\Server\Domain\Server.Domain\obj\Debug\net6.0\refint\Server.Domain.dll
-E:\work\ANI Digital Passes\Server\Domain\Server.Domain\obj\Debug\net6.0\Server.Domain.pdb
-E:\work\ANI Digital Passes\Server\Domain\Server.Domain\obj\Debug\net6.0\ref\Server.Domain.dll
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Domain/Server.Domain/obj/Debug/net6.0/Server.Domain.sourcelink.json
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Domain/Server.Domain/obj/Debug/net6.0/Server.D.83D9AE4D.Up2Date

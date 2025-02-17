@@ -35,6 +35,7 @@ builder.Services.AddIdentity<ApplicationUser, CustomRole>()
 
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<TenantResolve>();
+builder.Services.AddScoped<PaymentIntentConfirmOptions>();
 builder.Services.AddScoped<PaymentIntentService>();
 builder.Services.AddScoped<IUnit_Of_Work_Repo, Unit_Of_Work_Repo>();
 

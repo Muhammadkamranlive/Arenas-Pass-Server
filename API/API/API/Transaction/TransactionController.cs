@@ -77,7 +77,7 @@ namespace API.API.Transaction
         /// <returns></returns>
         [HttpGet]
         [Route("TransactionsByCustomerEmail")]
-        [CustomAuthorize("Read")]
+        //[CustomAuthorize("Read")]
         public async Task<dynamic> TransactionsByCustomerEmail(string email)
         {
             try

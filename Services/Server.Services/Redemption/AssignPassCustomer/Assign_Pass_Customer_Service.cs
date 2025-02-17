@@ -148,7 +148,7 @@ namespace Server.Services
                     account_Transaction.Amount                  = giftCard.Balance;
                     account_Transaction.Card_Id                 = serialNo;
                     account_Transaction.Card_Type               = giftCard.Type;
-                    account_Transaction.Customer_Name           = model.Customer_Name;
+                    account_Transaction.Customer_First_Name           = model.Customer_Name;
                     
                     account_Transaction.Email                   = model.Customer_email;
                     account_Transaction.DrCrFlag                = Account_Txn_Flag_GModel.Credit;
@@ -199,7 +199,7 @@ namespace Server.Services
                     account_Transaction.Amount                  = 0;
                     account_Transaction.Card_Id                 = serialNo;
                     account_Transaction.Card_Type               = giftCard.Type;
-                    account_Transaction.Customer_Name           = model.Customer_Name;
+                    account_Transaction.Customer_First_Name           = model.Customer_Name;
                    
                     account_Transaction.Email                   = model.Customer_email;
                     account_Transaction.DrCrFlag                = Account_Txn_Flag_GModel.Non_Financial;
@@ -250,7 +250,7 @@ namespace Server.Services
                     account_Transaction.Amount                  = 0;
                     account_Transaction.Card_Id                 = serialNo;
                     account_Transaction.Card_Type               = giftCard.Type;
-                    account_Transaction.Customer_Name     = model.Customer_Name;
+                    account_Transaction.Customer_First_Name     = model.Customer_Name;
                     
                     account_Transaction.Email                   = model.Customer_email;
                     account_Transaction.DrCrFlag                = Account_Txn_Flag_GModel.Non_Financial;
@@ -301,7 +301,7 @@ namespace Server.Services
                     account_Transaction.Amount                  = 0;
                     account_Transaction.Card_Id                 = serialNo;
                     account_Transaction.Card_Type               = giftCard.Type;
-                    account_Transaction.Customer_Name     = model.Customer_Name;
+                    account_Transaction.Customer_First_Name     = model.Customer_Name;
                     
                     account_Transaction.Email                   = model.Customer_email;
                     account_Transaction.DrCrFlag                = Account_Txn_Flag_GModel.Non_Financial;
