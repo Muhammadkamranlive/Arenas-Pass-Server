@@ -54,13 +54,12 @@ namespace Server.Core
         public virtual DbSet<Account_Transaction>  Account_Transactions                       { get; set; }
         public virtual DbSet<Account_Balance>      Account_Balance                            { get; set; }
         public virtual DbSet<Pass_Transmission>    Pass_Transmission                          { get; set; }
-        public virtual DbSet<Vault>                Vault                                  { get; set; }
+        public virtual DbSet<Vault>                Vault                                      { get; set; }
         public virtual DbSet<ArenasBilling>        ArenasBillings                             { get; set; }
         public virtual DbSet<PaymentFeatureList>   PaymentFeatureLists                        { get; set; }
         public virtual DbSet<Payment_Plans>        Payment_Plans                              { get; set; }
         public virtual DbSet<TenantCharges>        TenantCharges                              { get; set; }
-
-
+        public virtual DbSet<UserBillingDetail>    UserBillingDetails                        { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
