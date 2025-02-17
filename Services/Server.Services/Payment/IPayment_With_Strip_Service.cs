@@ -18,5 +18,7 @@ namespace Server.Services
         string DownloadInvoice(string invoiceId);
         Task<dynamic> EmployeePayment(EmployeePayment checkoutModel);
         Task<string> SubscriptionCheck(string email);
+        Task<ResponseModel<string>> CreatePaymentIntent(PaymentRequest request);
+        Task<ResponseModel<string>> ConfirmPayment(ConfirmPaymentRequest request);
     }
 }

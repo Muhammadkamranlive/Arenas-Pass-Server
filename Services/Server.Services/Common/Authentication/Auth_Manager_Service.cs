@@ -31,7 +31,7 @@ namespace Server.Services
         private readonly ITenants_Service             _tenants_Service;
         private readonly ERPDb                        _context;
         private readonly IHttpContextAccessor         _httpContextAccessor;
-        private readonly IPayment_With_Strip_Service              _paymentService;
+        //private readonly IPayment_With_Strip_Service              _paymentService;
         private readonly IApple_Pass_Account_Service  _apcService;
         private readonly IGet_Tenant_Id_Service       _TentId_Service;
         #endregion
@@ -50,7 +50,7 @@ namespace Server.Services
             INotifications_Service        notifications_Service,
             ITenants_Service              tenants_Service,
             IHttpContextAccessor          httpContextAccessor,
-            IPayment_With_Strip_Service               paymentService,
+            //IPayment_With_Strip_Service               paymentService,
             IApple_Pass_Account_Service   apc,
             IGet_Tenant_Id_Service        tentId
 
@@ -68,7 +68,7 @@ namespace Server.Services
             _notifications_Service = notifications_Service;
             _tenants_Service       = tenants_Service;
             _httpContextAccessor   = httpContextAccessor;
-            _paymentService        = paymentService;
+            //_paymentService        = paymentService;
             _apcService            = apc;
             _TentId_Service        = tentId;
 
@@ -1427,7 +1427,6 @@ namespace Server.Services
                     TenantUpdate     Tenants   = new TenantUpdate();
                     if (tenant!= null) 
                     {
-                 
                         Tenants.AddressLine1          = tenant.AddressLine1;
                         Tenants.isPhysicalAddress     = tenant.isPhysicalAddress;
                         Tenants.isMailingAddress      = tenant.isMailingAddress;
@@ -1437,8 +1436,6 @@ namespace Server.Services
                         Tenants.PhoneNumber           = tenant.PhoneNumber;
                         Tenants.State                 = tenant.State;
                         Tenants.ZipCode               = tenant.ZipCode;              
-                       
-
                     }
 
 

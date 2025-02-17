@@ -1,8 +1,12 @@
-﻿using Stripe;
+﻿
+using Microsoft.AspNetCore.Identity;
+using Stripe;
 using Server.Models;
 using Stripe.Checkout;
 using Server.Models.Payments;
 using Microsoft.Extensions.Options;
+using Server.Configurations;
+using Server.Domain;
 
 namespace Server.Services
 {
@@ -15,7 +19,9 @@ namespace Server.Services
         private readonly CustomerService     _customerService;
         private readonly TokenService        _tokenService;
         private readonly SubscriptionService _subscriptionService;
-
+        private readonly IGet_Tenant_Id_Service _get_Tenant_Id_Service;
+        private readonly IAccount_Transaction_Service  _account_Transaction_Service;
+        private readonly UserManager<ApplicationUser> _auth_Manager_Service;
         public Payment_With_Strip_Service
         (
             IOptions<StripeModel> Model,
@@ -23,7 +29,10 @@ namespace Server.Services
             ChargeService         chargeService,
             CustomerService       customerService,
             TokenService          tokenService,
-            SubscriptionService   subscriptionService
+            SubscriptionService   subscriptionService,
+            IGet_Tenant_Id_Service get_Tenant_Id_Service,
+            IAccount_Transaction_Service account_Transaction_Service,
+            UserManager<ApplicationUser>  auth_Manager_Service
         )
         {
             stripeModel          = Model.Value;
@@ -32,9 +41,93 @@ namespace Server.Services
             _customerService     = customerService;
             _tokenService        = tokenService;
             _subscriptionService = subscriptionService;
+            _get_Tenant_Id_Service = get_Tenant_Id_Service;
+            _account_Transaction_Service = account_Transaction_Service;
+            _auth_Manager_Service = auth_Manager_Service;
 
         }
-
+        
+        public async Task<ResponseModel<string>> CreatePaymentIntent(PaymentRequest request)
+        {
+            ResponseModel<string> response = new ResponseModel<string>(){Status_Code = "200",Description = "OK",Response =""};
+            try
+            {
+                StripeConfiguration.ApiKey = stripeModel.SecreteKey;
+                var options            = new PaymentIntentCreateOptions
+                {
+                    Amount             = request.Amount* 100,
+                    Currency           = "usd",
+                    PaymentMethodTypes = new List<string> { "card" },
+                    ReceiptEmail       = request.Email
+                };
+                var service          = new PaymentIntentService();
+                var paymentIntent    = await service.CreateAsync(options);
+                response.Response    = paymentIntent.ClientSecret;
+                response.Description = paymentIntent.Id;
+                return response;
+            }
+            catch (StripeException e)
+            {
+                response.Status_Code = "500";
+                response.Description = e.Message+ "Inner Exception" + e.InnerException?.Message;
+                return response; 
+            }
+        }
+        
+        public async Task<ResponseModel<string>> ConfirmPayment(ConfirmPaymentRequest request)
+        {
+            ResponseModel<string> response = new ResponseModel<string>(){Status_Code = "200",Description = "OK",Response =""};
+            try
+            {
+                ApplicationUser user                 = await _auth_Manager_Service.FindByEmailAsync(request.Email);
+                if (user == null)
+                {
+                    response.Status_Code = "400";
+                    response.Description = "User not  Found";
+                    return response;
+                }
+                StripeConfiguration.ApiKey = stripeModel.SecreteKey;
+                var service              = new PaymentIntentService();
+                var paymentIntent        = await service.GetAsync(request.PaymentIntentId);
+                if (paymentIntent.Status == "succeeded")
+                {
+                       //saving account Transaction Detail
+                       Account_Transaction account_Transaction = new Account_Transaction();
+                       account_Transaction.Tenant_Id               = _get_Tenant_Id_Service.GetTenantId().ToString();
+                       account_Transaction.Amount                  = paymentIntent.Amount / 100;
+                       account_Transaction.Card_Id                 = 11;
+                       account_Transaction.Card_Type               = paymentIntent.Id;
+                       account_Transaction.Customer_Name           = user.FirstName + " " + user.LastName;
+                       account_Transaction.Email                   = user.Email;
+                       account_Transaction.DrCrFlag                = Account_Txn_Flag_GModel.Credit;
+                       account_Transaction.Processor_Id            = _get_Tenant_Id_Service.GetUserId();
+                       account_Transaction.Processor_Name          = _get_Tenant_Id_Service.GetUserName();
+                       account_Transaction.Txn_Type                = Account_Transaction_Type_GModel.AddetoVault;
+                       account_Transaction.RedemptionType          = Account_Transaction_Type_GModel.AddetoVault;
+                       var res= await _account_Transaction_Service.AddReturn(account_Transaction);
+                       if (res == null)
+                       {
+                           await _account_Transaction_Service.Rollback();
+                       }
+                       await _account_Transaction_Service.CompleteAync();
+                       response.Status_Code = "200";
+                       response.Description = "Payment Success";
+                       return response;
+                }
+                else
+                {
+                    response.Status_Code = "500";
+                    response.Response    = paymentIntent.CancellationReason;
+                }
+                return response;
+            }
+            catch (StripeException e)
+            {
+                response.Status_Code = "500";
+                response.Description = e.Message+ "Inner Exception" + e.InnerException?.Message;
+                return response; 
+            }
+        }
 
         //Checkout for Clients
         public async Task<dynamic> Checkout(CheckoutModel checkoutModel)

@@ -11,5 +11,7 @@ namespace Server.Configurations
         public const string Credit        = "Credit";
         public const string Debit         = "Debit";
         public const string Non_Financial = "NonFinancial";
+        public const string AddetoVault   = "Credit balance in Vault";
+        public const  string withdraw     = "Debit balance from Vault";
     }
 }

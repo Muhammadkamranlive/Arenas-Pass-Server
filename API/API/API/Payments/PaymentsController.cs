@@ -39,6 +39,35 @@ namespace API.API.Payments
 
         }
 
+        [HttpPost()]
+        [Route("CreatePaymentIntent")]
+        public async Task<IActionResult> CreatePaymentIntent([FromBody] PaymentRequest checkoutModel)
+        {
+            try
+            {
+                var res = await _paymentService.CreatePaymentIntent(checkoutModel);
+                return Ok(res);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message + ex.InnerException?.Message);
+            }
+        }
+        
+        [HttpPost()]
+        [Route("ConfirmPayment")]
+        public async Task<IActionResult> ConfirmPayment([FromBody] ConfirmPaymentRequest checkoutModel)
+        {
+            try
+            {
+                var res = await _paymentService.ConfirmPayment(checkoutModel);
+                return Ok(res);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message + ex.InnerException?.Message);
+            }
+        }
 
         [HttpPost()]
         [Route("EmployeePayment")]
