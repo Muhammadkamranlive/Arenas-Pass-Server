@@ -444,7 +444,10 @@
       },
       "Server.Configurations/1.0.0": {
         "runtime": {
-          "Server.Configurations.dll": {}
+          "Server.Configurations.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }
