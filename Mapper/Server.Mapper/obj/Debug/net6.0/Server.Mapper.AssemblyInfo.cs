@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Server.Mapper")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+587cf01a9a8b4b059bb37977b4acd4709514cff3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+228d3d375c0fb3ef399be24329aad0efd25cb928")]
 [assembly: System.Reflection.AssemblyProductAttribute("Server.Mapper")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Server.Mapper")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
