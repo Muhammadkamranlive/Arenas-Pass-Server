@@ -122,7 +122,7 @@ namespace Server.Services
                     TenantId   = appuser.TenantId,
                     UserId     = appuser.Id,
                     Email      = appuser.Email,
-                    Amount     = GiftCard.Balance,
+                    Amount     = redeem_Gift.Amount,
                     VaultType  = VaultType.Merchant
                 };
                 var item1 = await user_vault_Service.AddReturn(usersVault);
@@ -246,7 +246,7 @@ namespace Server.Services
                     TenantId   = TenantId,
                     UserId     = userId,
                     Email      = GiftCard.Email,
-                    Amount     = GiftCard.Balance,
+                    Amount     = redeem_Gift.Amount,
                     VaultType  = VaultType.Customer
                 };
                 var item1 = await user_vault_Service.AddReturn(usersVault);
