@@ -125,14 +125,14 @@ namespace Server.Services
                        Account_Transaction account_Transaction = new Account_Transaction();
                        account_Transaction.Tenant_Id               = _get_Tenant_Id_Service.GetTenantId().ToString();
                        account_Transaction.Amount                  = paymentIntent.Amount / 100;
-                       account_Transaction.Card_Id                 = 11;
+                       account_Transaction.Card_Id                 = 11;    
                        account_Transaction.Card_Type               = paymentIntent.Id;
                        account_Transaction.Customer_First_Name     = user.FirstName + " " + user.LastName;
                        account_Transaction.Email                   = user.Email;
                        account_Transaction.DrCrFlag                = Account_Txn_Flag_GModel.Credit;
                        account_Transaction.Processor_Id            = _get_Tenant_Id_Service.GetUserId();
                        account_Transaction.Processor_Name          = _get_Tenant_Id_Service.GetUserName();
-                       account_Transaction.Txn_Type                = Account_Transaction_Type_GModel.AddetoVault;
+                       account_Transaction.Txn_Type                = Account_Transaction_Type_GModel.Credit;
                        account_Transaction.RedemptionType          = Account_Transaction_Type_GModel.AddetoVault;
                        var res= await _account_Transaction_Service.AddReturn(account_Transaction);
                        if (res == null)

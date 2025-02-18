@@ -60,23 +60,7 @@ namespace Server.Services
                 {
                     return response;
                 }
-                IList<Account_Balance> account_Balances = await _account_Balance_Service.Find(x => listCards.Contains(x.ACCOUNT_NO) && x.Tenant_Id == tenantId);
-                response                                = CatchExceptionNull(account_Balances);
-
-                if (response.Status_Code != "200")
-                {
-                    response.Description = "Card is not present in account balance section card is fake";
-                    return response;
-                }
                 
-                passesList = passesList.Where(x=> account_Balances.Where(x=>x.Account_Status==AccountStatus.PendingForSend).Select(x=>x.ACCOUNT_NO).Contains(x.Serial_Number)).ToList();
-                response   = CatchExceptionNull(passesList);
-                if (response.Status_Code != "200")
-                {
-                    response.Description = "Cards are sent already";
-                    return response;
-                }
-
                 IList<Pass_Transmission> list = new List<Pass_Transmission>();
                 for (int i = 0; i < passesList.Count; i++)
                 {
@@ -92,15 +76,11 @@ namespace Server.Services
                         Card_Id           = passesList[i].Id,
                         Email             = passesList[i].Email
                     };
-
+                    passesList[i].Pass_Status = Pass_Redemption_Status_GModel.Redeemable;
                     list.Add(model);
-                    
                 }
-                foreach (var item in account_Balances)
-                {
-                    item.Account_Status = AccountStatus.Open;
-                }
-                _account_Balance_Service.Update(account_Balances,x=>x.Account_Status);
+                _wallet_Pass_Service.Update(passesList,x=>x.Pass_Status);
+
                 await AddRange(list);
                 await CompleteAync();
                 return response;
@@ -126,23 +106,7 @@ namespace Server.Services
                 {
                     return response;
                 }
-                IList<Account_Balance> account_Balances = await _account_Balance_Service.Find(x => listCards.Contains(x.ACCOUNT_NO) && x.Tenant_Id == tenantId);
-                response                                = CatchExceptionNull(account_Balances);
-
-                if (response.Status_Code != "200")
-                {
-                    response.Description = "Card is not present in account balance section card is fake";
-                    return response;
-                }
                 
-                passesList = passesList.Where(x=> account_Balances.Where(x=>x.Account_Status==AccountStatus.PendingForSend).Select(x=>x.ACCOUNT_NO).Contains(x.Serial_Number)).ToList();
-                response   = CatchExceptionNull(passesList);
-                if (response.Status_Code != "200")
-                {
-                    response.Description = "Cards are sent already";
-                    return response;
-                }
-
                 IList<Pass_Transmission> list = new List<Pass_Transmission>();
                 for (int i = 0; i < passesList.Count; i++)
                 {
@@ -158,15 +122,13 @@ namespace Server.Services
                         Card_Id           = passesList[i].Id,
                         Email             = passesList[i].Email
                     };
-
+                    passesList[i].Pass_Status = Pass_Redemption_Status_GModel.Redeemable;
                     list.Add(model);
                     
                 }
-                foreach (var item in account_Balances)
-                {
-                    item.Account_Status = AccountStatus.Open;
-                }
-                _account_Balance_Service.Update(account_Balances,x=>x.Account_Status);
+                
+                _wallet_Pass_Service.Update(passesList,x=>x.Pass_Status);
+                
                 await AddRange(list);
                 await CompleteAync();
                 return response;
@@ -437,16 +399,7 @@ namespace Server.Services
             {
                 var tenantId                   = _Tenant_Id_Service.GetTenantId();
                
-                IList<WalletPass> passesList1  =  await _context.WalletPasses.Join
-                    (
-                       _context.Account_Balance,
-                       (x)  => new {x.Serial_Number},
-                       (y)  => new { Serial_Number=y.ACCOUNT_NO},
-                       (x,y)=> new {x,y}
-                      
-                    )
-                   .Where(y=> y.y.Account_Status==AccountStatus.PendingForSend && y.y.Tenant_Id==tenantId && y.x.TenantId==tenantId) 
-                   .Select(x=>x.x)
+                IList<WalletPass> passesList1    =  await _context.WalletPasses.Where(x=>x.Pass_Status==Pass_Redemption_Status_GModel.PendingForSend)
                    .ToListAsync();  
                 return passesList1;
 

@@ -77,7 +77,7 @@ namespace API.API.Transaction
         /// <returns></returns>
         [HttpGet]
         [Route("TransactionsByCustomerEmail")]
-        //[CustomAuthorize("Read")]
+        [CustomAuthorize("Read")]
         public async Task<dynamic> TransactionsByCustomerEmail(string email)
         {
             try
@@ -92,6 +92,23 @@ namespace API.API.Transaction
             }
         }
 
+        [HttpGet]
+        [Route("TransactionsByTenantId")]
+        [CustomAuthorize("Read")]
+        public async Task<dynamic> TransactionsByTenantId()
+        {
+            try
+            {
+                var tenantId = get_Tenant_Id_Service.GetTenantId();
+                return await account_Transaction_Service.Find(x => x.Tenant_Id == tenantId.ToString());
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
+        
         /// <summary>
         /// TransactionType
         /// </summary>

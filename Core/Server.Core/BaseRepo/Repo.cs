@@ -63,23 +63,8 @@ namespace Server.Core
 
         public async Task<T> AddReturn(T entity)
         {
-            var tenantId = Convert.ToInt32(_httpContextAccessor.HttpContext?.Items["CurrentTenant"]);
-
-            if (entity.GetType() != typeof(ArenasTenants))
-            {
-                PropertyInfo property = entity.GetType().GetProperty("TenantId");
-                if (property != null)
-                {
-                    property.SetValue(entity, tenantId);
-                }
-            }
-
             // Add entity to the DbSet
             await _dbSet.AddAsync(entity);
-            // Log the operation
-            await LogOperationAsync("Add", entity);
-
-            // Return the entity, which now includes the primary key
             return entity;
         }
 
@@ -132,6 +117,12 @@ namespace Server.Core
                 await LogOperationAsync("AddRange", entity);
             }
 
+        }
+        
+        public async Task<IEnumerable<T>> AddBulk(IEnumerable<T> entities)
+        {
+            await _dbSet.AddRangeAsync(entities);
+            return entities;
         }
         /// <summary>
         /// Generic Find with Lambda

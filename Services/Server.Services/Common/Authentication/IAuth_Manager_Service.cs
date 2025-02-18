@@ -47,6 +47,7 @@ namespace Server.Services
         Task<IEnumerable<IdentityError>> RegisterSuperAdmin(RegisterUserModel adminDto);
         Task<IList<AllUsersModel>> GetUsersListByIds(IList<string> Ids);
         Task<IEnumerable> GetAllUsersWithRoles(int tenantId);
+        
 
     }
 }

@@ -45,72 +45,115 @@ namespace Server.Services
             try
             {
                 ResponseModel<string>       RedeemResponse= new ResponseModel<string>() { Status_Code="200",Description="OK"};
-                var TenantId                = tenant_Id_Service.GetTenantId();
-                var userId                  = tenant_Id_Service.GetUserId();
+                var TenantId             = tenant_Id_Service.GetTenantId();
+                var userId             = tenant_Id_Service.GetUserId();
                 var UserName                = tenant_Id_Service.GetUserName();
                 var CompanyName             = tenant_Id_Service.GetCompanyName();
                 var GiftCard                = await gift_Card_Service.FindOne(x=>x.Id==redeem_Gift.Card_Id);
                 //Null Checks 
-                RedeemResponse              = CatchExceptionNull(GiftCard);
+                RedeemResponse                 = CatchExceptionNull(GiftCard);
                 if (RedeemResponse.Status_Code!="200") { return RedeemResponse; }
                
                 //Check status for txnModel Card
-                RedeemResponse             = gift_Card_Service.ValidateGiftCardForRedemption(GiftCard, redeem_Gift);
+                RedeemResponse                 = gift_Card_Service.ValidateGiftCardForRedemption(GiftCard, redeem_Gift);
                 if(RedeemResponse.Status_Code!="200")
                 { return RedeemResponse; }
 
-                IList<Account_Transaction> PrevTxns = await Find(x => x.Card_Id.ToString() == GiftCard.Serial_Number && x.DrCrFlag=="D");
-                decimal txnAmount                   = PrevTxns.Sum(x => x.Amount);
+                IList<Account_Transaction> transactions = new List<Account_Transaction>();
                 Account_Transaction txnModel        = new()
                 {
                     Tenant_Id                       = TenantId.ToString(),
                     Amount                          = redeem_Gift.Amount,
                     Card_Id                         = Convert.ToInt32(GiftCard.Serial_Number),
                     Card_Type                       = "GiftCard",
-                    Customer_First_Name                   = redeem_Gift.Customer_First_Name,
-                   
+                    Customer_First_Name             = redeem_Gift.Customer_First_Name,
                     Email                           = redeem_Gift.Email,
                     DrCrFlag                        = "D",
                     Processor_Id                    = userId,
                     Processor_Name                  = UserName,
-                    RedemptionType                  = RedemptionStatusModel.InStore 
-                    
+                    RedemptionType                  = Account_Transaction_Type_GModel.DebitedBalanceFromGiftCard,
+                    Txn_Type                        = Account_Transaction_Type_GModel.Debit,
                 };
-
-                //Validate  Transaction
-                RedeemResponse                  = await vtService.ValidateTxn(txnModel,txnAmount);
-                if (RedeemResponse.Status_Code != "200")
+                transactions.Add(txnModel);
+                //Credit In Merchant Vault
+                Account_Transaction MerchantVault   = new()
                 {
+                    Tenant_Id                       = TenantId.ToString(),
+                    Amount                          = redeem_Gift.Amount,
+                    Card_Id                         = Convert.ToInt32(GiftCard.Serial_Number),
+                    Card_Type                       = "GiftCard",
+                    Customer_First_Name             = redeem_Gift.Customer_First_Name,
+                    Email                           = redeem_Gift.Email,
+                    DrCrFlag                        = "C",
+                    Processor_Id                    = userId,
+                    Processor_Name                  = UserName,
+                    RedemptionType                  = Account_Transaction_Type_GModel.CreditInMerchantVault,
+                    Txn_Type                        = Account_Transaction_Type_GModel.Credit,
+                };
+                transactions.Add(MerchantVault);
+                
+                //Validate  Transaction
+                if (GiftCard.Balance != redeem_Gift.Amount)
+                {
+                    RedeemResponse.Status_Code = "404";
+                    RedeemResponse.Description = "Transaction amount dose not match with gift card balance";
                     return RedeemResponse;
                 }
-
-                //Update txnModel card status R
-                txnModel.Txn_Type        = (string)RedeemResponse.Response;
-
+                else
+                {
+                    GiftCard.Balance = GiftCard.Balance-redeem_Gift.Amount;
+                }
                 //Pass TransactionType
-                var NewTxNo              = await transaction_No_Service.GetTxnNo();
-                GiftCard.Pass_Status     = txnModel.Txn_Type;
+                GiftCard.Pass_Status     = Pass_Redemption_Status_GModel.FullRedeemed;
                 GiftCard.Recipient_Name  = txnModel.Customer_First_Name ;
                 GiftCard.Email           = txnModel.Email;
                 GiftCard.Sender_Name     = CompanyName;
-                //update balance 
-                GiftCard.Balance         = Convert.ToDecimal(RedeemResponse.Description);
-                //update
                 gift_Card_Service.Update(GiftCard);
-
+                
+                var appuser= await auth_Manager_Service.FindById(userId);
+                if (appuser==null)
+                {
+                    RedeemResponse.Status_Code = "404";
+                    RedeemResponse.Description = "Merchant does not exist";
+                }
+                //Adding Vault
+                Vault usersVault = new Vault()
+                {
+                    TenantId   = appuser.TenantId,
+                    UserId     = appuser.Id,
+                    Email      = appuser.Email,
+                    Amount     = GiftCard.Balance,
+                    VaultType  = VaultType.Merchant
+                };
+                var item1 = await user_vault_Service.AddReturn(usersVault);
+                if (item1 == null)
+                {
+                    RedeemResponse.Status_Code = "500";
+                    RedeemResponse.Description = "Transaction was not successfull";
+                    return  RedeemResponse;
+                }
+                
                 //add Transaction
-                var item = await AddReturn(txnModel);
-                if (item != null)
+                var item = await AddBulk(transactions);
+                if (item.Count()>0)
+                {
+                    
+                    RedeemResponse.Status_Code = "200";
+                    RedeemResponse.Description = "OK Redemption is successful";
+                }
+                else
+                {
+                    RedeemResponse.Status_Code = "500";
+                    RedeemResponse.Description = "Transaction was not successfull";
+                }
+
+                if (RedeemResponse.Status_Code=="200")
                 {
                     await CompleteAync();
-                    RedeemResponse.Status_Code = "200";
-                    RedeemResponse.Description = "OK Transaction is  successfull";
                 }
                 else
                 {
                     await Rollback();
-                    RedeemResponse.Status_Code = "500";
-                    RedeemResponse.Description = "Transaction was not successfull";
                 }
                 return RedeemResponse;
             }
@@ -126,15 +169,12 @@ namespace Server.Services
              try
             {
                 ResponseModel<string>       RedeemResponse= new ResponseModel<string>() { Status_Code="200",Description="OK"};
-                var TenantId                = tenant_Id_Service.GetTenantId();
-                var userId                  = tenant_Id_Service.GetUserId();
+                var TenantId             = tenant_Id_Service.GetTenantId();
+                var userId             = tenant_Id_Service.GetUserId();
                 var UserName                = tenant_Id_Service.GetUserName();
                 var CompanyName             = tenant_Id_Service.GetCompanyName();
                 redeem_Gift.Redemption_Type = Pass_Redemption_Status_GModel.FullRedeemed;
-                var AppUser                 = await auth_Manager_Service.FindById(userId);
-                RedeemResponse              = CatchExceptionNull(AppUser);
-                if (RedeemResponse.Status_Code != "200") { return RedeemResponse; }
-
+                
                 var GiftCard                = await gift_Card_Service.FindOne(x=>x.Id==redeem_Gift.Card_Id);
                 //Null Checks 
                 RedeemResponse              = CatchExceptionNull(GiftCard);
@@ -143,49 +183,63 @@ namespace Server.Services
                 var Tenant = await tenants_Service.FindOne(x => x.CompanyId == TenantId);
                 RedeemResponse = CatchExceptionNull(Tenant);
                 if (RedeemResponse.Status_Code != "200") { return RedeemResponse; }
-
+                
                 //Check status for txnModel Card
-                RedeemResponse             = gift_Card_Service.ValidateGiftCardForRedemption(GiftCard, redeem_Gift);
+                RedeemResponse              = gift_Card_Service.ValidateGiftCardForRedemption(GiftCard, redeem_Gift);
                 if(RedeemResponse.Status_Code!="200")
                 { return RedeemResponse; }
-
-                IList<Account_Transaction> PrevTxns = await Find(x => x.Card_Id.ToString() == GiftCard.Serial_Number && x.DrCrFlag=="D");
-                decimal txnAmount                   = PrevTxns.Sum(x => x.Amount);
+                
+                IList<Account_Transaction> transactions = new List<Account_Transaction>();
                 Account_Transaction txnModel        = new()
                 {
-                    Tenant_Id               = TenantId.ToString(),
-                    Amount                  = redeem_Gift.Amount,
-                    Card_Id                 = Convert.ToInt32(GiftCard.Serial_Number),
-                    Card_Type               = "GiftCard",
-                    Customer_First_Name           = redeem_Gift.Customer_First_Name,
-                    Email                   = redeem_Gift.Email,
-                    DrCrFlag                = "D",
-                    Processor_Id            = userId,
-                    Processor_Name          = UserName,
-                    RedemptionType          = RedemptionStatusModel.Vault,
+                    Tenant_Id                       = TenantId.ToString(),
+                    Amount                          = redeem_Gift.Amount,
+                    Card_Id                         = Convert.ToInt32(GiftCard.Serial_Number),
+                    Card_Type                       = "GiftCard",
+                    Customer_First_Name             = redeem_Gift.Customer_First_Name,
+                    Email                           = redeem_Gift.Email,
+                    DrCrFlag                        = "D",
+                    Processor_Id                    = userId,
+                    Processor_Name                  = UserName,
+                    RedemptionType                  = Account_Transaction_Type_GModel.DebitedBalanceFromGiftCard,
+                    Txn_Type                        = Account_Transaction_Type_GModel.Debit,
                 };
-
-                //Validate  Transaction
-                RedeemResponse              = await vtService.ValidateTxn(txnModel,txnAmount);
-                if (RedeemResponse.Status_Code != "200")
+                transactions.Add(txnModel);
+                //Credit In Merchant Vault
+                Account_Transaction MerchantVault   = new()
                 {
+                    Tenant_Id                       = TenantId.ToString(),
+                    Amount                          = redeem_Gift.Amount,
+                    Card_Id                         = Convert.ToInt32(GiftCard.Serial_Number),
+                    Card_Type                       = "GiftCard",
+                    Customer_First_Name             = redeem_Gift.Customer_First_Name,
+                    Email                           = redeem_Gift.Email,
+                    DrCrFlag                        = "C",
+                    Processor_Id                    = userId,
+                    Processor_Name                  = UserName,
+                    RedemptionType                  = Account_Transaction_Type_GModel.CreditAddedinCustomerVault,
+                    Txn_Type                        = Account_Transaction_Type_GModel.Credit,
+                };
+                transactions.Add(MerchantVault);
+                //Validate  Transaction
+                if (GiftCard.Balance != redeem_Gift.Amount)
+                {
+                    RedeemResponse.Status_Code = "404";
+                    RedeemResponse.Description = "Transaction amount dose not match with gift card balance";
                     return RedeemResponse;
                 }
-
-                //Update txnModel card status R
-                txnModel.Txn_Type        = (string)RedeemResponse.Response;
-
+                else
+                {
+                    GiftCard.Balance = GiftCard.Balance-redeem_Gift.Amount;
+                }
+                
                 //Pass TransactionType
-                var NewTxNo              = await transaction_No_Service.GetTxnNo();
-                GiftCard.Pass_Status     = txnModel.Txn_Type;
+                GiftCard.Pass_Status     = Pass_Redemption_Status_GModel.FullRedeemed;
                 GiftCard.Recipient_Name  = txnModel.Customer_First_Name;
                 GiftCard.Email           = txnModel.Email;
-                GiftCard.Sender_Name     = CompanyName;
-                //update balance 
-                GiftCard.Balance         = Convert.ToDecimal(RedeemResponse.Description);
+                GiftCard.Sender_Name     = Tenant.CompanyName;
                 //update
                 gift_Card_Service.Update(GiftCard);
-
                 //Adding Vault
                 Vault usersVault = new Vault()
                 {
@@ -193,10 +247,8 @@ namespace Server.Services
                     UserId     = userId,
                     Email      = GiftCard.Email,
                     Amount     = GiftCard.Balance,
-                    VaultType  = VaultType.Merchant
-
+                    VaultType  = VaultType.Customer
                 };
-
                 var item1 = await user_vault_Service.AddReturn(usersVault);
                 if (item1 == null)
                 {
@@ -205,22 +257,26 @@ namespace Server.Services
                     RedeemResponse.Description = "Transaction was not successfull";
                     return  RedeemResponse;
                 }
-                
-               
-
                 //add Transaction
-                var item = await AddReturn(txnModel);
-                if (item != null)
+                var item = await AddBulk(transactions);
+                if (item.Count()>0)
                 {
-                    await CompleteAync();
                     RedeemResponse.Status_Code = "200";
                     RedeemResponse.Description = "OK Transaction is  successfull";
                 }
                 else
                 {
-                    await Rollback();
                     RedeemResponse.Status_Code = "500";
                     RedeemResponse.Description = "Transaction was not successfull";
+                }
+                
+                if (RedeemResponse.Status_Code=="200")
+                {
+                    await CompleteAync();
+                }
+                else
+                {
+                    await Rollback();
                 }
                 return RedeemResponse;
             }

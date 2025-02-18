@@ -13,5 +13,6 @@ namespace Server.Configurations
         public const string PartialyRedeemed = "PartialyRedeemed";
         public const string FullRedeemed     = "FullRedeemed";
         public const string Public           = "Public";
+        public const string PendingForSend   = "PendingforSend";
     }
 }

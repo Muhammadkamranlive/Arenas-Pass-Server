@@ -294,6 +294,11 @@ namespace Server.BaseService
         {
             return await _genericRepository.AddReturn(entity);
         }
+
+        public async Task<IEnumerable<T>> AddBulk(IEnumerable<T> entities)
+        {
+            return await _genericRepository.AddBulk(entities);
+        }
     }
 
 }

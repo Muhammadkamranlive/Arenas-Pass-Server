@@ -37,6 +37,6 @@ namespace Server.Core
         Task Rollback();
         Task<T> AddAsync(T entity);
         Task<T> AddReturn(T entity);
-
+        Task<IEnumerable<T>> AddBulk(IEnumerable<T> entities);
     }
 }
