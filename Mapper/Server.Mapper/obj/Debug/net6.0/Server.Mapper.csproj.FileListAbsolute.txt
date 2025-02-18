@@ -54,5 +54,4 @@ E:/work/ANI Digital Passes/Server/Mapper/Server.Mapper/bin/Debug/net6.0/Server.C
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Mapper/Server.Mapper/obj/Debug/net6.0/refint/Server.Mapper.dll
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Mapper/Server.Mapper/obj/Debug/net6.0/Server.Mapper.pdb
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Mapper/Server.Mapper/obj/Debug/net6.0/ref/Server.Mapper.dll
-/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Mapper/Server.Mapper/obj/Debug/net6.0/Server.Mapper.sourcelink.json
-/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Mapper/Server.Mapper/obj/Debug/net6.0/Server.M.154D317D.Up2Date
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Mapper/Server.Mapper/obj/Debug/net6.0/Server.Mapper.csproj.CopyComplete

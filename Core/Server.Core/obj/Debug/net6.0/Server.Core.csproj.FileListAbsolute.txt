@@ -54,5 +54,4 @@ E:/work/ANI Digital Passes/Server/Core/Server.Core/bin/Debug/net6.0/Server.Confi
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Core/Server.Core/obj/Debug/net6.0/Server.Core.pdb
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Core/Server.Core/obj/Debug/net6.0/Server.Core.genruntimeconfig.cache
 /Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Core/Server.Core/obj/Debug/net6.0/ref/Server.Core.dll
-/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Core/Server.Core/obj/Debug/net6.0/Server.Core.sourcelink.json
-/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Core/Server.Core/obj/Debug/net6.0/Server.C.511BE109.Up2Date
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Core/Server.Core/obj/Debug/net6.0/Server.Core.csproj.CopyComplete

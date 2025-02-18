@@ -1,42 +1,63 @@
-D:\Freelance\ERP\Server\UOW\Server.UOW\bin\Release\net6.0\Server.UOW.deps.json
-D:\Freelance\ERP\Server\UOW\Server.UOW\bin\Release\net6.0\Server.UOW.dll
-D:\Freelance\ERP\Server\UOW\Server.UOW\bin\Release\net6.0\Server.UOW.pdb
-D:\Freelance\ERP\Server\UOW\Server.UOW\bin\Release\net6.0\Server.Core.dll
-D:\Freelance\ERP\Server\UOW\Server.UOW\bin\Release\net6.0\Server.Domain.dll
-D:\Freelance\ERP\Server\UOW\Server.UOW\bin\Release\net6.0\Server.Repository.dll
-D:\Freelance\ERP\Server\UOW\Server.UOW\bin\Release\net6.0\Server.Core.pdb
-D:\Freelance\ERP\Server\UOW\Server.UOW\bin\Release\net6.0\Server.Repository.pdb
-D:\Freelance\ERP\Server\UOW\Server.UOW\bin\Release\net6.0\Server.Domain.pdb
-D:\Freelance\ERP\Server\UOW\Server.UOW\obj\Release\net6.0\Server.UOW.csproj.AssemblyReference.cache
-D:\Freelance\ERP\Server\UOW\Server.UOW\obj\Release\net6.0\Server.UOW.GeneratedMSBuildEditorConfig.editorconfig
-D:\Freelance\ERP\Server\UOW\Server.UOW\obj\Release\net6.0\Server.UOW.AssemblyInfoInputs.cache
-D:\Freelance\ERP\Server\UOW\Server.UOW\obj\Release\net6.0\Server.UOW.AssemblyInfo.cs
-D:\Freelance\ERP\Server\UOW\Server.UOW\obj\Release\net6.0\Server.UOW.csproj.CoreCompileInputs.cache
-D:\Freelance\ERP\Server\UOW\Server.UOW\obj\Release\net6.0\Server.UOW.sourcelink.json
-D:\Freelance\ERP\Server\UOW\Server.UOW\obj\Release\net6.0\Server.UOW.csproj.Up2Date
-D:\Freelance\ERP\Server\UOW\Server.UOW\obj\Release\net6.0\Server.UOW.dll
-D:\Freelance\ERP\Server\UOW\Server.UOW\obj\Release\net6.0\refint\Server.UOW.dll
-D:\Freelance\ERP\Server\UOW\Server.UOW\obj\Release\net6.0\Server.UOW.pdb
-D:\Freelance\ERP\Server\UOW\Server.UOW\obj\Release\net6.0\ref\Server.UOW.dll
-E:\work\ANI Digital Passes\Server\UOW\Server.UOW\bin\Release\net6.0\Server.UOW.deps.json
-E:\work\ANI Digital Passes\Server\UOW\Server.UOW\bin\Release\net6.0\Server.UOW.dll
-E:\work\ANI Digital Passes\Server\UOW\Server.UOW\bin\Release\net6.0\Server.UOW.pdb
-E:\work\ANI Digital Passes\Server\UOW\Server.UOW\bin\Release\net6.0\Server.Core.dll
-E:\work\ANI Digital Passes\Server\UOW\Server.UOW\bin\Release\net6.0\Server.Domain.dll
-E:\work\ANI Digital Passes\Server\UOW\Server.UOW\bin\Release\net6.0\Server.Repository.dll
-E:\work\ANI Digital Passes\Server\UOW\Server.UOW\bin\Release\net6.0\Server.Core.pdb
-E:\work\ANI Digital Passes\Server\UOW\Server.UOW\bin\Release\net6.0\Server.Repository.pdb
-E:\work\ANI Digital Passes\Server\UOW\Server.UOW\bin\Release\net6.0\Server.Domain.pdb
-E:\work\ANI Digital Passes\Server\UOW\Server.UOW\obj\Release\net6.0\Server.UOW.csproj.AssemblyReference.cache
-E:\work\ANI Digital Passes\Server\UOW\Server.UOW\obj\Release\net6.0\Server.UOW.GeneratedMSBuildEditorConfig.editorconfig
-E:\work\ANI Digital Passes\Server\UOW\Server.UOW\obj\Release\net6.0\Server.UOW.AssemblyInfoInputs.cache
-E:\work\ANI Digital Passes\Server\UOW\Server.UOW\obj\Release\net6.0\Server.UOW.AssemblyInfo.cs
-E:\work\ANI Digital Passes\Server\UOW\Server.UOW\obj\Release\net6.0\Server.UOW.csproj.CoreCompileInputs.cache
-E:\work\ANI Digital Passes\Server\UOW\Server.UOW\obj\Release\net6.0\Server.UOW.sourcelink.json
-E:\work\ANI Digital Passes\Server\UOW\Server.UOW\obj\Release\net6.0\Server.UOW.csproj.Up2Date
-E:\work\ANI Digital Passes\Server\UOW\Server.UOW\obj\Release\net6.0\Server.UOW.dll
-E:\work\ANI Digital Passes\Server\UOW\Server.UOW\obj\Release\net6.0\refint\Server.UOW.dll
-E:\work\ANI Digital Passes\Server\UOW\Server.UOW\obj\Release\net6.0\Server.UOW.pdb
-E:\work\ANI Digital Passes\Server\UOW\Server.UOW\obj\Release\net6.0\ref\Server.UOW.dll
-E:\work\ANI Digital Passes\Server\UOW\Server.UOW\bin\Release\net6.0\Server.Configurations.dll
-E:\work\ANI Digital Passes\Server\UOW\Server.UOW\bin\Release\net6.0\Server.Configurations.pdb
+D:/Freelance/ERP/Server/UOW/Server.UOW/bin/Release/net6.0/Server.UOW.deps.json
+D:/Freelance/ERP/Server/UOW/Server.UOW/bin/Release/net6.0/Server.UOW.dll
+D:/Freelance/ERP/Server/UOW/Server.UOW/bin/Release/net6.0/Server.UOW.pdb
+D:/Freelance/ERP/Server/UOW/Server.UOW/bin/Release/net6.0/Server.Core.dll
+D:/Freelance/ERP/Server/UOW/Server.UOW/bin/Release/net6.0/Server.Domain.dll
+D:/Freelance/ERP/Server/UOW/Server.UOW/bin/Release/net6.0/Server.Repository.dll
+D:/Freelance/ERP/Server/UOW/Server.UOW/bin/Release/net6.0/Server.Core.pdb
+D:/Freelance/ERP/Server/UOW/Server.UOW/bin/Release/net6.0/Server.Repository.pdb
+D:/Freelance/ERP/Server/UOW/Server.UOW/bin/Release/net6.0/Server.Domain.pdb
+D:/Freelance/ERP/Server/UOW/Server.UOW/obj/Release/net6.0/Server.UOW.csproj.AssemblyReference.cache
+D:/Freelance/ERP/Server/UOW/Server.UOW/obj/Release/net6.0/Server.UOW.GeneratedMSBuildEditorConfig.editorconfig
+D:/Freelance/ERP/Server/UOW/Server.UOW/obj/Release/net6.0/Server.UOW.AssemblyInfoInputs.cache
+D:/Freelance/ERP/Server/UOW/Server.UOW/obj/Release/net6.0/Server.UOW.AssemblyInfo.cs
+D:/Freelance/ERP/Server/UOW/Server.UOW/obj/Release/net6.0/Server.UOW.csproj.CoreCompileInputs.cache
+D:/Freelance/ERP/Server/UOW/Server.UOW/obj/Release/net6.0/Server.UOW.sourcelink.json
+D:/Freelance/ERP/Server/UOW/Server.UOW/obj/Release/net6.0/Server.UOW.csproj.Up2Date
+D:/Freelance/ERP/Server/UOW/Server.UOW/obj/Release/net6.0/Server.UOW.dll
+D:/Freelance/ERP/Server/UOW/Server.UOW/obj/Release/net6.0/refint/Server.UOW.dll
+D:/Freelance/ERP/Server/UOW/Server.UOW/obj/Release/net6.0/Server.UOW.pdb
+D:/Freelance/ERP/Server/UOW/Server.UOW/obj/Release/net6.0/ref/Server.UOW.dll
+E:/work/ANI Digital Passes/Server/UOW/Server.UOW/bin/Release/net6.0/Server.UOW.deps.json
+E:/work/ANI Digital Passes/Server/UOW/Server.UOW/bin/Release/net6.0/Server.UOW.dll
+E:/work/ANI Digital Passes/Server/UOW/Server.UOW/bin/Release/net6.0/Server.UOW.pdb
+E:/work/ANI Digital Passes/Server/UOW/Server.UOW/bin/Release/net6.0/Server.Core.dll
+E:/work/ANI Digital Passes/Server/UOW/Server.UOW/bin/Release/net6.0/Server.Domain.dll
+E:/work/ANI Digital Passes/Server/UOW/Server.UOW/bin/Release/net6.0/Server.Repository.dll
+E:/work/ANI Digital Passes/Server/UOW/Server.UOW/bin/Release/net6.0/Server.Core.pdb
+E:/work/ANI Digital Passes/Server/UOW/Server.UOW/bin/Release/net6.0/Server.Repository.pdb
+E:/work/ANI Digital Passes/Server/UOW/Server.UOW/bin/Release/net6.0/Server.Domain.pdb
+E:/work/ANI Digital Passes/Server/UOW/Server.UOW/obj/Release/net6.0/Server.UOW.csproj.AssemblyReference.cache
+E:/work/ANI Digital Passes/Server/UOW/Server.UOW/obj/Release/net6.0/Server.UOW.GeneratedMSBuildEditorConfig.editorconfig
+E:/work/ANI Digital Passes/Server/UOW/Server.UOW/obj/Release/net6.0/Server.UOW.AssemblyInfoInputs.cache
+E:/work/ANI Digital Passes/Server/UOW/Server.UOW/obj/Release/net6.0/Server.UOW.AssemblyInfo.cs
+E:/work/ANI Digital Passes/Server/UOW/Server.UOW/obj/Release/net6.0/Server.UOW.csproj.CoreCompileInputs.cache
+E:/work/ANI Digital Passes/Server/UOW/Server.UOW/obj/Release/net6.0/Server.UOW.sourcelink.json
+E:/work/ANI Digital Passes/Server/UOW/Server.UOW/obj/Release/net6.0/Server.UOW.csproj.Up2Date
+E:/work/ANI Digital Passes/Server/UOW/Server.UOW/obj/Release/net6.0/Server.UOW.dll
+E:/work/ANI Digital Passes/Server/UOW/Server.UOW/obj/Release/net6.0/refint/Server.UOW.dll
+E:/work/ANI Digital Passes/Server/UOW/Server.UOW/obj/Release/net6.0/Server.UOW.pdb
+E:/work/ANI Digital Passes/Server/UOW/Server.UOW/obj/Release/net6.0/ref/Server.UOW.dll
+E:/work/ANI Digital Passes/Server/UOW/Server.UOW/bin/Release/net6.0/Server.Configurations.dll
+E:/work/ANI Digital Passes/Server/UOW/Server.UOW/bin/Release/net6.0/Server.Configurations.pdb
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/UOW/Server.UOW/bin/Release/net6.0/Server.UOW.deps.json
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/UOW/Server.UOW/bin/Release/net6.0/Server.UOW.dll
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/UOW/Server.UOW/bin/Release/net6.0/Server.UOW.pdb
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/UOW/Server.UOW/bin/Release/net6.0/Server.Configurations.dll
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/UOW/Server.UOW/bin/Release/net6.0/Server.Core.dll
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/UOW/Server.UOW/bin/Release/net6.0/Server.Domain.dll
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/UOW/Server.UOW/bin/Release/net6.0/Server.Repository.dll
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/UOW/Server.UOW/bin/Release/net6.0/Server.Core.pdb
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/UOW/Server.UOW/bin/Release/net6.0/Server.Repository.pdb
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/UOW/Server.UOW/bin/Release/net6.0/Server.Configurations.pdb
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/UOW/Server.UOW/bin/Release/net6.0/Server.Domain.pdb
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/UOW/Server.UOW/obj/Release/net6.0/Server.UOW.csproj.AssemblyReference.cache
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/UOW/Server.UOW/obj/Release/net6.0/Server.UOW.GeneratedMSBuildEditorConfig.editorconfig
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/UOW/Server.UOW/obj/Release/net6.0/Server.UOW.AssemblyInfoInputs.cache
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/UOW/Server.UOW/obj/Release/net6.0/Server.UOW.AssemblyInfo.cs
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/UOW/Server.UOW/obj/Release/net6.0/Server.UOW.csproj.CoreCompileInputs.cache
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/UOW/Server.UOW/obj/Release/net6.0/Server.UOW.csproj.CopyComplete
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/UOW/Server.UOW/obj/Release/net6.0/Server.UOW.dll
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/UOW/Server.UOW/obj/Release/net6.0/refint/Server.UOW.dll
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/UOW/Server.UOW/obj/Release/net6.0/Server.UOW.pdb
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/UOW/Server.UOW/obj/Release/net6.0/ref/Server.UOW.dll

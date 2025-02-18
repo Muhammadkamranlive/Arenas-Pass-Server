@@ -1,38 +1,57 @@
-D:\Freelance\ERP\Server\Repository\Server.Repository\bin\Release\net6.0\Server.Repository.deps.json
-D:\Freelance\ERP\Server\Repository\Server.Repository\bin\Release\net6.0\Server.Repository.dll
-D:\Freelance\ERP\Server\Repository\Server.Repository\bin\Release\net6.0\Server.Repository.pdb
-D:\Freelance\ERP\Server\Repository\Server.Repository\bin\Release\net6.0\Server.Core.dll
-D:\Freelance\ERP\Server\Repository\Server.Repository\bin\Release\net6.0\Server.Domain.dll
-D:\Freelance\ERP\Server\Repository\Server.Repository\bin\Release\net6.0\Server.Core.pdb
-D:\Freelance\ERP\Server\Repository\Server.Repository\bin\Release\net6.0\Server.Domain.pdb
-D:\Freelance\ERP\Server\Repository\Server.Repository\obj\Release\net6.0\Server.Repository.csproj.AssemblyReference.cache
-D:\Freelance\ERP\Server\Repository\Server.Repository\obj\Release\net6.0\Server.Repository.GeneratedMSBuildEditorConfig.editorconfig
-D:\Freelance\ERP\Server\Repository\Server.Repository\obj\Release\net6.0\Server.Repository.AssemblyInfoInputs.cache
-D:\Freelance\ERP\Server\Repository\Server.Repository\obj\Release\net6.0\Server.Repository.AssemblyInfo.cs
-D:\Freelance\ERP\Server\Repository\Server.Repository\obj\Release\net6.0\Server.Repository.csproj.CoreCompileInputs.cache
-D:\Freelance\ERP\Server\Repository\Server.Repository\obj\Release\net6.0\Server.Repository.sourcelink.json
-D:\Freelance\ERP\Server\Repository\Server.Repository\obj\Release\net6.0\Server.R.1B2FA24D.Up2Date
-D:\Freelance\ERP\Server\Repository\Server.Repository\obj\Release\net6.0\Server.Repository.dll
-D:\Freelance\ERP\Server\Repository\Server.Repository\obj\Release\net6.0\refint\Server.Repository.dll
-D:\Freelance\ERP\Server\Repository\Server.Repository\obj\Release\net6.0\Server.Repository.pdb
-D:\Freelance\ERP\Server\Repository\Server.Repository\obj\Release\net6.0\ref\Server.Repository.dll
-E:\work\ANI Digital Passes\Server\Repository\Server.Repository\bin\Release\net6.0\Server.Repository.deps.json
-E:\work\ANI Digital Passes\Server\Repository\Server.Repository\bin\Release\net6.0\Server.Repository.dll
-E:\work\ANI Digital Passes\Server\Repository\Server.Repository\bin\Release\net6.0\Server.Repository.pdb
-E:\work\ANI Digital Passes\Server\Repository\Server.Repository\bin\Release\net6.0\Server.Core.dll
-E:\work\ANI Digital Passes\Server\Repository\Server.Repository\bin\Release\net6.0\Server.Domain.dll
-E:\work\ANI Digital Passes\Server\Repository\Server.Repository\bin\Release\net6.0\Server.Core.pdb
-E:\work\ANI Digital Passes\Server\Repository\Server.Repository\bin\Release\net6.0\Server.Domain.pdb
-E:\work\ANI Digital Passes\Server\Repository\Server.Repository\obj\Release\net6.0\Server.Repository.csproj.AssemblyReference.cache
-E:\work\ANI Digital Passes\Server\Repository\Server.Repository\obj\Release\net6.0\Server.Repository.GeneratedMSBuildEditorConfig.editorconfig
-E:\work\ANI Digital Passes\Server\Repository\Server.Repository\obj\Release\net6.0\Server.Repository.AssemblyInfoInputs.cache
-E:\work\ANI Digital Passes\Server\Repository\Server.Repository\obj\Release\net6.0\Server.Repository.AssemblyInfo.cs
-E:\work\ANI Digital Passes\Server\Repository\Server.Repository\obj\Release\net6.0\Server.Repository.csproj.CoreCompileInputs.cache
-E:\work\ANI Digital Passes\Server\Repository\Server.Repository\obj\Release\net6.0\Server.Repository.sourcelink.json
-E:\work\ANI Digital Passes\Server\Repository\Server.Repository\obj\Release\net6.0\Server.R.1B2FA24D.Up2Date
-E:\work\ANI Digital Passes\Server\Repository\Server.Repository\obj\Release\net6.0\Server.Repository.dll
-E:\work\ANI Digital Passes\Server\Repository\Server.Repository\obj\Release\net6.0\refint\Server.Repository.dll
-E:\work\ANI Digital Passes\Server\Repository\Server.Repository\obj\Release\net6.0\Server.Repository.pdb
-E:\work\ANI Digital Passes\Server\Repository\Server.Repository\obj\Release\net6.0\ref\Server.Repository.dll
-E:\work\ANI Digital Passes\Server\Repository\Server.Repository\bin\Release\net6.0\Server.Configurations.dll
-E:\work\ANI Digital Passes\Server\Repository\Server.Repository\bin\Release\net6.0\Server.Configurations.pdb
+D:/Freelance/ERP/Server/Repository/Server.Repository/bin/Release/net6.0/Server.Repository.deps.json
+D:/Freelance/ERP/Server/Repository/Server.Repository/bin/Release/net6.0/Server.Repository.dll
+D:/Freelance/ERP/Server/Repository/Server.Repository/bin/Release/net6.0/Server.Repository.pdb
+D:/Freelance/ERP/Server/Repository/Server.Repository/bin/Release/net6.0/Server.Core.dll
+D:/Freelance/ERP/Server/Repository/Server.Repository/bin/Release/net6.0/Server.Domain.dll
+D:/Freelance/ERP/Server/Repository/Server.Repository/bin/Release/net6.0/Server.Core.pdb
+D:/Freelance/ERP/Server/Repository/Server.Repository/bin/Release/net6.0/Server.Domain.pdb
+D:/Freelance/ERP/Server/Repository/Server.Repository/obj/Release/net6.0/Server.Repository.csproj.AssemblyReference.cache
+D:/Freelance/ERP/Server/Repository/Server.Repository/obj/Release/net6.0/Server.Repository.GeneratedMSBuildEditorConfig.editorconfig
+D:/Freelance/ERP/Server/Repository/Server.Repository/obj/Release/net6.0/Server.Repository.AssemblyInfoInputs.cache
+D:/Freelance/ERP/Server/Repository/Server.Repository/obj/Release/net6.0/Server.Repository.AssemblyInfo.cs
+D:/Freelance/ERP/Server/Repository/Server.Repository/obj/Release/net6.0/Server.Repository.csproj.CoreCompileInputs.cache
+D:/Freelance/ERP/Server/Repository/Server.Repository/obj/Release/net6.0/Server.Repository.sourcelink.json
+D:/Freelance/ERP/Server/Repository/Server.Repository/obj/Release/net6.0/Server.R.1B2FA24D.Up2Date
+D:/Freelance/ERP/Server/Repository/Server.Repository/obj/Release/net6.0/Server.Repository.dll
+D:/Freelance/ERP/Server/Repository/Server.Repository/obj/Release/net6.0/refint/Server.Repository.dll
+D:/Freelance/ERP/Server/Repository/Server.Repository/obj/Release/net6.0/Server.Repository.pdb
+D:/Freelance/ERP/Server/Repository/Server.Repository/obj/Release/net6.0/ref/Server.Repository.dll
+E:/work/ANI Digital Passes/Server/Repository/Server.Repository/bin/Release/net6.0/Server.Repository.deps.json
+E:/work/ANI Digital Passes/Server/Repository/Server.Repository/bin/Release/net6.0/Server.Repository.dll
+E:/work/ANI Digital Passes/Server/Repository/Server.Repository/bin/Release/net6.0/Server.Repository.pdb
+E:/work/ANI Digital Passes/Server/Repository/Server.Repository/bin/Release/net6.0/Server.Core.dll
+E:/work/ANI Digital Passes/Server/Repository/Server.Repository/bin/Release/net6.0/Server.Domain.dll
+E:/work/ANI Digital Passes/Server/Repository/Server.Repository/bin/Release/net6.0/Server.Core.pdb
+E:/work/ANI Digital Passes/Server/Repository/Server.Repository/bin/Release/net6.0/Server.Domain.pdb
+E:/work/ANI Digital Passes/Server/Repository/Server.Repository/obj/Release/net6.0/Server.Repository.csproj.AssemblyReference.cache
+E:/work/ANI Digital Passes/Server/Repository/Server.Repository/obj/Release/net6.0/Server.Repository.GeneratedMSBuildEditorConfig.editorconfig
+E:/work/ANI Digital Passes/Server/Repository/Server.Repository/obj/Release/net6.0/Server.Repository.AssemblyInfoInputs.cache
+E:/work/ANI Digital Passes/Server/Repository/Server.Repository/obj/Release/net6.0/Server.Repository.AssemblyInfo.cs
+E:/work/ANI Digital Passes/Server/Repository/Server.Repository/obj/Release/net6.0/Server.Repository.csproj.CoreCompileInputs.cache
+E:/work/ANI Digital Passes/Server/Repository/Server.Repository/obj/Release/net6.0/Server.Repository.sourcelink.json
+E:/work/ANI Digital Passes/Server/Repository/Server.Repository/obj/Release/net6.0/Server.R.1B2FA24D.Up2Date
+E:/work/ANI Digital Passes/Server/Repository/Server.Repository/obj/Release/net6.0/Server.Repository.dll
+E:/work/ANI Digital Passes/Server/Repository/Server.Repository/obj/Release/net6.0/refint/Server.Repository.dll
+E:/work/ANI Digital Passes/Server/Repository/Server.Repository/obj/Release/net6.0/Server.Repository.pdb
+E:/work/ANI Digital Passes/Server/Repository/Server.Repository/obj/Release/net6.0/ref/Server.Repository.dll
+E:/work/ANI Digital Passes/Server/Repository/Server.Repository/bin/Release/net6.0/Server.Configurations.dll
+E:/work/ANI Digital Passes/Server/Repository/Server.Repository/bin/Release/net6.0/Server.Configurations.pdb
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Repository/Server.Repository/bin/Release/net6.0/Server.Repository.deps.json
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Repository/Server.Repository/bin/Release/net6.0/Server.Repository.dll
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Repository/Server.Repository/bin/Release/net6.0/Server.Repository.pdb
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Repository/Server.Repository/bin/Release/net6.0/Server.Configurations.dll
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Repository/Server.Repository/bin/Release/net6.0/Server.Core.dll
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Repository/Server.Repository/bin/Release/net6.0/Server.Domain.dll
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Repository/Server.Repository/bin/Release/net6.0/Server.Core.pdb
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Repository/Server.Repository/bin/Release/net6.0/Server.Domain.pdb
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Repository/Server.Repository/bin/Release/net6.0/Server.Configurations.pdb
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Repository/Server.Repository/obj/Release/net6.0/Server.Repository.csproj.AssemblyReference.cache
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Repository/Server.Repository/obj/Release/net6.0/Server.Repository.GeneratedMSBuildEditorConfig.editorconfig
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Repository/Server.Repository/obj/Release/net6.0/Server.Repository.AssemblyInfoInputs.cache
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Repository/Server.Repository/obj/Release/net6.0/Server.Repository.AssemblyInfo.cs
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Repository/Server.Repository/obj/Release/net6.0/Server.Repository.csproj.CoreCompileInputs.cache
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Repository/Server.Repository/obj/Release/net6.0/Server.Repository.csproj.CopyComplete
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Repository/Server.Repository/obj/Release/net6.0/Server.Repository.dll
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Repository/Server.Repository/obj/Release/net6.0/refint/Server.Repository.dll
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Repository/Server.Repository/obj/Release/net6.0/Server.Repository.pdb
+/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Repository/Server.Repository/obj/Release/net6.0/ref/Server.Repository.dll

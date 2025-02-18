@@ -1255,18 +1255,12 @@
           "dotnet-passbook": "3.2.4"
         },
         "runtime": {
-          "Server.BaseService.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Server.BaseService.dll": {}
         }
       },
       "Server.Configurations/1.0.0": {
         "runtime": {
-          "Server.Configurations.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Server.Configurations.dll": {}
         }
       },
       "Server.Core/1.0.0": {
@@ -1285,10 +1279,7 @@
           "dotnet-passbook": "3.2.4"
         },
         "runtime": {
-          "Server.Core.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Server.Core.dll": {}
         }
       },
       "Server.Domain/1.0.0": {
@@ -1302,10 +1293,7 @@
           "dotnet-passbook": "3.2.4"
         },
         "runtime": {
-          "Server.Domain.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Server.Domain.dll": {}
         }
       },
       "Server.Mapper/1.0.0": {
@@ -1317,10 +1305,7 @@
           "dotnet-passbook": "3.2.4"
         },
         "runtime": {
-          "Server.Mapper.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Server.Mapper.dll": {}
         }
       },
       "Server.Middlewares/1.0.0": {
@@ -1330,10 +1315,7 @@
           "dotnet-passbook": "3.2.4"
         },
         "runtime": {
-          "Server.Middlewares.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Server.Middlewares.dll": {}
         }
       },
       "Server.Models/1.0.0": {
@@ -1342,10 +1324,7 @@
           "dotnet-passbook": "3.2.4"
         },
         "runtime": {
-          "Server.Models.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Server.Models.dll": {}
         }
       },
       "Server.Repository/1.0.0": {
@@ -1356,10 +1335,7 @@
           "dotnet-passbook": "3.2.4"
         },
         "runtime": {
-          "Server.Repository.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Server.Repository.dll": {}
         }
       },
       "Server.Services/1.0.0": {
@@ -1384,10 +1360,7 @@
           "dotnet-passbook": "3.2.4"
         },
         "runtime": {
-          "Server.Services.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Server.Services.dll": {}
         }
       },
       "Server.UOW/1.0.0": {
@@ -1398,10 +1371,7 @@
           "dotnet-passbook": "3.2.4"
         },
         "runtime": {
-          "Server.UOW.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Server.UOW.dll": {}
         }
       }
     }
