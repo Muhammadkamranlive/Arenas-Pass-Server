@@ -109,7 +109,9 @@ namespace Server.Services
                          Email       = request.Email, 
                          VaultType   = role.FirstOrDefault(),
                          TenantId    = _get_Tenant_Id_Service.GetTenantId(),
-                         Lastupdated = DateTime.UtcNow
+                         Lastupdated = DateTime.UtcNow,
+                         Amount      = (paymentIntent.Amount/100),
+                         
                        };
                        //user vault
                        var resv=await _vault_Service.AddReturn(vault);
