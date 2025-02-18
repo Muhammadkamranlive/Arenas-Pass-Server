@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "eArUVweLxiHuDTx3InDW2ODb7F3l/ZFwNwXa7qKhQ8YBMN5LDMfjBpEvuphGh6HGNr2j5D03m60nj3NOMdtXtA==",
+  "dgSpecHash": "0B7EVM7ATUI=",
   "success": true,
   "projectFilePath": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Repository/Server.Repository/Server.Repository.csproj",
   "expectedPackageFiles": [
@@ -105,8 +105,8 @@
     "/Users/kamran/.nuget/packages/system.text.json/4.6.0/system.text.json.4.6.0.nupkg.sha512",
     "/Users/kamran/.nuget/packages/system.threading.tasks.extensions/4.5.2/system.threading.tasks.extensions.4.5.2.nupkg.sha512",
     "/Users/kamran/.nuget/packages/system.windows.extensions/4.7.0/system.windows.extensions.4.7.0.nupkg.sha512",
-    "/Users/kamran/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.31/microsoft.aspnetcore.app.ref.6.0.31.nupkg.sha512",
-    "/Users/kamran/.nuget/packages/microsoft.netcore.app.ref/6.0.31/microsoft.netcore.app.ref.6.0.31.nupkg.sha512"
+    "/Users/kamran/.nuget/packages/microsoft.netcore.app.ref/6.0.36/microsoft.netcore.app.ref.6.0.36.nupkg.sha512",
+    "/Users/kamran/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.36/microsoft.aspnetcore.app.ref.6.0.36.nupkg.sha512"
   ],
   "logs": []
 }

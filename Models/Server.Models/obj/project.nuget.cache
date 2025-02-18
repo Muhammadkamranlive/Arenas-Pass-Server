@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "5WhSm+KAmdaz6LQYJ5v/o9LLDEvFT7PPnmUYuENHAJL81mfZqEEQyTyka/Hnw45d9PvyVoPbRs9fip1LRidGIg==",
+  "dgSpecHash": "rxjLPugzu94=",
   "success": true,
   "projectFilePath": "/Users/kamran/Documents/ArenasPass/Server/Arenas-Pass-Server/Models/Server.Models/Server.Models.csproj",
   "expectedPackageFiles": [
@@ -14,8 +14,8 @@
     "/Users/kamran/.nuget/packages/system.runtime.compilerservices.unsafe/4.5.1/system.runtime.compilerservices.unsafe.4.5.1.nupkg.sha512",
     "/Users/kamran/.nuget/packages/system.security.cryptography.cng/4.7.0/system.security.cryptography.cng.4.7.0.nupkg.sha512",
     "/Users/kamran/.nuget/packages/system.security.cryptography.pkcs/4.7.0/system.security.cryptography.pkcs.4.7.0.nupkg.sha512",
-    "/Users/kamran/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.31/microsoft.aspnetcore.app.ref.6.0.31.nupkg.sha512",
-    "/Users/kamran/.nuget/packages/microsoft.netcore.app.ref/6.0.31/microsoft.netcore.app.ref.6.0.31.nupkg.sha512"
+    "/Users/kamran/.nuget/packages/microsoft.netcore.app.ref/6.0.36/microsoft.netcore.app.ref.6.0.36.nupkg.sha512",
+    "/Users/kamran/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.36/microsoft.aspnetcore.app.ref.6.0.36.nupkg.sha512"
   ],
   "logs": []
 }
